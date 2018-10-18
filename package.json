@@ -1,0 +1,23 @@
+{
+    "name": "msimbo-react",
+    "version": "1.0.0",
+    "description": "MSIMBO Bootcamp Management",
+    "main": "server.js",
+    "scripts": {
+        "client-install": "cd client && npm install",
+        "start": "node server.js",
+        "client": "cd client && npm start",
+        "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false cd client && npm install && npm run build"
+    },
+    "author": "Shiyu Wang",
+    "license": "MIT",
+    "dependencies": {
+        "cookie-parser": "^1.4.3",
+        "cookie-session": "^2.0.0-beta.3",
+        "express": "^4.16.4",
+        "mongoose": "^5.3.4",
+        "multer": "^1.4.1",
+        "passport": "^0.4.0",
+        "passport-local": "^1.0.0"
+    }
+}
