@@ -1,32 +1,136 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css?family=Raleway:200,100,400");
+
+body {
+    font-family: "Raleway", sans-serif;
+    margin: 0;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+    color: #fff;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+.showcase::after {
+    content: "";
+    height: 100vh;
+    width: 100%;
+    background-image: url(showcase.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: block;
+    filter: blur(10px);
+    -webkit-filter: blur(10px);
+    transition: all 1000ms;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.showcase:hover::after {
+    filter: blur(0px);
+    -webkit-filter: blur(0px);
 }
 
-.App-link {
-  color: #61dafb;
+.showcase:hover .content {
+    filter: blur(2px);
+    -webkit-filter: blur(2px);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.content {
+    position: absolute;
+    z-index: 1;
+    top: 5%;
+    left: 50%;
+    margin-top: 105px;
+    margin-left: -145px;
+    width: 300px;
+    height: 350px;
+    text-align: center;
+    transition: all 1000ms;
+}
+
+.content .logo {
+    height: 180px;
+    width: 180px;
+}
+
+.home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    padding: 0 3rem;
+}
+
+#home-h1 {
+    font-size: 2.2rem;
+    margin-top: 1rem;
+}
+
+#home-h2 {
+    line-height: 1.7;
+    margin-top: 1rem;
+}
+
+#txt {
+    border-right: 0.2rem solid #777;
+}
+
+.grid-3 {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-2 {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.about {
+    background: #f4f4f4;
+    color: #333;
+}
+.container {
+    overflow: hidden;
+    padding: 4rem 1rem;
+    text-align: justify;
+}
+
+.center {
+    text-align: center;
+    margin: auto;
+}
+
+/* small screns  */
+@media (max-width: 560px) {
+    .showcase::after {
+        height: 50vh;
+    }
+
+    .content {
+        margin-top: 5px;
+    }
+
+    .content .logo {
+        height: 100px;
+        width: 100px;
+    }
+
+    #home-h2 {
+        display: none;
+    }
+
+    .grid-2,
+    .grid-3 {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media (max-height: 500px) {
+    #home-h2,
+    #home-h1 {
+        display: none;
+    }
+
+    .content {
+        top: 0;
+    }
 }
