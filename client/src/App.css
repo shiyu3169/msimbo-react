@@ -6,6 +6,7 @@ body {
     height: 100vh;
     background: rgba(0, 0, 0, 0.9);
     color: #fff;
+    line-height: 1.6;
 }
 
 .showcase::after {
@@ -30,6 +31,14 @@ body {
 .showcase:hover .content {
     filter: blur(2px);
     -webkit-filter: blur(2px);
+}
+
+.showcase button {
+    position: absolute;
+    z-index: 1;
+    bottom: 5%;
+    left: 50%;
+    margin-left: -50px;
 }
 
 .content {
@@ -64,7 +73,6 @@ body {
 }
 
 #home-h2 {
-    line-height: 1.7;
     margin-top: 1rem;
 }
 
@@ -109,6 +117,16 @@ body {
         margin-top: 5px;
     }
 
+    .showcase button {
+        position: absolute;
+        z-index: 1;
+        bottom: 55%;
+    }
+
+    .services .container {
+        padding: 2rem 1rem;
+    }
+
     .content .logo {
         height: 100px;
         width: 100px;
@@ -128,6 +146,10 @@ body {
     #home-h2,
     #home-h1 {
         display: none;
+    }
+
+    .services .container {
+        padding: 2rem 1rem;
     }
 
     .content {

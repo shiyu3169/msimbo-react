@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import $ from "jquery";
 
 class Home extends Component {
     state = {
@@ -52,10 +53,19 @@ class Home extends Component {
         this.type();
     }
 
+    scroll() {
+        $("html,body").animate(
+            {
+                scrollTop: $(".services").offset().top
+            },
+            "slow"
+        );
+    }
+
     render() {
         const { txt } = this.state;
         return (
-            <div className="home">
+            <div>
                 <header className="showcase">
                     <div className="content">
                         <img src="logo.png" className="logo" alt="MSIMBO" />
@@ -64,6 +74,12 @@ class Home extends Component {
                         </h1>
                         <h2 id="home-h2">Welcome to ULEM Coding Bootcamp</h2>
                     </div>
+                    <button
+                        onClick={this.scroll}
+                        className="btn btn-lg btn-outline-light"
+                    >
+                        Explore
+                    </button>
                 </header>
                 <section className="services">
                     <div className="container grid-3 center">
@@ -74,7 +90,7 @@ class Home extends Component {
                         </div>
                         <div>
                             <i className="fas fa-graduation-cap fa-3x" />
-                            <h3>Curriclum</h3>
+                            <h3>Curriculum</h3>
                             <p>Course Schedule</p>
                         </div>
                         <div>
@@ -134,7 +150,7 @@ class Home extends Component {
                     </div>
                 </section>
                 <footer className="center">
-                    <p>Urban League of Eastern Massachusetts &copy; 2018</p>
+                    <p>Urban League of Eastern Massachusetts &copy; 2019</p>
                 </footer>
             </div>
         );
