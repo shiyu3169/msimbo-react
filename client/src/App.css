@@ -9,6 +9,22 @@ body {
     line-height: 1.6;
 }
 
+.sw-bg-dark {
+    background: rgba(10, 10, 10, 0.9);
+}
+
+.menu-button {
+    float: right;
+    background: transparent;
+    color: #fff;
+    z-index: 2;
+    position: sticky;
+}
+
+.menu-button:hover {
+    background: #000;
+}
+
 .showcase::after {
     content: "";
     height: 100vh;
@@ -112,7 +128,6 @@ body {
     .showcase::after {
         height: 50vh;
     }
-
     .content {
         margin-top: 5px;
     }
@@ -148,11 +163,27 @@ body {
         display: none;
     }
 
-    .services .container {
-        padding: 2rem 1rem;
-    }
-
     .content {
         top: 0;
     }
+
+    .services .container {
+        padding: 2rem 1rem;
+    }
+}
+
+.fade-in {
+    margin-top: 25px;
+    font-size: 21px;
+    text-align: center;
+
+    -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein 2s; /* Firefox < 16 */
+    -ms-animation: fadein 2s; /* Internet Explorer */
+    -o-animation: fadein 2s; /* Opera < 12.1 */
+    animation: fadein 2s;
+}
+
+.transition {
+    transition: opacity 1s;
 }

@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import $ from "jquery";
-
+import "popper.js";
+import "bootstrap/dist/js/bootstrap";
+import Services from "./layout/Services";
+import About from "./layout/About";
+import Login from "./Login";
 class Home extends Component {
     state = {
         words: ["Coding Bootcamp", "Web Dvelopment", "Full Stack Development"],
@@ -66,6 +70,20 @@ class Home extends Component {
         const { txt } = this.state;
         return (
             <div>
+                <button
+                    className="btn menu-button"
+                    data-toggle="modal"
+                    data-target="#loginModal"
+                >
+                    Login
+                </button>
+                <button
+                    className="btn menu-button"
+                    // data-toggle="modal"
+                    // data-target="#RegisterModal"
+                >
+                    Register
+                </button>
                 <header className="showcase">
                     <div className="content">
                         <img src="logo.png" className="logo" alt="MSIMBO" />
@@ -81,77 +99,12 @@ class Home extends Component {
                         Explore
                     </button>
                 </header>
-                <section className="services">
-                    <div className="container grid-3 center">
-                        <div>
-                            <i className="fas fa-users fa-3x" />
-                            <h3>Students</h3>
-                            <p>Students list</p>
-                        </div>
-                        <div>
-                            <i className="fas fa-graduation-cap fa-3x" />
-                            <h3>Curriculum</h3>
-                            <p>Course Schedule</p>
-                        </div>
-                        <div>
-                            <i className="fab fa-youtube fa-3x" />
-                            <h3>Videos</h3>
-                            <p>Class Videos on Youtube</p>
-                        </div>
-                    </div>
-                </section>
-                <section className="services">
-                    <div className="container grid-3 center">
-                        <div>
-                            <i className="fas fa-pencil-ruler fa-3x" />
-                            <h3>Assignments</h3>
-                            <p>Student Assignments</p>
-                        </div>
-                        <div>
-                            <i className="fas fa-archive fa-3x" />
-                            <h3>Resources</h3>
-                            <p>Course slides and materials</p>
-                        </div>
-                        <div>
-                            <i className="fab fa-slack fa-3x" />
-                            <h3>Slack</h3>
-                            <p>Contact instructor or students</p>
-                        </div>
-                    </div>
-                </section>
-                <section className="about">
-                    <div className="container">
-                        <div className="grid-2">
-                            <div className="center">
-                                <i className="fas fa-laptop-code fa-5x" />
-                            </div>
-                            <div>
-                                <h3>About Us</h3>
-                                <p>
-                                    Msimbo means “code” in Swahili. A twenty
-                                    (20) week program for displaced, unemployed
-                                    and underemployed workers interested
-                                    becoming computer programmers. This programs
-                                    seeks to address the IT industries’ issue of
-                                    diversity and skilled workers. ULEM looks to
-                                    enroll 18 students and provide a stipend for
-                                    $100/ week. MSIMBO bootcamp trains talented,
-                                    low-income individuals to become full-stack
-                                    web developers and launch a new career.
-                                    Students are trained in web development,
-                                    effective business communication, and
-                                    leadership. We will conduct a 20 weeks of
-                                    120 hours coding technology training program
-                                    and the professional development for ULEM’s
-                                    MSIMBO program.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                <Services />
+                <About />
                 <footer className="center">
                     <p>Urban League of Eastern Massachusetts &copy; 2019</p>
                 </footer>
+                <Login />
             </div>
         );
     }
