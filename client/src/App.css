@@ -187,3 +187,18 @@ body {
 .transition {
     transition: opacity 1s;
 }
+
+.pointer {
+    cursor: pointer;
+}
+
+.holds-the-iframe {
+    background: url(loading-gif-1.gif) center center no-repeat;
+    overflow: hidden;
+}
+
+.sw-sheet {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}

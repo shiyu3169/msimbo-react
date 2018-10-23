@@ -4,7 +4,7 @@ import "popper.js";
 import "bootstrap/dist/js/bootstrap";
 import Services from "./layout/Services";
 import About from "./layout/About";
-import Login from "./Login";
+
 class Home extends Component {
     state = {
         words: ["Coding Bootcamp", "Web Dvelopment", "Full Stack Development"],
@@ -70,20 +70,6 @@ class Home extends Component {
         const { txt } = this.state;
         return (
             <div>
-                <button
-                    className="btn menu-button"
-                    data-toggle="modal"
-                    data-target="#loginModal"
-                >
-                    Login
-                </button>
-                <button
-                    className="btn menu-button"
-                    // data-toggle="modal"
-                    // data-target="#RegisterModal"
-                >
-                    Register
-                </button>
                 <header className="showcase">
                     <div className="content">
                         <img src="logo.png" className="logo" alt="MSIMBO" />
@@ -104,7 +90,6 @@ class Home extends Component {
                 <footer className="center">
                     <p>Urban League of Eastern Massachusetts &copy; 2019</p>
                 </footer>
-                <Login />
             </div>
         );
     }

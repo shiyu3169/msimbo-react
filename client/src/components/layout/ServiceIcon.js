@@ -18,15 +18,22 @@ class ServiceIcon extends Component {
     };
 
     render() {
-        const { iconClass, title, description } = this.props;
+        const { iconClass, title, description, onClick } = this.props;
         const { show } = this.state;
         return (
-            <div onMouseOver={this.mouseOver} onMouseOut={this.mouseOut}>
-                <i className={iconClass} />
-                <h3>{title}</h3>
-                <p className="transition" style={{ opacity: show ? 1 : 0 }}>
-                    {description}
-                </p>
+            <div>
+                <span
+                    className="pointer"
+                    onClick={onClick}
+                    onMouseOver={this.mouseOver}
+                    onMouseOut={this.mouseOut}
+                >
+                    <i className={iconClass} />
+                    <h3>{title}</h3>
+                    <p className="transition" style={{ opacity: show ? 1 : 0 }}>
+                        {description}
+                    </p>
+                </span>
             </div>
         );
     }
@@ -35,7 +42,8 @@ class ServiceIcon extends Component {
 ServiceIcon.prototypes = {
     iconClass: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired
+    description: PropTypes.string.isRequired,
+    onClick: PropTypes.func.isRequired
 };
 
 export default ServiceIcon;
