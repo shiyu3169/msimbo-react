@@ -7,7 +7,7 @@ import About from "./layout/About";
 
 class Home extends Component {
     state = {
-        words: ["Coding Bootcamp", "Web Dvelopment", "Full Stack Development"],
+        words: ["Web Development", "Full Stack Dev", "Programming"],
         wordIndex: 0,
         isDeleting: false,
         txt: ""
