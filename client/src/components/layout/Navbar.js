@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import Login from "../Login";
 import Register from "../Register";
@@ -6,70 +7,68 @@ import Register from "../Register";
 export default function Navbar() {
     return (
         <div>
-            <nav class="navbar navbar-expand-lg navbar-dark">
+            <nav className="navbar navbar-expand-lg navbar-dark">
                 <button
-                    routerLink="/user"
-                    class="d-lg-none btn sw-bg-transparent sw-white"
-                    type="button"
-                >
-                    <i class="fas fa-user" />
-                </button>
-                <button
-                    class="navbar-toggler"
+                    className="navbar-toggler"
                     data-toggle="collapse"
                     data-target="#navbarTogglerDemo02"
                     aria-controls="navbarTogglerDemo02"
                     aria-expanded="false"
                     aria-label="Toggle navigation"
                 >
-                    <span class="navbar-toggler-icon" />
+                    <span className="navbar-toggler-icon" />
                 </button>
-                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link" routerLink="/">
+                <div
+                    className="collapse navbar-collapse"
+                    id="navbarTogglerDemo02"
+                >
+                    <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/">
                                 Home
-                            </a>
+                            </Link>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" routerLink="/students">
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/students">
                                 Students
-                            </a>
+                            </Link>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" routerLink="/curriculum">
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/curriculum">
                                 Curriculum
-                            </a>
+                            </Link>
                         </li>
 
-                        <li class="nav-item">
-                            <a
-                                class="nav-link d-lg-none"
-                                routerLink="/assignment"
+                        <li className="nav-item">
+                            <Link
+                                className="nav-link d-lg-none"
+                                to="/assignment"
                             >
                                 Assignments
-                            </a>
+                            </Link>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" routerLink="/wiki">
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/">
                                 Wiki
-                            </a>
+                            </Link>
                         </li>
-                        <li class="nav-item">
+                        <li className="nav-item">
                             <a
-                                class="nav-link"
+                                className="nav-link"
                                 href="https://www.youtube.com/channel/UC9NVYFh1gs3AShriwWX7NNQ"
                                 target="_blank"
+                                rel="noopener noreferrer"
                             >
                                 Videos
                             </a>
                         </li>
-                        <li class="nav-item">
+                        <li className="nav-item">
                             <a
-                                class="nav-link"
+                                className="nav-link"
                                 href="https://msimbo.slack.com"
                                 target="_blank"
+                                rel="noopener noreferrer"
                             >
                                 Slack
                             </a>

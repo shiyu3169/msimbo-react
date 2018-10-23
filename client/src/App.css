@@ -202,7 +202,8 @@ body {
     height: 100vh;
     overflow: hidden;
 }
-
-.navbar {
-    padding: 0;
+@media (min-width: 992px) {
+    .navbar {
+        padding: 0;
+    }
 }
