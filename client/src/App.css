@@ -21,6 +21,10 @@ body {
     position: sticky;
 }
 
+.front {
+    z-index: 2;
+}
+
 .menu-button:hover {
     background: #000;
 }
