@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import Login from "../Login";
-import Register from "../Register";
+import Login from "../User/Login";
+import Register from "../User/Register";
 
 export default function Navbar() {
     return (

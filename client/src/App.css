@@ -108,7 +108,7 @@ body {
     grid-template-columns: repeat(2, 1fr);
 }
 
-.about {
+.sw-bg-white {
     background: #f4f4f4;
     color: #333;
 }
@@ -206,4 +206,25 @@ body {
     .navbar {
         padding: 0;
     }
+}
+
+.sw-red {
+    color: #ce0404;
+}
+
+.sw-profile {
+    word-wrap: break-word;
+}
+
+.link:hover {
+    text-decoration: none;
+    color: #000;
+}
+
+.link {
+    color: #000;
+}
+
+.sw-dark {
+    color: #000;
 }

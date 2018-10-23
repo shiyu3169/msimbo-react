@@ -1,11 +1,11 @@
 import React from "react";
-import InputGroup from "./layout/InputGroup";
+import InputGroup from "../layout/InputGroup";
 
-const Register = () => {
+const Login = () => {
     return (
         <div
             className="modal fade"
-            id="RegisterModal"
+            id="loginModal"
             tabIndex="-1"
             role="dialog"
             aria-labelledby="exampleModalLabel"
@@ -14,7 +14,7 @@ const Register = () => {
             <div className="modal-dialog modal-dialog-centered" role="document">
                 <div className="modal-content sw-bg-dark">
                     <div className="modal-header">
-                        <h5 className="modal-title">Register</h5>
+                        <h5 className="modal-title">Login</h5>
                         <button
                             type="button"
                             className="close"
@@ -27,22 +27,16 @@ const Register = () => {
                     <div className="modal-body">
                         <form>
                             <InputGroup
-                                name="userNameRegister"
+                                name="userName"
                                 type="text"
                                 label="Username"
                                 placeholder="Enter Username Here..."
                             />
                             <InputGroup
-                                name="passWordRegister"
+                                name="passWord"
                                 type="password"
                                 label="Password"
                                 placeholder="Enter Password Here..."
-                            />
-                            <InputGroup
-                                name="verifyPassWord"
-                                type="password"
-                                label="Verify Password"
-                                placeholder="Verify Password Here..."
                             />
                             <button className="btn btn-outline-success btn-block">
                                 Submit
@@ -55,4 +49,4 @@ const Register = () => {
     );
 };
 
-export default Register;
+export default Login;

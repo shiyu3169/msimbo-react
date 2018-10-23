@@ -12,38 +12,33 @@ const InputGroup = ({
     value
 }) => {
     return (
-        <div>
+        <div className="form-group">
+            {label && (
+                <label htmlFor={name}>
+                    <b>{label}</b>
+                </label>
+            )}
             {rows > 1 ? (
-                <div className="form-group">
-                    <label htmlFor={name}>
-                        <b>{label}</b>
-                    </label>
-                    <textarea
-                        type={type}
-                        name={name}
-                        id={name}
-                        placeholder={placeholder}
-                        className="form-control"
-                        rows={rows}
-                        onChange={onChange}
-                        value={value}
-                    />
-                </div>
+                <textarea
+                    type={type}
+                    name={name}
+                    id={name}
+                    placeholder={placeholder}
+                    className="form-control"
+                    rows={rows}
+                    onChange={onChange}
+                    value={value}
+                />
             ) : (
-                <div className="form-group">
-                    <label htmlFor={name}>
-                        <b>{label}</b>
-                    </label>
-                    <input
-                        type={type}
-                        name={name}
-                        id={name}
-                        placeholder={placeholder}
-                        className="form-control"
-                        onChange={onChange}
-                        value={value}
-                    />
-                </div>
+                <input
+                    type={type}
+                    name={name}
+                    id={name}
+                    placeholder={placeholder}
+                    className="form-control"
+                    onChange={onChange}
+                    value={value}
+                />
             )}
             {error && <div className="alert alert-danger">{error}</div>}
         </div>
@@ -51,10 +46,10 @@ const InputGroup = ({
 };
 
 InputGroup.propTypes = {
-    label: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
     placeholder: PropTypes.string.isRequired,
+    label: PropTypes.string,
     rows: PropTypes.string,
     onChange: PropTypes.func,
     error: PropTypes.string,

@@ -33,6 +33,7 @@ class Services extends Component {
                             iconClass="fas fa-users fa-3x"
                             title="Students"
                             description="Students list"
+                            onClick={this.redirect.bind(this, "/students")}
                         />
                         <ServiceIcon
                             iconClass="fas fa-graduation-cap fa-3x"
