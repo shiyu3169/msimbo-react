@@ -10,7 +10,7 @@ import Navbar from "./components/layout/Navbar";
 import Home from "./components/Home";
 import Curriculum from "./components/Curriculum";
 import Students from "./components/Students/Students";
-
+import Resources from "./components/Resources/Resources";
 class App extends Component {
     render() {
         return (
@@ -30,6 +30,11 @@ class App extends Component {
                                 exact
                                 path="/students"
                                 component={Students}
+                            />
+                            <Route
+                                exact
+                                path="/resources"
+                                component={Resources}
                             />
                         </Switch>
                     </div>

@@ -198,14 +198,13 @@ body {
 
 .holds-the-iframe {
     background: url(loading.gif) center center no-repeat;
-    overflow: hidden;
 }
 
 .sw-sheet {
     width: 100%;
-    height: 100vh;
-    overflow: hidden;
+    height: 93vh;
 }
+
 @media (min-width: 992px) {
     .navbar {
         padding: 0;
