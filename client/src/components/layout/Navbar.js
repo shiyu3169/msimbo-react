@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import $ from "jquery";
-import Login from "../User/Login";
-import Register from "../User/Register";
+import Login from "../auth/Login";
+import Register from "../auth/Register";
 
-export default class Navbar extends Component {
+class Navbar extends Component {
     collapse = () => {
         $(".collapse").collapse("hide");
     };
@@ -106,3 +106,5 @@ export default class Navbar extends Component {
         );
     }
 }
+
+export default Navbar;

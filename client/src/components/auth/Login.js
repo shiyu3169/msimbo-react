@@ -44,13 +44,14 @@ class Login extends Component {
         this.props
             .login(user)
             .then(() => {
-                $("*").modal("hide");
+                $("#loginModal").modal("hide");
                 this.setState({
                     redirect: true,
                     path: `user/${this.props.user._id}`
                 });
             })
-            .catch(() => {
+            .catch(error => {
+                console.log(error);
                 this.setState({
                     error: "Username and passwords do not match our records"
                 });

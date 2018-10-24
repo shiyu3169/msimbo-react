@@ -48,13 +48,17 @@ class Home extends Component {
             typeSpeed = 500;
         }
 
-        setTimeout(() => {
+        this.timer = setTimeout(() => {
             this.type();
         }, typeSpeed);
     }
 
     componentDidMount() {
         this.type();
+    }
+
+    componentWillUnmount() {
+        clearTimeout(this.timer);
     }
 
     scroll() {

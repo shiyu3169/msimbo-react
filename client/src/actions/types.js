@@ -1,5 +1,6 @@
 // User
 export const GET_USERS = "GET_USERS";
+export const LOGGEDIN = "LOGGEDIN";
 export const LOGIN = "LOGIN";
 // Resource
 export const GET_RESOURCES = "GET_RESOURCES";

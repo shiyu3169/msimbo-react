@@ -1,4 +1,4 @@
-import { GET_USERS, LOGIN } from "./types";
+import { GET_USERS, LOGIN, LOGGEDIN } from "./types";
 import axios from "axios";
 
 export const getUsers = () => async dispatch => {
@@ -13,6 +13,14 @@ export const login = user => async dispatch => {
     const res = await axios.post("/api/login", user);
     dispatch({
         type: LOGIN,
+        payload: res.data
+    });
+};
+
+export const loggedIn = () => async dispatch => {
+    const res = await axios.post("/api/loggedIn");
+    dispatch({
+        type: LOGGEDIN,
         payload: res.data
     });
 };
