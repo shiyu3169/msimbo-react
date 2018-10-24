@@ -1,4 +1,4 @@
-import { Get_RESOURCES } from "../actions/types";
+import { GET_RESOURCES } from "../actions/types";
 
 const initialState = {
     resources: []
@@ -6,7 +6,7 @@ const initialState = {
 
 export default function(state = initialState, action) {
     switch (action.type) {
-        case Get_RESOURCES:
+        case GET_RESOURCES:
             return {
                 ...state,
                 resources: action.payload

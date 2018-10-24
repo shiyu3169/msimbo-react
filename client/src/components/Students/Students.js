@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import InputGroup from "../layout/InputGroup";
 import { getUsers } from "../../actions/userActions";
 import Student from "./Student";
+
 class Students extends Component {
     componentDidMount() {
         this.props.getUsers();

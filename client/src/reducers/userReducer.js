@@ -1,7 +1,8 @@
-import { GET_USERS } from "../actions/types";
+import { GET_USERS, LOGIN } from "../actions/types";
 
 const initialState = {
-    users: []
+    users: [],
+    user: {}
 };
 
 export default function(state = initialState, action) {
@@ -10,6 +11,11 @@ export default function(state = initialState, action) {
             return {
                 ...state,
                 users: action.payload
+            };
+        case LOGIN:
+            return {
+                ...state,
+                user: action.payload
             };
         default:
             return state;

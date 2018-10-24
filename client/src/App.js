@@ -11,6 +11,8 @@ import Home from "./components/Home";
 import Curriculum from "./components/Curriculum";
 import Students from "./components/Students/Students";
 import Resources from "./components/Resources/Resources";
+import Profile from "./components/User/Profile";
+
 class App extends Component {
     render() {
         return (
@@ -36,6 +38,7 @@ class App extends Component {
                                 path="/resources"
                                 component={Resources}
                             />
+                            <Route exact path="/user/:id" component={Profile} />
                         </Switch>
                     </div>
                 </Router>
