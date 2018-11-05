@@ -48,10 +48,7 @@ class Navbar extends Component {
                             </li>
 
                             <li className="nav-item">
-                                <Link
-                                    className="nav-link d-lg-none"
-                                    to="/assignment"
-                                >
+                                <Link className="nav-link" to="/assignment">
                                     Assignments
                                 </Link>
                             </li>
