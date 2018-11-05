@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import $ from "jquery";
 import Login from "../auth/Login";
 import Register from "../auth/Register";
+import { connect } from "react-redux";
 
 class Navbar extends Component {
     collapse = () => {
@@ -10,6 +11,7 @@ class Navbar extends Component {
     };
 
     render() {
+        const { user } = this.props;
         return (
             <div className="front">
                 <nav className="navbar navbar-expand-lg navbar-dark">
@@ -26,11 +28,9 @@ class Navbar extends Component {
                     <div
                         className="collapse navbar-collapse"
                         id="navbarTogglerDemo02"
+                        onClick={this.collapse}
                     >
-                        <ul
-                            className="navbar-nav mr-auto mt-2 mt-lg-0"
-                            onClick={this.collapse}
-                        >
+                        <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
                             <li className="nav-item">
                                 <Link className="nav-link" to="/">
                                     Home
@@ -82,7 +82,7 @@ class Navbar extends Component {
                                 </a>
                             </li>
                         </ul>
-                        <div onClick={this.collapse}>
+                        <div>
                             <button
                                 className="btn menu-button"
                                 data-toggle="modal"
@@ -107,4 +107,11 @@ class Navbar extends Component {
     }
 }
 
-export default Navbar;
+const mapStateToProps = state => ({
+    user: state.user.user
+});
+
+export default connect(
+    mapStateToProps,
+    {}
+)(Navbar);

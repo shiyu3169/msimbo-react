@@ -31,11 +31,7 @@ class Profile extends Component {
     }
 }
 
-const mapStateToProps = state => ({
-    user: state.user.user
-});
-
 export default connect(
-    mapStateToProps,
+    null,
     {}
 )(Profile);
