@@ -1,16 +1,27 @@
-import React from "react";
+import React, { Component } from "react";
+import { connect } from "react-redux";
 
-export default function UserBio() {
-    return (
-        <React.Fragment>
-            <h5>Biography</h5>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab
-                ducimus ipsam tempore quisquam quos dignissimos, aliquam itaque
-                molestias quaerat quod deleniti possimus at blanditiis
-                distinctio quibusdam, deserunt pariatur, quidem porro!
-            </p>
-            <button className="btn btn-outline-info">Edit Biography</button>
-        </React.Fragment>
-    );
+class UserBio extends Component {
+    render() {
+        const { user } = this.props;
+
+        return (
+            <React.Fragment>
+                <h4>
+                    <b>Biography</b>
+                </h4>
+                <p>{user.bio}</p>
+                <button className="btn btn-outline-info">Edit Biography</button>
+            </React.Fragment>
+        );
+    }
 }
+
+const mapStateToProps = state => ({
+    user: state.user.user
+});
+
+export default connect(
+    mapStateToProps,
+    {}
+)(UserBio);
