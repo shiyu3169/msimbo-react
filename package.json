@@ -6,8 +6,7 @@
     "scripts": {
         "client-install": "cd client && npm install",
         "start": "node server.js",
-        "client": "cd client && npm start",
-        "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false cd client && npm install && npm run build"
+        "client": "cd client && npm start"
     },
     "author": "Shiyu Wang",
     "license": "MIT",
