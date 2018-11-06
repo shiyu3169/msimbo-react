@@ -8,19 +8,34 @@ class UserLink extends Component {
             <React.Fragment>
                 <h6>
                     <i className="fas fa-project-diagram" /> Project:{" "}
-                    <a className="sw-profile" href="#" target="_blank">
+                    <a
+                        className="sw-profile"
+                        href={user.project}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
                         {user.project}
                     </a>
                 </h6>
                 <h6>
                     <i className="fab fa-linkedin fa-lg" /> LinkedIn:{" "}
-                    <a className="sw-profile" href="#" target="_blank">
+                    <a
+                        className="sw-profile"
+                        href={user.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
                         {user.linkedin}
                     </a>
                 </h6>
                 <h6>
                     <i className="fab fa-github fa-lg" /> GitHub:{" "}
-                    <a className="sw-profile" href="github" target="_blank">
+                    <a
+                        className="sw-profile"
+                        href={user.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
                         {user.github}
                     </a>
                 </h6>

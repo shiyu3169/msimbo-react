@@ -5,8 +5,8 @@ import { Redirect } from "react-router-dom";
 
 class Register extends Component {
     state = {
-        username: "",
-        password: "",
+        registerUsername: "",
+        registerPassword: "",
         verifyPassWord: "",
         error: "",
         redirect: false,
@@ -45,7 +45,7 @@ class Register extends Component {
             return;
         }
 
-        const user = { username, password };
+        // const user = { username, password };
     };
 
     render() {
@@ -86,14 +86,14 @@ class Register extends Component {
                             )}
                             <form onSubmit={this.onSubmit}>
                                 <InputGroup
-                                    name="username"
+                                    name="registerUsername"
                                     type="text"
                                     label="Username"
                                     placeholder="Enter Username Here..."
                                     onChange={this.onChange}
                                 />
                                 <InputGroup
-                                    name="password"
+                                    name="registerPassword"
                                     type="password"
                                     label="Password"
                                     placeholder="Enter Password Here..."
