@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import InputGroup from "../layout/InputGroup";
 import { connect } from "react-redux";
 import { register } from "../../actions/userActions";
-import $ from "jquery";
 
 class Register extends Component {
     state = {

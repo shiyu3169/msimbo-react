@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import $ from "jquery";
 import Login from "../auth/Login";
 import Register from "../auth/Register";

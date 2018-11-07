@@ -6,7 +6,6 @@ import { loggedIn } from "../../actions/userActions";
 class PrivateRoute extends Component {
     componentWillMount() {
         this.props.loggedIn();
-        let self = this;
     }
 
     render() {
