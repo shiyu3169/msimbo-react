@@ -20,7 +20,6 @@ class Register extends Component {
             [e.target.name]: e.target.value,
             error: ""
         });
-        console.log(e.target.name);
     };
 
     onSubmit = e => {
@@ -64,7 +63,6 @@ class Register extends Component {
                 });
             })
             .catch(error => {
-                console.log(error);
                 this.setState({
                     error: "Username is taken"
                 });

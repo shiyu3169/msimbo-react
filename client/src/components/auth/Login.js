@@ -53,7 +53,6 @@ class Login extends Component {
                 this.props.history.push(`user/${this.props.user._id}`);
             })
             .catch(error => {
-                console.log(error);
                 this.setState({
                     error: "Username and password do not match our records"
                 });

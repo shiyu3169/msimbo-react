@@ -11,7 +11,6 @@ class PrivateRoute extends Component {
 
     render() {
         const { user, component: Component } = this.props;
-        console.log(user);
         if (user !== 0) {
             return <Component {...this.props} />;
         } else {
