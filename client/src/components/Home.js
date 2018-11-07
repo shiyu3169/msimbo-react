@@ -84,7 +84,7 @@ class Home extends Component {
                     </div>
                     <button
                         onClick={this.scroll}
-                        className="btn btn-lg btn-outline-light"
+                        className="btn btn-lg btn-outline-light d-none d-md-block"
                     >
                         Explore
                     </button>

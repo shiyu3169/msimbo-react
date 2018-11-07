@@ -40,13 +40,6 @@ class UserLink extends Component {
                     </a>
                 </h6>
                 <br />
-                <button
-                    className="btn btn-outline-info"
-                    data-toggle="modal"
-                    data-target="#linkModal"
-                >
-                    Edit Links
-                </button>
             </React.Fragment>
         );
     }

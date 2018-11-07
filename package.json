@@ -7,7 +7,8 @@
         "client-build": "cd client && npm run build",
         "client-install": "cd client && npm install",
         "start": "node server.js",
-        "client": "cd client && npm start"
+        "client": "cd client && npm start",
+        "push": "npm run client-build && git add . && git commit -m 'build' && git push"
     },
     "author": "Shiyu Wang",
     "license": "MIT",

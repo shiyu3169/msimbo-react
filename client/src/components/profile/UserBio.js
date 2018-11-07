@@ -11,7 +11,6 @@ class UserBio extends Component {
                     <b>Biography</b>
                 </h4>
                 <p>{user.bio}</p>
-                <button className="btn btn-outline-info">Edit Biography</button>
             </React.Fragment>
         );
     }

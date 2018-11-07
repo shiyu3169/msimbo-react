@@ -9,6 +9,10 @@ body {
     line-height: 1.6;
 }
 
+.userImage {
+    width: 200px;
+}
+
 .sw-bg-dark {
     background: rgba(10, 10, 10, 0.9);
 }
@@ -226,4 +230,12 @@ body {
 
 .sw-dark {
     color: #000;
+}
+
+.full-screen {
+    min-height: 90vh;
+}
+
+.fixed {
+    position: fixed;
 }
