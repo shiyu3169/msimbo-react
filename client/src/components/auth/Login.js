@@ -106,6 +106,11 @@ class Login extends Component {
                                     Submit
                                 </button>
                             </form>
+                            <br />
+                            <div className="btn-outline-secondary">
+                                * All MSIMBO accounts are managed by ULEM,
+                                Please contact the Instructor for registration
+                            </div>
                         </div>
                     </div>
                 </div>
