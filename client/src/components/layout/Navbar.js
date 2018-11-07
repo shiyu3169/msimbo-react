@@ -87,23 +87,14 @@ class Navbar extends Component {
                             </li>
                         </ul>
                         {user === 0 && (
-                            <React.Fragment>
-                                <button
-                                    className="btn menu-button"
-                                    data-toggle="modal"
-                                    data-target="#loginModal"
-                                    onClick={this.login}
-                                >
-                                    Login
-                                </button>
-                                <button
-                                    className="btn menu-button"
-                                    data-toggle="modal"
-                                    data-target="#registerModal"
-                                >
-                                    Register
-                                </button>
-                            </React.Fragment>
+                            <button
+                                className="btn menu-button"
+                                data-toggle="modal"
+                                data-target="#loginModal"
+                                onClick={this.login}
+                            >
+                                Login
+                            </button>
                         )}
                         {user !== 0 && (
                             <React.Fragment>
@@ -119,6 +110,16 @@ class Navbar extends Component {
                                 </button>
                             </React.Fragment>
                         )}
+                        {user !== 0 &&
+                            user.admin && (
+                                <button
+                                    className="btn menu-button"
+                                    data-toggle="modal"
+                                    data-target="#registerModal"
+                                >
+                                    Register
+                                </button>
+                            )}
                     </div>
                 </nav>
                 <Login />
