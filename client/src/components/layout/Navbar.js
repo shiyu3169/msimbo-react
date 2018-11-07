@@ -1,16 +1,24 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import $ from "jquery";
 import Login from "../auth/Login";
 import Register from "../auth/Register";
+import Logout from "../auth/Logout";
 import { connect } from "react-redux";
+import { loggedIn } from "../../actions/userActions";
 
 class Navbar extends Component {
     collapse = () => {
         $(".collapse").collapse("hide");
     };
 
+    componentDidMount() {
+        this.props.loggedIn();
+    }
+
     render() {
+        const { user } = this.props;
+
         return (
             <div className="front">
                 <nav className="navbar navbar-expand-lg navbar-dark">
@@ -78,26 +86,47 @@ class Navbar extends Component {
                                 </a>
                             </li>
                         </ul>
-                        <div>
-                            <button
-                                className="btn menu-button"
-                                data-toggle="modal"
-                                data-target="#loginModal"
-                            >
-                                Login
-                            </button>
-                            <button
-                                className="btn menu-button"
-                                data-toggle="modal"
-                                data-target="#RegisterModal"
-                            >
-                                Register
-                            </button>
-                        </div>
+                        {user === 0 && (
+                            <React.Fragment>
+                                <button
+                                    className="btn menu-button"
+                                    data-toggle="modal"
+                                    data-target="#loginModal"
+                                    onClick={this.login}
+                                >
+                                    Login
+                                </button>
+                                <button
+                                    className="btn menu-button"
+                                    data-toggle="modal"
+                                    data-target="#registerModal"
+                                >
+                                    Register
+                                </button>
+                            </React.Fragment>
+                        )}
+                        {user !== 0 && (
+                            <React.Fragment>
+                                <Link
+                                    to={`/user/${user._id}`}
+                                    className="btn menu-button"
+                                >
+                                    <i className="fas fa-user" />
+                                </Link>
+                                <button
+                                    className="btn menu-button"
+                                    data-toggle="modal"
+                                    data-target="#logoutModal"
+                                >
+                                    Logout
+                                </button>
+                            </React.Fragment>
+                        )}
                     </div>
                 </nav>
                 <Login />
                 <Register />
+                <Logout />
             </div>
         );
     }
@@ -109,5 +138,5 @@ const mapStateToProps = state => ({
 
 export default connect(
     mapStateToProps,
-    {}
+    { loggedIn }
 )(Navbar);

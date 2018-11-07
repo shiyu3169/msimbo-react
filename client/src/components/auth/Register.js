@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import InputGroup from "../layout/InputGroup";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
+import { register } from "../../actions/userActions";
+import $ from "jquery";
 
 class Register extends Component {
     state = {
@@ -23,29 +25,50 @@ class Register extends Component {
 
     onSubmit = e => {
         e.preventDefault();
-        const { username, password, verifyPassWord } = this.state;
-        if (username === "") {
+        const {
+            registerUsername,
+            registerPassword,
+            verifyPassWord
+        } = this.state;
+
+        if (registerUsername === "") {
             this.setState({
                 error: "Username is required"
             });
             return;
         }
 
-        if (password === "") {
+        if (registerPassword === "") {
             this.setState({
                 error: "Password is required"
             });
             return;
         }
 
-        if (password !== verifyPassWord) {
+        if (registerPassword !== verifyPassWord) {
             this.setState({
                 error: "Two passwords are not match"
             });
             return;
         }
 
-        // const user = { username, password };
+        const user = { registerUsername, registerPassword };
+
+        this.props
+            .register(user)
+            .then(() => {
+                $("#registerModal").modal("hide");
+                this.setState({
+                    redirect: true,
+                    path: `user/${this.props.user._id}`
+                });
+            })
+            .catch(error => {
+                console.log(error);
+                this.setState({
+                    error: "Username is taken"
+                });
+            });
     };
 
     render() {
@@ -56,7 +79,7 @@ class Register extends Component {
         return (
             <div
                 className="modal fade"
-                id="RegisterModal"
+                id="registerModal"
                 tabIndex="-1"
                 role="dialog"
                 aria-labelledby="exampleModalLabel"
@@ -118,7 +141,11 @@ class Register extends Component {
     }
 }
 
+const mapStateToProps = state => ({
+    user: state.user.user
+});
+
 export default connect(
-    null,
-    {}
+    mapStateToProps,
+    { register }
 )(Register);

@@ -1,4 +1,4 @@
-import { GET_USERS, LOGIN, LOGGEDIN } from "./types";
+import { GET_USERS, LOGIN, LOGGEDIN, REGISTER, LOGOUT } from "./types";
 import axios from "axios";
 
 export const getUsers = () => async dispatch => {
@@ -17,10 +17,25 @@ export const login = user => async dispatch => {
     });
 };
 
+export const register = user => async dispatch => {
+    const res = await axios.post("/api/user", user);
+    dispatch({
+        type: REGISTER,
+        payload: res.data
+    });
+};
+
 export const loggedIn = () => async dispatch => {
     const res = await axios.post("/api/loggedIn");
     dispatch({
         type: LOGGEDIN,
         payload: res.data
+    });
+};
+
+export const logout = () => async dispatch => {
+    await axios.post("/api/logout");
+    dispatch({
+        type: LOGOUT
     });
 };

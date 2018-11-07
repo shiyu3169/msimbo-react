@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import InputGroup from "../layout/InputGroup";
 import { connect } from "react-redux";
 import { login } from "../../actions/userActions";
-import { Redirect } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import $ from "jquery";
 
 class Login extends Component {
@@ -45,24 +45,26 @@ class Login extends Component {
             .login(user)
             .then(() => {
                 $("#loginModal").modal("hide");
-                this.setState({
-                    redirect: true,
-                    path: `user/${this.props.user._id}`
-                });
+                // this.props.redirect(`user/${this.props.user._id}`);
+                // this.setState({
+                //     redirect: true,
+                //     path: `user/${this.props.user._id}`
+                // });
+                this.props.history.push(`user/${this.props.user._id}`);
             })
             .catch(error => {
                 console.log(error);
                 this.setState({
-                    error: "Username and passwords do not match our records"
+                    error: "Username and password do not match our records"
                 });
             });
     };
 
     render() {
         const { error, redirect, path } = this.state;
-        if (redirect) {
-            return <Redirect push to={path} />;
-        }
+        // if (redirect) {
+        //     return <Redirect to={path} />;
+        // }
         return (
             <div
                 className="modal fade"
@@ -128,4 +130,4 @@ const mapStateToProps = state => ({
 export default connect(
     mapStateToProps,
     { login }
-)(Login);
+)(withRouter(Login));

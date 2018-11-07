@@ -1,8 +1,8 @@
-import { GET_USERS, LOGIN, LOGGEDIN } from "../actions/types";
+import { GET_USERS, LOGIN, LOGGEDIN, REGISTER, LOGOUT } from "../actions/types";
 
 const initialState = {
     users: [],
-    user: {}
+    user: 0
 };
 
 export default function(state = initialState, action) {
@@ -21,6 +21,16 @@ export default function(state = initialState, action) {
             return {
                 ...state,
                 user: action.payload
+            };
+        case REGISTER:
+            return {
+                ...state,
+                user: action.payload
+            };
+        case LOGOUT:
+            return {
+                ...state,
+                user: 0
             };
         default:
             return state;

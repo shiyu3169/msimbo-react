@@ -1,20 +1,20 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
-import $ from "jquery";
 import { connect } from "react-redux";
 import { loggedIn } from "../../actions/userActions";
 
 class PrivateRoute extends Component {
-    componentDidMount() {
+    componentWillMount() {
         this.props.loggedIn();
+        let self = this;
     }
 
     render() {
         const { user, component: Component } = this.props;
-        if (user) {
+        console.log(user);
+        if (user !== 0) {
             return <Component {...this.props} />;
         } else {
-            $("#loginModal").modal("show");
             return <Redirect to="/" />;
         }
     }
