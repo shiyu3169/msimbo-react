@@ -27,11 +27,7 @@ class App extends Component {
                         />
                         ,<Route exact path="/students" component={Students} />
                         <Route exact path="/resources" component={Resources} />
-                        <PrivateRoute
-                            exact
-                            path="/user/:id"
-                            component={Profile}
-                        />
+                        <PrivateRoute exact path="/user" component={Profile} />
                     </Switch>
                 </div>
             </Router>

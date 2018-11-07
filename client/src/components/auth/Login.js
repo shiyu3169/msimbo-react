@@ -45,12 +45,7 @@ class Login extends Component {
             .login(user)
             .then(() => {
                 $("#loginModal").modal("hide");
-                // this.props.redirect(`user/${this.props.user._id}`);
-                // this.setState({
-                //     redirect: true,
-                //     path: `user/${this.props.user._id}`
-                // });
-                this.props.history.push(`user/${this.props.user._id}`);
+                this.props.history.push("/user");
             })
             .catch(error => {
                 this.setState({
@@ -60,10 +55,7 @@ class Login extends Component {
     };
 
     render() {
-        const { error, redirect, path } = this.state;
-        // if (redirect) {
-        //     return <Redirect to={path} />;
-        // }
+        const { error } = this.state;
         return (
             <div
                 className="modal fade"

@@ -107,10 +107,7 @@ class Navbar extends Component {
                         )}
                         {user !== 0 && (
                             <React.Fragment>
-                                <Link
-                                    to={`/user/${user._id}`}
-                                    className="btn menu-button"
-                                >
+                                <Link to={"/user"} className="btn menu-button">
                                     <i className="fas fa-user" />
                                 </Link>
                                 <button
