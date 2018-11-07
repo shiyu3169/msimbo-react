@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import InputGroup from "../layout/InputGroup";
 import { connect } from "react-redux";
-import { Redirect } from "react-router-dom";
 import { register } from "../../actions/userActions";
 import $ from "jquery";
 
@@ -11,14 +10,14 @@ class Register extends Component {
         registerPassword: "",
         verifyPassWord: "",
         error: "",
-        redirect: false,
-        path: ""
+        success: false
     };
 
     onChange = e => {
         this.setState({
             [e.target.name]: e.target.value,
-            error: ""
+            error: "",
+            success: false
         });
     };
 
@@ -51,15 +50,15 @@ class Register extends Component {
             return;
         }
 
-        const user = { registerUsername, registerPassword };
-
+        const user = { username: registerUsername, password: registerPassword };
+        console.log(user);
         this.props
             .register(user)
             .then(() => {
-                $("#registerModal").modal("hide");
                 this.setState({
-                    redirect: true,
-                    path: `user/${this.props.user._id}`
+                    success: true,
+                    registerUsername: "",
+                    registerPassword: ""
                 });
             })
             .catch(error => {
@@ -70,10 +69,7 @@ class Register extends Component {
     };
 
     render() {
-        const { error, redirect, path } = this.state;
-        if (redirect) {
-            return <Redirect push to={path} />;
-        }
+        const { error, success } = this.state;
         return (
             <div
                 className="modal fade"
@@ -100,11 +96,17 @@ class Register extends Component {
                             </button>
                         </div>
                         <div className="modal-body">
+                            {success && (
+                                <div className="alert alert-success">
+                                    Registration Successfully!
+                                </div>
+                            )}
                             {error && (
                                 <div className="alert alert-danger">
                                     {error}
                                 </div>
                             )}
+
                             <form onSubmit={this.onSubmit}>
                                 <InputGroup
                                     name="registerUsername"

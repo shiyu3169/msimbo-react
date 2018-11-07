@@ -18,10 +18,9 @@ export const login = user => async dispatch => {
 };
 
 export const register = user => async dispatch => {
-    const res = await axios.post("/api/user", user);
+    await axios.post("/api/user", user);
     dispatch({
-        type: REGISTER,
-        payload: res.data
+        type: REGISTER
     });
 };
 

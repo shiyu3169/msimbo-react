@@ -24,8 +24,7 @@ export default function(state = initialState, action) {
             };
         case REGISTER:
             return {
-                ...state,
-                user: action.payload
+                ...state
             };
         case LOGOUT:
             return {
