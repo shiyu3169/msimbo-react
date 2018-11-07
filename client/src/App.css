@@ -196,10 +196,6 @@ body {
     cursor: pointer;
 }
 
-.holds-the-iframe {
-    background: url(loading.gif) center center no-repeat;
-}
-
 .sw-sheet {
     width: 100%;
     height: 93vh;
