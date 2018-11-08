@@ -57,7 +57,8 @@ InputGroup.propTypes = {
 };
 
 InputGroup.defaultProps = {
-    rows: "1"
+    rows: "1",
+    type: "text"
 };
 
 export default InputGroup;

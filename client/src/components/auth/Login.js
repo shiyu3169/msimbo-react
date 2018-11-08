@@ -52,10 +52,15 @@ class Login extends Component {
                     error: "Username and password do not match our records"
                 });
             });
+
+        this.setState({
+            username: "",
+            password: ""
+        });
     };
 
     render() {
-        const { error } = this.state;
+        const { error, username, password } = this.state;
         return (
             <div
                 className="modal fade"
@@ -94,6 +99,7 @@ class Login extends Component {
                                     label="Username"
                                     placeholder="Enter Username Here..."
                                     onChange={this.onChange}
+                                    value={username}
                                 />
                                 <InputGroup
                                     name="password"
@@ -101,6 +107,7 @@ class Login extends Component {
                                     label="Password"
                                     placeholder="Enter Password Here..."
                                     onChange={this.onChange}
+                                    value={password}
                                 />
                                 <button className="btn btn-outline-success btn-block">
                                     Submit

@@ -146,7 +146,7 @@ module.exports = function(app) {
         const uid = req.params["uid"];
         const user = req.body;
         userModel.updateUser(uid, user).then(data => {
-            res.send(data);
+            res.json(user);
         });
     }
 

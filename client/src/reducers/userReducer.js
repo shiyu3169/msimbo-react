@@ -1,8 +1,17 @@
-import { GET_USERS, LOGIN, LOGGEDIN, REGISTER, LOGOUT } from "../actions/types";
+import {
+    GET_USERS,
+    LOGIN,
+    LOGGEDIN,
+    REGISTER,
+    LOGOUT,
+    EDIT_USER,
+    UPDATE_USER
+} from "../actions/types";
 
 const initialState = {
     users: [],
-    user: 0
+    user: 0,
+    editing: false
 };
 
 export default function(state = initialState, action) {
@@ -30,6 +39,16 @@ export default function(state = initialState, action) {
             return {
                 ...state,
                 user: 0
+            };
+        case EDIT_USER:
+            return {
+                ...state,
+                editing: !state.editing
+            };
+        case UPDATE_USER:
+            return {
+                ...state,
+                user: action.payload
             };
         default:
             return state;

@@ -1,5 +1,21 @@
-import { GET_USERS, LOGIN, LOGGEDIN, REGISTER, LOGOUT } from "./types";
+import {
+    GET_USERS,
+    LOGIN,
+    LOGGEDIN,
+    REGISTER,
+    LOGOUT,
+    EDIT_USER,
+    UPDATE_USER
+} from "./types";
 import axios from "axios";
+
+export const update = user => async dispatch => {
+    const res = await axios.put(`/api/user/${user._id}`, user);
+    dispatch({
+        type: UPDATE_USER,
+        payload: res.data
+    });
+};
 
 export const getUsers = () => async dispatch => {
     const res = await axios.get("/api/user");
@@ -36,5 +52,11 @@ export const logout = () => async dispatch => {
     await axios.post("/api/logout");
     dispatch({
         type: LOGOUT
+    });
+};
+
+export const edit = () => dispatch => {
+    dispatch({
+        type: EDIT_USER
     });
 };

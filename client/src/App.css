@@ -131,6 +131,10 @@ body {
     margin: auto;
 }
 
+.inline {
+    display: inline;
+}
+
 /* small screns  */
 @media (max-width: 560px) {
     .showcase::after {
