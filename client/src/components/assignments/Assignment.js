@@ -6,7 +6,13 @@ export default class Assignment extends Component {
         return (
             <tr>
                 <td>
-                    <a>{assignment.name}</a>
+                    <a
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href={assignment.src}
+                    >
+                        {assignment.name}
+                    </a>
                 </td>
                 <td>{assignment.due}</td>
                 <td>
