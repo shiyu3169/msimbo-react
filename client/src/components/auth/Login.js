@@ -100,6 +100,7 @@ class Login extends Component {
                                     onChange={this.onChange}
                                     value={username}
                                 />
+
                                 <InputGroup
                                     name="password"
                                     type="password"

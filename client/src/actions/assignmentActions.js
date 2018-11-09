@@ -1,4 +1,4 @@
-import { GET_ASSIGNMENTS } from "./types";
+import { GET_ASSIGNMENTS, CREATE_ASSIGNMENT } from "./types";
 import axios from "axios";
 
 export const getAssignments = () => async dispatch => {
@@ -6,5 +6,11 @@ export const getAssignments = () => async dispatch => {
     dispatch({
         type: GET_ASSIGNMENTS,
         payload: res.data
+    });
+};
+
+export const createAssignment = () => async dispatch => {
+    dispatch({
+        type: CREATE_ASSIGNMENT
     });
 };

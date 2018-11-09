@@ -243,3 +243,7 @@ body {
 .fixed {
     position: fixed;
 }
+
+.margin-bottom {
+    margin-bottom: 1rem;
+}

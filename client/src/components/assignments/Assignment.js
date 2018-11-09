@@ -1,6 +1,7 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
-export default class Assignment extends Component {
+class Assignment extends Component {
     render() {
         const { assignment } = this.props;
         return (
@@ -37,3 +38,8 @@ export default class Assignment extends Component {
         );
     }
 }
+
+export default connect(
+    null,
+    {}
+)(Assignment);

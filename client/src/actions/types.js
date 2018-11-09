@@ -11,7 +11,7 @@ export const UPDATE_USER = "UPDATE";
 export const GET_RESOURCES = "GET_RESOURCES";
 // Assignment
 export const GET_ASSIGNMENTS = "GET_ASSIGNMENTS";
-
+export const CREATE_ASSIGNMENT = "CREATE_ASSIGNMENT";
 // Error
 export const ADD_ERROR = "ADD_ERROR";
 export const GET_ERROR = "GET_ERROR";

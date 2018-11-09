@@ -1,7 +1,8 @@
-import { GET_ASSIGNMENTS } from "../actions/types";
+import { GET_ASSIGNMENTS, CREATE_ASSIGNMENT } from "../actions/types";
 
 const initialState = {
-    assignments: []
+    assignments: [],
+    creating: false
 };
 
 export default function(state = initialState, action) {
@@ -10,6 +11,11 @@ export default function(state = initialState, action) {
             return {
                 ...state,
                 assignments: action.payload
+            };
+        case CREATE_ASSIGNMENT:
+            return {
+                ...state,
+                creating: !state.creating
             };
         default:
             return state;

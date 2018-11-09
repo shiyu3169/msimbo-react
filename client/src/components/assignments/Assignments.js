@@ -2,27 +2,20 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getAssignments } from "../../actions/assignmentActions";
 import Assignment from "./Assignment";
+import AssignmentHead from "./AssignmentHead";
+import AssignmentNew from "./AssignmentNew";
+
 class Assignments extends Component {
     componentDidMount() {
         this.props.getAssignments();
     }
     render() {
-        const { assignments } = this.props;
+        const { assignments, creating } = this.props;
         return (
             <div className="container-fluid sw-bg-white full-screen">
                 <table className="table table-striped table-hover">
                     <thead>
-                        <tr>
-                            <th>Assignment</th>
-                            <th>Due Date</th>
-                            <th>
-                                <div className="float-right">
-                                    <button className="btn btn-outline-primary">
-                                        <i className="fas fa-plus fa-lg" />
-                                    </button>
-                                </div>
-                            </th>
-                        </tr>
+                        {creating ? <AssignmentNew /> : <AssignmentHead />}
                     </thead>
                     <tbody>
                         {assignments.map(assignment => (
@@ -39,7 +32,8 @@ class Assignments extends Component {
 }
 
 const mapStateToProps = state => ({
-    assignments: state.assignment.assignments
+    assignments: state.assignment.assignments,
+    creating: state.assignment.creating
 });
 
 export default connect(
