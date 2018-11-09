@@ -50,7 +50,6 @@ class Register extends Component {
         }
 
         const user = { username: registerUsername, password: registerPassword };
-        console.log(user);
         this.props
             .register(user)
             .then(() => {
@@ -140,11 +139,7 @@ class Register extends Component {
     }
 }
 
-const mapStateToProps = state => ({
-    user: state.user.user
-});
-
 export default connect(
-    mapStateToProps,
+    null,
     { register }
 )(Register);
