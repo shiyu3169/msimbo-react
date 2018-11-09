@@ -40,12 +40,11 @@ class Login extends Component {
         }
 
         const user = { username, password };
-
         this.props
             .login(user)
             .then(() => {
                 $("#loginModal").modal("hide");
-                this.props.history.push("/user");
+                this.props.history.push(`/user/${this.props.currentUser._id}`);
             })
             .catch(error => {
                 this.setState({
@@ -127,7 +126,7 @@ class Login extends Component {
 }
 
 const mapStateToProps = state => ({
-    user: state.user.user
+    currentUser: state.user.currentUser
 });
 
 export default connect(
