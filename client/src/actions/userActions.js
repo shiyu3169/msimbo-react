@@ -5,9 +5,18 @@ import {
     REGISTER,
     LOGOUT,
     EDIT_USER,
-    UPDATE_USER
+    UPDATE_USER,
+    GET_USER
 } from "./types";
 import axios from "axios";
+
+export const getUser = id => async dispatch => {
+    const res = await axios.get(`/api/user/${id}`);
+    dispatch({
+        type: GET_USER,
+        payload: res.data
+    });
+};
 
 export const update = user => async dispatch => {
     const res = await axios.put(`/api/user/${user._id}`, user);

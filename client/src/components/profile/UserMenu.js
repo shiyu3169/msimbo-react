@@ -13,8 +13,9 @@ class UserMenu extends Component {
         e.preventDefault();
         this.props.edit();
     };
+
     render() {
-        const { editing, match } = this.props;
+        const { editing, currentUser, profile } = this.props;
         return (
             <div className="fixed">
                 <ul className="list-group-flush">
@@ -53,7 +54,7 @@ class UserMenu extends Component {
                     </button>
                 )}
 
-                {!editing && (
+                {!editing && currentUser._id === profile._id && (
                     <button
                         type="button"
                         className="btn btn-block btn-outline-info"
@@ -68,7 +69,9 @@ class UserMenu extends Component {
 }
 
 const mapStateToProps = state => ({
-    editing: state.user.editing
+    editing: state.user.editing,
+    currentUser: state.user.currentUser,
+    profile: state.user.profile
 });
 
 export default connect(

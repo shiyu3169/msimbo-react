@@ -33,9 +33,9 @@ class UserEdit extends Component {
             project,
             linkedin,
             github,
-            image: this.props.currentUser.image,
-            _id: this.props.currentUser._id,
-            dateCreated: this.props.currentUser.dateCreated
+            image: this.props.profile.image,
+            _id: this.props.profile._id,
+            dateCreated: this.props.profile.dateCreated
         };
         this.props.update(user);
     };
@@ -54,7 +54,7 @@ class UserEdit extends Component {
             project,
             linkedin,
             github
-        } = this.props.currentUser;
+        } = this.props.profile;
         this.setState({
             email,
             firstName,
@@ -67,7 +67,7 @@ class UserEdit extends Component {
     }
 
     render() {
-        const { currentUser } = this.props;
+        const { profile } = this.props;
         const {
             email,
             firstName,
@@ -121,11 +121,9 @@ class UserEdit extends Component {
                             <p>
                                 <b>Register Time: </b>
                                 {new Date(
-                                    currentUser.dateCreated
+                                    profile.dateCreated
                                 ).getMonth()} /{" "}
-                                {new Date(
-                                    currentUser.dateCreated
-                                ).getFullYear()}
+                                {new Date(profile.dateCreated).getFullYear()}
                             </p>
                         </div>
                     </div>
@@ -177,7 +175,7 @@ class UserEdit extends Component {
 }
 
 const mapStateToProps = state => ({
-    currentUser: state.user.currentUser
+    profile: state.user.profile
 });
 
 export default connect(

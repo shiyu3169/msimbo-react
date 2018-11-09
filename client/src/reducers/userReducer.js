@@ -5,13 +5,15 @@ import {
     REGISTER,
     LOGOUT,
     EDIT_USER,
-    UPDATE_USER
+    UPDATE_USER,
+    GET_USER
 } from "../actions/types";
 
 const initialState = {
     users: [],
     currentUser: 0,
-    editing: false
+    editing: false,
+    profile: 0
 };
 
 export default function(state = initialState, action) {
@@ -49,6 +51,11 @@ export default function(state = initialState, action) {
             return {
                 ...state,
                 currentUser: action.payload
+            };
+        case GET_USER:
+            return {
+                ...state,
+                profile: action.payload
             };
         default:
             return state;
