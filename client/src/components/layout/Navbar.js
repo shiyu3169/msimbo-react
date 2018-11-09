@@ -17,7 +17,7 @@ class Navbar extends Component {
     }
 
     render() {
-        const { user } = this.props;
+        const { currentUser } = this.props;
 
         return (
             <div className="front">
@@ -86,7 +86,7 @@ class Navbar extends Component {
                                 </a>
                             </li>
                         </ul>
-                        {user === 0 && (
+                        {currentUser === 0 && (
                             <button
                                 className="btn menu-button"
                                 data-toggle="modal"
@@ -96,9 +96,12 @@ class Navbar extends Component {
                                 Login
                             </button>
                         )}
-                        {user !== 0 && (
+                        {currentUser !== 0 && (
                             <React.Fragment>
-                                <Link to={"/user"} className="btn menu-button">
+                                <Link
+                                    to={`/user/${currentUser._id}`}
+                                    className="btn menu-button"
+                                >
                                     <i className="fas fa-user" />
                                 </Link>
                                 <button
@@ -110,16 +113,15 @@ class Navbar extends Component {
                                 </button>
                             </React.Fragment>
                         )}
-                        {user !== 0 &&
-                            user.admin && (
-                                <button
-                                    className="btn menu-button"
-                                    data-toggle="modal"
-                                    data-target="#registerModal"
-                                >
-                                    Register
-                                </button>
-                            )}
+                        {currentUser !== 0 && currentUser.admin && (
+                            <button
+                                className="btn menu-button"
+                                data-toggle="modal"
+                                data-target="#registerModal"
+                            >
+                                Register
+                            </button>
+                        )}
                     </div>
                 </nav>
                 <Login />
@@ -131,7 +133,7 @@ class Navbar extends Component {
 }
 
 const mapStateToProps = state => ({
-    user: state.user.user
+    currentUser: state.user.currentUser
 });
 
 export default connect(

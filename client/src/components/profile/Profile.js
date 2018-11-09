@@ -8,12 +8,13 @@ import UserEdit from "./UserEdit";
 class Profile extends Component {
     render() {
         const { editing } = this.props;
+        const { match } = this.props;
         return (
             <div className="sw-bg-white full-screen">
                 <div className="container">
                     <div className="row">
                         <div className="col-3 d-none d-md-block">
-                            <UserMenu />
+                            <UserMenu match={match} />
                         </div>
                         <div className="col-sm-9">
                             <div id="grade">
@@ -29,7 +30,6 @@ class Profile extends Component {
 }
 
 const mapStateToProps = state => ({
-    user: state.user.user,
     editing: state.user.editing
 });
 

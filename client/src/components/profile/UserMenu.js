@@ -14,7 +14,7 @@ class UserMenu extends Component {
         this.props.edit();
     };
     render() {
-        const { editing } = this.props;
+        const { editing, match } = this.props;
         return (
             <div className="fixed">
                 <ul className="list-group-flush">
@@ -43,7 +43,7 @@ class UserMenu extends Component {
                         Grade
                     </li>
                 </ul>
-                {editing ? (
+                {editing && (
                     <button
                         className="btn btn-block btn-outline-success"
                         type="submit"
@@ -51,7 +51,9 @@ class UserMenu extends Component {
                     >
                         Submit
                     </button>
-                ) : (
+                )}
+
+                {!editing && (
                     <button
                         type="button"
                         className="btn btn-block btn-outline-info"

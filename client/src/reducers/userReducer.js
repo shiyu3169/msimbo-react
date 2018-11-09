@@ -10,7 +10,7 @@ import {
 
 const initialState = {
     users: [],
-    user: 0,
+    currentUser: 0,
     editing: false
 };
 
@@ -24,12 +24,12 @@ export default function(state = initialState, action) {
         case LOGIN:
             return {
                 ...state,
-                user: action.payload
+                currentUser: action.payload
             };
         case LOGGEDIN:
             return {
                 ...state,
-                user: action.payload
+                currentUser: action.payload
             };
         case REGISTER:
             return {
@@ -38,7 +38,7 @@ export default function(state = initialState, action) {
         case LOGOUT:
             return {
                 ...state,
-                user: 0
+                currentUser: 0
             };
         case EDIT_USER:
             return {
@@ -48,7 +48,7 @@ export default function(state = initialState, action) {
         case UPDATE_USER:
             return {
                 ...state,
-                user: action.payload
+                currentUser: action.payload
             };
         default:
             return state;

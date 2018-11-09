@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 
 class UserInfo extends Component {
     render() {
-        const { user } = this.props;
+        const { currentUser } = this.props;
         return (
             <React.Fragment>
                 <div className="row" id="info">
@@ -21,16 +21,20 @@ class UserInfo extends Component {
                         <div>
                             <p className="sw-profile">
                                 <b>Name: </b>
-                                {user.firstName} {user.lastName}
+                                {currentUser.firstName} {currentUser.lastName}
                             </p>
                             <p className="sw-profile">
                                 <b>Email: </b>
-                                {user.email}
+                                {currentUser.email}
                             </p>
                             <p>
                                 <b>Register Time: </b>
-                                {new Date(user.dateCreated).getMonth()} /{" "}
-                                {new Date(user.dateCreated).getFullYear()}
+                                {new Date(
+                                    currentUser.dateCreated
+                                ).getMonth()} /{" "}
+                                {new Date(
+                                    currentUser.dateCreated
+                                ).getFullYear()}
                             </p>
                         </div>
                     </div>
@@ -41,7 +45,7 @@ class UserInfo extends Component {
                         <h3 className="inline">Biography</h3>
                     </div>
                     <div className="col-sm-7">
-                        <p>{user.bio}</p>
+                        <p>{currentUser.bio}</p>
                     </div>
                 </div>
                 <br />
@@ -51,33 +55,33 @@ class UserInfo extends Component {
                         <i className="fas fa-project-diagram" /> Project:{" "}
                         <a
                             className="sw-profile"
-                            href={user.project}
+                            href={currentUser.project}
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            {user.project}
+                            {currentUser.project}
                         </a>
                     </h6>
                     <h6>
                         <i className="fab fa-linkedin fa-lg" /> LinkedIn:{" "}
                         <a
                             className="sw-profile"
-                            href={user.linkedin}
+                            href={currentUser.linkedin}
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            {user.linkedin}
+                            {currentUser.linkedin}
                         </a>
                     </h6>
                     <h6>
                         <i className="fab fa-github fa-lg" /> GitHub:{" "}
                         <a
                             className="sw-profile"
-                            href={user.github}
+                            href={currentUser.github}
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            {user.github}
+                            {currentUser.github}
                         </a>
                     </h6>
                     <br />
@@ -88,7 +92,7 @@ class UserInfo extends Component {
 }
 
 const mapStateToProps = state => ({
-    user: state.user.user
+    currentUser: state.user.currentUser
 });
 
 export default connect(
