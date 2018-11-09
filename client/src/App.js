@@ -10,6 +10,7 @@ import Curriculum from "./components/Curriculum";
 import Students from "./components/students/Students";
 import Resources from "./components/resources/Resources";
 import Profile from "./components/profile/Profile";
+import Assignments from "./components/assignments/Assignments";
 
 class App extends Component {
     render() {
@@ -27,6 +28,11 @@ class App extends Component {
                         ,<Route exact path="/students" component={Students} />
                         <Route exact path="/resources" component={Resources} />
                         <Route exact path="/user/:uid" component={Profile} />
+                        <Route
+                            exact
+                            path="/assignments"
+                            component={Assignments}
+                        />
                     </Switch>
                 </div>
             </Router>
