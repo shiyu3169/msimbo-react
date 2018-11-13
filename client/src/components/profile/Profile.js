@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import UserGrade from "./UserGrade";
+import Grades from "../grades/Grades";
 import UserMenu from "./UserMenu";
 import UserInfo from "./UserInfo";
 import UserEdit from "./UserEdit";
@@ -33,9 +33,7 @@ class Profile extends Component {
                         <div className="col-sm-9">
                             <div id="grade">
                                 {editing ? <UserEdit /> : <UserInfo />}
-                                {currentUser._id === profile._id && (
-                                    <UserGrade />
-                                )}
+                                {currentUser._id === profile._id && <Grades />}
                             </div>
                         </div>
                     </div>
