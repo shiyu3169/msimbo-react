@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Comment from "./Comment";
 export default class Grade extends Component {
     render() {
-        const { name, score, comment } = this.props.grade;
+        const { name, score } = this.props.grade;
         return (
             <tr>
                 <td>{name}</td>
