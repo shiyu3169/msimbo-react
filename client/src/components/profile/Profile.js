@@ -22,7 +22,7 @@ class Profile extends Component {
     }
 
     render() {
-        const { editing } = this.props;
+        const { editing, currentUser, profile } = this.props;
         return (
             <div className="sw-bg-white full-screen">
                 <div className="container">
@@ -33,7 +33,9 @@ class Profile extends Component {
                         <div className="col-sm-9">
                             <div id="grade">
                                 {editing ? <UserEdit /> : <UserInfo />}
-                                <UserGrade />
+                                {currentUser._id === profile._id && (
+                                    <UserGrade />
+                                )}
                             </div>
                         </div>
                     </div>
@@ -44,7 +46,9 @@ class Profile extends Component {
 }
 
 const mapStateToProps = state => ({
-    editing: state.user.editing
+    editing: state.user.editing,
+    currentUser: state.user.currentUser,
+    profile: state.user.profile
 });
 
 export default connect(
