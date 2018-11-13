@@ -31,7 +31,7 @@ class Profile extends Component {
                             <UserMenu />
                         </div>
                         <div className="col-sm-9">
-                            <div id="grade">
+                            <div>
                                 {editing ? <UserEdit /> : <UserInfo />}
                                 {currentUser._id === profile._id && <Grades />}
                             </div>

@@ -12,7 +12,7 @@ class Grades extends Component {
     render() {
         const { grades } = this.props;
         return (
-            <table className="table table-striped table-hover">
+            <table className="table table-striped table-hover" id="grade">
                 <thead>
                     <tr>
                         <th>
