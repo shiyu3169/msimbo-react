@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import InputGroup from "../layout/InputGroup";
 import { addGrade } from "../../actions/gradeActions";
+import $ from "jquery";
 
 class NewGrade extends Component {
     state = {
@@ -20,7 +21,15 @@ class NewGrade extends Component {
             user: this.props.profile._id
         };
 
-        this.props.addGrade(grade);
+        this.props.addGrade(grade).then(() => {
+            $("#newGrade").modal("hide");
+
+            this.setState({
+                name: "",
+                score: 0,
+                comment: ""
+            });
+        });
     };
 
     onChange = e => {

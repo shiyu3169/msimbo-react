@@ -10,7 +10,8 @@ export const getGradesByUser = uid => async dispatch => {
 };
 
 export const addGrade = grade => async dispatch => {
-    const res = await axios.post("/api/grade");
+    const res = await axios.post("/api/grade", grade);
+    console.log(res.data);
     dispatch({
         type: ADD_GRADE,
         payload: res.data
