@@ -19,6 +19,11 @@ class Grades extends Component {
                             <h4>Grade</h4>
                         </th>
                     </tr>
+                    <tr>
+                        <th>Name</th>
+                        <th>Score</th>
+                        <th>Comment</th>
+                    </tr>
                 </thead>
                 <tbody>
                     {grades.map(grade => (
