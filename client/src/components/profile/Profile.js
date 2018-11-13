@@ -33,7 +33,8 @@ class Profile extends Component {
                         <div className="col-sm-9">
                             <div>
                                 {editing ? <UserEdit /> : <UserInfo />}
-                                {currentUser._id === profile._id && <Grades />}
+                                {(currentUser._id === profile._id ||
+                                    currentUser.admin) && <Grades />}
                             </div>
                         </div>
                     </div>

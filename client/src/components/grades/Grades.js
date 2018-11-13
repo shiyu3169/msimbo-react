@@ -6,7 +6,15 @@ class Grades extends Component {
     componentDidMount() {
         const { getGradesByUser } = this.props;
         const { _id } = this.props.profile;
+        console.log(_id);
         getGradesByUser(_id);
+    }
+    componentWillReceiveProps(nextProps) {
+        const { getGradesByUser } = this.props;
+        if (nextProps.profile._id !== this.props.profile._id) {
+            const uid = nextProps.profile._id;
+            getGradesByUser(uid);
+        }
     }
 
     render() {
