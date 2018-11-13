@@ -1,7 +1,8 @@
-import { GET_GRADES_BY_USER } from "../actions/types";
+import { GET_GRADES_BY_USER, ADD_GRADE } from "../actions/types";
 
 const initialState = {
-    grades: []
+    grades: [],
+    creating: false
 };
 
 export default function(state = initialState, action) {
@@ -10,6 +11,11 @@ export default function(state = initialState, action) {
             return {
                 ...state,
                 grades: action.payload
+            };
+        case ADD_GRADE:
+            return {
+                ...state,
+                grades: [action.payload, ...state.grades]
             };
         default:
             return state;

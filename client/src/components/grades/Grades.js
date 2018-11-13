@@ -2,11 +2,12 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getGradesByUser } from "../../actions/gradeActions";
 import Grade from "./Grade";
+import NewGrade from "./NewGrade";
+
 class Grades extends Component {
     componentDidMount() {
         const { getGradesByUser } = this.props;
         const { _id } = this.props.profile;
-        console.log(_id);
         getGradesByUser(_id);
     }
     componentWillReceiveProps(nextProps) {
@@ -17,33 +18,51 @@ class Grades extends Component {
         }
     }
 
+    handleCreate = () => {};
+
     render() {
-        const { grades } = this.props;
+        const { grades, currentUser } = this.props;
         return (
-            <table className="table table-striped table-hover" id="grade">
-                <thead>
-                    <tr>
-                        <th>
-                            <h4>Grade</h4>
-                        </th>
-                    </tr>
-                    <tr>
-                        <th>Name</th>
-                        <th>Score</th>
-                        <th>Comment</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {grades.map(grade => (
-                        <Grade key={grade._id} grade={grade} />
-                    ))}
-                </tbody>
-            </table>
+            <React.Fragment>
+                <table className="table table-striped table-hover" id="grade">
+                    <thead>
+                        <tr>
+                            <th>
+                                <h4>Grade</h4>
+                            </th>
+                            <th />
+                            {currentUser.admin && (
+                                <th>
+                                    <button
+                                        className="btn btn-outline-info float-right"
+                                        data-toggle="modal"
+                                        data-target="#newGrade"
+                                    >
+                                        <i className="fas fa-plus" />
+                                    </button>
+                                </th>
+                            )}
+                        </tr>
+                        <tr>
+                            <th>Name</th>
+                            <th>Score</th>
+                            <th>Comment</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {grades.map(grade => (
+                            <Grade key={grade._id} grade={grade} />
+                        ))}
+                    </tbody>
+                </table>
+                <NewGrade />
+            </React.Fragment>
         );
     }
 }
 
 const mapStateToProps = state => ({
+    currentUser: state.user.currentUser,
     grades: state.grade.grades,
     profile: state.user.profile
 });
