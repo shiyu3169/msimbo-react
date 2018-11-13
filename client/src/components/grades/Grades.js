@@ -8,7 +8,9 @@ class Grades extends Component {
     componentDidMount() {
         const { getGradesByUser } = this.props;
         const { _id } = this.props.profile;
-        getGradesByUser(_id);
+        if (_id) {
+            getGradesByUser(_id);
+        }
     }
     componentWillReceiveProps(nextProps) {
         const { getGradesByUser } = this.props;
@@ -17,8 +19,6 @@ class Grades extends Component {
             getGradesByUser(uid);
         }
     }
-
-    handleCreate = () => {};
 
     render() {
         const { grades, currentUser } = this.props;

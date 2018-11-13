@@ -1,7 +1,34 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import InputGroup from "../layout/InputGroup";
+import { addGrade } from "../../actions/gradeActions";
 
-export default class NewGrade extends Component {
+class NewGrade extends Component {
+    state = {
+        name: "",
+        score: 0,
+        comment: ""
+    };
+
+    submit = e => {
+        e.preventDefault();
+        const { name, score, comment } = this.state;
+        const grade = {
+            name,
+            score,
+            comment,
+            user: this.props.profile._id
+        };
+
+        this.props.addGrade(grade);
+    };
+
+    onChange = e => {
+        this.setState({
+            [e.target.name]: e.target.value
+        });
+    };
+
     render() {
         return (
             <div
@@ -29,20 +56,23 @@ export default class NewGrade extends Component {
                             </button>
                         </div>
                         <div className="modal-body">
-                            <form>
+                            <form onSubmit={this.submit}>
                                 <div className="row">
                                     <div className="col-6">
                                         <InputGroup
                                             label="Name"
                                             name="name"
                                             placeholder="Grade Name..."
+                                            onChange={this.onChange}
                                         />
                                     </div>
                                     <div className="col-6">
                                         <InputGroup
                                             label="Score"
                                             name="score"
+                                            type="number"
                                             placeholder="Grade Score..."
+                                            onChange={this.onChange}
                                         />
                                     </div>
                                 </div>
@@ -51,6 +81,7 @@ export default class NewGrade extends Component {
                                     name="comment"
                                     rows="5"
                                     placeholder="Grade Comment..."
+                                    onChange={this.onChange}
                                 />
                                 <button className="btn btn-success btn-block">
                                     Submit
@@ -63,3 +94,12 @@ export default class NewGrade extends Component {
         );
     }
 }
+
+const mapStateToProps = state => ({
+    profile: state.user.profile
+});
+
+export default connect(
+    mapStateToProps,
+    { addGrade }
+)(NewGrade);
