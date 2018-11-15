@@ -5,11 +5,19 @@ export default class AssignmentNew extends Component {
     render() {
         return (
             <tr>
-                <th>
-                    <InputGroup name="name" placeholder="Assignment Name" />
+                <th className="row">
+                    <div className="col-6">
+                        <InputGroup name="name" placeholder="Assignment Name" />
+                    </div>
+                    <div className="col-6">
+                        <InputGroup
+                            name="due"
+                            placeholder="Assignment Due Date"
+                        />
+                    </div>
                 </th>
                 <th>
-                    <InputGroup name="due" placeholder="Assignment Due Date" />
+                    <InputGroup name="src" placeholder="Assignment Source" />
                 </th>
                 <th>
                     <div className="float-right margin-bottom">
