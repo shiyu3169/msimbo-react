@@ -8,20 +8,26 @@ const AssignmentHead = props => {
             <th>Assignment</th>
             <th>Due Date</th>
             <th>
-                <div className="float-right">
-                    <button
-                        onClick={props.createAssignment}
-                        className="btn btn-outline-primary"
-                    >
-                        <i className="fas fa-plus fa-lg" />
-                    </button>
-                </div>
+                {props.currentUser.admin && (
+                    <div className="float-right">
+                        <button
+                            onClick={props.createAssignment}
+                            className="btn btn-outline-primary"
+                        >
+                            <i className="fas fa-plus fa-lg" />
+                        </button>
+                    </div>
+                )}
             </th>
         </tr>
     );
 };
 
+const mapStateToProps = state => ({
+    currentUser: state.user.currentUser
+});
+
 export default connect(
-    null,
+    mapStateToProps,
     { createAssignment }
 )(AssignmentHead);
