@@ -1,6 +1,11 @@
 import React, { Component } from "react";
-
-export default class DeleteGrade extends Component {
+import { connect } from "react-redux";
+import { deleteGrade } from "../../actions/gradeActions";
+import $ from "jquery";
+class DeleteGrade extends Component {
+    onDelete = id => {
+        this.props.deleteGrade(id).then($(`#remove${id}`).modal("hide"));
+    };
     render() {
         const { name, _id } = this.props.grade;
         return (
@@ -44,7 +49,11 @@ export default class DeleteGrade extends Component {
                             >
                                 Close
                             </button>
-                            <button type="button" className="btn btn-danger">
+                            <button
+                                type="button"
+                                className="btn btn-danger"
+                                onClick={this.onDelete.bind(this, _id)}
+                            >
                                 Delete
                             </button>
                         </div>
@@ -54,3 +63,8 @@ export default class DeleteGrade extends Component {
         );
     }
 }
+
+export default connect(
+    null,
+    { deleteGrade }
+)(DeleteGrade);

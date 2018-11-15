@@ -7,12 +7,12 @@ export const GET_USERS = "GET_USERS";
 export const GET_USER = "GET_USER";
 export const EDIT_USER = "EDIT";
 export const UPDATE_USER = "UPDATE";
-// Grade
-export const GET_GRADES_BY_USER = "GET_GRADES_BY_USER";
 // Resource
 export const GET_RESOURCES = "GET_RESOURCES";
 //Grade
+export const GET_GRADES_BY_USER = "GET_GRADES_BY_USER";
 export const ADD_GRADE = "ADD_GRADE";
+export const DELETE_GRADE = "DELETE_GRADE";
 // Assignment
 export const GET_ASSIGNMENTS = "GET_ASSIGNMENTS";
 export const CREATE_ASSIGNMENT = "CREATE_ASSIGNMENT";
