@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Comment from "./Comment";
-import DeleteGrade from "./DeleteGrade";
+import EditGrade from "./EditGrade";
 export default class Grade extends Component {
     render() {
         const { name, score, _id } = this.props.grade;
@@ -18,14 +18,14 @@ export default class Grade extends Component {
                         Show Comment
                     </button>
                     <button
-                        className="btn btn-outline-danger float-right"
+                        className="btn btn-outline-warning float-right"
                         data-toggle="modal"
-                        data-target={`#remove${_id}`}
+                        data-target={`#edit${_id}`}
                     >
-                        <i className="far fa-trash-alt" />
+                        <i className="fas fa-edit" />
                     </button>
                     <Comment grade={grade} />
-                    <DeleteGrade grade={grade} />
+                    <EditGrade grade={grade} />
                 </td>
             </tr>
         );
