@@ -9,7 +9,8 @@ const InputGroup = ({
     rows,
     onChange,
     error,
-    value
+    value,
+    id
 }) => {
     return (
         <div className="form-group">
@@ -22,7 +23,7 @@ const InputGroup = ({
                 <textarea
                     type={type}
                     name={name}
-                    id={name}
+                    id={id}
                     placeholder={placeholder}
                     className="form-control"
                     rows={rows}
@@ -33,7 +34,7 @@ const InputGroup = ({
                 <input
                     type={type}
                     name={name}
-                    id={name}
+                    id={id}
                     placeholder={placeholder}
                     className="form-control"
                     onChange={onChange}
@@ -53,7 +54,8 @@ InputGroup.propTypes = {
     rows: PropTypes.string,
     onChange: PropTypes.func,
     error: PropTypes.string,
-    value: PropTypes.any
+    value: PropTypes.any,
+    id: PropTypes.string
 };
 
 InputGroup.defaultProps = {

@@ -56,7 +56,7 @@ class EditGrade extends Component {
                             </button>
                         </div>
                         <div className="modal-body">
-                            <form>
+                            <form onSubmit={this.onSubmit}>
                                 <div className="row">
                                     <div className="col-6">
                                         <InputGroup
