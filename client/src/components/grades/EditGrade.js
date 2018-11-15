@@ -5,12 +5,34 @@ import $ from "jquery";
 import { deleteGrade } from "../../actions/gradeActions";
 
 class EditGrade extends Component {
+    state = {
+        name: "",
+        score: 0,
+        comment: ""
+    };
+
+    componentDidMount() {
+        const { name, score, comment } = this.props.grade;
+        this.setState({
+            name,
+            score,
+            comment
+        });
+    }
+
+    onChange = e => {
+        this.setState({
+            [e.target.name]: e.target.value
+        });
+    };
+
     onDelete = id => {
         this.props.deleteGrade(id).then($(`#edit${id}`).modal("hide"));
     };
+
     render() {
         const { _id } = this.props.grade;
-
+        const { name, score, comment } = this.state;
         return (
             <div
                 className="modal fade"
@@ -41,6 +63,8 @@ class EditGrade extends Component {
                                             label="Name"
                                             name="name"
                                             placeholder="Grade Name..."
+                                            onChange={this.onChange}
+                                            value={name}
                                         />
                                     </div>
                                     <div className="col-6">
@@ -49,6 +73,8 @@ class EditGrade extends Component {
                                             name="score"
                                             type="number"
                                             placeholder="Grade Score..."
+                                            onChange={this.onChange}
+                                            value={score}
                                         />
                                     </div>
                                 </div>
@@ -57,6 +83,8 @@ class EditGrade extends Component {
                                     name="comment"
                                     rows="5"
                                     placeholder="Grade Comment..."
+                                    onChange={this.onChange}
+                                    value={comment}
                                 />
                                 <div className="row">
                                     <div className="col-6">

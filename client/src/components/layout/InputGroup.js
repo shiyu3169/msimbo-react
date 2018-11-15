@@ -53,7 +53,7 @@ InputGroup.propTypes = {
     rows: PropTypes.string,
     onChange: PropTypes.func,
     error: PropTypes.string,
-    value: PropTypes.string
+    value: PropTypes.any
 };
 
 InputGroup.defaultProps = {
