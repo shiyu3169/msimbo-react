@@ -15,6 +15,9 @@ export default class Grade extends Component {
                     >
                         Show Comment
                     </button>
+                    <button className="btn btn-outline-danger float-right">
+                        <i className="far fa-trash-alt" />
+                    </button>
                     <Comment grade={this.props.grade} />
                 </td>
             </tr>
