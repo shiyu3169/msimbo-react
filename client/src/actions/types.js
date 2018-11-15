@@ -17,6 +17,7 @@ export const UPDATE_GRADE = "UPDATE_GRADE";
 // Assignment
 export const GET_ASSIGNMENTS = "GET_ASSIGNMENTS";
 export const CREATE_ASSIGNMENT = "CREATE_ASSIGNMENT";
+export const ADD_ASSIGNMENT = "ADD_ASSIGNMENT";
 // Error
 export const ADD_ERROR = "ADD_ERROR";
 export const GET_ERROR = "GET_ERROR";

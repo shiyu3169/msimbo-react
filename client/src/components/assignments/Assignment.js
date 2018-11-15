@@ -25,13 +25,6 @@ class Assignment extends Component {
                         >
                             <i className="fas fa-edit fa-lg" />
                         </button>
-                        <button
-                            className="btn btn-outline-danger sw-margin-left"
-                            data-toggle="modal"
-                            data-target="#removeModal"
-                        >
-                            <i className="far fa-trash-alt fa-lg" />
-                        </button>
                     </div>
                 </td>
             </tr>

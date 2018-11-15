@@ -1,4 +1,4 @@
-import { GET_ASSIGNMENTS, CREATE_ASSIGNMENT } from "./types";
+import { GET_ASSIGNMENTS, CREATE_ASSIGNMENT, ADD_ASSIGNMENT } from "./types";
 import axios from "axios";
 
 export const getAssignments = () => async dispatch => {
@@ -12,5 +12,13 @@ export const getAssignments = () => async dispatch => {
 export const createAssignment = () => async dispatch => {
     dispatch({
         type: CREATE_ASSIGNMENT
+    });
+};
+
+export const addAssignment = assignment => async dispatch => {
+    const res = await axios.post("/api/assignment", assignment);
+    dispatch({
+        type: ADD_ASSIGNMENT,
+        payload: res.data
     });
 };

@@ -1,26 +1,67 @@
 import React, { Component } from "react";
 import InputGroup from "../layout/InputGroup";
+import { connect } from "react-redux";
+import {
+    addAssignment,
+    createAssignment
+} from "../../actions/assignmentActions";
+class AssignmentNew extends Component {
+    state = {
+        name: "",
+        due: "",
+        src: ""
+    };
 
-export default class AssignmentNew extends Component {
+    onChange = e => {
+        this.setState({
+            [e.target.name]: e.target.value
+        });
+    };
+
+    onSubmit = e => {
+        e.preventDefault();
+        const { name, due, src } = this.state;
+        const { addAssignment, createAssignment } = this.props;
+        const assignment = {
+            name,
+            due,
+            src
+        };
+        addAssignment(assignment).then(createAssignment());
+    };
+
     render() {
         return (
             <tr>
                 <th className="row">
                     <div className="col-6">
-                        <InputGroup name="name" placeholder="Assignment Name" />
+                        <InputGroup
+                            name="name"
+                            placeholder="Assignment Name"
+                            onChange={this.onChange}
+                        />
                     </div>
                     <div className="col-6">
                         <InputGroup
                             name="due"
                             placeholder="Assignment Due Date"
+                            type="date"
+                            onChange={this.onChange}
                         />
                     </div>
                 </th>
                 <th>
-                    <InputGroup name="src" placeholder="Assignment Source" />
+                    <InputGroup
+                        name="src"
+                        placeholder="Assignment Source"
+                        onChange={this.onChange}
+                    />
                 </th>
                 <th>
-                    <div className="float-right margin-bottom">
+                    <div
+                        onClick={this.onSubmit}
+                        className="float-right margin-bottom"
+                    >
                         <button className="btn btn-outline-success">
                             Submit
                         </button>
@@ -30,3 +71,8 @@ export default class AssignmentNew extends Component {
         );
     }
 }
+
+export default connect(
+    null,
+    { addAssignment, createAssignment }
+)(AssignmentNew);
