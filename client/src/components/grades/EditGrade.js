@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import InputGroup from "../layout/InputGroup";
 import { connect } from "react-redux";
 import $ from "jquery";
-import { deleteGrade } from "../../actions/gradeActions";
+import { deleteGrade, updateGrade } from "../../actions/gradeActions";
 
 class EditGrade extends Component {
     state = {
@@ -28,6 +28,20 @@ class EditGrade extends Component {
 
     onDelete = id => {
         this.props.deleteGrade(id).then($(`#edit${id}`).modal("hide"));
+    };
+
+    onSubmit = e => {
+        e.preventDefault();
+        const { name, score, comment } = this.state;
+        const { _id, user } = this.props.grade;
+        const grade = {
+            name,
+            score,
+            comment,
+            user,
+            _id
+        };
+        this.props.updateGrade(grade).then($(`#edit${_id}`).modal("hide"));
     };
 
     render() {
@@ -116,5 +130,5 @@ class EditGrade extends Component {
 
 export default connect(
     null,
-    { deleteGrade }
+    { deleteGrade, updateGrade }
 )(EditGrade);

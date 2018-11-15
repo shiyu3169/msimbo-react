@@ -1,4 +1,9 @@
-import { GET_GRADES_BY_USER, ADD_GRADE, DELETE_GRADE } from "../actions/types";
+import {
+    GET_GRADES_BY_USER,
+    ADD_GRADE,
+    DELETE_GRADE,
+    UPDATE_GRADE
+} from "../actions/types";
 
 const initialState = {
     grades: [],
@@ -23,6 +28,15 @@ export default function(state = initialState, action) {
                 grades: state.grades.filter(grade => {
                     return grade._id !== action.payload;
                 })
+            };
+        case UPDATE_GRADE:
+            return {
+                ...state,
+                grades: state.grades.map(grade =>
+                    grade._id === action.payload._id
+                        ? (grade = action.payload)
+                        : grade
+                )
             };
         default:
             return state;

@@ -1,4 +1,9 @@
-import { GET_GRADES_BY_USER, ADD_GRADE, DELETE_GRADE } from "./types";
+import {
+    GET_GRADES_BY_USER,
+    ADD_GRADE,
+    DELETE_GRADE,
+    UPDATE_GRADE
+} from "./types";
 import axios from "axios";
 
 export const getGradesByUser = uid => async dispatch => {
@@ -22,5 +27,13 @@ export const deleteGrade = id => async dispatch => {
     dispatch({
         type: DELETE_GRADE,
         payload: id
+    });
+};
+
+export const updateGrade = grade => async dispatch => {
+    await axios.put(`/api/grade/${grade._id}`, grade);
+    dispatch({
+        type: UPDATE_GRADE,
+        payload: grade
     });
 };

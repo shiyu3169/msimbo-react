@@ -13,6 +13,7 @@ export const GET_RESOURCES = "GET_RESOURCES";
 export const GET_GRADES_BY_USER = "GET_GRADES_BY_USER";
 export const ADD_GRADE = "ADD_GRADE";
 export const DELETE_GRADE = "DELETE_GRADE";
+export const UPDATE_GRADE = "UPDATE_GRADE";
 // Assignment
 export const GET_ASSIGNMENTS = "GET_ASSIGNMENTS";
 export const CREATE_ASSIGNMENT = "CREATE_ASSIGNMENT";
