@@ -1,12 +1,14 @@
 import {
     GET_ASSIGNMENTS,
     CREATE_ASSIGNMENT,
-    ADD_ASSIGNMENT
+    ADD_ASSIGNMENT,
+    EDIT_ASSIGNMENT
 } from "../actions/types";
 
 const initialState = {
     assignments: [],
-    creating: false
+    creating: false,
+    editing: ""
 };
 
 export default function(state = initialState, action) {
@@ -25,6 +27,11 @@ export default function(state = initialState, action) {
             return {
                 ...state,
                 assignments: [action.payload, ...state.assignments]
+            };
+        case EDIT_ASSIGNMENT:
+            return {
+                ...state,
+                editing: action.payload
             };
         default:
             return state;

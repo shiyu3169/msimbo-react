@@ -1,38 +1,24 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import AssignmentInfo from "./AssignmentInfo";
+import AssignmentEdit from "./AssignmentEdit";
 
 class Assignment extends Component {
     render() {
-        const { assignment } = this.props;
-        return (
-            <tr>
-                <td>
-                    <a
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        href={assignment.src}
-                    >
-                        {assignment.name}
-                    </a>
-                </td>
-                <td>{assignment.due}</td>
-                <td>
-                    <div className="float-right">
-                        <button
-                            className="btn btn-outline-warning sw-margin-left"
-                            data-toggle="modal"
-                            data-target="#editModal"
-                        >
-                            <i className="fas fa-edit fa-lg" />
-                        </button>
-                    </div>
-                </td>
-            </tr>
-        );
+        const { assignment, editing } = this.props;
+        if (editing === assignment._id) {
+            return <AssignmentEdit assignment={assignment} />;
+        } else {
+            return <AssignmentInfo assignment={assignment} />;
+        }
     }
 }
 
+const mapStateToProps = state => ({
+    editing: state.assignment.editing
+});
+
 export default connect(
-    null,
+    mapStateToProps,
     {}
 )(Assignment);
