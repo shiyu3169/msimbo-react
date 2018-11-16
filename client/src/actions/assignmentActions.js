@@ -46,7 +46,7 @@ export const deleteAssignment = id => async dispatch => {
 };
 
 export const updateAssignment = assignment => async dispatch => {
-    await axios.put(`/api/assignment/${assignment._id}`);
+    await axios.put(`/api/assignment/${assignment._id}`, assignment);
     dispatch({
         type: UPDATE_ASSIGNMENT,
         payload: assignment

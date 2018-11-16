@@ -13,6 +13,15 @@ class AssignmentEdit extends Component {
         src: ""
     };
 
+    componentDidMount() {
+        const { name, due, src } = this.props.assignment;
+        this.setState({
+            name,
+            due,
+            src
+        });
+    }
+
     onChange = e => {
         this.setState({
             [e.target.name]: e.target.value
@@ -27,16 +36,29 @@ class AssignmentEdit extends Component {
         this.props.deleteAssignment(id);
     };
 
-    onSubmit = () => {};
+    onSubmit = () => {
+        const { name, src, due } = this.state;
+        const assignment = {
+            name,
+            src,
+            due,
+            _id: this.props.assignment._id
+        };
+
+        this.props.updateAssignment(assignment).then(() => {
+            this.props.editAssignment("");
+        });
+    };
 
     render() {
         const { assignment } = this.props;
+        const { name, src, due } = this.state;
         return (
             <tr>
                 <td>
                     <InputGroup
                         name="name"
-                        value={assignment.name}
+                        value={name}
                         placeholder="Assignment Name..."
                         onChange={this.onChange}
                     />
@@ -44,7 +66,7 @@ class AssignmentEdit extends Component {
                 <td>
                     <InputGroup
                         name="due"
-                        value={assignment.due}
+                        value={due}
                         placeholder="Assignment Due Date..."
                         type="date"
                         onChange={this.onChange}
@@ -53,14 +75,17 @@ class AssignmentEdit extends Component {
                 <td>
                     <InputGroup
                         name="src"
-                        value={assignment.src}
+                        value={src}
                         placeholder="Assignment Source..."
                         onChange={this.onChange}
                     />
                 </td>
                 <td>
                     <div className="float-right">
-                        <button className="btn btn-outline-success">
+                        <button
+                            className="btn btn-outline-success"
+                            onClick={this.onSubmit}
+                        >
                             Submit
                         </button>
                         <button
