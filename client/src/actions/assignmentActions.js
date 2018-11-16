@@ -2,7 +2,9 @@ import {
     GET_ASSIGNMENTS,
     CREATE_ASSIGNMENT,
     ADD_ASSIGNMENT,
-    EDIT_ASSIGNMENT
+    EDIT_ASSIGNMENT,
+    DELETE_ASSIGNMENT,
+    UPDATE_ASSIGNMENT
 } from "./types";
 import axios from "axios";
 
@@ -32,5 +34,21 @@ export const editAssignment = id => async dispatch => {
     dispatch({
         type: EDIT_ASSIGNMENT,
         payload: id
+    });
+};
+
+export const deleteAssignment = id => async dispatch => {
+    await axios.delete(`/api/assignment/${id}`);
+    dispatch({
+        type: DELETE_ASSIGNMENT,
+        payload: id
+    });
+};
+
+export const updateAssignment = assignment => async dispatch => {
+    await axios.put(`/api/assignment/${assignment._id}`);
+    dispatch({
+        type: UPDATE_ASSIGNMENT,
+        payload: assignment
     });
 };

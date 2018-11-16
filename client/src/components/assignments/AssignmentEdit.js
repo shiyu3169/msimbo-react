@@ -1,7 +1,11 @@
 import React, { Component } from "react";
 import InputGroup from "../layout/InputGroup";
 import { connect } from "react-redux";
-import { editAssignment } from "../../actions/assignmentActions";
+import {
+    editAssignment,
+    deleteAssignment,
+    updateAssignment
+} from "../../actions/assignmentActions";
 class AssignmentEdit extends Component {
     state = {
         name: "",
@@ -18,6 +22,12 @@ class AssignmentEdit extends Component {
     onCancel = () => {
         this.props.editAssignment("");
     };
+
+    onDelete = id => {
+        this.props.deleteAssignment(id);
+    };
+
+    onSubmit = () => {};
 
     render() {
         const { assignment } = this.props;
@@ -53,7 +63,10 @@ class AssignmentEdit extends Component {
                         <button className="btn btn-outline-success">
                             Submit
                         </button>
-                        <button className="btn btn-outline-danger">
+                        <button
+                            className="btn btn-outline-danger"
+                            onClick={this.onDelete.bind(this, assignment._id)}
+                        >
                             Delete
                         </button>
                         <button
@@ -71,5 +84,5 @@ class AssignmentEdit extends Component {
 
 export default connect(
     null,
-    { editAssignment }
+    { editAssignment, updateAssignment, deleteAssignment }
 )(AssignmentEdit);

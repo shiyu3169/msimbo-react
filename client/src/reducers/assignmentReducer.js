@@ -2,7 +2,9 @@ import {
     GET_ASSIGNMENTS,
     CREATE_ASSIGNMENT,
     ADD_ASSIGNMENT,
-    EDIT_ASSIGNMENT
+    EDIT_ASSIGNMENT,
+    DELETE_ASSIGNMENT,
+    UPDATE_ASSIGNMENT
 } from "../actions/types";
 
 const initialState = {
@@ -32,6 +34,22 @@ export default function(state = initialState, action) {
             return {
                 ...state,
                 editing: action.payload
+            };
+        case DELETE_ASSIGNMENT:
+            return {
+                ...state,
+                assignments: state.assignments.filter(
+                    assignment => assignment._id !== action.payload
+                )
+            };
+        case UPDATE_ASSIGNMENT:
+            return {
+                ...state,
+                assignments: state.assignments.map(assignment =>
+                    assignment._id === action.payload._id
+                        ? (assignment = action.payload)
+                        : assignment
+                )
             };
         default:
             return state;
