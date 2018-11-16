@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { getResources } from "../../actions/resourceActions";
 import Resource from "./Resource";
 import ResourceHead from "./ResourceHead";
+import ResourceNew from "./ResourceNew";
 
 class Resources extends Component {
     componentDidMount() {
@@ -11,12 +12,12 @@ class Resources extends Component {
     }
 
     render() {
-        const { resources } = this.props;
+        const { resources, creating } = this.props;
         return (
             <div className="sw-bg-white">
                 <div className="container-fluid">
                     <table className="table table-striped table-hover">
-                        <ResourceHead />
+                        {creating ? <ResourceNew /> : <ResourceHead />}
                         <tbody>
                             {resources.map(resource => (
                                 <Resource
@@ -38,7 +39,8 @@ Resources.propTypes = {
 };
 
 const mapStateToProps = state => ({
-    resources: state.resource.resources
+    resources: state.resource.resources,
+    creating: state.resource.creating
 });
 
 export default connect(

@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import InputGroup from "../layout/InputGroup";
-export default class ResourceHead extends Component {
+import { connect } from "react-redux";
+
+class ResourceHead extends Component {
     render() {
         return (
             <thead>
@@ -25,3 +27,8 @@ export default class ResourceHead extends Component {
         );
     }
 }
+
+export default connect(
+    null,
+    {}
+)(ResourceHead);
