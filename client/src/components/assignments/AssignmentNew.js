@@ -31,6 +31,7 @@ class AssignmentNew extends Component {
     };
 
     render() {
+        const { createAssignment } = this.props;
         return (
             <tr>
                 <th className="row">
@@ -58,12 +59,18 @@ class AssignmentNew extends Component {
                     />
                 </th>
                 <th>
-                    <div
-                        onClick={this.onSubmit}
-                        className="float-right margin-bottom"
-                    >
-                        <button className="btn btn-outline-success">
+                    <div className="float-right margin-bottom">
+                        <button
+                            onClick={this.onSubmit}
+                            className="btn btn-outline-success"
+                        >
                             Submit
+                        </button>
+                        <button
+                            className="btn btn-outline-danger"
+                            onClick={createAssignment}
+                        >
+                            Cancel
                         </button>
                     </div>
                 </th>
