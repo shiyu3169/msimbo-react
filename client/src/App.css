@@ -247,3 +247,7 @@ body {
 .margin-bottom {
     margin-bottom: 1rem;
 }
+
+a:hover {
+    text-decoration: none;
+}
