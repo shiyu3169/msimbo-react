@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import InputGroup from "../layout/InputGroup";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { getResources } from "../../actions/resourceActions";
 import Resource from "./Resource";
+import ResourceHead from "./ResourceHead";
 
 class Resources extends Component {
     componentDidMount() {
@@ -16,25 +16,7 @@ class Resources extends Component {
             <div className="sw-bg-white">
                 <div className="container-fluid">
                     <table className="table table-striped table-hover">
-                        <thead>
-                            <tr>
-                                <th>Resources</th>
-                                <th>
-                                    <button className="btn btn-outline-primary float-right">
-                                        <i className="fas fa-plus fa-lg" />
-                                    </button>
-                                </th>
-                            </tr>
-                            <tr>
-                                <th>
-                                    <InputGroup
-                                        type="text"
-                                        name="inputName"
-                                        placeholder="Seaching Resources..."
-                                    />
-                                </th>
-                            </tr>
-                        </thead>
+                        <ResourceHead />
                         <tbody>
                             {resources.map(resource => (
                                 <Resource
