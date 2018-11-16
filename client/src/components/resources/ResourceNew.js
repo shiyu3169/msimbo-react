@@ -17,14 +17,6 @@ class ResourceNew extends Component {
                             onChange={this.onChange}
                         />
                     </div>
-                    <div className="col-6">
-                        <InputGroup
-                            name="due"
-                            placeholder="Resource Due Date"
-                            type="date"
-                            onChange={this.onChange}
-                        />
-                    </div>
                 </th>
                 <th>
                     <InputGroup

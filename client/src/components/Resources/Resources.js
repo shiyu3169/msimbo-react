@@ -5,6 +5,7 @@ import { getResources } from "../../actions/resourceActions";
 import Resource from "./Resource";
 import ResourceHead from "./ResourceHead";
 import ResourceNew from "./ResourceNew";
+import InputGroup from "../layout/InputGroup";
 
 class Resources extends Component {
     componentDidMount() {
@@ -17,7 +18,18 @@ class Resources extends Component {
             <div className="sw-bg-white">
                 <div className="container-fluid">
                     <table className="table table-striped table-hover">
-                        {creating ? <ResourceNew /> : <ResourceHead />}
+                        <thead>
+                            {creating ? <ResourceNew /> : <ResourceHead />}
+                            <tr>
+                                <th>
+                                    <InputGroup
+                                        type="text"
+                                        name="inputName"
+                                        placeholder="Seaching Resources..."
+                                    />
+                                </th>
+                            </tr>
+                        </thead>
                         <tbody>
                             {resources.map(resource => (
                                 <Resource
