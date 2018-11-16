@@ -8,9 +8,13 @@ export default class Resource extends Component {
         return (
             <tr>
                 <td>
-                    <Link className="link" to={`/resource/${resource._id}`}>
+                    <a
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href={resource.src}
+                    >
                         {resource.name}
-                    </Link>
+                    </a>
                 </td>
                 <td>
                     <div className="float-right">
