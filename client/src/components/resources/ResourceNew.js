@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import InputGroup from "../layout/InputGroup";
+import { addResource, createResource } from "../../actions/resourceActions";
+
 class ResourceNew extends Component {
     onChange = () => {};
     onSubmit = () => {};
@@ -36,6 +38,7 @@ class ResourceNew extends Component {
                         <button
                             className="btn btn-outline-danger"
                             onClick={createResource}
+                            type="button"
                         >
                             Cancel
                         </button>
@@ -48,5 +51,5 @@ class ResourceNew extends Component {
 
 export default connect(
     null,
-    {}
+    { addResource, createResource }
 )(ResourceNew);

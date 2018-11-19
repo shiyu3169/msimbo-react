@@ -16,7 +16,7 @@ export const getResources = () => async dispatch => {
     });
 };
 
-export const createReousrce = () => async dispatch => {
+export const createResource = () => async dispatch => {
     dispatch({
         type: CREATE_RESOURCE
     });
