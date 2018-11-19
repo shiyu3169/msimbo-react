@@ -6,6 +6,7 @@ import Resource from "./Resource";
 import ResourceHead from "./ResourceHead";
 import ResourceNew from "./ResourceNew";
 import InputGroup from "../layout/InputGroup";
+import BackToTop from "../layout/BackToTop";
 
 class Resources extends Component {
     componentDidMount() {
@@ -40,6 +41,7 @@ class Resources extends Component {
                         </tbody>
                     </table>
                 </div>
+                <BackToTop />
             </div>
         );
     }

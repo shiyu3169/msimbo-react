@@ -1,5 +1,19 @@
 import React from "react";
+import $ from "jquery";
 
 export default function BackToTop() {
-    return <a href="" className="btn btn-dark" />;
+    const scroll = () => {
+        $("html,body").animate({
+            scrollTop: $("#top").offset().top
+        });
+    };
+
+    return (
+        <button
+            onClick={scroll}
+            className="btn btn-outline-dark fixed-bottom-right"
+        >
+            <i class="fas fa-level-up-alt" />
+        </button>
+    );
 }

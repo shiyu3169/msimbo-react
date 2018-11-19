@@ -5,6 +5,7 @@ import InputGroup from "../layout/InputGroup";
 import { getUsers, filterUser, changeFilter } from "../../actions/userActions";
 import Student from "./Student";
 import Seasons from "./Seasons";
+import BackToTop from "../layout/BackToTop";
 
 class Students extends Component {
     state = {
@@ -53,6 +54,7 @@ class Students extends Component {
                         ))}
                     </ul>
                 </div>
+                <BackToTop />
             </div>
         );
     }

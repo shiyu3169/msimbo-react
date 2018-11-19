@@ -17,6 +17,12 @@ body {
     background: rgba(10, 10, 10, 0.9);
 }
 
+.fixed-bottom-right {
+    position: fixed;
+    bottom: 5vh;
+    right: 5vh;
+}
+
 .btn-white {
     border: 1px solid;
     border-color: rgb(185, 185, 185);
