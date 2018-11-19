@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Season from "./Season";
-import { filterUser } from "../../actions/userActions";
+import { filterUser, changeFilter } from "../../actions/userActions";
 class Seasons extends Component {
     state = {
         seasons: new Set()
@@ -40,19 +40,21 @@ class Seasons extends Component {
         }
     }
 
-    active = e => {
+    active = async e => {
         const activedButton = document.querySelector(".active");
         activedButton.classList.remove("active");
         e.target.classList.add("active");
         const content = e.target.textContent.split(" ");
+        const filter = this.props.filter;
         if (e.target.textContent !== "All") {
-            const filter = {
-                type: "date",
-                text: content[1],
-                season: content[0]
-            };
-            this.props.filterUser(filter);
+            filter.season = content[0];
+            filter.year = content[1];
+        } else {
+            filter.season = "";
+            filter.year = "";
         }
+        await this.props.changeFilter(filter);
+        this.props.filterUser();
     };
 
     render() {
@@ -76,10 +78,11 @@ class Seasons extends Component {
 }
 
 const mapStateToProps = state => ({
-    users: state.user.users
+    users: state.user.users,
+    filter: state.user.filter
 });
 
 export default connect(
     mapStateToProps,
-    { filterUser }
+    { filterUser, changeFilter }
 )(Seasons);
