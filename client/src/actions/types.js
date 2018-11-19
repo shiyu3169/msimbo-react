@@ -8,6 +8,7 @@ export const GET_USER = "GET_USER";
 export const EDIT_USER = "EDIT";
 export const UPDATE_USER = "UPDATE";
 export const FILTER_USERS = "FILTER_USERS";
+export const CHANGE_FILTER = "CHANGE_FILTER";
 // Resource
 export const GET_RESOURCES = "GET_RESOURCES";
 export const CREATE_RESOURCE = "CREATE_RESOURCE";

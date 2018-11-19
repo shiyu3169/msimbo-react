@@ -2,12 +2,15 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import InputGroup from "../layout/InputGroup";
-import { getUsers, filterUser } from "../../actions/userActions";
+import { getUsers, filterUser, changeFilter } from "../../actions/userActions";
 import Student from "./Student";
+import Seasons from "./Seasons";
 
 class Students extends Component {
     state = {
-        text: ""
+        name: "",
+        season: "",
+        year: ""
     };
 
     componentDidMount() {
@@ -18,11 +21,17 @@ class Students extends Component {
         await this.setState({
             [e.target.name]: e.target.value
         });
+        this.onSubmit();
+    };
+
+    onSubmit = async () => {
         const filter = {
-            text: this.state.text.toUpperCase(),
-            type: "name"
+            name: this.state.name.toUpperCase(),
+            season: this.state.season,
+            year: this.state.year
         };
-        this.props.filterUser(filter);
+        await this.props.changeFilter(filter);
+        this.props.filterUser();
     };
 
     render() {
@@ -31,8 +40,9 @@ class Students extends Component {
             <div className="sw-bg-white">
                 <div className="container">
                     <h3 className="sw-red">Our Students</h3>
+                    <Seasons />
                     <InputGroup
-                        name="text"
+                        name="name"
                         type="text"
                         placeholder="Seaching by Student Name..."
                         onChange={this.onChange}
@@ -59,5 +69,5 @@ const mapStateToProps = state => ({
 
 export default connect(
     mapStateToProps,
-    { getUsers, filterUser }
+    { getUsers, filterUser, changeFilter }
 )(Students);

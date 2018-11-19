@@ -7,7 +7,8 @@ import {
     EDIT_USER,
     UPDATE_USER,
     GET_USER,
-    FILTER_USERS
+    FILTER_USERS,
+    CHANGE_FILTER
 } from "./types";
 import axios from "axios";
 
@@ -71,9 +72,15 @@ export const edit = () => dispatch => {
     });
 };
 
-export const filterUser = filter => dispatch => {
+export const filterUser = () => dispatch => {
     dispatch({
-        type: FILTER_USERS,
+        type: FILTER_USERS
+    });
+};
+
+export const changeFilter = filter => dispatch => {
+    dispatch({
+        type: CHANGE_FILTER,
         payload: filter
     });
 };

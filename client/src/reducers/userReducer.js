@@ -7,15 +7,17 @@ import {
     EDIT_USER,
     UPDATE_USER,
     GET_USER,
-    FILTER_USERS
+    FILTER_USERS,
+    CHANGE_FILTER
 } from "../actions/types";
 
 const initialState = {
-    allUsers: [],
     users: [],
     currentUser: 0,
     editing: false,
-    profile: 0
+    profile: 0,
+    allUsers: [],
+    filter: { name: "", season: "", year: "" }
 };
 
 export default function(state = initialState, action) {
@@ -23,8 +25,9 @@ export default function(state = initialState, action) {
         case GET_USERS:
             return {
                 ...state,
-                allUsers: action.payload,
-                users: action.payload
+
+                users: action.payload,
+                allUsers: action.payload
             };
         case LOGIN:
             return {
@@ -60,59 +63,31 @@ export default function(state = initialState, action) {
                 ...state,
                 profile: action.payload
             };
+        case CHANGE_FILTER:
+            return {
+                ...state,
+                filter: action.payload
+            };
         case FILTER_USERS:
-            if (action.payload.text !== "") {
-                switch (action.payload.type) {
-                    case "name":
-                        return {
-                            ...state,
-                            users: state.users.filter(
-                                user =>
-                                    user.firstName
-                                        .toUpperCase()
-                                        .includes(action.payload.text) ||
-                                    user.lastName
-                                        .toUpperCase()
-                                        .includes(action.payload.text)
-                            )
-                        };
-                    case "time":
-                        if (action.payload.season === "Spring") {
-                            return {
-                                ...state,
-                                users: state.usrs.filter(
-                                    user =>
-                                        new Date(user.dateCreated)
-                                            .getFullYear()
-                                            .toString.includes(
-                                                action.payload.text
-                                            ) ||
-                                        new Date(user.dateCreated).getMonth() <=
-                                            6
-                                )
-                            };
-                        } else {
-                            return {
-                                ...state,
-                                users: state.usrs.filter(
-                                    user =>
-                                        new Date(user.dateCreated)
-                                            .getFullYear()
-                                            .toString.includes(
-                                                action.payload.text
-                                            ) ||
-                                        new Date(user.dateCreated).getMonth() >
-                                            6
-                                )
-                            };
-                        }
-
-                    default:
-                        return state;
-                }
-            } else {
-                return { ...state, users: state.allUsers };
-            }
+            state.users = state.allUsers;
+            return {
+                ...state,
+                users: state.users.filter(user => {
+                    return (
+                        (user.firstName + user.lastName)
+                            .toUpperCase()
+                            .includes(state.filter.name) &&
+                        (new Date(user.dateCraeted).getFullYear.toString() ===
+                            state.filter.year ||
+                            state.filter.year === "") &&
+                        ((new Date(user.dateCraeted).getMonth <= 6 &&
+                            state.filter.season === "Spring") ||
+                            (new Date(user.dateCraeted).getMonth > 6 &&
+                                state.filter.season === "Fall") ||
+                            state.filter.season === "")
+                    );
+                })
+            };
         default:
             return state;
     }
