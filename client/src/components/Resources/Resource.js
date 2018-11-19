@@ -1,35 +1,29 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import ResourceInfo from "./ResourceInfo";
+import ResourceEdit from "./ResourceEdit";
 
-export default class Resource extends Component {
+class Resource extends Component {
     render() {
-        const { resource } = this.props;
-        return (
-            <tr>
-                <td>
-                    <a
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        href={resource.src}
-                    >
-                        {resource.name}
-                    </a>
-                </td>
-                <td>
-                    <div className="float-right">
-                        <button className="btn btn-outline-warning">
-                            <i className="fas fa-edit fa-lg" />
-                        </button>
-                        <button className="btn btn-outline-danger">
-                            <i className="far fa-trash-alt fa-lg" />
-                        </button>
-                    </div>
-                </td>
-            </tr>
-        );
+        const { resource, editing } = this.props;
+        if (editing === resource._id) {
+            return <ResourceEdit resource={resource} />;
+        } else {
+            return <ResourceInfo resource={resource} />;
+        }
     }
 }
+
+const mapStateToProps = state => ({
+    editing: state.resource.editing
+});
 
 Resource.propTypes = {
     resource: PropTypes.object.isRequired
 };
+
+export default connect(
+    mapStateToProps,
+    {}
+)(Resource);

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import InputGroup from "../layout/InputGroup";
 import { connect } from "react-redux";
 import { createResource } from "../../actions/resourceActions";
 class ResourceHead extends Component {
