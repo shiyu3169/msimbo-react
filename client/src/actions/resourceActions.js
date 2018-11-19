@@ -9,7 +9,7 @@ import {
 import axios from "axios";
 
 export const getResources = () => async dispatch => {
-    const res = await axios.get("/api/wiki");
+    const res = await axios.get("/api/resource");
     dispatch({
         type: GET_RESOURCES,
         payload: res.data

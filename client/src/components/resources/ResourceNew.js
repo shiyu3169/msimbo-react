@@ -4,8 +4,26 @@ import InputGroup from "../layout/InputGroup";
 import { addResource, createResource } from "../../actions/resourceActions";
 
 class ResourceNew extends Component {
-    onChange = () => {};
-    onSubmit = () => {};
+    state = {
+        name: "",
+        src: ""
+    };
+
+    onChange = e => {
+        this.setState({
+            [e.target.name]: e.target.value
+        });
+    };
+    onSubmit = e => {
+        e.preventDefault();
+        const { name, src } = this.state;
+        const { addResource, createResource } = this.props;
+        const resource = {
+            name,
+            src
+        };
+        addResource(resource).then(createResource());
+    };
 
     render() {
         const { createResource } = this.props;
