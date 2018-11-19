@@ -6,7 +6,8 @@ import {
     LOGOUT,
     EDIT_USER,
     UPDATE_USER,
-    GET_USER
+    GET_USER,
+    FILTER_USERS
 } from "./types";
 import axios from "axios";
 
@@ -67,5 +68,12 @@ export const logout = () => async dispatch => {
 export const edit = () => dispatch => {
     dispatch({
         type: EDIT_USER
+    });
+};
+
+export const filterUser = filter => dispatch => {
+    dispatch({
+        type: FILTER_USERS,
+        payload: filter
     });
 };

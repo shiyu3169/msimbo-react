@@ -1,4 +1,4 @@
-// User
+// User, Students
 export const LOGGEDIN = "LOGGEDIN";
 export const LOGIN = "LOGIN";
 export const REGISTER = "REGISTER";
@@ -7,6 +7,7 @@ export const GET_USERS = "GET_USERS";
 export const GET_USER = "GET_USER";
 export const EDIT_USER = "EDIT";
 export const UPDATE_USER = "UPDATE";
+export const FILTER_USERS = "FILTER_USERS";
 // Resource
 export const GET_RESOURCES = "GET_RESOURCES";
 export const CREATE_RESOURCE = "CREATE_RESOURCE";

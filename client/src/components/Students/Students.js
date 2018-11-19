@@ -2,13 +2,28 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import InputGroup from "../layout/InputGroup";
-import { getUsers } from "../../actions/userActions";
+import { getUsers, filterUser } from "../../actions/userActions";
 import Student from "./Student";
 
 class Students extends Component {
+    state = {
+        text: ""
+    };
+
     componentDidMount() {
         this.props.getUsers();
     }
+
+    onChange = async e => {
+        await this.setState({
+            [e.target.name]: e.target.value
+        });
+        const filter = {
+            text: this.state.text.toUpperCase(),
+            type: "name"
+        };
+        this.props.filterUser(filter);
+    };
 
     render() {
         const { users } = this.props;
@@ -17,9 +32,10 @@ class Students extends Component {
                 <div className="container">
                     <h3 className="sw-red">Our Students</h3>
                     <InputGroup
-                        name="search"
+                        name="text"
                         type="text"
-                        placeholder="Seaching by Student Name or Registered Time..."
+                        placeholder="Seaching by Student Name..."
+                        onChange={this.onChange}
                     />
                     <ul className="list-group list-group-flush">
                         {users.map(user => (
@@ -43,5 +59,5 @@ const mapStateToProps = state => ({
 
 export default connect(
     mapStateToProps,
-    { getUsers }
+    { getUsers, filterUser }
 )(Students);
