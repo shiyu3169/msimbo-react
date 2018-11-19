@@ -20,7 +20,7 @@ class Navbar extends Component {
         const { currentUser } = this.props;
 
         return (
-            <div className="front">
+            <div className="front" id="top">
                 <nav className="navbar navbar-expand-lg navbar-dark">
                     <button
                         className="navbar-toggler"
