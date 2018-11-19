@@ -41,7 +41,8 @@ export default function(state = initialState, action) {
             };
         case REGISTER:
             return {
-                ...state
+                ...state,
+                users: [...state.users, action.payload]
             };
         case LOGOUT:
             return {
@@ -56,7 +57,7 @@ export default function(state = initialState, action) {
         case UPDATE_USER:
             return {
                 ...state,
-                currentUser: action.payload
+                profile: action.payload
             };
         case GET_USER:
             return {
