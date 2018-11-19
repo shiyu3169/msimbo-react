@@ -4,7 +4,8 @@ import {
     ADD_RESOURCE,
     EDIT_RESOURCE,
     DELETE_RESOURCE,
-    UPDATE_RESOURCE
+    UPDATE_RESOURCE,
+    FILTER_RESOURCE
 } from "./types";
 import axios from "axios";
 
@@ -50,5 +51,12 @@ export const updateResource = resource => async dispatch => {
     dispatch({
         type: UPDATE_RESOURCE,
         payload: resource
+    });
+};
+
+export const filterResource = name => dispatch => {
+    dispatch({
+        type: FILTER_RESOURCE,
+        payload: name
     });
 };

@@ -13,7 +13,7 @@ export default function BackToTop() {
             onClick={scroll}
             className="btn btn-outline-dark fixed-bottom-right"
         >
-            <i class="fas fa-level-up-alt" />
+            <i className="fas fa-level-up-alt" />
         </button>
     );
 }

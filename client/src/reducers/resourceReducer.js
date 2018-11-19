@@ -4,11 +4,13 @@ import {
     ADD_RESOURCE,
     EDIT_RESOURCE,
     DELETE_RESOURCE,
-    UPDATE_RESOURCE
+    UPDATE_RESOURCE,
+    FILTER_RESOURCE
 } from "../actions/types";
 
 const initialState = {
     resources: [],
+    allResources: [],
     creating: false,
     editing: ""
 };
@@ -18,7 +20,8 @@ export default function(state = initialState, action) {
         case GET_RESOURCES:
             return {
                 ...state,
-                resources: action.payload
+                resources: action.payload,
+                allResources: action.payload
             };
         case CREATE_RESOURCE:
             return {
@@ -50,6 +53,15 @@ export default function(state = initialState, action) {
                         ? (resource = action.payload)
                         : resource
                 )
+            };
+        case FILTER_RESOURCE:
+            return {
+                ...state,
+                resources: state.allResources.filter(resource => {
+                    return resource.name
+                        .toUpperCase()
+                        .includes(action.payload.toUpperCase());
+                })
             };
         default:
             return state;
