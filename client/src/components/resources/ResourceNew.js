@@ -17,13 +17,13 @@ class ResourceNew extends Component {
                             onChange={this.onChange}
                         />
                     </div>
-                </th>
-                <th>
-                    <InputGroup
-                        name="src"
-                        placeholder="Resource Source"
-                        onChange={this.onChange}
-                    />
+                    <div className="col-6">
+                        <InputGroup
+                            name="src"
+                            placeholder="Resource Source"
+                            onChange={this.onChange}
+                        />
+                    </div>
                 </th>
                 <th>
                     <div className="float-right margin-bottom">
