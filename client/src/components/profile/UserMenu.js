@@ -54,15 +54,16 @@ class UserMenu extends Component {
                     </button>
                 )}
 
-                {!editing && currentUser._id === profile._id && (
-                    <button
-                        type="button"
-                        className="btn btn-block btn-outline-info"
-                        onClick={this.onClick}
-                    >
-                        Edit
-                    </button>
-                )}
+                {!editing &&
+                    (currentUser._id === profile._id || currentUser.admin) && (
+                        <button
+                            type="button"
+                            className="btn btn-block btn-outline-info"
+                            onClick={this.onClick}
+                        >
+                            Edit
+                        </button>
+                    )}
             </div>
         );
     }

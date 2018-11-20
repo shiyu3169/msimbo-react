@@ -35,11 +35,7 @@ class Student extends Component {
                     </div>
                     <div className="col-sm-9">
                         <p>{user.bio}</p>
-                        {currentUser.admin && (
-                            <button className="btn btn-outline-danger">
-                                <i className="far fa-trash-alt fa-lg" />
-                            </button>
-                        )}
+
                         <ul className="float-right">
                             {user.project && (
                                 <li className="list-inline-item">
