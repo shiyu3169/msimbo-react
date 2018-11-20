@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-
+import { connect } from "react-redux";
 class Student extends Component {
     getYear(date) {
         return new Date(date).getFullYear();
@@ -10,7 +10,7 @@ class Student extends Component {
         return new Date(date).getMonth();
     }
     render() {
-        const { user } = this.props;
+        const { user, currentUser } = this.props;
         return (
             <li className="list-group-item">
                 <div className="row">
@@ -35,13 +35,11 @@ class Student extends Component {
                     </div>
                     <div className="col-sm-9">
                         <p>{user.bio}</p>
-                        <button
-                            data-toggle="modal"
-                            data-target="#removeModal"
-                            className="btn btn-outline-danger"
-                        >
-                            <i className="far fa-trash-alt fa-lg" />
-                        </button>
+                        {currentUser.admin && (
+                            <button className="btn btn-outline-danger">
+                                <i className="far fa-trash-alt fa-lg" />
+                            </button>
+                        )}
                         <ul className="float-right">
                             <li className="list-inline-item">
                                 <a
@@ -81,4 +79,11 @@ class Student extends Component {
     }
 }
 
-export default Student;
+const mapStateToProps = state => ({
+    currentUser: state.user.currentUser
+});
+
+export default connect(
+    mapStateToProps,
+    {}
+)(Student);
