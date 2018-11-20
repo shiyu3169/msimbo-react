@@ -41,13 +41,6 @@ class Seasons extends Component {
 
     componentWillReceiveProps(nextProps) {
         if (nextProps.users.length !== this.props.users.length) {
-            function compare(a, b) {
-                if (a.dateCreated > b.dateCreated) {
-                    return 1;
-                } else {
-                    return -1;
-                }
-            }
             this.setSeasons(nextProps.users.sort(this.compare));
         }
     }
