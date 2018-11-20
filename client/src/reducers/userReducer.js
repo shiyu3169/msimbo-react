@@ -8,7 +8,8 @@ import {
     UPDATE_USER,
     GET_USER,
     FILTER_USERS,
-    CHANGE_FILTER
+    CHANGE_FILTER,
+    DELETE_USER
 } from "../actions/types";
 
 const initialState = {
@@ -63,6 +64,13 @@ export default function(state = initialState, action) {
             return {
                 ...state,
                 profile: action.payload
+            };
+        case DELETE_USER:
+            return {
+                ...state,
+                users: state.users.filter(user => {
+                    return user._id !== action.payload;
+                })
             };
         case CHANGE_FILTER:
             return {

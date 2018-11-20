@@ -1,6 +1,18 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { deleteUser, edit } from "../../actions/userActions";
+import $ from "jquery";
+import { withRouter } from "react-router-dom";
 
-export default class UserDelete extends Component {
+class UserDelete extends Component {
+    onDelete = async () => {
+        const { deleteUser, profile, edit } = this.props;
+        await deleteUser(profile._id);
+        await edit();
+        $("#deleteModal").modal("hide");
+        this.props.history.push("/students");
+    };
+
     render() {
         return (
             <div
@@ -43,7 +55,11 @@ export default class UserDelete extends Component {
                             >
                                 Close
                             </button>
-                            <button type="button" className="btn btn-danger">
+                            <button
+                                type="button"
+                                className="btn btn-danger"
+                                onClick={this.onDelete}
+                            >
                                 Delete
                             </button>
                         </div>
@@ -53,3 +69,12 @@ export default class UserDelete extends Component {
         );
     }
 }
+
+const mapStateToProps = state => ({
+    profile: state.user.profile
+});
+
+export default connect(
+    mapStateToProps,
+    { deleteUser, edit }
+)(withRouter(UserDelete));

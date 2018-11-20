@@ -8,7 +8,8 @@ import {
     UPDATE_USER,
     GET_USER,
     FILTER_USERS,
-    CHANGE_FILTER
+    CHANGE_FILTER,
+    DELETE_USER
 } from "./types";
 import axios from "axios";
 
@@ -83,5 +84,13 @@ export const changeFilter = filter => dispatch => {
     dispatch({
         type: CHANGE_FILTER,
         payload: filter
+    });
+};
+
+export const deleteUser = id => async dispatch => {
+    axios.delete(`/api/user/${id}`);
+    dispatch({
+        type: DELETE_USER,
+        payload: id
     });
 };
