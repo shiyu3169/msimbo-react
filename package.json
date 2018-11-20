@@ -13,6 +13,7 @@
     "author": "Shiyu Wang",
     "license": "MIT",
     "dependencies": {
+        "apexcharts": "^2.2.2",
         "axios": "^0.18.0",
         "cookie-parser": "^1.4.3",
         "cookie-session": "^2.0.0-beta.3",
@@ -22,6 +23,7 @@
         "passport": "^0.4.0",
         "passport-local": "^1.0.0",
         "popper.js": "^1.14.4",
+        "react-apexcharts": "^1.1.0",
         "redux-thunk": "^2.3.0"
     }
 }
