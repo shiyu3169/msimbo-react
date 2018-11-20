@@ -8,6 +8,7 @@ class Register extends Component {
         registerUsername: "",
         registerPassword: "",
         verifyPassWord: "",
+        registerEmail: "",
         error: "",
         success: false
     };
@@ -25,7 +26,8 @@ class Register extends Component {
         const {
             registerUsername,
             registerPassword,
-            verifyPassWord
+            verifyPassWord,
+            registerEmail
         } = this.state;
 
         if (registerUsername === "") {
@@ -33,6 +35,12 @@ class Register extends Component {
                 error: "Username is required"
             });
             return;
+        }
+
+        if (registerEmail === "") {
+            this.setState({
+                error: "Email is required"
+            });
         }
 
         if (registerPassword === "") {
@@ -49,14 +57,20 @@ class Register extends Component {
             return;
         }
 
-        const user = { username: registerUsername, password: registerPassword };
+        const user = {
+            username: registerUsername,
+            password: registerPassword,
+            email: registerEmail
+        };
         this.props
             .register(user)
             .then(() => {
                 this.setState({
                     success: true,
                     registerUsername: "",
-                    registerPassword: ""
+                    registerPassword: "",
+                    email: "",
+                    verifyPassWord: ""
                 });
             })
             .catch(error => {
@@ -111,6 +125,13 @@ class Register extends Component {
                                     type="text"
                                     label="Username"
                                     placeholder="Enter Username Here..."
+                                    onChange={this.onChange}
+                                />
+                                <InputGroup
+                                    name="registerEmail"
+                                    type="email"
+                                    label="Email"
+                                    placeholder="Enter Email Here..."
                                     onChange={this.onChange}
                                 />
                                 <InputGroup

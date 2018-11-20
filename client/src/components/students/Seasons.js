@@ -27,6 +27,18 @@ class Seasons extends Component {
         }
     };
 
+    componentDidMount() {
+        this.setSeasons(this.props.users.sort(this.compare));
+    }
+
+    compare(a, b) {
+        if (a.dateCreated > b.dateCreated) {
+            return 1;
+        } else {
+            return -1;
+        }
+    }
+
     componentWillReceiveProps(nextProps) {
         if (nextProps.users.length !== this.props.users.length) {
             function compare(a, b) {
@@ -36,7 +48,7 @@ class Seasons extends Component {
                     return -1;
                 }
             }
-            this.setSeasons(nextProps.users.sort(compare));
+            this.setSeasons(nextProps.users.sort(this.compare));
         }
     }
 
