@@ -33,7 +33,7 @@ function findUserByUsername(username) {
 }
 
 function updateUser(uid, user) {
-    return UserModel.update({ _id: uid }, user);
+    return UserModel.updateOne({ _id: uid }, user);
 }
 
 function deleteUser(uid) {
