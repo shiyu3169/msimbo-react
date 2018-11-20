@@ -98,14 +98,14 @@ class UserEdit extends Component {
                         <br />
                         <div>
                             <InputGroup
-                                label="firstName"
+                                label="First Name"
                                 value={firstName}
                                 placeholder="Update First Name"
                                 name="firstName"
                                 onChange={this.onChange}
                             />
                             <InputGroup
-                                label="lastName"
+                                label="Last Name"
                                 value={lastName}
                                 placeholder="Update Last Name"
                                 name="lastName"
@@ -116,6 +116,7 @@ class UserEdit extends Component {
                                 value={email}
                                 placeholder="Update Email"
                                 name="email"
+                                type="email"
                                 onChange={this.onChange}
                             />
                             <p>

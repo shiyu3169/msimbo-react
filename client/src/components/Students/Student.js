@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+
 class Student extends Component {
     getYear(date) {
         return new Date(date).getFullYear();
@@ -10,7 +11,7 @@ class Student extends Component {
         return new Date(date).getMonth();
     }
     render() {
-        const { user, currentUser } = this.props;
+        const { user } = this.props;
         return (
             <li className="list-group-item">
                 <div className="row">
@@ -81,11 +82,7 @@ class Student extends Component {
     }
 }
 
-const mapStateToProps = state => ({
-    currentUser: state.user.currentUser
-});
-
 export default connect(
-    mapStateToProps,
+    null,
     {}
 )(Student);

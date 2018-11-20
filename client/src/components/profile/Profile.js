@@ -5,6 +5,7 @@ import UserMenu from "./UserMenu";
 import UserInfo from "./UserInfo";
 import UserEdit from "./UserEdit";
 import { getUser } from "../../actions/userActions";
+import UserDelete from "./UserDelete";
 
 class Profile extends Component {
     componentDidMount() {
@@ -39,6 +40,7 @@ class Profile extends Component {
                         </div>
                     </div>
                 </div>
+                <UserDelete />
             </div>
         );
     }

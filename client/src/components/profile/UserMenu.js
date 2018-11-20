@@ -53,7 +53,16 @@ class UserMenu extends Component {
                         Submit
                     </button>
                 )}
-
+                {editing && currentUser.admin && (
+                    <button
+                        className="btn btn-block btn-outline-danger"
+                        type="button"
+                        data-toggle="modal"
+                        data-target="#deleteModal"
+                    >
+                        Delete
+                    </button>
+                )}
                 {!editing &&
                     (currentUser._id === profile._id || currentUser.admin) && (
                         <button

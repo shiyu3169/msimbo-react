@@ -6,13 +6,13 @@ var UserSchema = mongoose.Schema(
         password: String,
         firstName: { type: String, default: "" },
         lastName: { type: String, default: "" },
-        email: String,
+        email: { type: String, default: "" },
         image: { type: String, default: "logo.png" },
         admin: { type: Boolean, default: false },
-        bio: String,
-        github: String,
-        linkedin: String,
-        project: String,
+        bio: { type: String, default: "MSIMBO Student" },
+        github: { type: String, default: "" },
+        linkedin: { type: String, default: "" },
+        project: { type: String, default: "" },
         dateCreated: { type: Date, default: Date.now }
     },
     { collection: "user" }
