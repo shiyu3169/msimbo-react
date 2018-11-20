@@ -41,36 +41,42 @@ class Student extends Component {
                             </button>
                         )}
                         <ul className="float-right">
-                            <li className="list-inline-item">
-                                <a
-                                    href={user.project}
-                                    className="sw-dark"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    <i className="fas fa-project-diagram" />
-                                </a>
-                            </li>
-                            <li className="list-inline-item">
-                                <a
-                                    href={user.linkedin}
-                                    className="sw-dark"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    <i className="fab fa-linkedin fa-lg" />
-                                </a>
-                            </li>
-                            <li className="list-inline-item">
-                                <a
-                                    href={user.github}
-                                    className="sw-dark"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    <i className="fab fa-github fa-lg" />
-                                </a>
-                            </li>
+                            {user.project && (
+                                <li className="list-inline-item">
+                                    <a
+                                        href={user.project}
+                                        className="sw-dark"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <i className="fas fa-project-diagram" />
+                                    </a>
+                                </li>
+                            )}
+                            {user.linkedin && (
+                                <li className="list-inline-item">
+                                    <a
+                                        href={user.linkedin}
+                                        className="sw-dark"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <i className="fab fa-linkedin fa-lg" />
+                                    </a>
+                                </li>
+                            )}
+                            {user.github && (
+                                <li className="list-inline-item">
+                                    <a
+                                        href={user.github}
+                                        className="sw-dark"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <i className="fab fa-github fa-lg" />
+                                    </a>
+                                </li>
+                            )}
                         </ul>
                     </div>
                 </div>
