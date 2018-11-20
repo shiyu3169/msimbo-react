@@ -14,6 +14,10 @@ class UserMenu extends Component {
         this.props.edit();
     };
 
+    onCancel = () => {
+        this.props.edit();
+    };
+
     render() {
         const { editing, currentUser, profile } = this.props;
         return (
@@ -61,6 +65,15 @@ class UserMenu extends Component {
                         data-target="#deleteModal"
                     >
                         Delete
+                    </button>
+                )}
+                {editing && (
+                    <button
+                        className="btn btn-block btn-outline-danger"
+                        type="button"
+                        onClick={this.onCancel}
+                    >
+                        Cancel
                     </button>
                 )}
                 {!editing &&
