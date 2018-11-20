@@ -8,7 +8,7 @@ class AssignmentInfo extends Component {
     };
 
     render() {
-        const { assignment } = this.props;
+        const { assignment, currentUser } = this.props;
         return (
             <tr>
                 <td>
@@ -23,12 +23,14 @@ class AssignmentInfo extends Component {
                 <td>{assignment.due}</td>
                 <td>
                     <div className="float-right">
-                        <button
-                            className="btn btn-outline-warning"
-                            onClick={this.onEdit.bind(this, assignment._id)}
-                        >
-                            <i className="fas fa-edit" />
-                        </button>
+                        {currentUser.admin && (
+                            <button
+                                className="btn btn-outline-warning"
+                                onClick={this.onEdit.bind(this, assignment._id)}
+                            >
+                                <i className="fas fa-edit" />
+                            </button>
+                        )}
                     </div>
                 </td>
             </tr>
@@ -36,7 +38,11 @@ class AssignmentInfo extends Component {
     }
 }
 
+const mapStateToProps = state => ({
+    currentUser: state.user.currentUser
+});
+
 export default connect(
-    null,
+    mapStateToProps,
     { editAssignment }
 )(AssignmentInfo);

@@ -3,24 +3,30 @@ import { connect } from "react-redux";
 import { createResource } from "../../actions/resourceActions";
 class ResourceHead extends Component {
     render() {
-        const { createResource } = this.props;
+        const { createResource, currentUser } = this.props;
         return (
             <tr>
                 <th>Resources</th>
                 <th>
-                    <button
-                        onClick={createResource}
-                        className="btn btn-outline-primary float-right"
-                    >
-                        <i className="fas fa-plus fa-lg" />
-                    </button>
+                    {currentUser.admin && (
+                        <button
+                            onClick={createResource}
+                            className="btn btn-outline-primary float-right"
+                        >
+                            <i className="fas fa-plus fa-lg" />
+                        </button>
+                    )}
                 </th>
             </tr>
         );
     }
 }
 
+const mapStateToProps = state => ({
+    currentUser: state.user.currentUser
+});
+
 export default connect(
-    null,
+    mapStateToProps,
     { createResource }
 )(ResourceHead);

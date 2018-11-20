@@ -8,7 +8,7 @@ class ResourceInfo extends Component {
     };
 
     render() {
-        const { resource } = this.props;
+        const { resource, currentUser } = this.props;
         return (
             <tr>
                 <td>
@@ -22,12 +22,14 @@ class ResourceInfo extends Component {
                 </td>
                 <td>
                     <div className="float-right">
-                        <button
-                            className="btn btn-outline-warning"
-                            onClick={this.onEdit.bind(this, resource._id)}
-                        >
-                            <i className="fas fa-edit fa-lg" />
-                        </button>
+                        {currentUser.admin && (
+                            <button
+                                className="btn btn-outline-warning"
+                                onClick={this.onEdit.bind(this, resource._id)}
+                            >
+                                <i className="fas fa-edit fa-lg" />
+                            </button>
+                        )}
                     </div>
                 </td>
             </tr>
@@ -35,7 +37,11 @@ class ResourceInfo extends Component {
     }
 }
 
+const mapStateToProps = state => ({
+    currentUser: state.user.currentUser
+});
+
 export default connect(
-    null,
+    mapStateToProps,
     { editResource }
 )(ResourceInfo);
