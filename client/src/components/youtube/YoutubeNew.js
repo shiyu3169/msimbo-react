@@ -32,6 +32,7 @@ class YoutubeNew extends Component {
     };
 
     render() {
+        const { createVideo } = this.props;
         return (
             <form className="row" onSubmit={this.onSubmit}>
                 <div className="col-3">
@@ -49,8 +50,13 @@ class YoutubeNew extends Component {
                     />
                 </div>
                 <div className="col-2">
-                    <button className="btn btn-block btn-outline-success">
-                        Submit
+                    <button className="btn btn-outline-success">Submit</button>
+                    <button
+                        onClick={createVideo}
+                        type="button"
+                        className="btn btn-outline-dark"
+                    >
+                        Cancel
                     </button>
                 </div>
             </form>
