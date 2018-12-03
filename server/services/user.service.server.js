@@ -11,7 +11,7 @@ module.exports = function(app) {
     passport.deserializeUser(deserializeUser);
 
     const multer = require("multer");
-    const upload = multer({ dest: "./src/build/uploads" });
+    const upload = multer({ dest: "./public" });
 
     app.post("/api/user", createUser);
     app.get("/api/user", findUsers);
@@ -23,7 +23,6 @@ module.exports = function(app) {
     app.put("/api/user/:uid", updateUser);
     app.delete("/api/user/:uid", deleteUser);
     app.get("/api/user/:uid/picture", downloadPic);
-
     passport.use(new LocalStrategy(localStrategy));
 
     function localStrategy(username, password, done) {
