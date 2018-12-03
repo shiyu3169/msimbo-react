@@ -1,6 +1,7 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
-export default class Youtube extends Component {
+class Youtube extends Component {
     render() {
         const { video } = this.props;
         return (
@@ -19,3 +20,8 @@ export default class Youtube extends Component {
         );
     }
 }
+
+export default connect(
+    null,
+    {}
+)(Youtube);

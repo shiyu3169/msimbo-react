@@ -24,7 +24,7 @@ class YoutubeNew extends Component {
         const { addVideo, createVideo } = this.props;
         const video = {
             name,
-            src
+            src: "https://www.youtube.com/embed/?listType=playlist&list=" + src
         };
 
         await addVideo(video);
@@ -45,7 +45,7 @@ class YoutubeNew extends Component {
                 <div className="col-7">
                     <InputGroup
                         name="src"
-                        placeholder="Video Source"
+                        placeholder="Playlist Id"
                         onChange={this.onChange}
                     />
                 </div>
