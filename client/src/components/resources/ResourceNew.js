@@ -4,10 +4,13 @@ import InputGroup from "../layout/InputGroup";
 import { addResource, createResource } from "../../actions/resourceActions";
 
 class ResourceNew extends Component {
-    state = {
-        name: "",
-        src: ""
-    };
+    constructor(props) {
+        super(props);
+        this.state = {
+            name: "",
+            src: ""
+        };
+    }
 
     onChange = e => {
         this.setState({
