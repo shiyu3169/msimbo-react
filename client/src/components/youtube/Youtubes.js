@@ -17,7 +17,7 @@ class Youtubes extends Component {
                     {creating ? (
                         <YoutubeNew />
                     ) : (
-                        currentUser !== 0 && (
+                        currentUser.admin && (
                             <button
                                 onClick={createVideo}
                                 className="btn btn-outline-dark float-right"

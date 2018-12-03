@@ -3,10 +3,20 @@ import { connect } from "react-redux";
 
 class Youtube extends Component {
     render() {
-        const { video } = this.props;
+        const { video, currentUser } = this.props;
         return (
             <React.Fragment>
                 <h1 className="center">{video.name}</h1>
+                {currentUser.admin && (
+                    <div className="float-right">
+                        <button className="btn btn-outline-warning">
+                            Edit
+                        </button>{" "}
+                        <button className="btn btn-outline-danger">
+                            Cancel
+                        </button>
+                    </div>
+                )}
                 <div className="embed-responsive embed-responsive-16by9">
                     <iframe
                         className="embed-responsive-item"
@@ -21,7 +31,11 @@ class Youtube extends Component {
     }
 }
 
+const mapStateToProps = state => ({
+    currentUser: state.user.currentUser
+});
+
 export default connect(
-    null,
+    mapStateToProps,
     {}
 )(Youtube);
