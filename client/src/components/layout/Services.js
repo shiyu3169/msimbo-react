@@ -45,10 +45,7 @@ class Services extends Component {
                             iconClass="fab fa-youtube fa-3x"
                             title="Videos"
                             description="Class Videos on Youtube"
-                            onClick={this.navigate.bind(
-                                this,
-                                "https://www.youtube.com/channel/UC9NVYFh1gs3AShriwWX7NNQ"
-                            )}
+                            onClick={this.redirect.bind(this, "/videos")}
                         />
                     </div>
                 </section>

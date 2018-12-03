@@ -15,8 +15,8 @@ function createYoutube(youtube) {
     return YoutubeModel.create(youtube);
 }
 
-function updateYoutube(youtube) {
-    return YoutubeModel.update({ _id: youtube._id }, youtube);
+function updateYoutube(yid, youtube) {
+    return YoutubeModel.update({ _id: yid }, youtube);
 }
 
 function deleteYoutube(yid) {

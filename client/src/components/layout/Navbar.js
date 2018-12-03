@@ -66,14 +66,9 @@ class Navbar extends Component {
                                 </Link>
                             </li>
                             <li className="nav-item">
-                                <a
-                                    className="nav-link"
-                                    href="https://www.youtube.com/channel/UC9NVYFh1gs3AShriwWX7NNQ"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
+                                <Link className="nav-link" to="/videos">
                                     Videos
-                                </a>
+                                </Link>
                             </li>
                             <li className="nav-item">
                                 <a
