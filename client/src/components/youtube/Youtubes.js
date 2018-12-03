@@ -9,19 +9,21 @@ class Youtubes extends Component {
     }
 
     render() {
-        const { videos, creating, createVideo } = this.props;
+        const { videos, creating, createVideo, currentUser } = this.props;
         return (
             <div className="sw-bg-white">
                 <div className="container">
                     {creating ? (
                         <YoutubeNew />
                     ) : (
-                        <button
-                            onClick={createVideo}
-                            className="btn btn-outline-dark float-right"
-                        >
-                            New Playlist
-                        </button>
+                        currentUser !== 0 && (
+                            <button
+                                onClick={createVideo}
+                                className="btn btn-outline-dark float-right"
+                            >
+                                New Playlist
+                            </button>
+                        )
                     )}
 
                     {videos.map(video => (
@@ -34,6 +36,7 @@ class Youtubes extends Component {
 }
 
 const mapStateToProps = state => ({
+    currentUser: state.user.currentUser,
     videos: state.video.videos,
     creating: state.video.creating
 });
