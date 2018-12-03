@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
 class Youtubes extends Component {
     render() {
@@ -6,4 +7,7 @@ class Youtubes extends Component {
     }
 }
 
-export default Youtubes;
+export default connect(
+    null,
+    {}
+)(Youtubes);

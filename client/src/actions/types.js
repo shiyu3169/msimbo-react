@@ -31,6 +31,11 @@ export const ADD_ASSIGNMENT = "ADD_ASSIGNMENT";
 export const EDIT_ASSIGNMENT = "EDIT_ASSIGNMENT";
 export const UPDATE_ASSIGNMENT = "UPDATE_ASSIGNMENT";
 export const DELETE_ASSIGNMENT = "DELETE_ASSIGNMENT";
+// Video
+export const GET_VIDEOS = "GET_VIDEOS";
+export const CREATE_VIDEO = "CREATE_VIDEO";
+export const UPDATE_VIDEO = "UPDATE_VIDEO";
+export const DELETE_VIDEO = "DELETE_VIDEO";
 // Error
 export const ADD_ERROR = "ADD_ERROR";
 export const GET_ERROR = "GET_ERROR";
