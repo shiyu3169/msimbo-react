@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { getVideos, createVideo } from "../../actions/videoActions";
 import Youtube from "./Youtube";
 import YoutubeNew from "./YoutubeNew";
+import BackToTop from "../layout/BackToTop";
 class Youtubes extends Component {
     componentDidMount() {
         this.props.getVideos();
@@ -30,6 +31,7 @@ class Youtubes extends Component {
                         <Youtube key={video._id} video={video} />
                     ))}
                 </div>
+                <BackToTop />
             </div>
         );
     }
