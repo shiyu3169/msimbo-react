@@ -30,20 +30,20 @@ export default function(state = initialState, action) {
                 ...state,
                 videos: [action.payload, ...state.videos]
             };
-        case EDIT_VIDEO:
-            return {
-                ...state,
-                editing: action.payload
-            };
-        case UPDATE_VIDEO:
-            return {
-                ...state,
-                videos: state.videos.map(video =>
-                    video._id === action.payload._id
-                        ? (video = action.payload)
-                        : video
-                )
-            };
+        // case EDIT_VIDEO:
+        //     return {
+        //         ...state,
+        //         editing: action.payload
+        //     };
+        // case UPDATE_VIDEO:
+        //     return {
+        //         ...state,
+        //         videos: state.videos.map(video =>
+        //             video._id === action.payload._id
+        //                 ? (video = action.payload)
+        //                 : video
+        //         )
+        //     };
         case DELETE_VIDEO:
             return {
                 ...state,

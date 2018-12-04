@@ -10,9 +10,6 @@ class Youtube extends Component {
                 <h1 className="center">{video.name}</h1>
                 {currentUser.admin && (
                     <div className="float-right">
-                        <button className="btn btn-outline-warning">
-                            Edit
-                        </button>{" "}
                         <button
                             className="btn btn-outline-danger"
                             data-toggle="modal"

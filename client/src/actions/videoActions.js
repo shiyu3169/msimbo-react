@@ -3,8 +3,8 @@ import {
     GET_VIDEOS,
     CREATE_VIDEO,
     ADD_VIDEO,
-    EDIT_VIDEO,
-    UPDATE_VIDEO,
+    // EDIT_VIDEO,
+    // UPDATE_VIDEO,
     DELETE_VIDEO
 } from "./types";
 
@@ -30,20 +30,20 @@ export const addVideo = video => async dispatch => {
     });
 };
 
-export const editVideo = id => async dispatch => {
-    dispatch({
-        type: EDIT_VIDEO,
-        payload: id
-    });
-};
+// export const editVideo = id => async dispatch => {
+//     dispatch({
+//         type: EDIT_VIDEO,
+//         payload: id
+//     });
+// };
 
-export const updateVideo = video => async dispatch => {
-    await axios.put(`/api/youtube/${video._id}`, video);
-    dispatch({
-        type: UPDATE_VIDEO,
-        payload: video
-    });
-};
+// export const updateVideo = video => async dispatch => {
+//     await axios.put(`/api/youtube/${video._id}`, video);
+//     dispatch({
+//         type: UPDATE_VIDEO,
+//         payload: video
+//     });
+// };
 
 export const deleteVideo = id => async dispatch => {
     await axios.delete(`/api/youtube/${id}`);
