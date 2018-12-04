@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import YoutubeDelete from "./YoutubeDelete";
 
 class Youtube extends Component {
     render() {
@@ -12,8 +13,12 @@ class Youtube extends Component {
                         <button className="btn btn-outline-warning">
                             Edit
                         </button>{" "}
-                        <button className="btn btn-outline-danger">
-                            Cancel
+                        <button
+                            className="btn btn-outline-danger"
+                            data-toggle="modal"
+                            data-target={`#delete${video._id}`}
+                        >
+                            Delete
                         </button>
                     </div>
                 )}
@@ -26,6 +31,7 @@ class Youtube extends Component {
                     />
                 </div>
                 <br />
+                <YoutubeDelete video={video} />
             </React.Fragment>
         );
     }

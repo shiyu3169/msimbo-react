@@ -4,7 +4,8 @@ import {
     CREATE_VIDEO,
     ADD_VIDEO,
     EDIT_VIDEO,
-    UPDATE_VIDEO
+    UPDATE_VIDEO,
+    DELETE_VIDEO
 } from "./types";
 
 export const getVideos = () => async dispatch => {
@@ -41,5 +42,13 @@ export const updateVideo = video => async dispatch => {
     dispatch({
         type: UPDATE_VIDEO,
         payload: video
+    });
+};
+
+export const deleteVideo = id => async dispatch => {
+    await axios.delete(`/api/youtube/${id}`);
+    dispatch({
+        type: DELETE_VIDEO,
+        payload: id
     });
 };
