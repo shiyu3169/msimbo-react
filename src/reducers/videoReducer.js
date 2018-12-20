@@ -2,8 +2,8 @@ import {
     GET_VIDEOS,
     CREATE_VIDEO,
     ADD_VIDEO,
-    EDIT_VIDEO,
-    UPDATE_VIDEO,
+    // EDIT_VIDEO,
+    // UPDATE_VIDEO,
     DELETE_VIDEO
 } from "../actions/types";
 

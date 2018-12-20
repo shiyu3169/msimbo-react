@@ -1,29 +1,41 @@
 {
-    "name": "msimbo-react",
-    "version": "1.0.0",
-    "description": "MSIMBO Bootcamp Management",
-    "main": "server.js",
-    "scripts": {
-        "client-build": "cd client && npm run build",
-        "client-install": "cd client && npm install",
-        "start": "node server.js",
-        "client": "cd client && npm start",
-        "push": "npm run client-build && git add . && git commit -m 'build' && git push"
-    },
-    "author": "Shiyu Wang",
-    "license": "MIT",
+    "name": "client",
+    "version": "0.1.0",
+    "private": true,
     "dependencies": {
-        "apexcharts": "^2.2.2",
         "axios": "^0.18.0",
+        "bootstrap": "^4.1.3",
         "cookie-parser": "^1.4.3",
         "cookie-session": "^2.0.0-beta.3",
         "express": "^4.16.4",
-        "mongoose": "^5.3.4",
+        "jquery": "^3.3.1",
+        "mongoose": "^5.4.0",
         "multer": "^1.4.1",
         "passport": "^0.4.0",
         "passport-local": "^1.0.0",
-        "popper.js": "^1.14.4",
-        "react-apexcharts": "^1.1.0",
+        "popper.js": "^1.14.6",
+        "react": "^16.5.2",
+        "react-dom": "^16.5.2",
+        "react-redux": "^5.0.7",
+        "react-router-dom": "^4.3.1",
+        "react-scripts": "2.0.5",
+        "redux": "^4.0.1",
         "redux-thunk": "^2.3.0"
-    }
+    },
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject"
+    },
+    "eslintConfig": {
+        "extends": "react-app"
+    },
+    "proxy": "http://localhost:3100",
+    "browserslist": [
+        ">0.2%",
+        "not dead",
+        "not ie <= 11",
+        "not op_mini all"
+    ]
 }

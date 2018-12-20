@@ -7,6 +7,11 @@ GradeModel.findGradeForUser = findGradeForUser;
 GradeModel.findAllGrade = findAllGrade;
 GradeModel.updateGrade = updateGrade;
 GradeModel.findGradesBySeason = findGradesBySeason;
+GradeModel.deleteGrade = deleteGrade;
+
+function deleteGrade(gid) {
+    return GradeModel.deleteOne(gid);
+}
 
 function createGradeForUser(grade) {
     return GradeModel.create(grade);
