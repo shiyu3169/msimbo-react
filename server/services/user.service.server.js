@@ -23,17 +23,35 @@ module.exports = function(app) {
   app.put("/api/user/:uid", updateUser);
   app.delete("/api/user/:uid", deleteUser);
   app.get("/api/user/:uid/picture", downloadPic);
-  passport.use(new LocalStrategy(localStrategy));
 
-  function localStrategy(username, password, done) {
-    userModel.findUserByCredentials(username, password).then(user => {
-      if (user) {
-        return done(null, user);
-      } else {
-        return done(null, false);
+  passport.use(
+    new LocalStrategy(
+      {
+        usernameField: "email"
+      },
+      function(username, password, done) {
+        userModel.findUserByCredentials(username, password).then(user => {
+          if (user) {
+            return done(null, user);
+          } else {
+            return done(null, false);
+          }
+        });
       }
-    });
-  }
+    )
+  );
+
+  //   passport.use(new LocalStrategy(localStrategy));
+
+  //   function localStrategy(username, password, done) {
+  //     userModel.findUserByCredentials(username, password).then(user => {
+  //       if (user) {
+  //         return done(null, user);
+  //       } else {
+  //         return done(null, false);
+  //       }
+  //     });
+  //   }
 
   function downloadPic(req, res) {
     var uid = req.params["uid"];

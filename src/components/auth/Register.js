@@ -97,7 +97,16 @@ class Register extends Component {
   };
 
   render() {
-    const { error, success } = this.state;
+    const {
+      error,
+      success,
+      registerEmail,
+      registerPassword,
+      verifyPassWord,
+      firstName,
+      lastName,
+      middleName
+    } = this.state;
     return (
       <div
         className="modal fade"
@@ -133,6 +142,7 @@ class Register extends Component {
                   label="Email"
                   placeholder="Enter Email Here..."
                   onChange={this.onChange}
+                  value={registerEmail}
                 />
                 <InputGroup
                   name="registerPassword"
@@ -140,6 +150,7 @@ class Register extends Component {
                   label="Password"
                   placeholder="Enter Password Here..."
                   onChange={this.onChange}
+                  value={registerPassword}
                 />
                 <InputGroup
                   name="verifyPassWord"
@@ -147,24 +158,28 @@ class Register extends Component {
                   label="Verify Password"
                   placeholder="Verify Password Here..."
                   onChange={this.onChange}
+                  value={verifyPassWord}
                 />
                 <InputGroup
                   name="firstName"
                   label="First Name"
                   placeholder="Enter Your First Name..."
                   onChange={this.onChange}
+                  value={firstName}
                 />
                 <InputGroup
                   name="middleName"
                   label="Middle Name (optional)"
                   placeholder="Leave this empty, if you don't have a middle name..."
                   onChange={this.onChange}
+                  value={middleName}
                 />
                 <InputGroup
                   name="lastName"
                   label="Last Name"
                   placeholder="Enter Your Last Name..."
                   onChange={this.onChange}
+                  value={lastName}
                 />
                 <button className="btn btn-outline-success btn-block">
                   Submit

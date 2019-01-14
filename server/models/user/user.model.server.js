@@ -11,33 +11,33 @@ UserModel.updateUser = updateUser;
 UserModel.deleteUser = deleteUser;
 
 function createUser(user) {
-    return UserModel.create(user);
+  return UserModel.create(user);
 }
 
 function findUsers() {
-    return UserModel.find()
-        .sort({ firstName: 1 })
-        .select("-password");
+  return UserModel.find()
+    .sort({ firstName: 1 })
+    .select("-password");
 }
 
 function findUserById(uid) {
-    return UserModel.findById(uid);
+  return UserModel.findById(uid);
 }
 
-function findUserByCredentials(username, password) {
-    return UserModel.findOne({ username: username, password: password });
+function findUserByCredentials(email, password) {
+  return UserModel.findOne({ email: email, password: password });
 }
 
 function findUserByUsername(username) {
-    return UserModel.findOne({ username: username });
+  return UserModel.findOne({ username: username });
 }
 
 function updateUser(uid, user) {
-    return UserModel.updateOne({ _id: uid }, user);
+  return UserModel.updateOne({ _id: uid }, user);
 }
 
 function deleteUser(uid) {
-    return UserModel.remove({ _id: uid });
+  return UserModel.remove({ _id: uid });
 }
 
 module.exports = UserModel;
