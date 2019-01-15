@@ -31,15 +31,12 @@ class UserMenu extends Component {
     return (
       <div className="fixed">
         {!editing && currentUser.admin && (
-          <div>
-            <button
-              type="button"
-              className="btn btn-block btn-outline-info"
-              onClick={this.handleLinkedIn}>
-              LinkedIn
-            </button>
-            <p>linkedin</p>
-          </div>
+          <button
+            type="button"
+            className="btn btn-block btn-outline-info"
+            onClick={this.handleLinkedIn}>
+            LinkedIn
+          </button>
         )}
         <ul className="list-group-flush">
           <li
