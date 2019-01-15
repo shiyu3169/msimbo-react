@@ -78,21 +78,19 @@ class UserMenu extends Component {
           </button>
         )}
         {!editing && (currentUser._id === profile._id || currentUser.admin) && (
-          <React.Fragment>
-            <button
-              type="button"
-              className="btn btn-block btn-outline-info"
-              onClick={this.onClick}>
-              Edit
-            </button>
-            <button
-              type="button"
-              className="btn btn-block btn-outline-info"
-              onClick={this.handleLinkedIn}>
-              LinkedIn
-            </button>
-          </React.Fragment>
+          <button
+            type="button"
+            className="btn btn-block btn-outline-info"
+            onClick={this.onClick}>
+            Edit
+          </button>
         )}
+        <button
+          type="button"
+          className="btn btn-block btn-outline-info"
+          onClick={this.handleLinkedIn}>
+          LinkedIn
+        </button>
       </div>
     );
   }
