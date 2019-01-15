@@ -5,7 +5,8 @@ module.exports = function(app) {
   var fs = require("fs");
 
   const passport = require("passport");
-  let LocalStrategy = require("passport-local").Strategy;
+  const LocalStrategy = require("passport-local").Strategy;
+  const LinkedInStrategy = require("passport-linkedin-oauth2").Strategy;
 
   passport.serializeUser(serializeUser);
   passport.deserializeUser(deserializeUser);
@@ -23,7 +24,16 @@ module.exports = function(app) {
   app.put("/api/user/:uid", updateUser);
   app.delete("/api/user/:uid", deleteUser);
   app.get("/api/user/:uid/picture", downloadPic);
+  // Login with Linkedin
+  app.get(
+    "/auth/linkedin/callback",
+    passport.authenticate("linkedin", {
+      successRedirect: "/",
+      failureRedirect: "/"
+    })
+  );
 
+  // Local Strategy
   passport.use(
     new LocalStrategy(
       {
@@ -36,6 +46,28 @@ module.exports = function(app) {
           } else {
             return done(null, false);
           }
+        });
+      }
+    )
+  );
+
+  // Linked Strategy
+  passport.use(
+    new LinkedInStrategy(
+      {
+        clientID: "78p1f6ygf9hyx9",
+        clientSecret: "7psZEll6Tlwp3FEi",
+        callbackURL: "http://127.0.0.1:3000/auth/linkedin/callback",
+        scope: ["r_emailaddress", "r_basicprofile"]
+      },
+      function(accessToken, refreshToken, profile, done) {
+        // asynchronous verification, for effect...
+        process.nextTick(function() {
+          // To keep the example simple, the user's LinkedIn profile is returned to
+          // represent the logged-in user. In a typical application, you would want
+          // to associate the LinkedIn account with a user record in your database,
+          // and return that user instead.
+          return done(null, profile);
         });
       }
     )
