@@ -30,6 +30,14 @@ class UserMenu extends Component {
     const { editing, currentUser, profile } = this.props;
     return (
       <div className="fixed">
+        {!editing && currentUser.admin && (
+          <button
+            type="button"
+            className="btn btn-block btn-outline-info"
+            onClick={this.handleLinkedIn}>
+            LinkedIn
+          </button>
+        )}
         <ul className="list-group-flush">
           <li
             onClick={this.scroll.bind(this, "#info")}
@@ -85,12 +93,6 @@ class UserMenu extends Component {
             Edit
           </button>
         )}
-        <button
-          type="button"
-          className="btn btn-block btn-outline-info"
-          onClick={this.handleLinkedIn}>
-          LinkedIn
-        </button>
       </div>
     );
   }
