@@ -77,6 +77,8 @@ class UserEdit extends Component {
       linkedin,
       github
     } = this.state;
+    console.log(document.location);
+
     return (
       <form onSubmit={this.onSubmit} id="editForm">
         <div className="row" id="info">
@@ -87,7 +89,11 @@ class UserEdit extends Component {
               <br />
               <a
                 className="btn btn-outline-info btn-block"
-                href="/auth/linkedin">
+                href={
+                  document.location.hostname === "localhost"
+                    ? `http://localhost:3100/auth/linkedin`
+                    : "/auth/linkedin"
+                }>
                 Sync info with LinkedIn
               </a>
             </div>

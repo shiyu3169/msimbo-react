@@ -24,6 +24,7 @@ module.exports = function(app) {
   app.put("/api/user/:uid", updateUser);
   app.delete("/api/user/:uid", deleteUser);
   // app.get("/api/user/:uid/picture", downloadPic);
+
   app.get("/auth/linkedin", (req, res, next) => {
     req.hello = "Hello";
     passport.authenticate("linkedin")(req, res, next);
@@ -77,10 +78,9 @@ module.exports = function(app) {
           user.image = profile._json.pictureUrl;
           user.linkedin = profile._json.publicProfileUrl;
           user.bio = profile._json.summary;
-          userModel.updateUser(user._id, user).then(data => {
-            console.log(data);
+          userModel.updateUser(user._id, user).then(() => {
+            return done(null, profile);
           });
-          return done(null, profile);
         });
       }
     )
