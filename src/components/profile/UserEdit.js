@@ -87,7 +87,7 @@ class UserEdit extends Component {
               <br />
               <a
                 className="btn btn-outline-info btn-block"
-                href="http://localhost:3100/auth/linkedin">
+                href="/auth/linkedin">
                 Sync info with LinkedIn
               </a>
             </div>
