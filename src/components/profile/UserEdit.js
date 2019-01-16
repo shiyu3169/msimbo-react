@@ -82,12 +82,14 @@ class UserEdit extends Component {
         <div className="row" id="info">
           <div className="col-sm-5">
             <div className="text-center">
-              <img className="userImage" src="../logo.png" alt="user" />
+              <img className="userImage" src={profile.image} alt="user" />
               <br />
               <br />
-              <button className="btn btn-outline-info btn-block">
-                Upload Image
-              </button>
+              <a
+                className="btn btn-outline-info btn-block"
+                href="http://localhost:3100/auth/linkedin">
+                Sync info with LinkedIn
+              </a>
             </div>
           </div>
           <div className="col-sm-7">

@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { edit } from "../../actions/userActions";
 import $ from "jquery";
-import Axios from "axios";
 
 class UserMenu extends Component {
   scroll = id => {
@@ -15,12 +14,12 @@ class UserMenu extends Component {
     this.props.edit();
   };
 
-  handleLinkedIn = e => {
-    e.preventDefault();
-    Axios.get("/auth/linkedin/callback").then(user => {
-      console.log(user);
-    });
-  };
+  //   handleLinkedIn = e => {
+  //     e.preventDefault();
+  //     Axios.get("/auth/linkedin/callback").then(user => {
+  //       console.log(user);
+  //     });
+  //   };
 
   onCancel = () => {
     this.props.edit();
@@ -30,14 +29,6 @@ class UserMenu extends Component {
     const { editing, currentUser, profile } = this.props;
     return (
       <div className="fixed">
-        {!editing && currentUser.admin && (
-          <button
-            type="button"
-            className="btn btn-block btn-outline-info"
-            onClick={this.handleLinkedIn}>
-            LinkedIn
-          </button>
-        )}
         <ul className="list-group-flush">
           <li
             onClick={this.scroll.bind(this, "#info")}
