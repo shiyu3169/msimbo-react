@@ -62,7 +62,7 @@ module.exports = function(app) {
       {
         clientID: "78p1f6ygf9hyx9",
         clientSecret: "7psZEll6Tlwp3FEi",
-        callbackURL: "http://localhost:3100/auth/linkedin/callback",
+        callbackURL: "/auth/linkedin/callback",
         scope: ["r_emailaddress", "r_basicprofile"],
         state: true,
         passReqToCallback: true
