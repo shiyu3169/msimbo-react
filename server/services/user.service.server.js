@@ -59,8 +59,8 @@ module.exports = function(app) {
   passport.use(
     new LinkedInStrategy(
       {
-        clientID: "78p1f6ygf9hyx9",
-        clientSecret: "7psZEll6Tlwp3FEi",
+        clientID: process.env.CLIENT_ID,
+        clientSecret: process.env.CLIENT_SECRET,
         callbackURL: "/auth/linkedin/callback",
         scope: ["r_emailaddress", "r_basicprofile"],
         state: true,
