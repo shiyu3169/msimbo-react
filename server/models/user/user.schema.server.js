@@ -8,6 +8,7 @@ var UserSchema = mongoose.Schema(
     lastName: { type: String, default: "" },
     email: { type: String, required: true, unique: true },
     image: { type: String, default: "/logo.png" },
+    icon: { type: String, default: "/logo.png" },
     admin: { type: Boolean, default: false },
     bio: { type: String, default: "MSIMBO Student" },
     github: { type: String, default: "" },

@@ -59,8 +59,8 @@ module.exports = function(app) {
   passport.use(
     new LinkedInStrategy(
       {
-        clientID: process.env.CLIENT_ID,
-        clientSecret: process.env.CLIENT_SECRET,
+        clientID: process.env.CLIENT_ID || "78p1f6ygf9hyx9", // should be replaced with process.env.CLIENT_ID in a real application
+        clientSecret: process.env.CLEINT_SECRET || "7psZEll6Tlwp3FEi", // should be replaced with process.env.CLIENT_SECRET in a real application
         callbackURL: "/auth/linkedin/callback",
         scope: ["r_emailaddress", "r_basicprofile"],
         state: true,
@@ -73,11 +73,12 @@ module.exports = function(app) {
           // console.log(profile._json);
           user.firstName = profile._json.firstName;
           user.lastName = profile._json.lastName;
-          user.image = profile._json.pictureUrl;
+          user.image = profile._json.pictureUrls.values[0];
           user.linkedin = profile._json.publicProfileUrl;
           user.bio = profile._json.summary;
+          user.icon = profile._json.pictureUrl;
           userModel.updateUser(user._id, user).then(() => {
-            console.log(profile._json.firstName);
+            // console.log(profile._json.pictureUrls.values[0]);
             return done(null, profile);
           });
         });
