@@ -26,18 +26,16 @@ module.exports = function(app) {
   // app.get("/api/user/:uid/picture", downloadPic);
 
   app.get("/auth/linkedin", (req, res, next) => {
-    req.hello = "Hello";
     passport.authenticate("linkedin")(req, res, next);
   });
 
   // Call back from LinkedIn
-  app.get(
-    "/auth/linkedin/callback",
-    passport.authenticate("linkedin", {
-      successRedirect: "/",
-      failureRedirect: "/"
-    })
-  );
+  app.get("/auth/linkedin/callback", (req, res, next) => {
+    passport.authenticate("linkedin")(req, res, next);
+    req.login(req.user, err => {
+      res.redirect("/");
+    });
+  });
 
   // Local Strategy
   passport.use(
@@ -79,6 +77,7 @@ module.exports = function(app) {
           user.linkedin = profile._json.publicProfileUrl;
           user.bio = profile._json.summary;
           userModel.updateUser(user._id, user).then(() => {
+            console.log(profile._json.firstName);
             return done(null, profile);
           });
         });
