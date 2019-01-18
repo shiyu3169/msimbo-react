@@ -8,7 +8,7 @@ const app = express();
 function ensureSecure(req, res, next) {
   //Heroku stores the origin protocol in a header variable. The app itself is isolated within the dyno and all request objects have an HTTP protocol.
   if (req.get("X-Forwarded-Proto") == "https" || req.hostname == "localhost") {
-    //Serve Angular App by passing control to the next middleware
+    // Don't do anything if the req is comming from https or localhost
     next();
   } else if (
     req.get("X-Forwarded-Proto") != "https" &&
@@ -88,7 +88,3 @@ if (process.env.NODE_ENV === "production") {
 server.listen(port, function() {
   console.log("Running on " + app.get("port"));
 });
-
-// http.createServer(app).listen(app.get('port'), function() {
-//     console.log('Express server listening on port ' + app.get('port'));
-// });
