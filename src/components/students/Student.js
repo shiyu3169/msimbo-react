@@ -8,7 +8,7 @@ class Student extends Component {
   }
 
   getMonth(date) {
-    return new Date(date).getMonth();
+    return new Date(date).getMonth() + 1;
   }
   render() {
     const { user } = this.props;

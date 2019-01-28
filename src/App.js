@@ -13,6 +13,7 @@ import Profile from "./components/profile/Profile";
 import Assignments from "./components/assignments/Assignments";
 import Youtubes from "./components/youtube/Youtubes";
 import Syllabus from "./components/layout/Syllabus";
+import Contact from "./components/layout/Contact";
 
 class App extends Component {
   render() {
@@ -29,6 +30,8 @@ class App extends Component {
             <Route exact path="/assignments" component={Assignments} />
             <Route axact path="/videos" component={Youtubes} />
             <Route exact path="/syllabus" component={Syllabus} />
+            <Route exact path="/contact" component={Contact} />
+            {/* <Route exact path="grade" component={} */}
           </Switch>
         </div>
       </Router>

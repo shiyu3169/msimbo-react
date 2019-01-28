@@ -1,8 +1,8 @@
 module.exports = function(app) {
   const userModel = require("../models/user/user.model.server");
-  const pictureModel = require("../models/picture/picture.model.server");
+  // const pictureModel = require("../models/picture/picture.model.server");
 
-  var fs = require("fs");
+  // var fs = require("fs");
 
   const passport = require("passport");
   const LocalStrategy = require("passport-local").Strategy;
@@ -85,18 +85,6 @@ module.exports = function(app) {
       }
     )
   );
-
-  //   passport.use(new LocalStrategy(localStrategy));
-
-  //   function localStrategy(username, password, done) {
-  //     userModel.findUserByCredentials(username, password).then(user => {
-  //       if (user) {
-  //         return done(null, user);
-  //       } else {
-  //         return done(null, false);
-  //       }
-  //     });
-  //   }
 
   // function downloadPic(req, res) {
   //   var uid = req.params["uid"];

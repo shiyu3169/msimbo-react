@@ -37,8 +37,3 @@ export const updateGrade = grade => async dispatch => {
     payload: grade
   });
 };
-
-export const getGradeBySeason = (season, year) => async dispatch => {
-  const res = await axios.get(`/api/grade?season=${season}&year=${year}`);
-  // console.log(res.data);
-};
