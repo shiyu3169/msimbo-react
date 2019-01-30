@@ -270,3 +270,7 @@ a:hover {
   right: 40%;
   padding: 2px;
 }
+
+.bg-yellow {
+  background-color: rgb(217, 255, 0);
+}
