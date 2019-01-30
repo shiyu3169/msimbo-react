@@ -477,7 +477,7 @@ export default function Curriculum() {
             <td>Friday</td>
           </tr>
           <tr>
-            <td className="align-middle" rowSpan="25">
+            <td className="align-middle" rowSpan="26">
               Project & Feature Libraries
             </td>
             <td rowSpan="5" className="align-middle">
