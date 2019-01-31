@@ -14,8 +14,12 @@ module.exports = function(app) {
       text: data.content
     };
     mailgun.messages().send(message, (error, body) => {
-      console.log(body);
+      if (error) {
+        console.log(error);
+        res.json(error);
+      } else {
+        res.res.sendStatus(200);
+      }
     });
-    res.res.sendStatus(200);
   }
 };

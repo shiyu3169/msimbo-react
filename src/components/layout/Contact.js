@@ -6,7 +6,9 @@ export default class Contact extends Component {
     name: "",
     email: "",
     subject: "",
-    content: ""
+    content: "",
+    error: false,
+    success: false
   };
 
   onChange = e => {
@@ -25,24 +27,46 @@ export default class Contact extends Component {
       content
     };
     this.sendEmail(data);
-    this.setState({
-      name: "",
-      email: "",
-      subject: "",
-      content: ""
-    });
   };
 
   sendEmail(data) {
-    Axios.post("/api/contact", data);
+    Axios.post("/api/contact", data).then(res => {
+      if (res.statusCode !== 200) {
+        this.setState({
+          error: true,
+          success: false
+        });
+      } else {
+        this.setState({
+          error: false,
+          success: true
+        });
+        this.setState({
+          name: "",
+          email: "",
+          subject: "",
+          content: ""
+        });
+      }
+    });
   }
 
   render() {
-    const { name, email, subject, content } = this.state;
+    const { name, email, subject, content, error, success } = this.state;
     return (
       <section className="sw-bg-white">
         <div className="container">
           <h1>Contact us</h1>
+          {error && (
+            <div className="alert alert-danger">
+              Something goes wrong, please check your input and try it again.
+            </div>
+          )}
+          {success && (
+            <div className="alert alert-success">
+              Thank you for your email, we will contact you as soon as possible.
+            </div>
+          )}
           <form onSubmit={this.onSubmit}>
             <InputGroup
               label="Name"
