@@ -18,7 +18,7 @@ module.exports = function(app) {
         console.log(error);
         res.json(error);
       } else {
-        res.res.sendStatus(200);
+        res.sendStatus(200);
       }
     });
   }
