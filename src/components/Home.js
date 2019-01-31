@@ -91,7 +91,7 @@ class Home extends Component {
         <Services />
         <About />
         <footer className="center">
-          <p>Urban League of Eastern Massachusetts &copy; 2019</p>
+          <p>Urban League of Eastern Massachusetts &copy; 2019 </p>
         </footer>
       </div>
     );
