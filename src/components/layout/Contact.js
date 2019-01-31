@@ -42,6 +42,7 @@ export default class Contact extends Component {
     return (
       <section className="sw-bg-white">
         <div className="container">
+          <h1>Contact us</h1>
           <form onSubmit={this.onSubmit}>
             <InputGroup
               label="Name"
