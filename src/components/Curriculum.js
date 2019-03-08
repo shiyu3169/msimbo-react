@@ -17,7 +17,7 @@ export default function Curriculum() {
         </thead>
         <tbody>
           <tr>
-            <td className="align-middle" rowSpan="10">
+            <td className="align-middle" rowSpan="16">
               HTML/CSS
             </td>
             <td rowSpan="5" className="align-middle">
@@ -25,6 +25,11 @@ export default function Curriculum() {
             </td>
             <td>3/4</td>
             <td>Monday</td>
+            <td className="bg-red">Snow Day</td>
+          </tr>
+          <tr>
+            <td>3/5</td>
+            <td>Tuesday</td>
             <td>
               Full-Stack Development, LinkedIn, MSIMBO Website, Slack, Syllabus,
               Job Oppotunities,{" "}
@@ -32,43 +37,32 @@ export default function Curriculum() {
                 Shell Workshop
               </a>
             </td>
+          </tr>
+          <tr>
+            <td>3/6</td>
+            <td>Wednesday</td>
             <td>
+              <a href="https://www.google.com/url?q=https://classroom.udacity.com/courses/ud206&sa=D&ust=1548782836843000&usg=AFQjCNHdxVIejY4AbbAVxi6mlIKTZR6AVA">
+                Shell Workshop
+              </a>
+              ,{" "}
               <a href="https://www.google.com/url?q=https://classroom.udacity.com/courses/ud775&sa=D&ust=1548782836844000&usg=AFQjCNHSMyCxG5OT9aAj2U-JMz5Gn5hAqg">
                 How to use Git and GitHub
               </a>
             </td>
           </tr>
           <tr>
-            <td>3/5</td>
-            <td>Tuesday</td>
-            <td>Git, GitHub</td>
-            <td>
-              <a href="https://www.google.com/url?q=https://classroom.udacity.com/courses/ud001&sa=D&ust=1548782836844000&usg=AFQjCNHkZDUP0CzWaMBFc_WQp6QjSY5TWQ">
-                HTML
-              </a>
-            </td>
-          </tr>
-          <tr>
-            <td>3/6</td>
-            <td>Wednesday</td>
-            <td>HTML</td>
-            <td>
-              <a href="https://www.google.com/url?q=https://classroom.udacity.com/courses/ud001&sa=D&ust=1548782836844000&usg=AFQjCNHkZDUP0CzWaMBFc_WQp6QjSY5TWQ">
-                CSS
-              </a>
-            </td>
-          </tr>
-          <tr>
             <td>3/7</td>
             <td>Thursday</td>
-            <td>CSS</td>
-            <td>Assignment 1</td>
+            <td rowSpan="2" className="align-middle">
+              <a href="https://www.google.com/url?q=https://classroom.udacity.com/courses/ud775&sa=D&ust=1548782836844000&usg=AFQjCNHSMyCxG5OT9aAj2U-JMz5Gn5hAqg">
+                How to use Git and GitHub
+              </a>
+            </td>
           </tr>
           <tr>
             <td>3/8</td>
             <td>Friday</td>
-            <td>Bootstrap</td>
-            <td>Assignment 2</td>
           </tr>
           <tr>
             <td rowSpan="5" className="align-middle">
@@ -77,7 +71,16 @@ export default function Curriculum() {
             <td>3/11</td>
             <td>Monday</td>
             <td rowSpan="5" className="align-middle">
-              HTML, CSS, Bootstrap
+              <a href="https://www.google.com/url?q=https://classroom.udacity.com/courses/ud001&sa=D&ust=1548782836844000&usg=AFQjCNHkZDUP0CzWaMBFc_WQp6QjSY5TWQ">
+                HTML
+              </a>
+              ,{" "}
+              <a href="https://www.google.com/url?q=https://classroom.udacity.com/courses/ud001&sa=D&ust=1548782836844000&usg=AFQjCNHkZDUP0CzWaMBFc_WQp6QjSY5TWQ">
+                CSS
+              </a>
+            </td>
+            <td rowSpan="5" className="align-middle">
+              Assignment 1
             </td>
           </tr>
           <tr>
@@ -95,77 +98,89 @@ export default function Curriculum() {
           <tr>
             <td>3/15</td>
             <td>Friday</td>
-            <td>
-              <a href="https://www.google.com/url?q=https://classroom.udacity.com/courses/ud803&sa=D&ust=1548782836846000&usg=AFQjCNGGY5CDEdm7JVqPUNlecBdepOHOUg">
-                Intro to JavaScript
-              </a>
-            </td>
           </tr>
           <tr />
-          <tr>
-            <td className="align-middle" rowSpan="26">
-              JavaScript
-            </td>
-          </tr>
           <tr>
             <td rowSpan="5" className="align-middle">
               3
             </td>
             <td>3/18</td>
             <td>Monday</td>
-            <td>Overview, Basic Concepts, Data Types, Variables</td>
-            <td />
+            <td rowSpan="5" className="align-middle">
+              Bootstrap
+            </td>
+            <td rowSpan="5" className="align-middle">
+              Assignment 2
+            </td>
             <td>Quiz 1</td>
           </tr>
           <tr>
             <td>3/19</td>
             <td>Tuesday</td>
-            <td>Conditionals</td>
           </tr>
           <tr>
             <td>3/20</td>
             <td>Wednesday</td>
-            <td>Loops</td>
           </tr>
           <tr>
             <td>3/21</td>
             <td>Thursday</td>
-            <td>Functions</td>
           </tr>
           <tr>
             <td>3/22</td>
             <td>Friday</td>
-            <td>Arrays</td>
           </tr>
           <tr>
+            <td rowSpan="20" className="align-middle">
+              JavaScript
+            </td>
             <td rowSpan="5" className="align-middle">
               4
             </td>
             <td>3/25</td>
             <td>Monday</td>
-            <td>Objects</td>
+            <td>
+              <a href="https://www.google.com/url?q=https://classroom.udacity.com/courses/ud803&sa=D&ust=1548782836846000&usg=AFQjCNGGY5CDEdm7JVqPUNlecBdepOHOUg">
+                Overview, Basic Concepts, Data Types, Variables
+              </a>
+            </td>
             <td />
-            <td>Assignment 3</td>
           </tr>
           <tr>
             <td>3/26</td>
             <td>Tuesday</td>
-            <td>DOM</td>
+            <td>
+              <a href="https://www.google.com/url?q=https://classroom.udacity.com/courses/ud803&sa=D&ust=1548782836846000&usg=AFQjCNGGY5CDEdm7JVqPUNlecBdepOHOUg">
+                Conditions
+              </a>
+            </td>
           </tr>
           <tr>
             <td>3/27</td>
             <td>Wednesday</td>
-            <td>Events</td>
+            <td>
+              <a href="https://www.google.com/url?q=https://classroom.udacity.com/courses/ud803&sa=D&ust=1548782836846000&usg=AFQjCNGGY5CDEdm7JVqPUNlecBdepOHOUg">
+                Loops
+              </a>
+            </td>
           </tr>
           <tr>
             <td>3/28</td>
             <td>Thursday</td>
-            <td>Filterable List</td>
+            <td>
+              <a href="https://www.google.com/url?q=https://classroom.udacity.com/courses/ud803&sa=D&ust=1548782836846000&usg=AFQjCNGGY5CDEdm7JVqPUNlecBdepOHOUg">
+                Functions
+              </a>
+            </td>
           </tr>
           <tr>
             <td>3/29</td>
             <td>Friday</td>
-            <td>Unit Converter</td>
+            <td>
+              <a href="https://www.google.com/url?q=https://classroom.udacity.com/courses/ud803&sa=D&ust=1548782836846000&usg=AFQjCNGGY5CDEdm7JVqPUNlecBdepOHOUg">
+                Arrays
+              </a>
+            </td>
           </tr>
           <tr>
             <td rowSpan="5" className="align-middle">
@@ -173,42 +188,50 @@ export default function Curriculum() {
             </td>
             <td>3/4/1</td>
             <td>Monday</td>
-            <td>Bookmarker</td>
+            <td>
+              <a href="https://www.google.com/url?q=https://classroom.udacity.com/courses/ud803&sa=D&ust=1548782836846000&usg=AFQjCNGGY5CDEdm7JVqPUNlecBdepOHOUg">
+                Objects
+              </a>
+            </td>
           </tr>
           <tr>
             <td>4/2</td>
             <td>Tuesday</td>
-            <td>Todo List</td>
             <td>
-              <a href="https://www.google.com/url?q=https://classroom.udacity.com/courses/ud356&sa=D&ust=1548787999783000&usg=AFQjCNE9tC1AC3hhgbVA4xBYpqd8OQaxBw">
-                ES6
+              <a href="https://www.google.com/url?q=https://classroom.udacity.com/courses/ud803&sa=D&ust=1548782836846000&usg=AFQjCNGGY5CDEdm7JVqPUNlecBdepOHOUg">
+                DOM
               </a>
+            </td>
+            <td>
+              {/* <a href="https://www.google.com/url?q=https://classroom.udacity.com/courses/ud356&sa=D&ust=1548787999783000&usg=AFQjCNE9tC1AC3hhgbVA4xBYpqd8OQaxBw">
+                ES6
+              </a> */}
             </td>
           </tr>
           <tr>
             <td>4/3</td>
             <td>Wednesday</td>
-            <td>ES6</td>
+            <td>
+              <a href="https://www.google.com/url?q=https://classroom.udacity.com/courses/ud803&sa=D&ust=1548782836846000&usg=AFQjCNGGY5CDEdm7JVqPUNlecBdepOHOUg">
+                Events
+              </a>
+            </td>
           </tr>
           <tr>
             <td>4/4</td>
             <td>Thursday</td>
-            <td>Update Projects</td>
-            <td>
+            <td>Filterable List</td>
+            {/* <td>
               <a href="https://www.google.com/url?q=https://classroom.udacity.com/courses/ud245&sa=D&ust=1548787999783000&usg=AFQjCNGm2jbbzfDSjYxlUxWD3Vlyo-96Vw">
                 Intro to jQuery
               </a>
-            </td>
+            </td> */}
           </tr>
           <tr>
             <td>4/5</td>
             <td>Friday</td>
-            <td>jQuery</td>
-            <td>
-              <a href="https://www.google.com/url?q=https://www.udacity.com/course/javascript-design-patterns--ud989&sa=D&ust=1548787999784000&usg=AFQjCNFOr3aEEzUxgYQrY_9mu15IV_6NRw">
-                JavaScript Design Patterns
-              </a>
-            </td>
+            {/* <td>jQuery</td> */}
+            <td>Unit Converter</td>
           </tr>
           <tr>
             <td rowSpan="5" className="align-middle">
@@ -216,13 +239,16 @@ export default function Curriculum() {
             </td>
             <td>4/8</td>
             <td>Monday</td>
-            <td rowSpan="10" className="align-middle">
-              JavaScript Design Patterns
-            </td>
+            <td>Bookmarker</td>
           </tr>
           <tr>
             <td>4/9</td>
             <td>Tuesday</td>
+            <td rowSpan="4" className="align-middle">
+              <a href="https://www.google.com/url?q=https://www.udacity.com/course/javascript-design-patterns--ud989&sa=D&ust=1548787999784000&usg=AFQjCNFOr3aEEzUxgYQrY_9mu15IV_6NRw">
+                JavaScript Design Patterns
+              </a>
+            </td>
           </tr>
           <tr>
             <td>4/10</td>
@@ -242,10 +268,14 @@ export default function Curriculum() {
             </td>
             <td>4/15</td>
             <td>Monday</td>
+            <td className="bg-green">Patriot's Day</td>
           </tr>
           <tr>
             <td>4/16</td>
             <td>Tuesday</td>
+            <td rowSpan="4" className="align-middle">
+              ES6
+            </td>
           </tr>
           <tr>
             <td>4/17</td>
@@ -376,7 +406,7 @@ export default function Curriculum() {
             </td>
             <td>5/20</td>
             <td>Monday</td>
-            <td rowSpan="10" className="align-middle">
+            <td rowSpan="5" className="align-middle">
               NoSQL, MongoDB, Querying/Updating Data, Mongoose, Schemas, Models,
               Querying/Updating MongoDB
             </td>
@@ -405,10 +435,15 @@ export default function Curriculum() {
             </td>
             <td>5/27</td>
             <td>Monday</td>
+            <td className="bg-green">Memorial Day</td>
           </tr>
           <tr>
             <td>5/28</td>
             <td>Tuesday</td>
+            <td rowSpan="4" className="align-middle">
+              NoSQL, MongoDB, Querying/Updating Data, Mongoose, Schemas, Models,
+              Querying/Updating MongoDB
+            </td>
           </tr>
           <tr>
             <td>5/29</td>
@@ -546,6 +581,7 @@ export default function Curriculum() {
           <tr>
             <td>7/4</td>
             <td>Thursday</td>
+            <td className="bg-green">Independence Day</td>
           </tr>
           <tr>
             <td>7/5</td>
