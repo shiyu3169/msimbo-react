@@ -9,6 +9,16 @@ body {
   line-height: 1.6;
 }
 
+/* General */
+.bg-red {
+  background: #e75d5d;
+  color: white;
+}
+
+.bg-green {
+  background: #55ffa1;
+}
+
 .userImage {
   width: 200px;
 }

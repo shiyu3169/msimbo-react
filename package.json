@@ -29,7 +29,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "push": "npm run build & git add . & git commit -m build & git push"
+    "push": "npm run build & git add . & git commit -m build & git push",
+    "postinstall": "react-scripts build"
   },
   "eslintConfig": {
     "extends": "react-app"
