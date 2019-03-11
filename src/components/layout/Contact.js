@@ -31,7 +31,7 @@ export default class Contact extends Component {
 
   sendEmail(data) {
     Axios.post("/api/contact", data).then(res => {
-      if (res.statusCode !== 200) {
+      if (res !== "OK") {
         this.setState({
           error: true,
           success: false
