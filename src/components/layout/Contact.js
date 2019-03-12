@@ -31,23 +31,16 @@ export default class Contact extends Component {
 
   sendEmail(data) {
     Axios.post("/api/contact", data).then(res => {
-      if (res !== "OK") {
-        this.setState({
-          error: true,
-          success: false
-        });
-      } else {
-        this.setState({
-          error: false,
-          success: true
-        });
-        this.setState({
-          name: "",
-          email: "",
-          subject: "",
-          content: ""
-        });
-      }
+      this.setState({
+        error: false,
+        success: true
+      });
+      this.setState({
+        name: "",
+        email: "",
+        subject: "",
+        content: ""
+      });
     });
   }
 
