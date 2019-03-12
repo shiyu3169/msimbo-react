@@ -94,7 +94,7 @@ class UserEdit extends Component {
                     ? `http://localhost:3100/auth/linkedin`
                     : "/auth/linkedin"
                 }>
-                Sync info with LinkedIn
+                Import info from LinkedIn
               </a>
             </div>
           </div>
