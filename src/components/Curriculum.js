@@ -33,7 +33,11 @@ export default function Curriculum() {
             <td>
               Full-Stack Development, LinkedIn, MSIMBO Website, Slack, Syllabus,
               Job Oppotunities,{" "}
-              <a target="_blank" rel="noopener noreferrer" href="https://www.google.com/url?q=https://classroom.udacity.com/courses/ud206&sa=D&ust=1548782836843000&usg=AFQjCNHdxVIejY4AbbAVxi6mlIKTZR6AVA">
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.google.com/url?q=https://classroom.udacity.com/courses/ud206&sa=D&ust=1548782836843000&usg=AFQjCNHdxVIejY4AbbAVxi6mlIKTZR6AVA"
+              >
                 Shell Workshop
               </a>
             </td>
@@ -42,11 +46,19 @@ export default function Curriculum() {
             <td>3/6</td>
             <td>Wednesday</td>
             <td>
-              <a target="_blank" rel="noopener noreferrer" href="https://www.google.com/url?q=https://classroom.udacity.com/courses/ud206&sa=D&ust=1548782836843000&usg=AFQjCNHdxVIejY4AbbAVxi6mlIKTZR6AVA">
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.google.com/url?q=https://classroom.udacity.com/courses/ud206&sa=D&ust=1548782836843000&usg=AFQjCNHdxVIejY4AbbAVxi6mlIKTZR6AVA"
+              >
                 Shell Workshop
               </a>
               ,{" "}
-              <a target="_blank" rel="noopener noreferrer" href="https://www.google.com/url?q=https://classroom.udacity.com/courses/ud775&sa=D&ust=1548782836844000&usg=AFQjCNHSMyCxG5OT9aAj2U-JMz5Gn5hAqg">
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.google.com/url?q=https://classroom.udacity.com/courses/ud775&sa=D&ust=1548782836844000&usg=AFQjCNHSMyCxG5OT9aAj2U-JMz5Gn5hAqg"
+              >
                 How to use Git and GitHub
               </a>
             </td>
@@ -55,7 +67,11 @@ export default function Curriculum() {
             <td>3/7</td>
             <td>Thursday</td>
             <td rowSpan="2" className="align-middle">
-              <a target="_blank" rel="noopener noreferrer" href="https://www.google.com/url?q=https://classroom.udacity.com/courses/ud775&sa=D&ust=1548782836844000&usg=AFQjCNHSMyCxG5OT9aAj2U-JMz5Gn5hAqg">
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.google.com/url?q=https://classroom.udacity.com/courses/ud775&sa=D&ust=1548782836844000&usg=AFQjCNHSMyCxG5OT9aAj2U-JMz5Gn5hAqg"
+              >
                 How to use Git and GitHub
               </a>
             </td>
@@ -71,7 +87,11 @@ export default function Curriculum() {
             <td>3/11</td>
             <td>Monday</td>
             <td rowSpan="5" className="align-middle">
-              <a target="_blank" rel="noopener noreferrer" href="https://www.google.com/url?q=https://classroom.udacity.com/courses/ud001&sa=D&ust=1548782836844000&usg=AFQjCNHkZDUP0CzWaMBFc_WQp6QjSY5TWQ">
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.google.com/url?q=https://classroom.udacity.com/courses/ud001&sa=D&ust=1548782836844000&usg=AFQjCNHkZDUP0CzWaMBFc_WQp6QjSY5TWQ"
+              >
                 HTML & CSS
               </a>
             </td>
@@ -136,17 +156,24 @@ export default function Curriculum() {
             <td>3/25</td>
             <td>Monday</td>
             <td>
-              <a target="_blank" rel="noopener noreferrer"  href="https://www.google.com/url?q=https://classroom.udacity.com/courses/ud803&sa=D&ust=1548782836846000&usg=AFQjCNGGY5CDEdm7JVqPUNlecBdepOHOUg">
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.google.com/url?q=https://classroom.udacity.com/courses/ud803&sa=D&ust=1548782836846000&usg=AFQjCNGGY5CDEdm7JVqPUNlecBdepOHOUg"
+              >
                 Overview, Basic Concepts, Data Types, Variables
               </a>
             </td>
-            <td rowSpan="10" className="align-middle">Assignment 3</td>
           </tr>
           <tr>
             <td>3/26</td>
             <td>Tuesday</td>
             <td>
-              <a target="_blank" rel="noopener noreferrer" href="https://www.google.com/url?q=https://classroom.udacity.com/courses/ud803&sa=D&ust=1548782836846000&usg=AFQjCNGGY5CDEdm7JVqPUNlecBdepOHOUg">
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.google.com/url?q=https://classroom.udacity.com/courses/ud803&sa=D&ust=1548782836846000&usg=AFQjCNGGY5CDEdm7JVqPUNlecBdepOHOUg"
+              >
                 Conditions
               </a>
             </td>
@@ -155,7 +182,11 @@ export default function Curriculum() {
             <td>3/27</td>
             <td>Wednesday</td>
             <td>
-              <a target="_blank" rel="noopener noreferrer" href="https://www.google.com/url?q=https://classroom.udacity.com/courses/ud803&sa=D&ust=1548782836846000&usg=AFQjCNGGY5CDEdm7JVqPUNlecBdepOHOUg">
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.google.com/url?q=https://classroom.udacity.com/courses/ud803&sa=D&ust=1548782836846000&usg=AFQjCNGGY5CDEdm7JVqPUNlecBdepOHOUg"
+              >
                 Loops
               </a>
             </td>
@@ -164,7 +195,11 @@ export default function Curriculum() {
             <td>3/28</td>
             <td>Thursday</td>
             <td>
-              <a target="_blank" rel="noopener noreferrer" href="https://www.google.com/url?q=https://classroom.udacity.com/courses/ud803&sa=D&ust=1548782836846000&usg=AFQjCNGGY5CDEdm7JVqPUNlecBdepOHOUg">
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.google.com/url?q=https://classroom.udacity.com/courses/ud803&sa=D&ust=1548782836846000&usg=AFQjCNGGY5CDEdm7JVqPUNlecBdepOHOUg"
+              >
                 Functions
               </a>
             </td>
@@ -173,7 +208,11 @@ export default function Curriculum() {
             <td>3/29</td>
             <td>Friday</td>
             <td>
-              <a target="_blank" rel="noopener noreferrer" href="https://www.google.com/url?q=https://classroom.udacity.com/courses/ud803&sa=D&ust=1548782836846000&usg=AFQjCNGGY5CDEdm7JVqPUNlecBdepOHOUg">
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.google.com/url?q=https://classroom.udacity.com/courses/ud803&sa=D&ust=1548782836846000&usg=AFQjCNGGY5CDEdm7JVqPUNlecBdepOHOUg"
+              >
                 Arrays
               </a>
             </td>
@@ -185,7 +224,11 @@ export default function Curriculum() {
             <td>3/4/1</td>
             <td>Monday</td>
             <td>
-              <a target="_blank" rel="noopener noreferrer" href="https://www.google.com/url?q=https://classroom.udacity.com/courses/ud803&sa=D&ust=1548782836846000&usg=AFQjCNGGY5CDEdm7JVqPUNlecBdepOHOUg">
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.google.com/url?q=https://classroom.udacity.com/courses/ud803&sa=D&ust=1548782836846000&usg=AFQjCNGGY5CDEdm7JVqPUNlecBdepOHOUg"
+              >
                 Objects
               </a>
             </td>
@@ -194,18 +237,24 @@ export default function Curriculum() {
             <td>4/2</td>
             <td>Tuesday</td>
             <td>
-              <a target="_blank" rel="noopener noreferrer" href="https://www.google.com/url?q=https://classroom.udacity.com/courses/ud803&sa=D&ust=1548782836846000&usg=AFQjCNGGY5CDEdm7JVqPUNlecBdepOHOUg">
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://classroom.udacity.com/courses/ud117"
+              >
                 DOM
               </a>
-            </td>
-            <td>
             </td>
           </tr>
           <tr>
             <td>4/3</td>
             <td>Wednesday</td>
             <td>
-              <a target="_blank" rel="noopener noreferrer" href="https://www.google.com/url?q=https://classroom.udacity.com/courses/ud803&sa=D&ust=1548782836846000&usg=AFQjCNGGY5CDEdm7JVqPUNlecBdepOHOUg">
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://classroom.udacity.com/courses/ud117"
+              >
                 Events
               </a>
             </td>
@@ -213,13 +262,14 @@ export default function Curriculum() {
           <tr>
             <td>4/4</td>
             <td>Thursday</td>
-          
+            <td rowSpan="2" />
+            <td rowSpan="2" className="align-middle">
+              Assignment 3
+            </td>
           </tr>
           <tr>
             <td>4/5</td>
             <td>Friday</td>
-           
-           
           </tr>
           <tr>
             <td rowSpan="5" className="align-middle">
@@ -227,12 +277,12 @@ export default function Curriculum() {
             </td>
             <td>4/8</td>
             <td>Monday</td>
-            <td>Filterable List</td>          
+            <td>Filterable List</td>
           </tr>
           <tr>
             <td>4/9</td>
             <td>Tuesday</td>
-            
+
             <td>Unit Converter</td>
           </tr>
           <tr>
@@ -244,7 +294,11 @@ export default function Curriculum() {
             <td>4/11</td>
             <td>Thursday</td>
             <td rowSpan="2" className="align-middle">
-            <a target="_blank" rel="noopener noreferrer" href="https://www.udacity.com/course/es6-javascript-improved--ud356">
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.udacity.com/course/es6-javascript-improved--ud356"
+              >
                 ES6
               </a>
             </td>
@@ -265,7 +319,11 @@ export default function Curriculum() {
             <td>4/16</td>
             <td>Tuesday</td>
             <td rowSpan="4" className="align-middle">
-              <a target="_blank" rel="noopener noreferrer" href="https://www.google.com/url?q=https://www.udacity.com/course/javascript-design-patterns--ud989&sa=D&ust=1548787999784000&usg=AFQjCNFOr3aEEzUxgYQrY_9mu15IV_6NRw">
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.google.com/url?q=https://www.udacity.com/course/javascript-design-patterns--ud989&sa=D&ust=1548787999784000&usg=AFQjCNFOr3aEEzUxgYQrY_9mu15IV_6NRw"
+              >
                 JavaScript Design Patterns
               </a>
             </td>
