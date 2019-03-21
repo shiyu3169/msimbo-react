@@ -30,16 +30,12 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "push": "npm run build & git add . & git commit -m build & git push",
-    "postinstall": "react-scripts build"
+    "postinstall": "react-scripts build",
+    "dev": "nodemon server.js"
   },
   "eslintConfig": {
     "extends": "react-app"
   },
   "proxy": "http://localhost:3100",
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
+  "browserslist": [">0.2%", "not dead", "not ie <= 11", "not op_mini all"]
 }
