@@ -30,13 +30,15 @@ class Navbar extends Component {
             data-target="#navbarTogglerDemo02"
             aria-controls="navbarTogglerDemo02"
             aria-expanded="false"
-            aria-label="Toggle navigation">
+            aria-label="Toggle navigation"
+          >
             <span className="navbar-toggler-icon" />
           </button>
           <div
             className="collapse navbar-collapse"
             id="navbarTogglerDemo02"
-            onClick={this.collapse}>
+            onClick={this.collapse}
+          >
             <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
               <li className="nav-item">
                 <Link className="nav-link" to="/">
@@ -49,9 +51,14 @@ class Navbar extends Component {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/curriculum">
+                <a
+                  className="nav-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://docs.google.com/spreadsheets/d/1B34dAaxyfY_Z6an_bQ0nB8HnSewuqByvBxcy5f7-b0A/edit?usp=sharing"
+                >
                   Curriculum
-                </Link>
+                </a>
               </li>
 
               <li className="nav-item">
@@ -75,7 +82,8 @@ class Navbar extends Component {
                   className="nav-link"
                   href="https://msimbo.slack.com"
                   target="_blank"
-                  rel="noopener noreferrer">
+                  rel="noopener noreferrer"
+                >
                   Slack
                 </a>
               </li>
@@ -85,38 +93,40 @@ class Navbar extends Component {
                 </Link>
               </li>
             </ul>
-            {currentUser === 0 && (
+            {currentUser === 0 &&
               <button
                 className="btn menu-button"
                 data-toggle="modal"
                 data-target="#loginModal"
-                onClick={this.login}>
+                onClick={this.login}
+              >
                 Login
-              </button>
-            )}
-            {currentUser !== 0 && (
+              </button>}
+            {currentUser !== 0 &&
               <React.Fragment>
                 <Link
                   to={`/user/${currentUser._id}`}
-                  className="btn menu-button">
+                  className="btn menu-button"
+                >
                   <i className="fas fa-user" />
                 </Link>
                 <button
                   className="btn menu-button"
                   data-toggle="modal"
-                  data-target="#logoutModal">
+                  data-target="#logoutModal"
+                >
                   Logout
                 </button>
-              </React.Fragment>
-            )}
-            {currentUser !== 0 && currentUser.admin && (
+              </React.Fragment>}
+            {currentUser !== 0 &&
+              currentUser.admin &&
               <button
                 className="btn menu-button"
                 data-toggle="modal"
-                data-target="#registerModal">
+                data-target="#registerModal"
+              >
                 Register
-              </button>
-            )}
+              </button>}
           </div>
         </nav>
         <Login />
@@ -131,7 +141,4 @@ const mapStateToProps = state => ({
   currentUser: state.user.currentUser
 });
 
-export default connect(
-  mapStateToProps,
-  { loggedIn }
-)(Navbar);
+export default connect(mapStateToProps, { loggedIn })(Navbar);
