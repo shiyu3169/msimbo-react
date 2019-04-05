@@ -39,10 +39,14 @@ class Services extends Component {
               iconClass="fas fa-graduation-cap fa-3x"
               title="Curriculum"
               description="Course Schedule"
+<<<<<<< HEAD
               onClick={this.navigate.bind(
                 this,
                 "https://docs.google.com/spreadsheets/d/1B34dAaxyfY_Z6an_bQ0nB8HnSewuqByvBxcy5f7-b0A/edit?usp=sharing"
               )}
+=======
+              onClick={this.redirect.bind(this, "/curriculum")}
+>>>>>>> 83fbc66f094aa71b73d0f8662034dba7c9f0b651
             />
             <ServiceIcon
               iconClass="fab fa-youtube fa-3x"
