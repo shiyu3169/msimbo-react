@@ -157,6 +157,12 @@ body {
   display: inline;
 }
 
+/* Grade */
+
+.text-area {
+  min-height: 300px;
+}
+
 /* small screns  */
 @media (max-width: 560px) {
   .showcase::after {
