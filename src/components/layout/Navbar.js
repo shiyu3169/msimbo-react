@@ -6,6 +6,7 @@ import Register from '../auth/Register';
 import Logout from '../auth/Logout';
 import { connect } from 'react-redux';
 import { loggedIn } from '../../actions/userActions';
+import NavItem from './NavItem';
 
 const Navbar = props => {
   const collapse = () => {
@@ -33,58 +34,18 @@ const Navbar = props => {
           onClick={collapse}
         >
           <ul className='navbar-nav mr-auto mt-2 mt-lg-0'>
-            <li className='nav-item'>
-              <Link className='nav-link' to='/'>
-                Home
-              </Link>
-            </li>
-            <li className='nav-item'>
-              <Link className='nav-link' to='/students'>
-                Students
-              </Link>
-            </li>
-            <li className='nav-item'>
-              <a
-                className='nav-link'
-                target='_blank'
-                rel='noopener noreferrer'
-                href='https://docs.google.com/spreadsheets/d/1B34dAaxyfY_Z6an_bQ0nB8HnSewuqByvBxcy5f7-b0A/edit?usp=sharing'
-              >
-                Curriculum
-              </a>
-            </li>
-
-            <li className='nav-item'>
-              <Link className='nav-link' to='/assignments'>
-                Assignments
-              </Link>
-            </li>
-
-            <li className='nav-item'>
-              <Link className='nav-link' to='/resources'>
-                Resources
-              </Link>
-            </li>
-            <li className='nav-item'>
-              <Link className='nav-link' to='/videos'>
-                Videos
-              </Link>
-            </li>
-            <li className='nav-item'>
-              <a
-                className='nav-link'
-                href='https://msimbo.slack.com'
-                target='_blank'
-                rel='noopener noreferrer'
-              >
-                Slack
-              </a>
-            </li>
-            <li className='nav-item'>
-              <Link className='nav-link' to='/contact'>
-                Contact us
-              </Link>
-            </li>
+            <NavItem to='/' text='Home' />
+            <NavItem to='/students' text='Students' />
+            <NavItem
+              href='https://docs.google.com/spreadsheets/d/1B34dAaxyfY_Z6an_bQ0nB8HnSewuqByvBxcy5f7-b0A/edit?usp=sharing'
+              text='Curriculum'
+            />
+            <NavItem to='/assignments' text='Assignments' />
+            <NavItem to='/resources' text='Resources' />
+            <NavItem to='/videos' text='Videos' />
+            <NavItem to='/quiz' text='Quiz' />
+            <NavItem href='https://msimbo.slack.com' text='Slack' />
+            <NavItem to='/contact' text='Contact Us' />
           </ul>
           {currentUser === 0 && (
             <button
