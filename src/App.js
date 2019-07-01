@@ -4,6 +4,7 @@ import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 // Layout
 import Navbar from './components/layout/Navbar';
+import Footer from './components/layout/Footer';
 // Components
 import Home from './components/Home';
 import Students from './components/students/Students';
@@ -13,7 +14,8 @@ import Assignments from './components/assignments/Assignments';
 import Youtubes from './components/youtube/Youtubes';
 import Syllabus from './components/layout/Syllabus';
 import Contact from './components/layout/Contact';
-import StudentQuiz from './components/quiz/StudentQuiz';
+import Assessments from './components/assessment/Assessments';
+import Assessment from './components/assessment/Assessment';
 
 class App extends Component {
   render() {
@@ -30,8 +32,10 @@ class App extends Component {
             <Route axact path='/videos' component={Youtubes} />
             <Route exact path='/syllabus' component={Syllabus} />
             <Route exact path='/contact' component={Contact} />
-            <Route exact path='/quiz' component={StudentQuiz} />
+            <Route exact path='/assessments' component={Assessments} />
+            <Route exact path='/assessment/:id' component={Assessment} />
           </Switch>
+          <Footer />
         </div>
       </Router>
     );

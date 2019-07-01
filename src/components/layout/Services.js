@@ -44,7 +44,7 @@ function Services() {
             iconClass='fas fa-pencil-alt fa-3x'
             title='Assessments'
             description='Course slides and materials'
-            to='/quiz'
+            to='/assessments'
           />
         </div>
       </section>

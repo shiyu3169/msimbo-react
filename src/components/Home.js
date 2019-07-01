@@ -73,9 +73,6 @@ const Home = () => {
       </header>
       <Services />
       <About />
-      <footer className='center'>
-        <p>Urban League of Eastern Massachusetts &copy; 2019 </p>
-      </footer>
     </div>
   );
 };
