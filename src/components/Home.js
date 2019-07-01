@@ -59,8 +59,9 @@ const Home = () => {
         <div className='content'>
           <img src='logo.png' className='logo' alt='MSIMBO' />
           <h1 id='home-h1' className='title'>
-            MSIMBO <span id='txt'>{txt}</span>
+            MSIMBO
           </h1>
+          <h2>{txt}</h2>
           <h2 id='home-h2'>Welcome to ULEM Coding Bootcamp</h2>
         </div>
         <button
