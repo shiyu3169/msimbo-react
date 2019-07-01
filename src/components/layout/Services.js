@@ -41,10 +41,10 @@ function Services() {
             to='/resources'
           />
           <ServiceIcon
-            iconClass='fab fa-slack fa-3x'
-            title='Slack'
-            description='Contact instructor or students'
-            href='https://msimbo.slack.com'
+            iconClass='fas fa-pencil-alt fa-3x'
+            title='Assessments'
+            description='Course slides and materials'
+            to='/quiz'
           />
         </div>
       </section>
