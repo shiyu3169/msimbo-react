@@ -52,7 +52,7 @@ class EditGrade extends Component {
 
   render() {
     const { _id } = this.props.grade;
-    const { name, score, comment } = this.state;
+    const { name, score } = this.state;
     return (
       <div
         className='modal fade'
