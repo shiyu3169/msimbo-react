@@ -43,7 +43,7 @@ const Navbar = props => {
             <NavItem to='/assignments' text='Assignments' />
             <NavItem to='/resources' text='Resources' />
             <NavItem to='/videos' text='Videos' />
-            <NavItem to='/quiz' text='Quiz' />
+            <NavItem to='/assessments' text='Assessments' />
             <NavItem href='https://msimbo.slack.com' text='Slack' />
             <NavItem to='/contact' text='Contact Us' />
           </ul>

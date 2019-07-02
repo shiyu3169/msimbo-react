@@ -29,9 +29,9 @@ class App extends Component {
             <Route exact path='/resources' component={Resources} />
             <Route exact path='/user/:uid' component={Profile} />
             <Route exact path='/assignments' component={Assignments} />
-            <Route axact path='/videos' component={Youtubes} />
+            <Route exact path='/videos' component={Youtubes} />
             <Route exact path='/syllabus' component={Syllabus} />
-            <Route exact path='/contact' component={Contact} />
+            <Route exact path='/contact' component={Contact} />4
             <Route exact path='/assessments' component={Assessments} />
             <Route exact path='/assessment/:id' component={Assessment} />
           </Switch>
