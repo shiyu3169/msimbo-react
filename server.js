@@ -48,8 +48,8 @@ if (process.env.SESSION_SECRET) {
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json()); // For parsing application/json
+app.use(express.urlencoded({ extended: true })); // For parsing application/x-www-form-urlencoded
 
 // Point static path to dist -- For building -- REMOVE
 app.use(express.static(path.join(__dirname, "build")));
