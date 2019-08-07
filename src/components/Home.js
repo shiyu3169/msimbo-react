@@ -1,19 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import $ from 'jquery';
-import 'popper.js';
-import 'bootstrap/dist/js/bootstrap';
-import Services from './layout/Services';
-import About from './layout/About';
+import React, { useState, useEffect } from "react";
+import $ from "jquery";
+import "popper.js";
+import "bootstrap/dist/js/bootstrap";
+import Services from "./layout/Services";
+import About from "./layout/About";
 
 const Home = () => {
   const [words] = useState([
-    'Web Development',
-    'Full Stack Dev',
-    'Programming'
+    "Web Development",
+    "Full Stack Dev",
+    "Programming"
   ]);
   const [wordIndex, setWordIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
-  const [txt, setTxt] = useState('');
+  const [txt, setTxt] = useState("");
   const [typeSpeed, setTypeSpeed] = useState(200);
 
   useEffect(() => {
@@ -31,7 +31,7 @@ const Home = () => {
       if (!isDeleting && txt === fullTxt) {
         setTypeSpeed(3000);
         setIsDeleting(true);
-      } else if (isDeleting && txt === '') {
+      } else if (isDeleting && txt === "") {
         setIsDeleting();
         setWordIndex(wordIndex => wordIndex + 1);
         setTypeSpeed(500);
@@ -46,27 +46,27 @@ const Home = () => {
   }, [txt, typeSpeed, isDeleting, wordIndex, words]);
 
   const scroll = () => {
-    $('html,body').animate(
+    $("html,body").animate(
       {
-        scrollTop: $('.services').offset().top
+        scrollTop: $(".services").offset().top
       },
-      'slow'
+      "slow"
     );
   };
   return (
     <div>
-      <header className='showcase'>
-        <div className='content'>
-          <img src='logo.png' className='logo' alt='MSIMBO' />
-          <h1 id='home-h1' className='title'>
+      <header className="showcase sw-bg-dark">
+        <div className="content">
+          <img src="logo.png" className="logo" alt="MSIMBO" />
+          <h1 id="home-h1" className="title">
             MSIMBO
           </h1>
           <h2>{txt}</h2>
-          <h2 id='home-h2'>Welcome to ULEM Coding Bootcamp</h2>
+          <h2 id="home-h2">Welcome to ULEM Coding Bootcamp</h2>
         </div>
         <button
           onClick={scroll}
-          className='btn btn-lg btn-outline-light d-none d-md-block'
+          className="btn btn-lg btn-outline-light d-none d-md-block"
         >
           Explore
         </button>

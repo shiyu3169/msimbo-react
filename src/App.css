@@ -1,15 +1,13 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway:200,100,400');
-
+@import url("https://fonts.googleapis.com/css?family=Raleway:200,100,400");
+/* General */
 body {
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   margin: 0;
   height: 100vh;
   background: rgba(0, 0, 0, 0.9);
   color: #fff;
   line-height: 1.6;
 }
-
-/* General */
 
 .bg-red {
   background: #e75d5d;
@@ -26,6 +24,7 @@ body {
 
 .sw-bg-dark {
   background: rgba(10, 10, 10, 0.9);
+  color: #fff;
 }
 
 .fixed-bottom-right {
@@ -56,7 +55,7 @@ body {
 }
 
 .showcase::after {
-  content: '';
+  content: "";
   height: 100vh;
   width: 100%;
   background-image: url(showcase.jpg);
@@ -138,9 +137,10 @@ body {
   grid-template-columns: repeat(2, 1fr);
 }
 
-.sw-bg-white {
+.main {
   background: #f4f4f4;
   color: #333;
+  min-height: calc(100vh - 100px);
 }
 .container {
   overflow: hidden;

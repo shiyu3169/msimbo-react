@@ -3,7 +3,7 @@ import BackToTop from "./BackToTop";
 
 export default function Syllabus() {
   return (
-    <div className="sw-bg-white">
+    <div>
       <div className="container">
         <h1 style={{ textAlign: "center" }}>
           <b>Syllabus</b>

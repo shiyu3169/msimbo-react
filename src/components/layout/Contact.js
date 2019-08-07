@@ -47,7 +47,7 @@ export default class Contact extends Component {
   render() {
     const { name, email, subject, content, error, success } = this.state;
     return (
-      <section className="sw-bg-white">
+      <section>
         <div className="container">
           <h1>Contact us</h1>
           {error && (

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const About = () => {
   return (
-    <section className="sw-bg-white">
+    <section>
       <div className="container">
         <div className="grid-2">
           <div className="center">

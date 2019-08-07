@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { getVideos, createVideo } from '../../actions/videoActions';
-import Youtube from './Youtube';
-import YoutubeNew from './YoutubeNew';
-import BackToTop from '../layout/BackToTop';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { getVideos, createVideo } from "../../actions/videoActions";
+import Youtube from "./Youtube";
+import YoutubeNew from "./YoutubeNew";
+import BackToTop from "../layout/BackToTop";
 class Youtubes extends Component {
   componentDidMount() {
     this.props.getVideos();
@@ -12,21 +12,21 @@ class Youtubes extends Component {
   render() {
     const { videos, creating, createVideo, currentUser } = this.props;
     return (
-      <div className='sw-bg-white'>
-        <div className='container'>
+      <div>
+        <div className="container">
           {creating ? (
             <YoutubeNew />
           ) : (
             currentUser.admin && (
               <button
                 onClick={createVideo}
-                className='btn btn-outline-dark float-right'
+                className="btn btn-outline-dark float-right"
               >
                 New Playlist
               </button>
             )
           )}
-          <ul className='list-group'>
+          <ul className="list-group">
             {videos.map(video => (
               <Youtube key={video._id} video={video} />
             ))}
