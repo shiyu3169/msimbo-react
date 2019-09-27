@@ -14,7 +14,7 @@ import {
 import axios from "axios";
 
 export const getUser = id => async dispatch => {
-  const res = await axios.get(`/api/user/${id}`);
+  const res = await axios.get(`/api/users/${id}`);
   dispatch({
     type: GET_USER,
     payload: res.data
@@ -22,7 +22,7 @@ export const getUser = id => async dispatch => {
 };
 
 export const update = user => async dispatch => {
-  const res = await axios.put(`/api/user/${user._id}`, user);
+  const res = await axios.put(`/api/users/${user._id}`, user);
   dispatch({
     type: UPDATE_USER,
     payload: res.data
@@ -30,7 +30,7 @@ export const update = user => async dispatch => {
 };
 
 export const getUsers = () => async dispatch => {
-  const res = await axios.get("/api/user");
+  const res = await axios.get("/api/users");
   dispatch({
     type: GET_USERS,
     payload: res.data
@@ -46,7 +46,7 @@ export const login = user => async dispatch => {
 };
 
 export const register = user => async dispatch => {
-  const res = await axios.post("/api/user", user);
+  const res = await axios.post("/api/users", user);
   // console.log(res.data);
   dispatch({
     type: REGISTER,
