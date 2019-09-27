@@ -5,5 +5,4 @@ module.exports = function(app) {
   require("./services/grade.service.server")(app);
   require("./services/youtube.service.server")(app);
   require("./services/message.service.server")(app);
-  require("./models/models.server");
 };
