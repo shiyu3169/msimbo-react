@@ -1,9 +1,11 @@
 import React, { Component } from "react";
-import InputGroup from "../layout/InputGroup";
-import { connect } from "react-redux";
-import { login } from "../../actions/userActions";
-import { withRouter } from "react-router-dom";
 import $ from "jquery";
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
+// Components
+import InputGroup from "../layout/InputGroup";
+// Actions
+import { login } from "../../actions/authActions";
 
 class Login extends Component {
   state = {
@@ -44,7 +46,6 @@ class Login extends Component {
       .login(user)
       .then(() => {
         $("#loginModal").modal("hide");
-        this.props.history.push(`/user/${this.props.currentUser._id}`);
       })
       .catch(error => {
         this.setState({
@@ -67,7 +68,8 @@ class Login extends Component {
         tabIndex="-1"
         role="dialog"
         aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
+        aria-hidden="true"
+      >
         <div className="modal-dialog modal-dialog-centered" role="document">
           <div className="modal-content sw-bg-dark">
             <div className="modal-header">
@@ -76,7 +78,8 @@ class Login extends Component {
                 type="button"
                 className="close"
                 data-dismiss="modal"
-                aria-label="Close">
+                aria-label="Close"
+              >
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
@@ -117,11 +120,7 @@ class Login extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  currentUser: state.user.currentUser
-});
-
 export default connect(
-  mapStateToProps,
+  null,
   { login }
 )(withRouter(Login));

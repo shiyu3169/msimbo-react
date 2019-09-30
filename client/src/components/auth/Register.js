@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import InputGroup from "../layout/InputGroup";
 import { connect } from "react-redux";
-import { register } from "../../actions/userActions";
 
 class Register extends Component {
   state = {
@@ -114,7 +113,8 @@ class Register extends Component {
         tabIndex="-1"
         role="dialog"
         aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
+        aria-hidden="true"
+      >
         <div className="modal-dialog modal-dialog-centered" role="document">
           <div className="modal-content sw-bg-dark">
             <div className="modal-header">
@@ -123,7 +123,8 @@ class Register extends Component {
                 type="button"
                 className="close"
                 data-dismiss="modal"
-                aria-label="Close">
+                aria-label="Close"
+              >
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
@@ -195,5 +196,5 @@ class Register extends Component {
 
 export default connect(
   null,
-  { register }
+  {}
 )(Register);

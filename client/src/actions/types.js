@@ -1,8 +1,12 @@
-// User, Students
-export const LOGGEDIN = "LOGGEDIN";
-export const LOGIN = "LOGIN";
-export const REGISTER = "REGISTER";
+// Auth
+export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
+export const REGISTER_FAIL = "REGISTER_FAIL";
+export const USER_LOADED = "USER_LOADED";
+export const AUTH_ERROR = "AUTH_ERROR";
+export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
+export const LOGIN_FAIL = "LOGIN_FAIL";
 export const LOGOUT = "LOGOUT";
+// User, Students
 export const GET_USERS = "GET_USERS";
 export const GET_USER = "GET_USER";
 export const EDIT_USER = "EDIT";

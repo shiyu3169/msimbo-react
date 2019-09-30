@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
 import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { connect } from "react-redux";
 // Layout
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
@@ -16,8 +17,14 @@ import Syllabus from "./components/layout/Syllabus";
 import Contact from "./components/layout/Contact";
 import Assessments from "./components/assessment/Assessments";
 import Assessment from "./components/assessment/Assessment";
+// Actions
+import { loadUser } from "./actions/authActions";
 
 class App extends Component {
+  componentDidMount() {
+    this.props.loadUser();
+  }
+
   render() {
     return (
       <Router>
@@ -43,4 +50,8 @@ class App extends Component {
     );
   }
 }
-export default App;
+
+export default connect(
+  null,
+  { loadUser }
+)(App);
