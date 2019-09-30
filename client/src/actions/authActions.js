@@ -40,3 +40,9 @@ export const login = formData => async dispatch => {
     });
   }
 };
+
+export const logout = () => dispatch => {
+  dispatch({
+    type: LOGOUT
+  });
+};
