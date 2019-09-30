@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import $ from "jquery";
 // Components
 import Login from "../auth/Login";
-import Register from "../auth/Register";
 import Logout from "../auth/Logout";
 import NavItem from "./NavItem";
 
@@ -58,13 +57,9 @@ const Navbar = ({ isAuthenticated, user, loading }) => {
               >
                 Login
               </button>
-              <button
-                className="btn menu-button"
-                data-toggle="modal"
-                data-target="#registerModal"
-              >
+              <Link className="text-light" to="/register">
                 Register
-              </button>
+              </Link>
             </>
           ) : (
             <>
@@ -83,7 +78,6 @@ const Navbar = ({ isAuthenticated, user, loading }) => {
         </div>
       </nav>
       <Login />
-      <Register />
       <Logout />
     </div>
   );
