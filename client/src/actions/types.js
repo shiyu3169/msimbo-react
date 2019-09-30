@@ -45,3 +45,4 @@ export const DELETE_VIDEO = "DELETE_VIDEO";
 // Error
 export const ADD_ERROR = "ADD_ERROR";
 export const GET_ERROR = "GET_ERROR";
+export const CLEAR_ERRORS = "CLEAR_ERRORS";

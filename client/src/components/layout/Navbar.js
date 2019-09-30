@@ -8,10 +8,14 @@ import Register from "../auth/Register";
 import Logout from "../auth/Logout";
 import NavItem from "./NavItem";
 
-const Navbar = ({ isAuthenticated, user }) => {
+const Navbar = ({ isAuthenticated, user, loading }) => {
   const collapse = () => {
     $(".collapse").collapse("hide");
   };
+
+  if (loading) {
+    return <span>Loading...</span>;
+  }
 
   return (
     <div className="front" id="top">
@@ -45,17 +49,25 @@ const Navbar = ({ isAuthenticated, user }) => {
             <NavItem href="https://msimbo.slack.com" text="Slack" />
             <NavItem to="/contact" text="Contact Us" />
           </ul>
-          {!isAuthenticated && (
-            <button
-              className="btn menu-button"
-              data-toggle="modal"
-              data-target="#loginModal"
-            >
-              Login
-            </button>
-          )}
-          {isAuthenticated && (
-            <React.Fragment>
+          {!isAuthenticated ? (
+            <>
+              <button
+                className="btn menu-button"
+                data-toggle="modal"
+                data-target="#loginModal"
+              >
+                Login
+              </button>
+              <button
+                className="btn menu-button"
+                data-toggle="modal"
+                data-target="#registerModal"
+              >
+                Register
+              </button>
+            </>
+          ) : (
+            <>
               <Link to={`/user/${user._id}`} className="btn menu-button">
                 <i className="fas fa-user" />
               </Link>
@@ -66,16 +78,7 @@ const Navbar = ({ isAuthenticated, user }) => {
               >
                 Logout
               </button>
-            </React.Fragment>
-          )}
-          {isAuthenticated && user.admin && (
-            <button
-              className="btn menu-button"
-              data-toggle="modal"
-              data-target="#registerModal"
-            >
-              Register
-            </button>
+            </>
           )}
         </div>
       </nav>
@@ -88,7 +91,8 @@ const Navbar = ({ isAuthenticated, user }) => {
 
 const mapStateToProps = state => ({
   isAuthenticated: state.auth.isAuthenticated,
-  user: state.auth.user
+  user: state.auth.user,
+  loading: state.auth.loading
 });
 
 export default connect(

@@ -46,3 +46,9 @@ export const logout = () => dispatch => {
     type: LOGOUT
   });
 };
+
+export const clearErrors = () => dispatch => {
+  dispatch({
+    type: CLEAR_ERRORS
+  });
+};
