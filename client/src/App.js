@@ -6,17 +6,18 @@ import { connect } from "react-redux";
 // Layout
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
-// Components
-import Home from "./components/Home";
-import Students from "./components/students/Students";
-import Resources from "./components/resources/Resources";
-import Profile from "./components/profile/Profile";
-import Assignments from "./components/assignments/Assignments";
-import Youtubes from "./components/youtube/Youtubes";
-import Syllabus from "./components/layout/Syllabus";
-import Contact from "./components/layout/Contact";
-import Assessments from "./components/assessment/Assessments";
-import Assessment from "./components/assessment/Assessment";
+// Pages
+import Home from "./components/pages/Home";
+import Students from "./components/pages/Students";
+import Resources from "./components/pages/Resources";
+import Profile from "./components/pages/Profile";
+import Assignments from "./components/pages/Assignments";
+import Youtubes from "./components/pages/Youtubes";
+import Syllabus from "./components/pages/Syllabus";
+import Contact from "./components/pages/Contact";
+import Assessments from "./components/pages/Assessments";
+import Assessment from "./components/pages/Assessment";
+import Register from "./components/pages/Register";
 // Actions
 import { loadUser } from "./actions/authActions";
 
@@ -32,7 +33,7 @@ class App extends Component {
           <Navbar />
           <div className="main">
             <Switch>
-              <Route exact path="/" component={Home} />
+              <Route exact path="/register" component={Register} />
               <Route exact path="/students" component={Students} />
               <Route exact path="/resources" component={Resources} />
               <Route exact path="/user/:uid" component={Profile} />
@@ -42,6 +43,7 @@ class App extends Component {
               <Route exact path="/contact" component={Contact} />4
               <Route exact path="/assessments" component={Assessments} />
               <Route exact path="/assessment/:id" component={Assessment} />
+              <Route path="/" component={Home} />
             </Switch>
           </div>
           <Footer />

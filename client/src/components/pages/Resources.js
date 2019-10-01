@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { getResources, filterResource } from "../../actions/resourceActions";
-import Resource from "./Resource";
-import ResourceHead from "./ResourceHead";
-import ResourceNew from "./ResourceNew";
+import Resource from "../resources/Resource";
+import ResourceHead from "../resources/ResourceHead";
+import ResourceNew from "../resources/ResourceNew";
 import InputGroup from "../layout/InputGroup";
 import BackToTop from "../layout/BackToTop";
 class Resources extends Component {

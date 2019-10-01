@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getAssignments } from "../../actions/assignmentActions";
-import Assignment from "./Assignment";
-import AssignmentHead from "./AssignmentHead";
-import AssignmentNew from "./AssignmentNew";
+import Assignment from "../assignments/Assignment";
+import AssignmentHead from "../assignments/AssignmentHead";
+import AssignmentNew from "../assignments/AssignmentNew";
 
 class Assignments extends Component {
   componentDidMount() {

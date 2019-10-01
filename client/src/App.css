@@ -4,20 +4,9 @@
 
 body {
   font-family: "Raleway", sans-serif;
-  margin: 0;
-  height: 100vh;
   background: rgba(0, 0, 0, 0.9);
   color: #fff;
   line-height: 1.6;
-}
-
-.bg-red {
-  background: #e75d5d;
-  color: white;
-}
-
-.bg-green {
-  background: #55ffa1;
 }
 
 .userImage {
@@ -35,10 +24,10 @@ body {
   right: 5vh;
 }
 
-.btn-white {
+/* .btn-white {
   border: 1px solid;
   border-color: rgb(185, 185, 185);
-}
+} */
 
 .menu-button {
   float: right;
@@ -142,7 +131,7 @@ body {
 .main {
   background: #f4f4f4;
   color: #333;
-  min-height: calc(100vh - 100px);
+  min-height: calc(100vh - 25px);
 }
 .container {
   overflow: hidden;
@@ -288,4 +277,9 @@ a:hover {
   top: 5%;
   right: 40%;
   padding: 2px;
+}
+
+/* Footer */
+footer p {
+  margin: 0;
 }

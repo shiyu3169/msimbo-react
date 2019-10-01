@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getVideos, createVideo } from "../../actions/videoActions";
-import Youtube from "./Youtube";
-import YoutubeNew from "./YoutubeNew";
+import Youtube from "../youtube/Youtube";
+import YoutubeNew from "../youtube/YoutubeNew";
 import BackToTop from "../layout/BackToTop";
 class Youtubes extends Component {
   componentDidMount() {

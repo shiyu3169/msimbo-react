@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import $ from "jquery";
 import "popper.js";
 import "bootstrap/dist/js/bootstrap";
-import Services from "./layout/Services";
-import About from "./layout/About";
+import Services from "../layout/Services";
+import About from "../layout/About";
 
 const Home = () => {
   const [words] = useState([

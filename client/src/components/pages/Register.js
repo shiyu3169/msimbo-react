@@ -1,89 +1,100 @@
-import React from "react";
+import React, { useState } from "react";
+import InputGroup from "../layout/InputGroup";
 
 const Register = () => {
-  return (
-    <div
-      className="modal fade"
-      id="registerModal"
-      tabIndex="-1"
-      role="dialog"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
-      <div className="modal-dialog modal-dialog-centered" role="document">
-        <div className="modal-content sw-bg-dark">
-          <div className="modal-header">
-            <h5 className="modal-title">Register</h5>
-            <button
-              type="button"
-              className="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div className="modal-body">
-            {success && (
-              <div className="alert alert-success">
-                Registration Successfully!
-              </div>
-            )}
-            {error && <div className="alert alert-danger">{error}</div>}
+  const [form, setForm] = useState({
+    email: "",
+    password: "",
+    password2: "",
+    firstName: "",
+    middleName: "",
+    lastName: "",
+    linkedIn: "",
+    gitHub: ""
+  });
 
-            <form onSubmit={this.onSubmit}>
-              <InputGroup
-                name="registerEmail"
-                type="email"
-                label="Email"
-                placeholder="Enter Email Here..."
-                onChange={this.onChange}
-                value={registerEmail}
-              />
-              <InputGroup
-                name="registerPassword"
-                type="password"
-                label="Password"
-                placeholder="Enter Password Here..."
-                onChange={this.onChange}
-                value={registerPassword}
-              />
-              <InputGroup
-                name="verifyPassWord"
-                type="password"
-                label="Verify Password"
-                placeholder="Verify Password Here..."
-                onChange={this.onChange}
-                value={verifyPassWord}
-              />
-              <InputGroup
-                name="firstName"
-                label="First Name"
-                placeholder="Enter Your First Name..."
-                onChange={this.onChange}
-                value={firstName}
-              />
-              <InputGroup
-                name="middleName"
-                label="Middle Name (optional)"
-                placeholder="Leave this empty, if you don't have a middle name..."
-                onChange={this.onChange}
-                value={middleName}
-              />
-              <InputGroup
-                name="lastName"
-                label="Last Name"
-                placeholder="Enter Your Last Name..."
-                onChange={this.onChange}
-                value={lastName}
-              />
-              <button className="btn btn-outline-success btn-block">
-                Submit
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
+  const {
+    email,
+    password,
+    password2,
+    firstName,
+    middleName,
+    lastName,
+    linkedIn,
+    gitHub
+  } = form;
+
+  const onChange = e => setForm({ ...form, [e.target.name]: e.target.value });
+
+  const onSubmit = e => {
+    e.preventDefault();
+  };
+
+  return (
+    <div className="container">
+      <h5>Register</h5>
+      <form onSubmit={onSubmit}>
+        <InputGroup
+          name="email"
+          type="email"
+          label="Email"
+          placeholder="Enter Email Here..."
+          onChange={onChange}
+          value={email}
+        />
+        <InputGroup
+          name="password"
+          type="password"
+          label="Password"
+          placeholder="Enter Password Here..."
+          onChange={onChange}
+          value={password}
+        />
+        <InputGroup
+          name="password2"
+          type="password"
+          label="Verify Password"
+          placeholder="Verify Password Here..."
+          onChange={onChange}
+          value={password2}
+        />
+        <InputGroup
+          name="firstName"
+          label="First Name"
+          placeholder="Enter Your First Name..."
+          onChange={onChange}
+          value={firstName}
+        />
+        <InputGroup
+          name="middleName"
+          label="Middle Name (optional)"
+          placeholder="Leave this empty, if you don't have a middle name..."
+          onChange={onChange}
+          value={middleName}
+        />
+        <InputGroup
+          name="lastName"
+          label="Last Name"
+          placeholder="Enter Your Last Name..."
+          onChange={onChange}
+          value={lastName}
+        />
+        <InputGroup
+          name="linkedIn"
+          label="LinkedIn"
+          placeholder="Enter Your LinkedIn Profile URL..."
+          onChange={onChange}
+          value={linkedIn}
+        />
+        <InputGroup
+          name="gitHub"
+          label="GitHub"
+          placeholder="Enter Your GitHub Profile URL..."
+          onChange={onChange}
+          value={gitHub}
+        />
+        <button className="btn btn-success btn-block">Register</button>
+      </form>
     </div>
   );
 };

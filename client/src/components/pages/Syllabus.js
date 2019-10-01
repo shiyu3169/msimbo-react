@@ -1,5 +1,5 @@
 import React from "react";
-import BackToTop from "./BackToTop";
+import BackToTop from "../layout/BackToTop";
 
 export default function Syllabus() {
   return (

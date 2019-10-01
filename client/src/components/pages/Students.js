@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import InputGroup from "../layout/InputGroup";
 import { getUsers, filterUser, changeFilter } from "../../actions/userActions";
-import Student from "./Student";
-import Seasons from "./Seasons";
+import Student from "../students/Student";
+import Seasons from "../students/Seasons";
 import BackToTop from "../layout/BackToTop";
 
 class Students extends Component {

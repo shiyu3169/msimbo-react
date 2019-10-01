@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Grades from "../grades/Grades";
-import UserMenu from "./UserMenu";
-import UserInfo from "./UserInfo";
-import UserEdit from "./UserEdit";
+import UserMenu from "../profile/UserMenu";
+import UserInfo from "../profile/UserInfo";
+import UserEdit from "../profile/UserEdit";
 import { getUser } from "../../actions/userActions";
-import UserDelete from "./UserDelete";
+import UserDelete from "../profile/UserDelete";
 
 class Profile extends Component {
   componentDidMount() {
