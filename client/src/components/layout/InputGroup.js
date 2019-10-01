@@ -10,9 +10,43 @@ const InputGroup = ({
   onChange,
   error,
   value,
-  id
+  id,
+  required
 }) => {
-  return (
+  return required ? (
+    <div className="form-group">
+      {label && (
+        <label htmlFor={name}>
+          <b>{label}</b>
+        </label>
+      )}
+      {rows > 1 ? (
+        <textarea
+          type={type}
+          name={name}
+          id={id}
+          placeholder={placeholder}
+          className="form-control"
+          rows={rows}
+          required
+          onChange={onChange}
+          value={value}
+        />
+      ) : (
+        <input
+          type={type}
+          name={name}
+          id={id}
+          required
+          placeholder={placeholder}
+          className="form-control"
+          onChange={onChange}
+          value={value}
+        />
+      )}
+      {error && <div className="alert alert-danger">{error}</div>}
+    </div>
+  ) : (
     <div className="form-group">
       {label && (
         <label htmlFor={name}>
@@ -55,7 +89,8 @@ InputGroup.propTypes = {
   onChange: PropTypes.func,
   error: PropTypes.string,
   value: PropTypes.any,
-  id: PropTypes.string
+  id: PropTypes.string,
+  required: PropTypes.bool
 };
 
 InputGroup.defaultProps = {
