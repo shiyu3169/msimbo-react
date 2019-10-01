@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 
-function Assessments() {
-  return <div />;
-}
+const Assessments = () => {
+  return <div></div>;
+};
 
 export default Assessments;

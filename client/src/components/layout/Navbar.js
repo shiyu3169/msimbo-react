@@ -57,9 +57,13 @@ const Navbar = ({ isAuthenticated, user, loading }) => {
               >
                 Login
               </button>
-              <Link className="text-light" to="/register">
+              <button
+                className="btn menu-button"
+                data-toggle="modal"
+                data-target="#registerModal"
+              >
                 Register
-              </Link>
+              </button>
             </>
           ) : (
             <>

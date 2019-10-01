@@ -1,7 +1,7 @@
 import React from "react";
 
-function Assessment(props) {
-  return <div />;
-}
+const Assessment = () => {
+  return <div></div>;
+};
 
 export default Assessment;
