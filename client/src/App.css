@@ -131,7 +131,7 @@ body {
 .main {
   background: #f4f4f4;
   color: #333;
-  min-height: calc(100vh - 25px);
+  min-height: calc(100vh - 70px);
 }
 .container {
   overflow: hidden;
