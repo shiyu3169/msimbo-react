@@ -33,7 +33,6 @@ export const createAssignment = () => dispatch => {
 export const addAssignment = assignment => async dispatch => {
   try {
     const res = await axios.post("/api/assignments", assignment);
-
     dispatch({
       type: ADD_ASSIGNMENT,
       payload: res.data
@@ -41,7 +40,7 @@ export const addAssignment = assignment => async dispatch => {
   } catch (error) {
     dispatch({
       type: ASSIGNMENT_ERROR,
-      payload: error.response.data.errors
+      payload: error.response.data
     });
   }
 };

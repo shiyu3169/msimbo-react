@@ -25,7 +25,6 @@ const AssignmentHead = ({ createAssignment, user, isAuthenticated }) => {
 };
 
 const mapStateToProps = state => ({
-  currentUser: state.user.currentUser,
   user: state.auth.user,
   isAuthenticated: state.auth.isAuthenticated
 });

@@ -13,7 +13,11 @@ router.get("/", async (req, res) => {
     res.json(assignments);
   } catch (error) {
     console.error(error.message);
-    res.status(500).send("Server error");
+    res
+      .status(500)
+      .send(
+        "Server Error, try again later please. If this keeps happening, please contact the manager"
+      );
   }
 });
 
@@ -36,15 +40,19 @@ router.post(
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
+      return res.status(400).json(errors.array()[0].msg);
     }
     try {
-      const newAssignment = req.body;
+      const newAssignment = new Assignment({ ...req.body });
       const assignment = await newAssignment.save();
       res.json(assignment);
     } catch (error) {
       console.error(error.message);
-      res.status(500).send("Server Error");
+      res
+        .status(500)
+        .send(
+          "Server Error, try again later please. If this keeps happening, please contact the manager"
+        );
     }
   }
 );

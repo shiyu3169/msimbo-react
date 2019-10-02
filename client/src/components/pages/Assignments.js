@@ -7,12 +7,22 @@ import AssignmentNew from "../assignments/AssignmentNew";
 import Spinner from "../layout/Spinner";
 // Actions
 import { getAssignments } from "../../actions/assignmentActions";
+import { setAlert } from "../../actions/alertActions";
 
-const Assignments = ({ getAssignments, assignments, creating, loading }) => {
+const Assignments = ({
+  getAssignments,
+  assignments,
+  creating,
+  created,
+  loading,
+  setAlert
+}) => {
   useEffect(() => {
     getAssignments();
-    // eslint-disable-next-line
-  }, []);
+    if (created) {
+      setAlert("Assignment Created", "success");
+    }
+  }, [created, setAlert, getAssignments]);
 
   if (loading) {
     return <Spinner />;
@@ -35,10 +45,11 @@ const Assignments = ({ getAssignments, assignments, creating, loading }) => {
 const mapStateToProps = state => ({
   assignments: state.assignment.assignments,
   creating: state.assignment.creating,
-  loading: state.assignment.loading
+  loading: state.assignment.loading,
+  created: state.assignment.created
 });
 
 export default connect(
   mapStateToProps,
-  { getAssignments }
+  { getAssignments, setAlert }
 )(Assignments);

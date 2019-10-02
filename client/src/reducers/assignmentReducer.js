@@ -13,7 +13,8 @@ const initialState = {
   creating: false,
   editing: "",
   loading: true,
-  error: null
+  error: null,
+  created: false
 };
 
 export default (state = initialState, action) => {
@@ -32,6 +33,8 @@ export default (state = initialState, action) => {
     case ADD_ASSIGNMENT:
       return {
         ...state,
+        creating: false,
+        created: true,
         assignments: [action.payload, ...state.assignments]
       };
     case EDIT_ASSIGNMENT:

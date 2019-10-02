@@ -13,7 +13,7 @@ const AssignmentNew = ({
   addAssignment,
   createAssignment,
   setAlert,
-  errors
+  error
 }) => {
   const [assignment, setAssignment] = useState({
     name: "",
@@ -24,20 +24,10 @@ const AssignmentNew = ({
   const { name, due, src } = assignment;
 
   useEffect(() => {
-    if (errors) {
-      errors.map(error => {
-        setAlert(error.msg, "danger");
-      });
+    if (error) {
+      setAlert(error, "danger");
     }
-  }, [errors]);
-
-  const clearContent = () => {
-    setAssignment({
-      name: "",
-      due: "",
-      src: ""
-    });
-  };
+  }, [error, setAlert]);
 
   const onChange = e =>
     setAssignment({ ...assignment, [e.target.name]: e.target.value });
@@ -45,9 +35,6 @@ const AssignmentNew = ({
   const onSubmit = async e => {
     e.preventDefault();
     addAssignment(assignment);
-    // Turn off creating form
-    // createAssignment();
-    // clearContent();
   };
 
   return (
@@ -97,7 +84,7 @@ const AssignmentNew = ({
 };
 
 const mapStateToProps = state => ({
-  errors: state.assignment.error
+  error: state.assignment.error
 });
 
 export default connect(
