@@ -11,6 +11,7 @@ import { getAssignments } from "../../actions/assignmentActions";
 const Assignments = ({ getAssignments, assignments, creating, loading }) => {
   useEffect(() => {
     getAssignments();
+    // eslint-disable-next-line
   }, []);
 
   if (loading) {

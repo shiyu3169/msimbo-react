@@ -1,13 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 // Components
 import InputGroup from "../layout/InputGroup";
 // Actions
+import { setAlert } from "../../actions/alertActions";
 import {
   addAssignment,
   createAssignment
 } from "../../actions/assignmentActions";
-const AssignmentNew = ({ addAssignment, createAssignment }) => {
+
+const AssignmentNew = ({
+  addAssignment,
+  createAssignment,
+  setAlert,
+  errors
+}) => {
   const [assignment, setAssignment] = useState({
     name: "",
     due: "",
@@ -16,12 +23,31 @@ const AssignmentNew = ({ addAssignment, createAssignment }) => {
 
   const { name, due, src } = assignment;
 
+  useEffect(() => {
+    if (errors) {
+      errors.map(error => {
+        setAlert(error.msg, "danger");
+      });
+    }
+  }, [errors]);
+
+  const clearContent = () => {
+    setAssignment({
+      name: "",
+      due: "",
+      src: ""
+    });
+  };
+
   const onChange = e =>
     setAssignment({ ...assignment, [e.target.name]: e.target.value });
 
-  const onSubmit = e => {
+  const onSubmit = async e => {
     e.preventDefault();
-    addAssignment(assignment).then(createAssignment());
+    addAssignment(assignment);
+    // Turn off creating form
+    // createAssignment();
+    // clearContent();
   };
 
   return (
@@ -30,6 +56,7 @@ const AssignmentNew = ({ addAssignment, createAssignment }) => {
         <div className="col-6">
           <InputGroup
             name="name"
+            id="name"
             placeholder="Assignment Name"
             onChange={onChange}
             value={name}
@@ -38,6 +65,7 @@ const AssignmentNew = ({ addAssignment, createAssignment }) => {
         <div className="col-6">
           <InputGroup
             name="due"
+            id="due"
             placeholder="Assignment Due Date"
             type="date"
             onChange={onChange}
@@ -48,6 +76,7 @@ const AssignmentNew = ({ addAssignment, createAssignment }) => {
       <th>
         <InputGroup
           name="src"
+          id="src"
           placeholder="Assignment Source"
           onChange={onChange}
           value={src}
@@ -67,7 +96,11 @@ const AssignmentNew = ({ addAssignment, createAssignment }) => {
   );
 };
 
+const mapStateToProps = state => ({
+  errors: state.assignment.error
+});
+
 export default connect(
-  null,
-  { addAssignment, createAssignment }
+  mapStateToProps,
+  { addAssignment, createAssignment, setAlert }
 )(AssignmentNew);

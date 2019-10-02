@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useEffect } from "react";
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
 import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 // Layout
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
+import Alerts from "./components/layout/Alerts";
 // Pages
 import Home from "./components/pages/Home";
 import Students from "./components/pages/Students";
@@ -21,37 +22,37 @@ import Register from "./components/pages/Register";
 // Actions
 import { loadUser } from "./actions/authActions";
 
-class App extends Component {
-  componentDidMount() {
-    this.props.loadUser();
-  }
+const App = ({ loadUser }) => {
+  useEffect(() => {
+    loadUser();
+    // eslint-disable-next-line
+  }, []);
 
-  render() {
-    return (
-      <Router>
-        <div>
-          <Navbar />
-          <div className="main">
-            <Switch>
-              <Route exact path="/register" component={Register} />
-              <Route exact path="/students" component={Students} />
-              <Route exact path="/resources" component={Resources} />
-              <Route exact path="/user/:uid" component={Profile} />
-              <Route exact path="/assignments" component={Assignments} />
-              <Route exact path="/videos" component={Youtubes} />
-              <Route exact path="/syllabus" component={Syllabus} />
-              <Route exact path="/contact" component={Contact} />4
-              <Route exact path="/assessments" component={Assessments} />
-              <Route exact path="/assessment/:id" component={Assessment} />
-              <Route path="/" component={Home} />
-            </Switch>
-          </div>
-          <Footer />
+  return (
+    <Router>
+      <div>
+        <Navbar />
+        <div className="main">
+          <Alerts />
+          <Switch>
+            <Route exact path="/register" component={Register} />
+            <Route exact path="/students" component={Students} />
+            <Route exact path="/resources" component={Resources} />
+            <Route exact path="/user/:uid" component={Profile} />
+            <Route exact path="/assignments" component={Assignments} />
+            <Route exact path="/videos" component={Youtubes} />
+            <Route exact path="/syllabus" component={Syllabus} />
+            <Route exact path="/contact" component={Contact} />4
+            <Route exact path="/assessments" component={Assessments} />
+            <Route exact path="/assessment/:id" component={Assessment} />
+            <Route path="/" component={Home} />
+          </Switch>
         </div>
-      </Router>
-    );
-  }
-}
+        <Footer />
+      </div>
+    </Router>
+  );
+};
 
 export default connect(
   null,

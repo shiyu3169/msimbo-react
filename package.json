@@ -7,7 +7,7 @@
     "start": "node server.js",
     "server": "nodemon server.js",
     "client": "npm start --prefix client",
-    "clientinstall": "npm install --prefix client",
+    "clientinstall": "cd client && npm install",
     "dev": "concurrently \"npm run server\" \"npm run client\" ",
     "build": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
@@ -20,7 +20,8 @@
     "express": "^4.17.1",
     "express-validator": "^6.1.1",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.6.11"
+    "mongoose": "^5.6.11",
+    "uuid": "^3.3.3"
   },
   "devDependencies": {
     "concurrently": "^4.1.2",

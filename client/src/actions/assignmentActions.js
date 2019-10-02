@@ -4,33 +4,49 @@ import {
   ADD_ASSIGNMENT,
   EDIT_ASSIGNMENT,
   DELETE_ASSIGNMENT,
-  UPDATE_ASSIGNMENT
+  UPDATE_ASSIGNMENT,
+  ASSIGNMENT_ERROR
 } from "./types";
 import axios from "axios";
 
 export const getAssignments = () => async dispatch => {
-  const res = await axios.get("/api/assignments");
-  dispatch({
-    type: GET_ASSIGNMENTS,
-    payload: res.data
-  });
+  try {
+    const res = await axios.get("/api/assignments");
+    dispatch({
+      type: GET_ASSIGNMENTS,
+      payload: res.data
+    });
+  } catch (error) {
+    dispatch({
+      type: ASSIGNMENT_ERROR,
+      payload: error.response.msg
+    });
+  }
 };
 
-export const createAssignment = () => async dispatch => {
+export const createAssignment = () => dispatch => {
   dispatch({
     type: CREATE_ASSIGNMENT
   });
 };
 
 export const addAssignment = assignment => async dispatch => {
-  const res = await axios.post("/api/assignment", assignment);
-  dispatch({
-    type: ADD_ASSIGNMENT,
-    payload: res.data
-  });
+  try {
+    const res = await axios.post("/api/assignments", assignment);
+
+    dispatch({
+      type: ADD_ASSIGNMENT,
+      payload: res.data
+    });
+  } catch (error) {
+    dispatch({
+      type: ASSIGNMENT_ERROR,
+      payload: error.response.data.errors
+    });
+  }
 };
 
-export const editAssignment = id => async dispatch => {
+export const editAssignment = id => dispatch => {
   dispatch({
     type: EDIT_ASSIGNMENT,
     payload: id
@@ -38,7 +54,7 @@ export const editAssignment = id => async dispatch => {
 };
 
 export const deleteAssignment = id => async dispatch => {
-  await axios.delete(`/api/assignment/${id}`);
+  await axios.delete(`/api/assignments/${id}`);
   dispatch({
     type: DELETE_ASSIGNMENT,
     payload: id
@@ -46,7 +62,7 @@ export const deleteAssignment = id => async dispatch => {
 };
 
 export const updateAssignment = assignment => async dispatch => {
-  await axios.put(`/api/assignment/${assignment._id}`, assignment);
+  await axios.put(`/api/assignments/${assignment._id}`, assignment);
   dispatch({
     type: UPDATE_ASSIGNMENT,
     payload: assignment

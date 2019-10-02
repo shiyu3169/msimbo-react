@@ -4,17 +4,19 @@ import {
   ADD_ASSIGNMENT,
   EDIT_ASSIGNMENT,
   DELETE_ASSIGNMENT,
-  UPDATE_ASSIGNMENT
+  UPDATE_ASSIGNMENT,
+  ASSIGNMENT_ERROR
 } from "../actions/types";
 
 const initialState = {
   assignments: [],
   creating: false,
   editing: "",
-  loading: true
+  loading: true,
+  error: null
 };
 
-export default function(state = initialState, action) {
+export default (state = initialState, action) => {
   switch (action.type) {
     case GET_ASSIGNMENTS:
       return {
@@ -53,7 +55,12 @@ export default function(state = initialState, action) {
             : assignment
         )
       };
+    case ASSIGNMENT_ERROR:
+      return {
+        ...state,
+        error: action.payload
+      };
     default:
       return state;
   }
-}
+};

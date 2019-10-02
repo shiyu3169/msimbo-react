@@ -1,12 +1,10 @@
 import {
-  REGISTER_SUCCESS,
-  REGISTER_FAIL,
+  // REGISTER_SUCCESS,
+  // REGISTER_FAIL,
   USER_LOADED,
-  AUTH_ERROR,
   LOGIN_SUCCESS,
   LOGIN_FAIL,
-  LOGOUT,
-  CLEAR_ERRORS
+  LOGOUT
 } from "./types";
 import setAuthToken from "../utils/setAuthToken";
 import axios from "axios";
@@ -21,7 +19,7 @@ export const loadUser = () => async dispatch => {
     const res = await axios.get("/api/auth");
     dispatch({ type: USER_LOADED, payload: res.data });
   } catch (error) {
-    dispatch({ type: AUTH_ERROR });
+    dispatch({ type: LOGIN_FAIL });
   }
 };
 
@@ -35,8 +33,7 @@ export const login = formData => async dispatch => {
     });
   } catch (error) {
     dispatch({
-      type: LOGIN_FAIL,
-      payload: error.response.data.msg
+      type: LOGIN_FAIL
     });
   }
 };
@@ -44,11 +41,5 @@ export const login = formData => async dispatch => {
 export const logout = () => dispatch => {
   dispatch({
     type: LOGOUT
-  });
-};
-
-export const clearErrors = () => dispatch => {
-  dispatch({
-    type: CLEAR_ERRORS
   });
 };

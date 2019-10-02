@@ -5,6 +5,7 @@ import assignmentReducer from "./assignmentReducer";
 import gradeReducer from "./gradeReducer";
 import videoReducer from "./videoReducer";
 import authReducer from "./authReducer";
+import alertReducer from "./alertReducer";
 
 export default combineReducers({
   user: userReducer,
@@ -12,5 +13,6 @@ export default combineReducers({
   assignment: assignmentReducer,
   grade: gradeReducer,
   video: videoReducer,
-  auth: authReducer
+  auth: authReducer,
+  alert: alertReducer
 });
