@@ -28,13 +28,15 @@ router.post(
   "/",
   [
     check("email", "Please include a valid email").isEmail(),
-    check("password", "Password is required").exists()
+    check("password", "Password is required")
+      .not()
+      .isEmpty()
   ],
   async (req, res) => {
     const errors = validationResult(req);
 
     if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
+      return res.status(400).json(errors.array()[0]);
     }
 
     const { email, password } = req.body;
@@ -59,7 +61,7 @@ router.post(
         payload,
         config.get("jwtSecret"),
         {
-          expiresIn: "1000"
+          expiresIn: "1h"
         },
         (err, token) => {
           if (err) throw err;

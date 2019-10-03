@@ -4,10 +4,12 @@ import {
   USER_LOADED,
   LOGIN_SUCCESS,
   LOGIN_FAIL,
-  LOGOUT
+  LOGOUT,
+  AUTH_ERROR
 } from "./types";
 import setAuthToken from "../utils/setAuthToken";
 import axios from "axios";
+import $ from "jquery";
 
 // Load User
 export const loadUser = () => async dispatch => {
@@ -31,9 +33,18 @@ export const login = formData => async dispatch => {
       type: LOGIN_SUCCESS,
       payload: res.data
     });
+    $("#loginModal").modal("hide");
+    if (localStorage.token) {
+      setAuthToken(localStorage.token);
+    }
   } catch (error) {
     dispatch({
       type: LOGIN_FAIL
+    });
+    console.log(error.response);
+    dispatch({
+      type: AUTH_ERROR,
+      payload: error.response.data.msg
     });
   }
 };
