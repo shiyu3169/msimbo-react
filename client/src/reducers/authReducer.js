@@ -4,7 +4,8 @@ import {
   REGISTER_SUCCESS,
   LOGIN_FAIL,
   REGISTER_FAIL,
-  LOGOUT
+  LOGOUT,
+  CLEAR_AUTH_ERROR
 } from "../actions/types";
 
 const initialState = {
@@ -42,6 +43,11 @@ export default (state = initialState, action) => {
         isAuthenticated: false,
         loading: false,
         user: null
+      };
+    case CLEAR_AUTH_ERROR:
+      return {
+        ...state,
+        error: null
       };
     default:
       return state;

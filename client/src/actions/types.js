@@ -6,6 +6,7 @@ export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGIN_FAIL = "LOGIN_FAIL";
 export const LOGOUT = "LOGOUT";
 export const AUTH_ERROR = "AUTH_ERROR";
+export const CLEAR_AUTH_ERROR = "CLEAR_ERROR";
 // Assignment
 export const GET_ASSIGNMENTS = "GET_ASSIGNMENTS";
 export const CREATE_ASSIGNMENT = "CREATE_ASSIGNMENT";
@@ -14,6 +15,7 @@ export const EDIT_ASSIGNMENT = "EDIT_ASSIGNMENT";
 export const UPDATE_ASSIGNMENT = "UPDATE_ASSIGNMENT";
 export const DELETE_ASSIGNMENT = "DELETE_ASSIGNMENT";
 export const ASSIGNMENT_ERROR = "ASSIGNMENT_ERROR";
+export const CLEAR_ASSIGNMENT_ERROR = "ASSIGNMENT_ERROR";
 // User, Students
 export const GET_USERS = "GET_USERS";
 export const GET_USER = "GET_USER";

@@ -38,9 +38,10 @@ export const addAssignment = assignment => async dispatch => {
       payload: res.data
     });
   } catch (error) {
+    console.log(error);
     dispatch({
       type: ASSIGNMENT_ERROR,
-      payload: error.response.data
+      payload: error.response.data.msg
     });
   }
 };

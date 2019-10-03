@@ -5,7 +5,8 @@ import {
   EDIT_ASSIGNMENT,
   DELETE_ASSIGNMENT,
   UPDATE_ASSIGNMENT,
-  ASSIGNMENT_ERROR
+  ASSIGNMENT_ERROR,
+  CLEAR_ASSIGNMENT_ERROR
 } from "../actions/types";
 
 const initialState = {
@@ -62,6 +63,11 @@ export default (state = initialState, action) => {
       return {
         ...state,
         error: action.payload
+      };
+    case CLEAR_ASSIGNMENT_ERROR:
+      return {
+        ...state,
+        error: null
       };
     default:
       return state;

@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const auth = require("../middleware/auth");
+const adminAuth = require("../middleware/adminAuth");
 const Assignment = require("../models/Assignment");
 const { check, validationResult } = require("express-validator");
 
@@ -27,7 +27,7 @@ router.get("/", async (req, res) => {
 router.post(
   "/",
   [
-    auth,
+    adminAuth,
     [
       check("name", "Name is required")
         .not()
@@ -42,6 +42,7 @@ router.post(
     if (!errors.isEmpty()) {
       return res.status(400).json(errors.array()[0].msg);
     }
+
     try {
       const newAssignment = new Assignment({ ...req.body });
       const assignment = await newAssignment.save();
@@ -56,5 +57,9 @@ router.post(
     }
   }
 );
+
+// @route   POST api/assignments
+// @desc    Add new Assignment
+// @access  Private
 
 module.exports = router;
