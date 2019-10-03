@@ -9,6 +9,12 @@ body {
   line-height: 1.6;
 }
 
+/* Layout */
+.alert {
+  /* 1050 is the number bootstrap using for modal */
+  z-index: 1050 !important;
+}
+
 .userImage {
   width: 200px;
 }
