@@ -6,7 +6,8 @@ import {
   DELETE_ASSIGNMENT,
   UPDATE_ASSIGNMENT,
   ASSIGNMENT_ERROR,
-  CLEAR_ASSIGNMENT_ERROR
+  CLEAR_ASSIGNMENT_ERROR,
+  CANCEL_CREATE_ASSIGNMENT
 } from "../actions/types";
 
 const initialState = {
@@ -29,7 +30,12 @@ export default (state = initialState, action) => {
     case CREATE_ASSIGNMENT:
       return {
         ...state,
-        creating: !state.creating
+        creating: true
+      };
+    case CANCEL_CREATE_ASSIGNMENT:
+      return {
+        ...state,
+        creating: false
       };
     case ADD_ASSIGNMENT:
       return {

@@ -6,12 +6,12 @@ import InputGroup from "../layout/InputGroup";
 import { setAlert } from "../../actions/alertActions";
 import {
   addAssignment,
-  createAssignment
+  cancelCreateAssignment
 } from "../../actions/assignmentActions";
 
 const AssignmentNew = ({
   addAssignment,
-  createAssignment,
+  cancelCreateAssignment,
   setAlert,
   error
 }) => {
@@ -27,7 +27,11 @@ const AssignmentNew = ({
     if (error) {
       setAlert(error, "danger");
     }
-  }, [error, setAlert]);
+    return () => {
+      // Close the creating modal before leaving
+      cancelCreateAssignment();
+    };
+  }, [error, setAlert, cancelCreateAssignment]);
 
   const onChange = e =>
     setAssignment({ ...assignment, [e.target.name]: e.target.value });
@@ -74,7 +78,10 @@ const AssignmentNew = ({
           <button onClick={onSubmit} className="btn btn-outline-success">
             Submit
           </button>
-          <button className="btn btn-outline-danger" onClick={createAssignment}>
+          <button
+            className="btn btn-outline-danger"
+            onClick={cancelCreateAssignment}
+          >
             Cancel
           </button>
         </div>
@@ -89,5 +96,9 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { addAssignment, createAssignment, setAlert }
+  {
+    addAssignment,
+    setAlert,
+    cancelCreateAssignment
+  }
 )(AssignmentNew);

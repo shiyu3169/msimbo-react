@@ -5,7 +5,8 @@ import {
   EDIT_ASSIGNMENT,
   DELETE_ASSIGNMENT,
   UPDATE_ASSIGNMENT,
-  ASSIGNMENT_ERROR
+  ASSIGNMENT_ERROR,
+  CANCEL_CREATE_ASSIGNMENT
 } from "./types";
 import axios from "axios";
 
@@ -27,6 +28,12 @@ export const getAssignments = () => async dispatch => {
 export const createAssignment = () => dispatch => {
   dispatch({
     type: CREATE_ASSIGNMENT
+  });
+};
+
+export const cancelCreateAssignment = () => dispatch => {
+  dispatch({
+    type: CANCEL_CREATE_ASSIGNMENT
   });
 };
 
