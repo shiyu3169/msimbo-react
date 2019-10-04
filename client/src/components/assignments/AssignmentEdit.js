@@ -9,7 +9,7 @@ import {
   updateAssignment
 } from "../../actions/assignmentActions";
 
-const AssignmentEdit = ({ assignment, deleteAssignment }) => {
+const AssignmentEdit = ({ assignment, deleteAssignment, editAssignment }) => {
   const [form, setForm] = useState({
     name: "",
     due: "",
@@ -24,8 +24,6 @@ const AssignmentEdit = ({ assignment, deleteAssignment }) => {
   }, [setForm, assignment]);
 
   const onChange = e => setForm({ ...form, [e.target.name]: e.target.value });
-
-  const onCancel = () => editAssignment("");
 
   const onSubmit = () => {
     // const { name, src, due } = this.state;
@@ -80,7 +78,10 @@ const AssignmentEdit = ({ assignment, deleteAssignment }) => {
           >
             Delete
           </button>
-          <button className="btn btn-outline-warning" onClick={onCancel}>
+          <button
+            className="btn btn-outline-warning"
+            onClick={() => editAssignment("")}
+          >
             Cancel
           </button>
         </div>
