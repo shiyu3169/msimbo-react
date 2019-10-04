@@ -62,18 +62,15 @@ body {
   background-position: center;
   display: block;
   filter: blur(10px);
-  -webkit-filter: blur(10px);
   transition: all 1000ms;
 }
 
 .showcase:hover::after {
   filter: blur(0px);
-  -webkit-filter: blur(0px);
 }
 
 .showcase:hover .content {
   filter: blur(2px);
-  -webkit-filter: blur(2px);
 }
 
 .showcase button {
@@ -215,10 +212,6 @@ body {
   font-size: 21px;
   text-align: center;
 
-  -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
-  -moz-animation: fadein 2s; /* Firefox < 16 */
-  -ms-animation: fadein 2s; /* Internet Explorer */
-  -o-animation: fadein 2s; /* Opera < 12.1 */
   animation: fadein 2s;
 }
 

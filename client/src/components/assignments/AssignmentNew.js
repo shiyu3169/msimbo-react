@@ -23,15 +23,20 @@ const AssignmentNew = ({
 
   const { name, due, src } = assignment;
 
+  // Show alert when there is one
   useEffect(() => {
     if (error) {
       setAlert(error, "danger");
     }
+  }, [error, setAlert]);
+
+  // Close the creating modal before leaving
+  useEffect(() => {
     return () => {
-      // Close the creating modal before leaving
+      console.log("cancel");
       cancelCreateAssignment();
     };
-  }, [error, setAlert, cancelCreateAssignment]);
+  }, [cancelCreateAssignment]);
 
   const onChange = e =>
     setAssignment({ ...assignment, [e.target.name]: e.target.value });

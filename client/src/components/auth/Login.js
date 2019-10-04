@@ -6,7 +6,7 @@ import InputGroup from "../layout/InputGroup";
 import { login } from "../../actions/authActions";
 import { setAlert } from "../../actions/alertActions";
 
-const Login = ({ login, setAlert, error, isAuthenticated }) => {
+const Login = ({ login, setAlert, error, alert, isAuthenticated }) => {
   const [form, setForm] = useState({
     email: "",
     password: ""
@@ -15,16 +15,18 @@ const Login = ({ login, setAlert, error, isAuthenticated }) => {
   const { email, password } = form;
 
   useEffect(() => {
-    if (error && !isAuthenticated) {
-      setAlert(error, "danger");
-    } else if (isAuthenticated) {
-      setAlert("Login Successfully", "success");
-      setForm({
-        email: "",
-        password: ""
-      });
+    if (alert) {
+      if (error && !isAuthenticated) {
+        setAlert(error, "danger");
+      } else if (isAuthenticated) {
+        setAlert("Login Successfully", "success");
+        setForm({
+          email: "",
+          password: ""
+        });
+      }
     }
-  }, [error, setAlert, isAuthenticated]);
+  }, [error, setAlert, isAuthenticated, alert]);
 
   const onChange = e => setForm({ ...form, [e.target.name]: e.target.value });
 
@@ -92,6 +94,7 @@ const Login = ({ login, setAlert, error, isAuthenticated }) => {
 
 const mapStateToProps = state => ({
   error: state.auth.error,
+  alert: state.auth.alert,
   isAuthenticated: state.auth.isAuthenticated
 });
 

@@ -14,7 +14,8 @@ const initialState = {
   isAuthenticated: null,
   loading: true,
   user: null,
-  error: null
+  error: null,
+  alert: false
 };
 
 export default (state = initialState, action) => {
@@ -24,7 +25,8 @@ export default (state = initialState, action) => {
         ...state,
         isAuthenticated: true,
         loading: false,
-        user: action.payload
+        user: action.payload,
+        alert: false
       };
     case LOGIN_SUCCESS:
     case REGISTER_SUCCESS:
@@ -33,7 +35,8 @@ export default (state = initialState, action) => {
         ...state,
         ...action.payload,
         isAuthenticated: true,
-        loading: false
+        loading: false,
+        alert: true
       };
     case LOGIN_FAIL:
     case REGISTER_FAIL:
@@ -44,17 +47,20 @@ export default (state = initialState, action) => {
         token: null,
         isAuthenticated: false,
         loading: false,
-        user: null
+        user: null,
+        alert: true
       };
     case AUTH_ERROR:
       return {
         ...state,
-        error: action.payload
+        error: action.payload,
+        alert: true
       };
     case CLEAR_AUTH_ERROR:
       return {
         ...state,
-        error: null
+        error: null,
+        alert: false
       };
     default:
       return state;

@@ -25,8 +25,7 @@ import { loadUser } from "./actions/authActions";
 const App = ({ loadUser }) => {
   useEffect(() => {
     loadUser();
-    // eslint-disable-next-line
-  }, []);
+  }, [loadUser]);
 
   return (
     <Router>
