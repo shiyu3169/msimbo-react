@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 // Components
 import InputGroup from "../layout/InputGroup";
@@ -9,14 +9,18 @@ import {
   updateAssignment
 } from "../../actions/assignmentActions";
 
-const AssignmentEdit = () => {
-  const [assignment, setAssignment] = useState({
+const AssignmentEdit = ({ assignment }) => {
+  const [form, setForm] = useState({
     name: "",
     due: "",
     src: ""
   });
 
-  const { name, due, src } = assignment;
+  const { name, due, src } = form;
+
+  useEffect(() => {
+    setForm(assignment);
+  }, [setForm, assignment]);
 
   // componentDidMount() {
   //   const { name, due, src } = this.props.assignment;
@@ -27,8 +31,7 @@ const AssignmentEdit = () => {
   //   });
   // }
 
-  const onChange = e =>
-    setAssignment({ ...assignment, [e.target.name]: e.target.value });
+  const onChange = e => setForm({ ...form, [e.target.name]: e.target.value });
 
   const onCancel = () => editAssignment("");
 
