@@ -37,7 +37,7 @@ const Profile = ({
   }
 
   return (
-    <div className="full-screen">
+    <>
       <div className="container">
         <div className="row">
           <div className="col-3 d-none d-md-block">
@@ -54,7 +54,7 @@ const Profile = ({
         </div>
       </div>
       <UserDelete />
-    </div>
+    </>
   );
 };
 

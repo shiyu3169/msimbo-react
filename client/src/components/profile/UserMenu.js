@@ -1,58 +1,51 @@
 import React from "react";
 import { connect } from "react-redux";
+import { HashLink as Link } from "react-router-hash-link";
+// Actions
 import { edit } from "../../actions/userActions";
-import $ from "jquery";
 
-const UserMenu = ({ editing, currentUser, profile }) => {
-  const scroll = id => {
-    $("html,body").animate({
-      scrollTop: $(id).offset().top
-    });
-  };
-
+const UserMenu = ({ editing, user, profile, isAuthenticated }) => {
   const onClick = e => {
     e.preventDefault();
     this.props.edit();
   };
-
-  //   handleLinkedIn = e => {
-  //     e.preventDefault();
-  //     Axios.get("/auth/linkedin/callback").then(user => {
-  //       console.log(user);
-  //     });
-  //   };
 
   const onCancel = () => {
     this.props.edit();
   };
 
   return (
-    <div className="fixed">
+    <div className="position-fixed">
       <ul className="list-group-flush">
-        <li
-          onClick={scroll.bind(this, "#info")}
+        <Link
+          smooth
+          to="#info"
           className="list-group-item list-group-item-action pointer"
         >
           Info
-        </li>
-        <li
-          onClick={scroll.bind(this, "#bio")}
+        </Link>
+        <Link
+          smooth
+          to="#bio"
           className="list-group-item list-group-item-action pointer"
         >
           Biography
-        </li>
-        <li
-          onClick={scroll.bind(this, "#links")}
+        </Link>
+        <Link
+          smooth
+          to="#links"
           className="list-group-item list-group-item-action pointer"
         >
           Links
-        </li>
-        <li
-          onClick={scroll.bind(this, "#grade")}
+        </Link>
+
+        <Link
+          smooth
+          to="#grade"
           className="list-group-item list-group-item-action pointer"
         >
           Grade
-        </li>
+        </Link>
       </ul>
       {editing && (
         <button
@@ -63,7 +56,7 @@ const UserMenu = ({ editing, currentUser, profile }) => {
           Submit
         </button>
       )}
-      {editing && currentUser.admin && (
+      {editing && isAuthenticated && user.admin && (
         <button
           className="btn btn-block btn-outline-danger"
           type="button"
@@ -82,7 +75,7 @@ const UserMenu = ({ editing, currentUser, profile }) => {
           Cancel
         </button>
       )}
-      {!editing && (currentUser._id === profile._id || currentUser.admin) && (
+      {!editing && isAuthenticated && (user._id === profile._id || user.admin) && (
         <button
           type="button"
           className="btn btn-block btn-outline-info"
@@ -97,7 +90,8 @@ const UserMenu = ({ editing, currentUser, profile }) => {
 
 const mapStateToProps = state => ({
   editing: state.user.editing,
-  currentUser: state.user.currentUser,
+  user: state.auth.user,
+  isAuthenticated: state.auth.isAuthenticated,
   profile: state.user.profile
 });
 

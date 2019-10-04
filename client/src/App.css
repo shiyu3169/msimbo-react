@@ -9,6 +9,11 @@ body {
   line-height: 1.6;
 }
 
+a,
+a:hover {
+  color: #000;
+}
+
 /* Layout */
 .alert {
   /* 1050 is the number bootstrap using for modal */
@@ -240,27 +245,6 @@ body {
 
 .sw-profile {
   word-wrap: break-word;
-}
-
-.link:hover {
-  text-decoration: none;
-  color: #000;
-}
-
-.link {
-  color: #000;
-}
-
-.sw-dark {
-  color: #000;
-}
-
-.full-screen {
-  min-height: 90vh;
-}
-
-.fixed {
-  position: fixed;
 }
 
 .margin-bottom {
