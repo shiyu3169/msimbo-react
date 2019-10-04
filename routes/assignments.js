@@ -58,8 +58,21 @@ router.post(
   }
 );
 
-// @route   POST api/assignments
-// @desc    Add new Assignment
+// @route   DELETE api/assignments
+// @desc    Delete assignment
 // @access  Private
+router.delete("/:id", adminAuth, async (req, res) => {
+  try {
+    const assignment = await Assignment.findById(req.params.id);
+    if (!assignment) {
+      return res.status(404).json({ msg: "Assignment not found" });
+    }
+    await Assignment.findByIdAndRemove(req.params.id);
+    res.json({ msg: "Assignment removed" });
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).send("Server Error");
+  }
+});
 
 module.exports = router;

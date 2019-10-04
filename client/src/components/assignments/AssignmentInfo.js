@@ -1,48 +1,47 @@
-import React, { Component } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { editAssignment } from "../../actions/assignmentActions";
 
-class AssignmentInfo extends Component {
-    onEdit = id => {
-        this.props.editAssignment(id);
-    };
+const AssignmentInfo = ({
+  assignment,
+  user,
+  isAuthenticated,
+  editAssignment
+}) => {
+  const onEdit = id => {
+    editAssignment(id);
+  };
 
-    render() {
-        const { assignment, currentUser } = this.props;
-        return (
-            <tr>
-                <td>
-                    <a
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        href={assignment.src}
-                    >
-                        {assignment.name}
-                    </a>
-                </td>
-                <td>{assignment.due}</td>
-                <td>
-                    <div className="float-right">
-                        {currentUser.admin && (
-                            <button
-                                className="btn btn-outline-warning"
-                                onClick={this.onEdit.bind(this, assignment._id)}
-                            >
-                                <i className="fas fa-edit" />
-                            </button>
-                        )}
-                    </div>
-                </td>
-            </tr>
-        );
-    }
-}
+  return (
+    <tr>
+      <td>
+        <a target="_blank" rel="noopener noreferrer" href={assignment.src}>
+          {assignment.name}
+        </a>
+      </td>
+      <td>{assignment.due}</td>
+      <td>
+        <div className="float-right">
+          {isAuthenticated && user.admin && (
+            <button
+              className="btn btn-outline-warning"
+              onClick={onEdit.bind(this, assignment._id)}
+            >
+              <i className="fas fa-edit" />
+            </button>
+          )}
+        </div>
+      </td>
+    </tr>
+  );
+};
 
 const mapStateToProps = state => ({
-    currentUser: state.user.currentUser
+  user: state.auth.user,
+  isAuthenticated: state.auth.isAuthenticated
 });
 
 export default connect(
-    mapStateToProps,
-    { editAssignment }
+  mapStateToProps,
+  { editAssignment }
 )(AssignmentInfo);
