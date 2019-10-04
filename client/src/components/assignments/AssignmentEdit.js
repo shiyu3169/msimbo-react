@@ -41,22 +41,24 @@ const AssignmentEdit = ({ assignment, deleteAssignment }) => {
 
   return (
     <tr>
-      <td>
-        <InputGroup
-          name="name"
-          value={name}
-          placeholder="Assignment Name..."
-          onChange={onChange}
-        />
-      </td>
-      <td>
-        <InputGroup
-          name="due"
-          value={due}
-          placeholder="Assignment Due Date..."
-          type="date"
-          onChange={onChange}
-        />
+      <td className="row">
+        <div className="col-6">
+          <InputGroup
+            name="name"
+            value={name}
+            placeholder="Assignment Name..."
+            onChange={onChange}
+          />
+        </div>
+        <div className="col-6">
+          <InputGroup
+            name="due"
+            value={due}
+            placeholder="Assignment Due Date..."
+            type="date"
+            onChange={onChange}
+          />
+        </div>
       </td>
       <td>
         <InputGroup
