@@ -18,6 +18,7 @@ const AssignmentEdit = ({ assignment, deleteAssignment }) => {
 
   const { name, due, src } = form;
 
+  // Show current info of editing assignment
   useEffect(() => {
     setForm(assignment);
   }, [setForm, assignment]);

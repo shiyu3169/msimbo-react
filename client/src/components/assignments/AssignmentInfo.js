@@ -8,10 +8,6 @@ const AssignmentInfo = ({
   isAuthenticated,
   editAssignment
 }) => {
-  const onEdit = id => {
-    editAssignment(id);
-  };
-
   return (
     <tr>
       <td>
@@ -25,7 +21,7 @@ const AssignmentInfo = ({
           {isAuthenticated && user.admin && (
             <button
               className="btn btn-outline-warning"
-              onClick={onEdit.bind(this, assignment._id)}
+              onClick={() => editAssignment(assignment._id)}
             >
               <i className="fas fa-edit" />
             </button>
