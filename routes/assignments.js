@@ -52,7 +52,7 @@ router.post(
       res
         .status(500)
         .send(
-          "Server Error, try again later please. If this keeps happening, please contact the manager"
+          "Server Error. Try again later please. If this keeps happening, please contact the manager"
         );
     }
   }
@@ -71,7 +71,11 @@ router.delete("/:id", adminAuth, async (req, res) => {
     res.json({ msg: "Assignment removed" });
   } catch (error) {
     console.log(error.message);
-    res.status(500).send("Server Error");
+    res
+      .status(500)
+      .send(
+        "Server Error. Try again later please. If this keeps happening, please contact the manager"
+      );
   }
 });
 
@@ -115,7 +119,7 @@ router.put(
       res
         .status(500)
         .send(
-          "Server Error, try again later please. If this keeps happening, please contact the manager"
+          "Server Error. Try again later please. If this keeps happening, please contact the manager"
         );
     }
   }

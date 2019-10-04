@@ -10,10 +10,35 @@ const User = require("../models/User");
 // @route GET api/users
 // @desc Get all users
 // @access Public
-router.get("/", (req, res) => {
-  User.find().then(users => {
+router.get("/", async (req, res) => {
+  try {
+    const users = await User.find().sort({ firstName: 1 });
     res.json(users);
-  });
+  } catch (error) {
+    console.error(err.message);
+    res
+      .status(500)
+      .send(
+        "Server Error. Try again later please. If this keeps happening, please contact the manager"
+      );
+  }
+});
+
+// @route GET api/users/:id
+// @desc Get user by id
+// @access Public
+router.get("/:id", async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id);
+    res.json(user);
+  } catch (error) {
+    console.error(error.message);
+    res
+      .status(500)
+      .send(
+        "Server Error. Try again later please. If this keeps happening, please contact the manager"
+      );
+  }
 });
 
 // @route   POST api/users
@@ -31,7 +56,7 @@ router.post(
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
+      return res.status(400).json({ errors: errors.array()[0] });
     }
     const { name, email, password } = req.body;
 
@@ -63,7 +88,11 @@ router.post(
       );
     } catch (err) {
       console.error(err.message);
-      res.status(500).send("Server Error");
+      res
+        .status(500)
+        .send(
+          "Server Error. Try again later please. If this keeps happening, please contact the manager"
+        );
     }
   }
 );

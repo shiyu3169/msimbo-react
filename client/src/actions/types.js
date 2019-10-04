@@ -17,14 +17,16 @@ export const UPDATE_ASSIGNMENT = "UPDATE_ASSIGNMENT";
 export const DELETE_ASSIGNMENT = "DELETE_ASSIGNMENT";
 export const ASSIGNMENT_ERROR = "ASSIGNMENT_ERROR";
 export const CLEAR_ASSIGNMENT_ERROR = "ASSIGNMENT_ERROR";
-// User, Students
+// User/Students
 export const GET_USERS = "GET_USERS";
 export const GET_USER = "GET_USER";
-export const EDIT_USER = "EDIT";
-export const UPDATE_USER = "UPDATE";
+export const EDIT_USER = "EDIT_USER";
+export const UPDATE_USER = "UPDATE_USER";
 export const FILTER_USERS = "FILTER_USERS";
 export const CHANGE_FILTER = "CHANGE_FILTER";
 export const DELETE_USER = "DELETE_USER";
+export const USER_ERROR = "USER_ERROR";
+export const CLEAR_USER_ERROR = "CLEAR_USER_ERROR";
 // Resource
 export const GET_RESOURCES = "GET_RESOURCES";
 export const CREATE_RESOURCE = "CREATE_RESOURCE";

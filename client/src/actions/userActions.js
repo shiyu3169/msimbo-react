@@ -6,16 +6,25 @@ import {
   GET_USER,
   FILTER_USERS,
   CHANGE_FILTER,
-  DELETE_USER
+  DELETE_USER,
+  USER_ERROR
 } from "./types";
 import axios from "axios";
 
+// Get user by id
 export const getUser = id => async dispatch => {
-  const res = await axios.get(`/api/users/${id}`);
-  dispatch({
-    type: GET_USER,
-    payload: res.data
-  });
+  try {
+    const res = await axios.get(`/api/users/${id}`);
+    dispatch({
+      type: GET_USER,
+      payload: res.data
+    });
+  } catch (error) {
+    dispatch({
+      type: USER_ERROR,
+      payload: error.response.data
+    });
+  }
 };
 
 export const update = user => async dispatch => {

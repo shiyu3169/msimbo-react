@@ -36,7 +36,7 @@ const AssignmentEdit = ({
     if (error) {
       setAlert(error, "danger");
     }
-  }, [error]);
+  }, [error, setAlert]);
 
   const onChange = e => setForm({ ...form, [e.target.name]: e.target.value });
 

@@ -1,59 +1,73 @@
-import React, { Component } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
+// Components
 import Grades from "../grades/Grades";
 import UserMenu from "../profile/UserMenu";
 import UserInfo from "../profile/UserInfo";
 import UserEdit from "../profile/UserEdit";
-import { getUser } from "../../actions/userActions";
 import UserDelete from "../profile/UserDelete";
+import Spinner from "../layout/Spinner";
+// Actions
+import { getUser } from "../../actions/userActions";
+import { setAlert } from "../../actions/alertActions";
 
-class Profile extends Component {
-  componentDidMount() {
-    const { getUser } = this.props;
-    const { uid } = this.props.match.params;
-    getUser(uid);
-  }
+const Profile = ({
+  editing,
+  profile,
+  user,
+  isAuthenticated,
+  match,
+  getUser,
+  error,
+  setAlert,
+  loading
+}) => {
+  useEffect(() => {
+    getUser(match.params.uid);
+  }, [getUser, match.params.uid]);
 
-  componentWillReceiveProps(nextProps) {
-    const { getUser } = this.props;
-    if (nextProps.match.params.uid !== this.props.match.params.uid) {
-      const uid = nextProps.match.params.uid;
-      getUser(uid);
+  useEffect(() => {
+    if (error) {
+      setAlert(error, "danger");
     }
+  }, [error, setAlert]);
+
+  if (loading) {
+    return <Spinner />;
   }
 
-  render() {
-    const { editing, currentUser, profile } = this.props;
-    return (
-      <div className="full-screen">
-        <div className="container">
-          <div className="row">
-            <div className="col-3 d-none d-md-block">
-              <UserMenu />
-            </div>
-            <div className="col-sm-9">
-              <div>
-                {editing ? <UserEdit /> : <UserInfo />}
-                {(currentUser._id === profile._id || currentUser.admin) && (
-                  <Grades />
-                )}
-              </div>
+  return (
+    <div className="full-screen">
+      <div className="container">
+        <div className="row">
+          <div className="col-3 d-none d-md-block">
+            <UserMenu />
+          </div>
+          <div className="col-sm-9">
+            <div>
+              {editing ? <UserEdit /> : <UserInfo />}
+              {isAuthenticated && (user._id === profile._id || user.admin) && (
+                <Grades />
+              )}
             </div>
           </div>
         </div>
-        <UserDelete />
       </div>
-    );
-  }
-}
+      <UserDelete />
+    </div>
+  );
+};
 
 const mapStateToProps = state => ({
   editing: state.user.editing,
-  currentUser: state.user.currentUser,
-  profile: state.user.profile
+  user: state.auth.user,
+  profile: state.user.profile,
+  isAuthenticated: state.auth.isAuthenticated,
+  error: state.user.error,
+  loading: state.user.loading
 });
 
 export default connect(
   mapStateToProps,
-  { getUser }
+  { getUser, setAlert }
 )(Profile);

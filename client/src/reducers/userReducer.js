@@ -6,7 +6,8 @@ import {
   GET_USER,
   FILTER_USERS,
   CHANGE_FILTER,
-  DELETE_USER
+  DELETE_USER,
+  USER_ERROR
 } from "../actions/types";
 
 const initialState = {
@@ -15,7 +16,8 @@ const initialState = {
   editing: false,
   profile: 0,
   allUsers: [],
-  filter: { name: "", season: "", year: "" }
+  filter: { name: "", season: "", year: "" },
+  loading: true
 };
 
 export default function(state = initialState, action) {
@@ -23,7 +25,6 @@ export default function(state = initialState, action) {
     case GET_USERS:
       return {
         ...state,
-
         users: action.payload,
         allUsers: action.payload
       };
@@ -45,6 +46,7 @@ export default function(state = initialState, action) {
     case GET_USER:
       return {
         ...state,
+        loading: false,
         profile: action.payload
       };
     case DELETE_USER:
@@ -79,6 +81,11 @@ export default function(state = initialState, action) {
               state.filter.season === "")
           );
         })
+      };
+    case USER_ERROR:
+      return {
+        ...state,
+        error: action.payload
       };
     default:
       return state;
