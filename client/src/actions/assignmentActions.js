@@ -38,7 +38,6 @@ export const addAssignment = assignment => async dispatch => {
       payload: res.data
     });
   } catch (error) {
-    console.log(error);
     dispatch({
       type: ASSIGNMENT_ERROR,
       payload: error.response.data.msg
@@ -54,11 +53,18 @@ export const editAssignment = id => dispatch => {
 };
 
 export const deleteAssignment = id => async dispatch => {
-  await axios.delete(`/api/assignments/${id}`);
-  dispatch({
-    type: DELETE_ASSIGNMENT,
-    payload: id
-  });
+  try {
+    await axios.delete(`/api/assignments/${id}`);
+    dispatch({
+      type: DELETE_ASSIGNMENT,
+      payload: id
+    });
+  } catch (error) {
+    dispatch({
+      type: ASSIGNMENT_ERROR,
+      payload: error.response.data.msg
+    });
+  }
 };
 
 export const updateAssignment = assignment => async dispatch => {

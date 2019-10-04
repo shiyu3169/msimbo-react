@@ -20,7 +20,6 @@ module.exports = async (req, res, next) => {
     }
     next();
   } catch (error) {
-    console.error(error);
     res.status(401).json({
       msg: "Authentication failed, please reload the page and try it again."
     });

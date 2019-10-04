@@ -9,7 +9,7 @@ import {
   updateAssignment
 } from "../../actions/assignmentActions";
 
-const AssignmentEdit = ({ assignment }) => {
+const AssignmentEdit = ({ assignment, deleteAssignment }) => {
   const [form, setForm] = useState({
     name: "",
     due: "",
@@ -22,20 +22,9 @@ const AssignmentEdit = ({ assignment }) => {
     setForm(assignment);
   }, [setForm, assignment]);
 
-  // componentDidMount() {
-  //   const { name, due, src } = this.props.assignment;
-  //   this.setState({
-  //     name,
-  //     due,
-  //     src
-  //   });
-  // }
-
   const onChange = e => setForm({ ...form, [e.target.name]: e.target.value });
 
   const onCancel = () => editAssignment("");
-
-  const onDelete = id => deleteAssignment(id);
 
   const onSubmit = () => {
     // const { name, src, due } = this.state;
@@ -84,7 +73,7 @@ const AssignmentEdit = ({ assignment }) => {
           </button>
           <button
             className="btn btn-outline-danger"
-            onClick={onDelete.bind(this, assignment._id)}
+            onClick={() => deleteAssignment(assignment._id)}
           >
             Delete
           </button>

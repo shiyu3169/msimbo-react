@@ -41,7 +41,6 @@ export const login = formData => async dispatch => {
     dispatch({
       type: LOGIN_FAIL
     });
-    console.log(error.response);
     dispatch({
       type: AUTH_ERROR,
       payload: error.response.data.msg
@@ -50,6 +49,7 @@ export const login = formData => async dispatch => {
 };
 
 export const logout = () => dispatch => {
+  setAuthToken();
   dispatch({
     type: LOGOUT
   });
