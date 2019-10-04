@@ -15,9 +15,10 @@ const Login = ({ login, setAlert, error, isAuthenticated }) => {
   const { email, password } = form;
 
   useEffect(() => {
-    if (error) {
+    if (error && !isAuthenticated) {
       setAlert(error, "danger");
-    } else {
+    } else if (isAuthenticated) {
+      setAlert("Login Successfully", "success");
       setForm({
         email: "",
         password: ""
