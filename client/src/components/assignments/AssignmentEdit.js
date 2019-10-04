@@ -8,8 +8,16 @@ import {
   deleteAssignment,
   updateAssignment
 } from "../../actions/assignmentActions";
+import { setAlert } from "../../actions/alertActions";
 
-const AssignmentEdit = ({ assignment, deleteAssignment, editAssignment }) => {
+const AssignmentEdit = ({
+  assignment,
+  error,
+  deleteAssignment,
+  editAssignment,
+  updateAssignment,
+  setAlert
+}) => {
   const [form, setForm] = useState({
     name: "",
     due: "",
@@ -23,19 +31,23 @@ const AssignmentEdit = ({ assignment, deleteAssignment, editAssignment }) => {
     setForm(assignment);
   }, [setForm, assignment]);
 
+  // Show error if there is any
+  useEffect(() => {
+    if (error) {
+      setAlert(error, "danger");
+    }
+  }, [error]);
+
   const onChange = e => setForm({ ...form, [e.target.name]: e.target.value });
 
   const onSubmit = () => {
-    // const { name, src, due } = this.state;
-    // const assignment = {
-    //   name,
-    //   src,
-    //   due,
-    //   _id: this.props.assignment._id
-    // };
-    // this.props.updateAssignment(assignment).then(() => {
-    //   this.props.editAssignment("");
-    // });
+    const updatedAssignment = {
+      name,
+      src,
+      due,
+      _id: assignment._id
+    };
+    updateAssignment(updatedAssignment);
   };
 
   return (
@@ -90,7 +102,11 @@ const AssignmentEdit = ({ assignment, deleteAssignment, editAssignment }) => {
   );
 };
 
+const mapStateToProps = state => ({
+  error: state.assignment.error
+});
+
 export default connect(
-  null,
-  { editAssignment, updateAssignment, deleteAssignment }
+  mapStateToProps,
+  { editAssignment, updateAssignment, deleteAssignment, setAlert }
 )(AssignmentEdit);

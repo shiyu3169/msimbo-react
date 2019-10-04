@@ -75,9 +75,21 @@ export const deleteAssignment = id => async dispatch => {
 };
 
 export const updateAssignment = assignment => async dispatch => {
-  await axios.put(`/api/assignments/${assignment._id}`, assignment);
-  dispatch({
-    type: UPDATE_ASSIGNMENT,
-    payload: assignment
-  });
+  try {
+    await axios.put(`/api/assignments/${assignment._id}`, assignment);
+    dispatch({
+      type: UPDATE_ASSIGNMENT,
+      payload: assignment
+    });
+    // Close editing modal
+    dispatch({
+      type: EDIT_ASSIGNMENT,
+      payload: ""
+    });
+  } catch (error) {
+    dispatch({
+      type: ASSIGNMENT_ERROR,
+      payload: error.response.data.msg
+    });
+  }
 };

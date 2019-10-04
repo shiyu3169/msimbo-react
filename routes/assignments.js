@@ -58,7 +58,7 @@ router.post(
   }
 );
 
-// @route   DELETE api/assignments
+// @route   DELETE api/assignments/:id
 // @desc    Delete assignment
 // @access  Private
 router.delete("/:id", adminAuth, async (req, res) => {
@@ -74,5 +74,51 @@ router.delete("/:id", adminAuth, async (req, res) => {
     res.status(500).send("Server Error");
   }
 });
+
+// @route   PUT api/assignments/:id
+// @desc    Update assignment
+// @access  Private
+router.put(
+  "/:id",
+  [
+    adminAuth,
+    [
+      check("name", "Name is required")
+        .not()
+        .isEmpty(),
+      check("src", "Source is required")
+        .not()
+        .isEmpty()
+    ]
+  ],
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json(errors.array()[0]);
+    }
+    try {
+      // Build updated assignment
+      const updatedAssignment = new Assignment({ ...req.body });
+      // find the old assignment
+      let assignment = await Assignment.findById(req.params.id);
+      // Update the existing assignment
+      assignment = await Assignment.findByIdAndUpdate(
+        req.params.id,
+        { $set: updatedAssignment },
+        // If the editing assignment is deleted, make a new one
+        { new: true }
+      );
+
+      res.json(assignment);
+    } catch (error) {
+      console.error(error.message);
+      res
+        .status(500)
+        .send(
+          "Server Error, try again later please. If this keeps happening, please contact the manager"
+        );
+    }
+  }
+);
 
 module.exports = router;
