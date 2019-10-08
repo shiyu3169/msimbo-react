@@ -4,7 +4,7 @@ const router = express.Router();
 const jwt = require("jsonwebtoken");
 const config = require("config");
 const { check, validationResult } = require("express-validator");
-
+const auth = require("../middleware/auth");
 const User = require("../models/User");
 
 // @route GET api/users
@@ -117,5 +117,59 @@ router.delete("/:id", async (req, res) => {
       );
   }
 });
+
+// @route   PUT api/users
+// @desc    update a user
+// @access  Private
+router.put(
+  "/:id",
+  [
+    auth,
+    [
+      check("email", "Email is required")
+        .not()
+        .isEmpty(),
+      check("firstName", "First name is required")
+        .not()
+        .isEmpty(),
+      check("lastName", "Last name is required")
+        .not()
+        .isEmpty(),
+      check("linkedin", "LinkedIn link is required")
+        .not()
+        .isEmpty(),
+      check("github", "GitHub link is required")
+        .not()
+        .isEmpty()
+    ]
+  ],
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json(errors.array()[0]);
+    }
+    try {
+      // Build updated user
+      const updatedUser = new User({ ...req.body });
+      // find the old user
+      let user = await User.findById(req.params.id);
+      // Update the existing assignment
+      user = await User.findByIdAndUpdate(
+        req.params.id,
+        { $set: updatedUser },
+        // If the editing user is deleted, make a new one
+        { new: true }
+      );
+      res.json(user);
+    } catch (error) {
+      console.error(error.message);
+      res
+        .status(500)
+        .send(
+          "Server Error. Try again later please. If this keeps happening, please contact the manager"
+        );
+    }
+  }
+);
 
 module.exports = router;

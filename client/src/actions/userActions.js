@@ -28,11 +28,22 @@ export const getUser = id => async dispatch => {
 };
 
 export const update = user => async dispatch => {
-  const res = await axios.put(`/api/users/${user._id}`, user);
-  dispatch({
-    type: UPDATE_USER,
-    payload: res.data
-  });
+  try {
+    const res = await axios.put(`/api/users/${user._id}`, user);
+    dispatch({
+      type: UPDATE_USER,
+      payload: res.data
+    });
+    // Close edit modal
+    dispatch({
+      type: EDIT_USER
+    });
+  } catch (error) {
+    dispatch({
+      type: USER_ERROR,
+      payload: error.response.data
+    });
+  }
 };
 
 export const getUsers = () => async dispatch => {
