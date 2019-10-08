@@ -77,14 +77,13 @@ class UserEdit extends Component {
       linkedin,
       github
     } = this.state;
-    console.log(document.location);
 
     return (
       <form onSubmit={this.onSubmit} id="editForm">
         <div className="row" id="info">
           <div className="col-sm-5">
             <div className="text-center">
-              <img className="userImage" src={profile.image} alt="user" />
+              <img className="userImage" src="/user.png" alt="user" />
               <br />
               <br />
               <a
@@ -93,7 +92,8 @@ class UserEdit extends Component {
                   document.location.hostname === "localhost"
                     ? `http://localhost:3100/auth/linkedin`
                     : "/auth/linkedin"
-                }>
+                }
+              >
                 Import info from LinkedIn
               </a>
             </div>

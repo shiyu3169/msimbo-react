@@ -97,4 +97,25 @@ router.post(
   }
 );
 
+// @route   DELETE api/users
+// @desc    remove a user
+// @access  Private
+router.delete("/:id", async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id);
+    if (!user) {
+      return res.status(404).send("User not found");
+    }
+    await User.findByIdAndRemove(req.params.id);
+    res.json({ msg: "Student removed" });
+  } catch (error) {
+    console.error(error.message);
+    res
+      .status(500)
+      .send(
+        "Server Error. Try again later please. If this keeps happening, please contact the manager"
+      );
+  }
+});
+
 module.exports = router;

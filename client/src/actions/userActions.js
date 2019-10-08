@@ -1,6 +1,5 @@
 import {
   GET_USERS,
-  LOGOUT,
   EDIT_USER,
   UPDATE_USER,
   GET_USER,
@@ -10,6 +9,7 @@ import {
   USER_ERROR
 } from "./types";
 import axios from "axios";
+import $ from "jquery";
 
 // Get user by id
 export const getUser = id => async dispatch => {
@@ -42,14 +42,7 @@ export const getUsers = () => async dispatch => {
     payload: res.data
   });
 };
-
-export const logout = () => async dispatch => {
-  await axios.post("/api/logout");
-  dispatch({
-    type: LOGOUT
-  });
-};
-
+// Open edit modal
 export const edit = () => dispatch => {
   dispatch({
     type: EDIT_USER
@@ -69,10 +62,25 @@ export const changeFilter = filter => dispatch => {
   });
 };
 
-export const deleteUser = id => async dispatch => {
-  axios.delete(`/api/user/${id}`);
-  dispatch({
-    type: DELETE_USER,
-    payload: id
-  });
+export const deleteUser = (id, history) => async dispatch => {
+  // Close delete modal
+  $("#deleteModal").modal("hide");
+  try {
+    await axios.delete(`/api/users/${id}`);
+    dispatch({
+      type: DELETE_USER,
+      payload: id
+    });
+    // Close edit modal
+    dispatch({
+      type: EDIT_USER
+    });
+    // Redirect
+    history.push("/students");
+  } catch (error) {
+    dispatch({
+      type: USER_ERROR,
+      payload: error.response.data
+    });
+  }
 };

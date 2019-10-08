@@ -4,14 +4,14 @@ import { HashLink as Link } from "react-router-hash-link";
 // Actions
 import { edit } from "../../actions/userActions";
 
-const UserMenu = ({ editing, user, profile, isAuthenticated }) => {
+const UserMenu = ({ editing, user, profile, isAuthenticated, edit }) => {
   const onClick = e => {
     e.preventDefault();
-    this.props.edit();
+    edit();
   };
 
   const onCancel = () => {
-    this.props.edit();
+    edit();
   };
 
   return (
@@ -70,7 +70,7 @@ const UserMenu = ({ editing, user, profile, isAuthenticated }) => {
         <button
           className="btn btn-block btn-outline-danger"
           type="button"
-          onClick={this.onCancel}
+          onClick={onCancel}
         >
           Cancel
         </button>
