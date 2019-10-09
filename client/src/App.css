@@ -9,11 +9,6 @@ body {
   line-height: 1.6;
 }
 
-a,
-a:hover {
-  color: #000;
-}
-
 /* Layout */
 .alert {
   /* 1050 is the number bootstrap using for modal */
@@ -51,6 +46,11 @@ a:hover {
 
 .front {
   z-index: 2;
+}
+
+/* Student */
+.student a {
+  color: #333;
 }
 
 /* Grade */

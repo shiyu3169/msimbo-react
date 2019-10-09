@@ -13,10 +13,10 @@ class Student extends Component {
   render() {
     const { user } = this.props;
     return (
-      <li className="list-group-item">
+      <li className="list-group-item student">
         <div className="row">
           <div className="col-sm-3 text-center">
-            <Link className="link" to={`/user/${user._id}`}>
+            <Link to={`/user/${user._id}`}>
               <img className="" alt="student" src={user.icon} width="100" />
               <p className="sw-profile">
                 <b>
@@ -39,7 +39,8 @@ class Student extends Component {
                     href={user.project}
                     className="sw-dark"
                     target="_blank"
-                    rel="noopener noreferrer">
+                    rel="noopener noreferrer"
+                  >
                     <i className="fas fa-project-diagram" />
                   </a>
                 </li>
@@ -50,7 +51,8 @@ class Student extends Component {
                     href={user.linkedin}
                     className="sw-dark"
                     target="_blank"
-                    rel="noopener noreferrer">
+                    rel="noopener noreferrer"
+                  >
                     <i className="fab fa-linkedin fa-lg" />
                   </a>
                 </li>
@@ -61,7 +63,8 @@ class Student extends Component {
                     href={user.github}
                     className="sw-dark"
                     target="_blank"
-                    rel="noopener noreferrer">
+                    rel="noopener noreferrer"
+                  >
                     <i className="fab fa-github fa-lg" />
                   </a>
                 </li>
