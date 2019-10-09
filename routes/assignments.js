@@ -59,7 +59,7 @@ router.post(
 );
 
 // @route   DELETE api/assignments/:id
-// @desc    Delete assignment
+// @desc    Delete grade
 // @access  Private
 router.delete("/:id", adminAuth, async (req, res) => {
   try {
@@ -112,7 +112,6 @@ router.put(
         // If the editing assignment is deleted, make a new one
         { new: true }
       );
-
       res.json(assignment);
     } catch (error) {
       console.error(error.message);
