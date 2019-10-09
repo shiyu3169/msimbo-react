@@ -7,7 +7,7 @@ import {
 import axios from "axios";
 
 export const getGradesByUser = uid => async dispatch => {
-  const res = await axios.get(`/api/grade/${uid}`);
+  const res = await axios.get(`/api/grades/${uid}`);
   dispatch({
     type: GET_GRADES_BY_USER,
     payload: res.data

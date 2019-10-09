@@ -1,6 +1,5 @@
 const jwt = require("jsonwebtoken");
 const config = require("config");
-const User = require("../models/User");
 
 module.exports = async (req, res, next) => {
   // Get token from header
@@ -12,8 +11,7 @@ module.exports = async (req, res, next) => {
   try {
     const decoded = jwt.verify(token, config.get("jwtSecret"));
     req.user = decoded.user;
-    const user = await User.findById(req.user.id);
-    if (!user.admin) {
+    if (!req.user.admin) {
       return res
         .status(401)
         .json({ msg: "This function is only available for administrator" });
