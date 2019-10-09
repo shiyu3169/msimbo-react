@@ -1,4 +1,4 @@
-var mongoose = require('mongoose');
+var mongoose = require("mongoose");
 
 var AssessmentSchema = mongoose.Schema(
   {
@@ -17,7 +17,7 @@ var AssessmentSchema = mongoose.Schema(
     explanation: String,
     dateCreated: { type: Date, default: Date.now }
   },
-  { collection: 'assessment' }
+  { collection: "assessment" }
 );
 
-module.exports = AssessmentSchema;
+module.exports = mongoose.model("assessment", AssessmentSchema);
