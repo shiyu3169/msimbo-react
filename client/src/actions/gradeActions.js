@@ -33,17 +33,27 @@ export const addGrade = grade => async dispatch => {
 };
 
 export const deleteGrade = id => async dispatch => {
-  await axios.delete(`/api/grade/${id}`);
-  dispatch({
-    type: DELETE_GRADE,
-    payload: id
-  });
+  try {
+    await axios.delete(`/api/grades/${id}`);
+    $(`#edit${id}`).modal("hide");
+    dispatch({
+      type: DELETE_GRADE,
+      payload: id
+    });
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export const updateGrade = grade => async dispatch => {
-  await axios.put(`/api/grade/${grade._id}`, grade);
-  dispatch({
-    type: UPDATE_GRADE,
-    payload: grade
-  });
+  try {
+    await axios.put(`/api/grades/${grade._id}`, grade);
+    $(`#edit${grade._id}`).modal("hide");
+    dispatch({
+      type: UPDATE_GRADE,
+      payload: grade
+    });
+  } catch (error) {
+    console.log(error);
+  }
 };
