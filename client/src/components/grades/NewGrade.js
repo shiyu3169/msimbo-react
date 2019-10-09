@@ -1,112 +1,93 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import InputGroup from '../layout/InputGroup';
-import { addGrade } from '../../actions/gradeActions';
-import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css'; // ES6
-import $ from 'jquery';
+import React, { useState } from "react";
+import { connect } from "react-redux";
+import InputGroup from "../layout/InputGroup";
+import { addGrade } from "../../actions/gradeActions";
 
-class NewGrade extends Component {
-  state = {
-    name: '',
+import BraftEditor from "braft-editor";
+import "braft-editor/dist/index.css";
+
+const NewGrade = ({ profile, addGrade }) => {
+  const [form, setForm] = useState({
+    name: "",
     score: 0,
-    comment: ''
-  };
+    comment: ""
+  });
 
-  submit = e => {
+  const onSubmit = e => {
     e.preventDefault();
-    const { name, score, comment } = this.state;
+
     const grade = {
-      name,
-      score,
-      comment,
-      user: this.props.profile._id
+      ...form,
+      user: profile._id
     };
-
-    this.props.addGrade(grade).then(() => {
-      $('#newGrade').modal('hide');
-
-      this.setState({
-        name: '',
-        score: 0,
-        comment: ''
-      });
-    });
+    addGrade(grade);
   };
 
-  onChange = e => {
-    this.setState({
-      [e.target.name]: e.target.value
-    });
+  const onChange = e => {
+    setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  handleChange = value => {
-    this.setState({ comment: value });
+  const onChangeComment = value => {
+    setForm({ ...form, comment: value.toHTML() });
   };
 
-  render() {
-    return (
+  return (
+    <div
+      className="modal fade"
+      id="newGrade"
+      tabIndex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
       <div
-        className='modal fade'
-        id='newGrade'
-        tabIndex='-1'
-        role='dialog'
-        aria-labelledby='exampleModalLabel'
-        aria-hidden='true'
+        className="modal-dialog modal-xl modal-dialog-centered"
+        role="document"
       >
-        <div
-          className='modal-dialog modal-xl modal-dialog-centered'
-          role='document'
-        >
-          <div className='modal-content'>
-            <div className='modal-header'>
-              <h5 className='modal-title'>New Grade</h5>
-              <button
-                type='button'
-                className='close'
-                data-dismiss='modal'
-                aria-label='Close'
-              >
-                <span aria-hidden='true'>&times;</span>
-              </button>
-            </div>
-            <div className='modal-body'>
-              <form onSubmit={this.submit}>
-                <div className='row'>
-                  <div className='col-6'>
-                    <InputGroup
-                      label='Name'
-                      name='name'
-                      placeholder='Grade Name...'
-                      onChange={this.onChange}
-                    />
-                  </div>
-                  <div className='col-6'>
-                    <InputGroup
-                      label='Score'
-                      name='score'
-                      type='number'
-                      placeholder='Grade Score...'
-                      onChange={this.onChange}
-                    />
-                  </div>
+        <div className="modal-content">
+          <div className="modal-header">
+            <h5 className="modal-title">New Grade</h5>
+            <button
+              type="button"
+              className="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div className="modal-body">
+            <form onSubmit={onSubmit}>
+              <div className="row">
+                <div className="col-6">
+                  <InputGroup
+                    label="Name"
+                    name="name"
+                    placeholder="Grade Name..."
+                    onChange={onChange}
+                    value={form.name}
+                  />
                 </div>
-
-                <ReactQuill
-                  value={this.state.comment}
-                  onChange={this.handleChange}
-                >
-                  <div className='text-area' />
-                </ReactQuill>
-                <button className='btn btn-success btn-block'>Submit</button>
-              </form>
-            </div>
+                <div className="col-6">
+                  <InputGroup
+                    label="Score"
+                    name="score"
+                    type="number"
+                    placeholder="Grade Score..."
+                    onChange={onChange}
+                    value={form.score}
+                  />
+                </div>
+              </div>
+              <BraftEditor value={form.comment} onChange={onChangeComment} />
+              <button className="btn btn-success btn-block mt-4">Submit</button>
+            </form>
           </div>
         </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 const mapStateToProps = state => ({
   profile: state.user.profile

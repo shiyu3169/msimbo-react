@@ -5,21 +5,31 @@ import {
   UPDATE_GRADE
 } from "./types";
 import axios from "axios";
+import $ from "jquery";
 
 export const getGradesByUser = uid => async dispatch => {
-  const res = await axios.get(`/api/grades/${uid}`);
-  dispatch({
-    type: GET_GRADES_BY_USER,
-    payload: res.data
-  });
+  try {
+    const res = await axios.get(`/api/grades/${uid}`);
+    dispatch({
+      type: GET_GRADES_BY_USER,
+      payload: res.data
+    });
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export const addGrade = grade => async dispatch => {
-  const res = await axios.post("/api/grade", grade);
-  dispatch({
-    type: ADD_GRADE,
-    payload: res.data
-  });
+  try {
+    const res = await axios.post("/api/grades", grade);
+    dispatch({
+      type: ADD_GRADE,
+      payload: res.data
+    });
+    $("#newGrade").modal("hide");
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export const deleteGrade = id => async dispatch => {

@@ -7,7 +7,7 @@ import NewGrade from "./NewGrade";
 const Grades = ({ grades, user, profile, getGradesByUser }) => {
   useEffect(() => {
     getGradesByUser(profile._id);
-  }, [profile._id]);
+  }, [profile._id, getGradesByUser]);
 
   return (
     <>

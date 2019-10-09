@@ -53,6 +53,16 @@ a:hover {
   z-index: 2;
 }
 
+/* Grade */
+.wrapper {
+  border: 1px solid #cecece;
+  border-radius: 5px;
+}
+
+.editor {
+  min-height: 150px;
+}
+
 .menu-button:hover {
   background: #000;
 }
