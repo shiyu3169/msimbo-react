@@ -15,10 +15,14 @@ const Resources = ({ resources, creating, getResources, filterResources }) => {
     getResources();
   }, [getResources]);
 
-  const onChange = async e => {
-    await setName(e.target.value);
-    filterResources(name);
+  const onChange = e => {
+    setName(e.target.value);
   };
+
+  // filter after name changes
+  useEffect(() => {
+    filterResources(name);
+  }, [name, filterResources]);
 
   return (
     <div>
