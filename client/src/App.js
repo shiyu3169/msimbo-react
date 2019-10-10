@@ -13,7 +13,7 @@ import Students from "./components/pages/Students";
 import Resources from "./components/pages/Resources";
 import Profile from "./components/pages/Profile";
 import Assignments from "./components/pages/Assignments";
-import Youtubes from "./components/pages/Youtubes";
+import Videos from "./components/pages/Videos";
 import Syllabus from "./components/pages/Syllabus";
 import Contact from "./components/pages/Contact";
 import Assessments from "./components/pages/Assessments";
@@ -39,7 +39,7 @@ const App = ({ loadUser }) => {
             <Route exact path="/resources" component={Resources} />
             <Route exact path="/user/:uid" component={Profile} />
             <Route exact path="/assignments" component={Assignments} />
-            <Route exact path="/videos" component={Youtubes} />
+            <Route exact path="/videos" component={Videos} />
             <Route exact path="/syllabus" component={Syllabus} />
             <Route exact path="/contact" component={Contact} />4
             <Route exact path="/assessments" component={Assessments} />
