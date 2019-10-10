@@ -17,10 +17,11 @@ import Videos from "./components/pages/Videos";
 import Syllabus from "./components/pages/Syllabus";
 import Contact from "./components/pages/Contact";
 import Assessments from "./components/pages/Assessments";
-import Assessment from "./components/pages/Assessment";
+// import Assessment from "./components/pages/Assessment";
 import Register from "./components/pages/Register";
 // Actions
 import { loadUser } from "./actions/authActions";
+import PrivateRoute from "./components/routing/PrivateRoute";
 
 const App = ({ loadUser }) => {
   useEffect(() => {
@@ -42,8 +43,8 @@ const App = ({ loadUser }) => {
             <Route exact path="/videos" component={Videos} />
             <Route exact path="/syllabus" component={Syllabus} />
             <Route exact path="/contact" component={Contact} />4
-            <Route exact path="/assessments" component={Assessments} />
-            <Route exact path="/assessment/:id" component={Assessment} />
+            <PrivateRoute exact path="/assessments" component={Assessments} />
+            {/* <Route exact path="/assessment/:id" component={Assessment} /> */}
             <Route path="/" component={Home} />
           </Switch>
         </div>
