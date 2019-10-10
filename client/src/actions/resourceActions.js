@@ -54,7 +54,7 @@ export const updateResource = resource => async dispatch => {
   });
 };
 
-export const filterResource = name => dispatch => {
+export const filterResources = name => dispatch => {
   dispatch({
     type: FILTER_RESOURCE,
     payload: name
