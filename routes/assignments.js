@@ -23,7 +23,7 @@ router.get("/", async (req, res) => {
 
 // @route   POST api/assignments
 // @desc    Add new Assignment
-// @access  Private
+// @access  Private - admin
 router.post(
   "/",
   [
