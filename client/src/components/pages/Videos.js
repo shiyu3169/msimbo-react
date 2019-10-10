@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { getVideos, createVideo } from "../../actions/videoActions";
-import Youtube from "../youtube/Youtube";
-import YoutubeNew from "../youtube/YoutubeNew";
+import Video from "../video/Video";
+import VideoNew from "../video/VideoNew";
 import BackToTop from "../layout/BackToTop";
 
 const Videos = ({
@@ -21,7 +21,7 @@ const Videos = ({
     <div>
       <div className="container">
         {creating ? (
-          <YoutubeNew />
+          <VideoNew />
         ) : (
           isAuthenticated &&
           user.admin && (
@@ -35,7 +35,7 @@ const Videos = ({
         )}
         <ul className="list-group">
           {videos.map(video => (
-            <Youtube key={video._id} video={video} />
+            <Video key={video._id} video={video} />
           ))}
         </ul>
       </div>

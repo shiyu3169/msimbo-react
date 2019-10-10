@@ -47,7 +47,7 @@ router.post(
     }
 
     try {
-      const newVideo = new Video({ ...body });
+      const newVideo = new Video({ ...req.body });
       const video = await newVideo.save();
       res.json(video);
     } catch (error) {

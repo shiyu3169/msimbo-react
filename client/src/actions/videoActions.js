@@ -23,10 +23,13 @@ export const createVideo = () => async dispatch => {
 };
 
 export const addVideo = video => async dispatch => {
-  const res = await axios.post("/api/youtube", video);
+  const res = await axios.post("/api/videos", video);
   dispatch({
     type: ADD_VIDEO,
     payload: res.data
+  });
+  dispatch({
+    type: CREATE_VIDEO
   });
 };
 
