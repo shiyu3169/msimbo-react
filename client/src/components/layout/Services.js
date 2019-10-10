@@ -43,7 +43,7 @@ function Services() {
           <ServiceIcon
             iconClass="fas fa-pencil-alt fa-3x"
             title="Assessments"
-            description="Course slides and materials"
+            description="Quiz & Exam"
             to="/assessments"
           />
         </div>
