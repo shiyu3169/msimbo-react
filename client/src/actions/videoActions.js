@@ -49,7 +49,7 @@ export const addVideo = video => async dispatch => {
 // };
 
 export const deleteVideo = id => async dispatch => {
-  await axios.delete(`/api/youtube/${id}`);
+  await axios.delete(`/api/videos/${id}`);
   dispatch({
     type: DELETE_VIDEO,
     payload: id

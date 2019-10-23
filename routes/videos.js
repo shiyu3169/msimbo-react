@@ -71,7 +71,7 @@ router.delete("/:id", adminAuth, async (req, res) => {
     if (!video) {
       return res.status(404).json({ msg: "Assignment not found" });
     }
-    await Video.findByIdAndRemove(req / params.id);
+    await Video.findByIdAndRemove(req.params.id);
     res.json({ msg: "Video removed" });
   } catch (error) {
     console.error(error.message);
