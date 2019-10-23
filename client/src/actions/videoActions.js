@@ -7,6 +7,7 @@ import {
   // UPDATE_VIDEO,
   DELETE_VIDEO
 } from "./types";
+import $ from "jquery";
 
 export const getVideos = () => async dispatch => {
   const res = await axios.get("/api/videos");
@@ -50,6 +51,7 @@ export const addVideo = video => async dispatch => {
 
 export const deleteVideo = id => async dispatch => {
   await axios.delete(`/api/videos/${id}`);
+  $(`#delete${id}`).modal("hide");
   dispatch({
     type: DELETE_VIDEO,
     payload: id
