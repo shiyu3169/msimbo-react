@@ -59,8 +59,8 @@ router.post(
 );
 
 // @route   DELETE api/assignments/:id
-// @desc    Delete grade
-// @access  Private
+// @desc    Delete assignment
+// @access  Private - admin
 router.delete("/:id", adminAuth, async (req, res) => {
   try {
     const assignment = await Assignment.findById(req.params.id);
@@ -81,7 +81,7 @@ router.delete("/:id", adminAuth, async (req, res) => {
 
 // @route   PUT api/assignments/:id
 // @desc    Update assignment
-// @access  Private
+// @access  Private - admin
 router.put(
   "/:id",
   [
