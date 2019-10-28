@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 const Comment = ({ grade }) => {
   return (
@@ -24,7 +24,7 @@ const Comment = ({ grade }) => {
             </button>
           </div>
           <div
-            className="modal-body"
+            className="modal-body grade-comment"
             dangerouslySetInnerHTML={{ __html: grade.comment }}
           />
         </div>

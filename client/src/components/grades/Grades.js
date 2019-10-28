@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
-import { connect } from "react-redux";
-import { getGradesByUser } from "../../actions/gradeActions";
-import Grade from "./Grade";
-import NewGrade from "./NewGrade";
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import { getGradesByUser } from '../../actions/gradeActions';
+import Grade from './Grade';
+import NewGrade from './NewGrade';
+import 'braft-editor/dist/index.css';
 
 const Grades = ({ grades, user, profile, getGradesByUser }) => {
   useEffect(() => {

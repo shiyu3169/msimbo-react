@@ -2,12 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { createResource } from "../../actions/resourceActions";
 
-const ResourceHead = ({
-  createResource,
-  currentUser,
-  isAuthenticated,
-  user
-}) => {
+const ResourceHead = ({ createResource, isAuthenticated, user }) => {
   return (
     <tr>
       <th>Resources</th>

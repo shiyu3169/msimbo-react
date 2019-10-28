@@ -1,15 +1,14 @@
-import React, { useState } from "react";
-import { connect } from "react-redux";
-import InputGroup from "../layout/InputGroup";
-import { addGrade } from "../../actions/gradeActions";
-import BraftEditor from "braft-editor";
-import "braft-editor/dist/index.css";
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import InputGroup from '../layout/InputGroup';
+import { addGrade } from '../../actions/gradeActions';
+import BraftEditor from 'braft-editor';
 
 const NewGrade = ({ profile, addGrade }) => {
   const [form, setForm] = useState({
-    name: "",
+    name: '',
     score: 0,
-    comment: ""
+    comment: ''
   });
 
   const onSubmit = e => {

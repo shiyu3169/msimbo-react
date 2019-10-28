@@ -1,15 +1,14 @@
-import React, { useState, useEffect } from "react";
-import InputGroup from "../layout/InputGroup";
-import { connect } from "react-redux";
-import { deleteGrade, updateGrade } from "../../actions/gradeActions";
-import BraftEditor from "braft-editor";
-import "braft-editor/dist/index.css";
+import React, { useState, useEffect } from 'react';
+import InputGroup from '../layout/InputGroup';
+import { connect } from 'react-redux';
+import { deleteGrade, updateGrade } from '../../actions/gradeActions';
+import BraftEditor from 'braft-editor';
 
 const EditGrade = ({ grade, deleteGrade, updateGrade }) => {
   const [form, setForm] = useState({
-    name: "",
+    name: '',
     score: 0,
-    comment: ""
+    comment: ''
   });
 
   useEffect(() => {
