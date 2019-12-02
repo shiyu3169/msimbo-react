@@ -67,7 +67,4 @@ const mapStateToProps = state => ({
   loading: state.user.loading
 });
 
-export default connect(
-  mapStateToProps,
-  { getUser, setAlert }
-)(Profile);
+export default connect(mapStateToProps, { getUser, setAlert })(Profile);

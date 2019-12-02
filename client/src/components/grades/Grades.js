@@ -1,14 +1,14 @@
-import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
-import { getGradesByUser } from '../../actions/gradeActions';
-import Grade from './Grade';
-import NewGrade from './NewGrade';
-import 'braft-editor/dist/index.css';
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import { getGradesByUser } from "../../actions/gradeActions";
+import Grade from "./Grade";
+import NewGrade from "./NewGrade";
+import "braft-editor/dist/index.css";
 
 const Grades = ({ grades, user, profile, getGradesByUser }) => {
   useEffect(() => {
     getGradesByUser(profile._id);
-  }, [profile._id, getGradesByUser]);
+  }, [profile._id, getGradesByUser, user]);
 
   return (
     <>
@@ -54,7 +54,4 @@ const mapStateToProps = state => ({
   profile: state.user.profile
 });
 
-export default connect(
-  mapStateToProps,
-  { getGradesByUser }
-)(Grades);
+export default connect(mapStateToProps, { getGradesByUser })(Grades);
