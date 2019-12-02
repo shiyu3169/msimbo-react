@@ -69,7 +69,6 @@ const mapStateToProps = state => ({
   users: state.user.users
 });
 
-export default connect(
-  mapStateToProps,
-  { getUsers, filterUser, changeFilter }
-)(Students);
+export default connect(mapStateToProps, { getUsers, filterUser, changeFilter })(
+  Students
+);

@@ -9,6 +9,7 @@ import {
   DELETE_USER,
   USER_ERROR
 } from "../actions/types";
+import moment from "moment";
 
 const initialState = {
   users: [],
@@ -63,7 +64,6 @@ export default function(state = initialState, action) {
       };
     case FILTER_USERS:
       state.users = state.allUsers;
-
       return {
         ...state,
         users: state.users.filter(user => {
@@ -71,12 +71,13 @@ export default function(state = initialState, action) {
             (user.firstName + user.lastName)
               .toUpperCase()
               .includes(state.filter.name) &&
-            (new Date(user.dateCreated).getFullYear().toString() ===
-              state.filter.year ||
+            (moment(user.dateCreated)
+              .year()
+              .toString() === state.filter.year ||
               state.filter.year === "") &&
-            ((new Date(user.dateCreated).getMonth() <= 6 &&
+            ((moment(user.dateCreated).month() < 6 &&
               state.filter.season === "Spring") ||
-              (new Date(user.dateCreated).getMonth() > 6 &&
+              (moment(user.dateCreated).month() >= 6 &&
                 state.filter.season === "Fall") ||
               state.filter.season === "")
           );

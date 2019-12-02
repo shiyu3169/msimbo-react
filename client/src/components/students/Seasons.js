@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import Season from "./Season";
 import { filterUser, changeFilter } from "../../actions/userActions";
+import moment from "moment";
 class Seasons extends Component {
   state = {
     seasons: new Set()
@@ -10,10 +11,11 @@ class Seasons extends Component {
   setSeasons = users => {
     const { seasons } = this.state;
     const newSeason = seasons;
-    for (let user of users) {
-      const year = new Date(user.dateCreated).getFullYear();
-      const month = new Date(user.dateCreated).getMonth();
-      if (month <= 6) {
+
+    for (let i = 0; i < users.length; i++) {
+      const year = moment(users[i].dateCreated).year();
+      const month = moment(users[i].dateCreated).month();
+      if (month < 6) {
         newSeason.add(`Spring ${year}`);
         this.setState({
           seasons: newSeason
@@ -28,7 +30,7 @@ class Seasons extends Component {
   };
 
   componentDidMount() {
-    this.setSeasons(this.props.users.sort(this.compare));
+    this.setSeasons(this.props.users);
   }
 
   compare(a, b) {
@@ -87,7 +89,4 @@ const mapStateToProps = state => ({
   filter: state.user.filter
 });
 
-export default connect(
-  mapStateToProps,
-  { filterUser, changeFilter }
-)(Seasons);
+export default connect(mapStateToProps, { filterUser, changeFilter })(Seasons);
