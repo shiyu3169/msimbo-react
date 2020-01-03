@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
 import InputGroup from "../layout/InputGroup";
-
-const Register = () => {
+// Action
+import { setAlert } from "../../actions/alertActions";
+import { createUser } from "../../actions/userActions";
+const Register = ({ setAlert, createUser }) => {
   const [form, setForm] = useState({
     email: "",
     password: "",
@@ -10,7 +13,8 @@ const Register = () => {
     middleName: "",
     lastName: "",
     linkedIn: "",
-    gitHub: ""
+    gitHub: "",
+    code: ""
   });
 
   const {
@@ -21,13 +25,39 @@ const Register = () => {
     middleName,
     lastName,
     linkedIn,
-    gitHub
+    gitHub,
+    code
   } = form;
 
-  const onChange = e => setForm({ ...form, [e.target.name]: e.target.value });
+  const githubPatten = /http(s)?:\/\/(www\.)?github\.com\/[A-z0-9_-]+\/?/;
+  const linkedInPattern = /http(s)?:\/\/([\w]+\.)?linkedin\.com\/in\/[A-z0-9_-]+\/?/;
+
+  const onChange = e => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+
+    if (
+      (e.target.name === "linkedIn" && !linkedInPattern.test(e.target.value)) ||
+      (e.target.name === "gitHub" && !githubPatten.test(e.target.value)) ||
+      (e.target.name !== "middleName" && e.target.value === "")
+    ) {
+      e.target.classList.add("border-danger");
+      return;
+    }
+    e.target.classList.remove("border-danger");
+  };
 
   const onSubmit = e => {
     e.preventDefault();
+    if (!linkedInPattern.test(form.linkedIn)) {
+      setAlert("Please enter a valid LinkedIn link", "danger");
+      return;
+    }
+
+    if (!githubPatten.test(form.gitHub)) {
+      setAlert("Please enter a valid GitHub link", "danger");
+      return;
+    }
+    createUser(form);
   };
 
   return (
@@ -40,6 +70,7 @@ const Register = () => {
           label="Email"
           placeholder="Enter Email Here..."
           onChange={onChange}
+          required
           value={email}
         />
         <InputGroup
@@ -48,6 +79,7 @@ const Register = () => {
           label="Password"
           placeholder="Enter Password Here..."
           onChange={onChange}
+          required
           value={password}
         />
         <InputGroup
@@ -56,6 +88,7 @@ const Register = () => {
           label="Verify Password"
           placeholder="Verify Password Here..."
           onChange={onChange}
+          required
           value={password2}
         />
         <InputGroup
@@ -63,6 +96,7 @@ const Register = () => {
           label="First Name"
           placeholder="Enter Your First Name..."
           onChange={onChange}
+          required
           value={firstName}
         />
         <InputGroup
@@ -77,6 +111,7 @@ const Register = () => {
           label="Last Name"
           placeholder="Enter Your Last Name..."
           onChange={onChange}
+          required
           value={lastName}
         />
         <InputGroup
@@ -84,6 +119,7 @@ const Register = () => {
           label="LinkedIn"
           placeholder="Enter Your LinkedIn Profile URL..."
           onChange={onChange}
+          required
           value={linkedIn}
         />
         <InputGroup
@@ -91,7 +127,16 @@ const Register = () => {
           label="GitHub"
           placeholder="Enter Your GitHub Profile URL..."
           onChange={onChange}
+          required
           value={gitHub}
+        />
+        <InputGroup
+          name="code"
+          label="Registration Code"
+          placeholder="Please ask instructor for a registration code..."
+          onChange={onChange}
+          required
+          value={code}
         />
         <button className="btn btn-success btn-block">Register</button>
       </form>
@@ -99,4 +144,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default connect(null, { setAlert, createUser })(Register);

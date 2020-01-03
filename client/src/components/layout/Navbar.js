@@ -57,13 +57,9 @@ const Navbar = ({ isAuthenticated, user, loading }) => {
               >
                 Login
               </button>
-              <button
-                className="btn menu-button"
-                data-toggle="modal"
-                data-target="#registerModal"
-              >
+              <Link to="/register" className="btn menu-button">
                 Register
-              </button>
+              </Link>
             </>
           ) : (
             <>
@@ -93,7 +89,4 @@ const mapStateToProps = state => ({
   loading: state.auth.loading
 });
 
-export default connect(
-  mapStateToProps,
-  {}
-)(Navbar);
+export default connect(mapStateToProps, {})(Navbar);

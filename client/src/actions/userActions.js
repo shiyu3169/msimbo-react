@@ -6,10 +6,32 @@ import {
   FILTER_USERS,
   CHANGE_FILTER,
   DELETE_USER,
-  USER_ERROR
+  USER_ERROR,
+  REGISTER_SUCCESS,
+  REGISTER_FAIL,
+  AUTH_ERROR
 } from "./types";
 import axios from "axios";
 import $ from "jquery";
+
+// Create User
+export const createUser = formData => async dispatch => {
+  try {
+    const res = await axios.post("/api/users", formData);
+    dispatch({
+      type: REGISTER_SUCCESS,
+      payload: res.data
+    });
+  } catch (error) {
+    dispatch({
+      type: REGISTER_FAIL
+    });
+    dispatch({
+      type: AUTH_ERROR,
+      payload: error.response.data.msg
+    });
+  }
+};
 
 // Get user by id
 export const getUser = id => async dispatch => {

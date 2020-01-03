@@ -42,7 +42,7 @@ const App = ({ loadUser }) => {
             <Route exact path="/assignments" component={Assignments} />
             <Route exact path="/videos" component={Videos} />
             <Route exact path="/syllabus" component={Syllabus} />
-            <Route exact path="/contact" component={Contact} />4
+            <Route exact path="/contact" component={Contact} />
             <PrivateRoute exact path="/assessments" component={Assessments} />
             {/* <Route exact path="/assessment/:id" component={Assessment} /> */}
             <Route path="/" component={Home} />
@@ -54,7 +54,4 @@ const App = ({ loadUser }) => {
   );
 };
 
-export default connect(
-  null,
-  { loadUser }
-)(App);
+export default connect(null, { loadUser })(App);

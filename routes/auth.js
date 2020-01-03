@@ -47,7 +47,7 @@ router.post(
       if (!user) {
         return res.status(400).json({ msg: "Invalid Credentials" });
       }
-      // const isMatch = await bcrypt.compare(password, user.password);
+
       const isMatch = password === user.password;
       if (!isMatch) {
         return res.status(400).json({ msg: "Invalid Credentials" });
@@ -58,6 +58,7 @@ router.post(
           admin: user.admin
         }
       };
+
       jwt.sign(
         payload,
         config.get("jwtSecret"),
