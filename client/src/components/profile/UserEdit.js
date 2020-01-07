@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import InputGroup from "../layout/InputGroup";
 import { edit, update } from "../../actions/userActions";
+import axios from "axios";
 
 const UserEdit = ({ profile, update }) => {
   const [form, setForm] = useState({
@@ -11,10 +12,20 @@ const UserEdit = ({ profile, update }) => {
     bio: "",
     project: "",
     linkedin: "",
-    github: ""
+    github: "",
+    image: ""
   });
 
-  const { firstName, lastName, email, bio, project, linkedin, github } = form;
+  const {
+    firstName,
+    lastName,
+    email,
+    bio,
+    project,
+    linkedin,
+    github,
+    image
+  } = form;
 
   useEffect(() => {
     const {
@@ -24,7 +35,8 @@ const UserEdit = ({ profile, update }) => {
       bio,
       project,
       linkedin,
-      github
+      github,
+      image
     } = profile;
     setForm({
       email,
@@ -33,7 +45,8 @@ const UserEdit = ({ profile, update }) => {
       bio,
       project,
       linkedin,
-      github
+      github,
+      image
     });
   }, [profile]);
 
@@ -51,20 +64,33 @@ const UserEdit = ({ profile, update }) => {
       _id: profile._id,
       dateCreated: profile.dateCreated
     };
+    uploadFile();
     update(user);
   };
 
   const onChange = e => setForm({ ...form, [e.target.name]: e.target.value });
+
+  const onUpload = e => {
+    setForm({ ...form, image: e.target.files[0] });
+  };
+
+  const uploadFile = async id => {
+    const formData = new FormData();
+    formData.append("file", image);
+    await axios.post(`/api/images/${profile._id}`, formData, {
+      headers: {
+        "Content-Type": "multipart/form-data"
+      }
+    });
+  };
 
   return (
     <form onSubmit={onSubmit} id="editForm">
       <div className="row" id="info">
         <div className="col-sm-5">
           <div className="text-center">
-            <img className="userImage" src="/logo.png" alt="user" />
             <br />
-            <br />
-            <a
+            {/* <a
               className="btn btn-outline-info btn-block"
               href={
                 document.location.hostname === "localhost"
@@ -73,7 +99,14 @@ const UserEdit = ({ profile, update }) => {
               }
             >
               Import info from LinkedIn
-            </a>
+            </a> */}
+            <InputGroup
+              label="Update your image here"
+              type="file"
+              placeholder="only .jpg (.jpeg) and .png files are allowed for now"
+              name="image"
+              onChange={onUpload}
+            />
           </div>
         </div>
         <div className="col-sm-7">
@@ -158,7 +191,4 @@ const mapStateToProps = state => ({
   profile: state.user.profile
 });
 
-export default connect(
-  mapStateToProps,
-  { edit, update }
-)(UserEdit);
+export default connect(mapStateToProps, { edit, update })(UserEdit);

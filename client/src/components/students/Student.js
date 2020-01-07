@@ -17,7 +17,18 @@ class Student extends Component {
         <div className="row">
           <div className="col-sm-3 text-center">
             <Link to={`/user/${user._id}`}>
-              <img className="" alt="student" src={user.icon} width="100" />
+              <img
+                className=""
+                alt="student"
+                src={
+                  user.image
+                    ? `data:${user.image.mimeType};base64,${new Buffer(
+                        user.image.data
+                      ).toString("base64")}`
+                    : "/logo.png"
+                }
+                width="100"
+              />
               <p className="sw-profile">
                 <b>
                   {user.firstName} {user.lastName}
@@ -77,7 +88,4 @@ class Student extends Component {
   }
 }
 
-export default connect(
-  null,
-  {}
-)(Student);
+export default connect(null, {})(Student);

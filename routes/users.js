@@ -12,10 +12,12 @@ const User = require("../models/User");
 // @access Public
 router.get("/", async (req, res) => {
   try {
-    const users = await User.find().sort({ firstName: 1 });
+    const users = await User.find()
+      .sort({ firstName: 1 })
+      .populate("image");
     res.json(users);
   } catch (error) {
-    console.error(err.message);
+    console.error(error.message);
     res
       .status(500)
       .send(
@@ -29,7 +31,7 @@ router.get("/", async (req, res) => {
 // @access Public
 router.get("/:id", async (req, res) => {
   try {
-    const user = await User.findById(req.params.id);
+    const user = await User.findById(req.params.id).populate("image");
     res.json(user);
   } catch (error) {
     console.error(error.message);

@@ -8,7 +8,13 @@ const UserInfo = ({ profile }) => {
       <div className="row" id="info">
         <div className="col-sm-5">
           <div className="text-center">
-            <img className="userImage" src={"/logo.png"} alt="user" />
+            <img
+              className="userImage"
+              src={`data:${profile.image.mimeType};base64,${new Buffer(
+                profile.image.data
+              ).toString("base64")}`}
+              alt="user"
+            />
           </div>
         </div>
         <div className="col-sm-7">
@@ -84,7 +90,4 @@ const mapStateToProps = state => ({
   profile: state.user.profile
 });
 
-export default connect(
-  mapStateToProps,
-  {}
-)(UserInfo);
+export default connect(mapStateToProps, {})(UserInfo);
