@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import InputGroup from "../layout/InputGroup";
-import { edit, update } from "../../actions/userActions";
+import { edit, update, uploadPhoto } from "../../actions/userActions";
 import axios from "axios";
 
-const UserEdit = ({ profile, update }) => {
+const UserEdit = ({ profile, update, uploadPhoto }) => {
   const [form, setForm] = useState({
     firstName: "",
     lastName: "",
@@ -35,8 +35,7 @@ const UserEdit = ({ profile, update }) => {
       bio,
       project,
       linkedin,
-      github,
-      image
+      github
     } = profile;
 
     setForm({
@@ -53,7 +52,7 @@ const UserEdit = ({ profile, update }) => {
 
   const onSubmit = e => {
     e.preventDefault();
-    uploadFile();
+    uploadPhoto(profile._id, image);
     const newUser = {
       firstName,
       lastName,
@@ -72,20 +71,6 @@ const UserEdit = ({ profile, update }) => {
 
   const onUpload = e => {
     setForm({ ...form, image: e.target.files[0] });
-  };
-
-  const uploadFile = async () => {
-    console.log(image);
-    if (!image) {
-      return;
-    }
-    const formData = new FormData();
-    formData.append("file", image);
-    const res = await axios.post(`/api/images/${profile._id}`, formData, {
-      headers: {
-        "Content-Type": "multipart/form-data"
-      }
-    });
   };
 
   return (
@@ -195,4 +180,6 @@ const mapStateToProps = state => ({
   profile: state.user.profile
 });
 
-export default connect(mapStateToProps, { edit, update })(UserEdit);
+export default connect(mapStateToProps, { edit, update, uploadPhoto })(
+  UserEdit
+);

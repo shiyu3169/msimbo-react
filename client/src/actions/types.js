@@ -27,6 +27,7 @@ export const CHANGE_FILTER = "CHANGE_FILTER";
 export const DELETE_USER = "DELETE_USER";
 export const USER_ERROR = "USER_ERROR";
 export const CLEAR_USER_ERROR = "CLEAR_USER_ERROR";
+export const UPLOAD_PHOTO = "UPLOAD_PHOTO";
 // Resource
 export const GET_RESOURCES = "GET_RESOURCES";
 export const CREATE_RESOURCE = "CREATE_RESOURCE";

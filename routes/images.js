@@ -29,7 +29,7 @@ router.post("/:id", [auth, upload.single("file")], async (req, res) => {
     const newImg = await Image.create(newImage);
     await User.findByIdAndUpdate(userId, { $set: { image: newImg._id } });
     fs.unlink(newImage.name, () => {
-      res.json({ msg: "Image uploaded" });
+      res.json(newImg);
     });
   });
 });

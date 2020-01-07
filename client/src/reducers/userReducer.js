@@ -7,7 +7,8 @@ import {
   FILTER_USERS,
   CHANGE_FILTER,
   DELETE_USER,
-  USER_ERROR
+  USER_ERROR,
+  UPLOAD_PHOTO
 } from "../actions/types";
 import moment from "moment";
 
@@ -82,6 +83,11 @@ export default function(state = initialState, action) {
               state.filter.season === "")
           );
         })
+      };
+    case UPLOAD_PHOTO:
+      return {
+        ...state,
+        profile: { ...state.profile, image: action.payload }
       };
     case USER_ERROR:
       return {

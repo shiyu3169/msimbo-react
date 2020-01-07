@@ -9,7 +9,8 @@ import {
   USER_ERROR,
   REGISTER_SUCCESS,
   REGISTER_FAIL,
-  AUTH_ERROR
+  AUTH_ERROR,
+  UPLOAD_PHOTO
 } from "./types";
 import axios from "axios";
 import $ from "jquery";
@@ -110,6 +111,29 @@ export const deleteUser = (id, history) => async dispatch => {
     });
     // Redirect
     history.push("/students");
+  } catch (error) {
+    dispatch({
+      type: USER_ERROR,
+      payload: error.response.data
+    });
+  }
+};
+
+export const uploadPhoto = (id, photo) => async dispatch => {
+  try {
+    if (photo) {
+      const formData = new FormData();
+      formData.append("file", photo);
+      const res = await axios.post(`/api/images/${id}`, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data"
+        }
+      });
+      dispatch({
+        type: UPLOAD_PHOTO,
+        payload: res.data
+      });
+    }
   } catch (error) {
     dispatch({
       type: USER_ERROR,
