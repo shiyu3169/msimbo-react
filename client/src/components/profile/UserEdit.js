@@ -74,7 +74,7 @@ const UserEdit = ({ profile, update }) => {
     setForm({ ...form, image: e.target.files[0] });
   };
 
-  const uploadFile = async id => {
+  const uploadFile = async () => {
     const formData = new FormData();
     formData.append("file", image);
     await axios.post(`/api/images/${profile._id}`, formData, {
