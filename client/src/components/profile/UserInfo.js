@@ -10,9 +10,13 @@ const UserInfo = ({ profile }) => {
           <div className="text-center">
             <img
               className="userImage"
-              src={`data:${profile.image.mimeType};base64,${new Buffer(
-                profile.image.data
-              ).toString("base64")}`}
+              src={
+                profile.image
+                  ? `data:${profile.image.mimeType};base64,${new Buffer(
+                      profile.image.data
+                    ).toString("base64")}`
+                  : "/logo.png"
+              }
               alt="user"
             />
           </div>
