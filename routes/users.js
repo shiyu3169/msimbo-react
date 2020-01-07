@@ -161,7 +161,7 @@ router.put(
       // Build updated user
       const updatedUser = new User({ ...req.body });
       // find the old user
-      let user = await User.findById(req.params.id);
+      // let user = await User.findById(req.params.id);
       // Update the existing assignment
       await User.findByIdAndUpdate(
         req.params.id,

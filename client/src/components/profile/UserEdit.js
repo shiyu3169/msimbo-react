@@ -38,6 +38,7 @@ const UserEdit = ({ profile, update }) => {
       github,
       image
     } = profile;
+
     setForm({
       email,
       firstName,
@@ -46,13 +47,14 @@ const UserEdit = ({ profile, update }) => {
       project,
       linkedin,
       github,
-      image
+      image: null
     });
   }, [profile]);
 
   const onSubmit = e => {
     e.preventDefault();
-    const user = {
+    uploadFile();
+    const newUser = {
       firstName,
       lastName,
       email,
@@ -60,12 +62,10 @@ const UserEdit = ({ profile, update }) => {
       project,
       linkedin,
       github,
-      image: "logo.png",
       _id: profile._id,
       dateCreated: profile.dateCreated
     };
-    uploadFile();
-    update(user);
+    update(newUser);
   };
 
   const onChange = e => setForm({ ...form, [e.target.name]: e.target.value });
@@ -75,9 +75,13 @@ const UserEdit = ({ profile, update }) => {
   };
 
   const uploadFile = async () => {
+    console.log(image);
+    if (!image) {
+      return;
+    }
     const formData = new FormData();
     formData.append("file", image);
-    await axios.post(`/api/images/${profile._id}`, formData, {
+    const res = await axios.post(`/api/images/${profile._id}`, formData, {
       headers: {
         "Content-Type": "multipart/form-data"
       }
