@@ -12,6 +12,11 @@ const upload = multer({ dest: "./client/build/static/media/upload" });
 // @access  Private
 router.post("/:id", [auth, upload.single("file")], async (req, res) => {
   const userId = req.params.id;
+  const user = await User.findById(userId);
+  const oldImage = user.image;
+  if (oldImage) {
+    await Image.findByIdAndRemove(oldImage);
+  }
   const image = req.file;
   const newImage = {
     name: image.path,

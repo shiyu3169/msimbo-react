@@ -12,10 +12,13 @@ const User = require("../models/User");
 // @access Public
 router.get("/", async (req, res) => {
   try {
-    const users = await User.find()
+    await User.find()
       .sort({ firstName: 1 })
-      .populate("image");
-    res.json(users);
+      .populate("image")
+      .exec((err, users) => {
+        if (err) throw err;
+        res.json(users);
+      });
   } catch (error) {
     console.error(error.message);
     res
@@ -31,8 +34,12 @@ router.get("/", async (req, res) => {
 // @access Public
 router.get("/:id", async (req, res) => {
   try {
-    const user = await User.findById(req.params.id).populate("image");
-    res.json(user);
+    await User.findById(req.params.id)
+      .populate("image")
+      .exec((err, user) => {
+        if (err) throw err;
+        res.json(user);
+      });
   } catch (error) {
     console.error(error.message);
     res
@@ -156,13 +163,17 @@ router.put(
       // find the old user
       let user = await User.findById(req.params.id);
       // Update the existing assignment
-      user = await User.findByIdAndUpdate(
+      await User.findByIdAndUpdate(
         req.params.id,
         { $set: updatedUser },
         // If the editing user is deleted, make a new one
         { new: true }
-      );
-      res.json(user);
+      )
+        .populate("image")
+        .exec((err, user) => {
+          if (err) throw err;
+          res.json(user);
+        });
     } catch (error) {
       console.error(error.message);
       res

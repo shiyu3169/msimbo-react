@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import moment from "moment";
 
 const UserInfo = ({ profile }) => {
+  console.log(profile.image);
   return (
     <>
       <div className="row" id="info">
