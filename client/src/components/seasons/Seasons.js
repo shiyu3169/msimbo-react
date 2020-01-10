@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import Season from "../students/Season";
+import Season from "../season/Season";
 import { filterUser, changeFilter } from "../../actions/userActions";
 import moment from "moment";
 class Seasons extends Component {
