@@ -26,7 +26,7 @@ export default function(state = initialState, action) {
     case GET_USERS:
       const seasons = new Set();
       const users = action.payload;
-      users.sort(compare);
+      // users.sort(compare);
       for (let i = 0; i < users.length; i++) {
         const year = moment(users[i].dateCreated).year();
         const month = moment(users[i].dateCreated).month();
@@ -36,13 +36,13 @@ export default function(state = initialState, action) {
           seasons.add(`Fall ${year}`);
         }
       }
-      function compare(a, b) {
-        if (a.dateCreated > b.dateCreated) {
-          return -1;
-        } else {
-          return 1;
-        }
-      }
+      // function compare(a, b) {
+      //   if (a.dateCreated > b.dateCreated) {
+      //     return -1;
+      //   } else {
+      //     return 1;
+      //   }
+      // }
       return {
         ...state,
         seasons: Array.from(seasons),

@@ -13,7 +13,7 @@ const User = require("../models/User");
 router.get("/", async (req, res) => {
   try {
     await User.find()
-      .sort({ firstName: 1 })
+      .sort({ dateCreated: -1 })
       .populate("image")
       .exec((err, users) => {
         if (err) throw err;
