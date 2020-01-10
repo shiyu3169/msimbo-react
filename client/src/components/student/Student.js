@@ -27,7 +27,9 @@ class Student extends Component {
                   : logo
               })`
             }}
-          ></div>
+          >
+            <div>Learn More</div>
+          </div>
           <div>
             <strong>
               {user.firstName} {user.lastName}
