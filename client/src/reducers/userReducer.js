@@ -5,7 +5,6 @@ import {
   UPDATE_USER,
   GET_USER,
   FILTER_USERS,
-  CHANGE_FILTER,
   DELETE_USER,
   USER_ERROR,
   UPLOAD_PHOTO
@@ -18,17 +17,36 @@ const initialState = {
   editing: false,
   profile: 0,
   allUsers: [],
-  filter: { name: "", season: "", year: "" },
-  loading: true
+  loading: true,
+  seasons: null
 };
 
 export default function(state = initialState, action) {
   switch (action.type) {
     case GET_USERS:
+      const seasons = new Set();
+      const users = action.payload.sort(compare);
+      for (let i = 0; i < users.length; i++) {
+        const year = moment(users[i].dateCreated).year();
+        const month = moment(users[i].dateCreated).month();
+        if (month < 6) {
+          seasons.add(`Spring ${year}`);
+        } else {
+          seasons.add(`Fall ${year}`);
+        }
+      }
+      function compare(a, b) {
+        if (a.dateCreated > b.dateCreated) {
+          return -1;
+        } else {
+          return 1;
+        }
+      }
       return {
         ...state,
-        users: action.payload,
-        allUsers: action.payload
+        seasons: Array.from(seasons),
+        users: users,
+        allUsers: users
       };
     case LOGOUT:
       return {
@@ -58,29 +76,21 @@ export default function(state = initialState, action) {
           return user._id !== action.payload;
         })
       };
-    case CHANGE_FILTER:
-      return {
-        ...state,
-        filter: action.payload
-      };
+
     case FILTER_USERS:
       state.users = state.allUsers;
       return {
         ...state,
         users: state.users.filter(user => {
+          const content = action.payload.split(" ");
+          const month = content[0];
+          const year = content[1];
           return (
-            (user.firstName + user.lastName)
-              .toUpperCase()
-              .includes(state.filter.name) &&
-            (moment(user.dateCreated)
+            moment(user.dateCreated)
               .year()
-              .toString() === state.filter.year ||
-              state.filter.year === "") &&
-            ((moment(user.dateCreated).month() < 6 &&
-              state.filter.season === "Spring") ||
-              (moment(user.dateCreated).month() >= 6 &&
-                state.filter.season === "Fall") ||
-              state.filter.season === "")
+              .toString() === year &&
+            ((moment(user.dateCreated).month() < 6 && month === "Spring") ||
+              (moment(user.dateCreated).month() >= 6 && month === "Fall"))
           );
         })
       };

@@ -4,7 +4,6 @@ import {
   UPDATE_USER,
   GET_USER,
   FILTER_USERS,
-  CHANGE_FILTER,
   DELETE_USER,
   USER_ERROR,
   REGISTER_SUCCESS,
@@ -13,6 +12,7 @@ import {
   UPLOAD_PHOTO
 } from "./types";
 import axios from "axios";
+
 import $ from "jquery";
 
 // Create User
@@ -83,16 +83,10 @@ export const edit = () => dispatch => {
   });
 };
 
-export const filterUser = () => dispatch => {
+export const filterUser = season => dispatch => {
   dispatch({
-    type: FILTER_USERS
-  });
-};
-
-export const changeFilter = filter => dispatch => {
-  dispatch({
-    type: CHANGE_FILTER,
-    payload: filter
+    type: FILTER_USERS,
+    payload: season
   });
 };
 
