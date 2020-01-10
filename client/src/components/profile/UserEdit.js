@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import InputGroup from "../layout/InputGroup";
 import { edit, update, uploadPhoto } from "../../actions/userActions";
-import axios from "axios";
 
 const UserEdit = ({ profile, update, uploadPhoto }) => {
   const [form, setForm] = useState({

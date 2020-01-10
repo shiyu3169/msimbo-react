@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 // Components
-import Assignment from "../assignments/Assignment";
-import AssignmentHead from "../assignments/AssignmentHead";
-import AssignmentNew from "../assignments/AssignmentNew";
-import Spinner from "../layout/Spinner";
+import Assignment from "../components/assignments/Assignment";
+import AssignmentHead from "../components/assignments/AssignmentHead";
+import AssignmentNew from "../components/assignments/AssignmentNew";
+import Spinner from "../components/layout/Spinner";
 // Actions
-import { getAssignments } from "../../actions/assignmentActions";
-import { setAlert } from "../../actions/alertActions";
+import { getAssignments } from "../actions/assignmentActions";
+import { setAlert } from "../actions/alertActions";
 
 const Assignments = ({
   getAssignments,
@@ -49,7 +49,6 @@ const mapStateToProps = state => ({
   created: state.assignment.created
 });
 
-export default connect(
-  mapStateToProps,
-  { getAssignments, setAlert }
-)(Assignments);
+export default connect(mapStateToProps, { getAssignments, setAlert })(
+  Assignments
+);

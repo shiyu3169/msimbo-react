@@ -1,15 +1,15 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 // Components
-import Grades from "../grades/Grades";
-import UserMenu from "../profile/UserMenu";
-import UserInfo from "../profile/UserInfo";
-import UserEdit from "../profile/UserEdit";
-import UserDelete from "../profile/UserDelete";
-import Spinner from "../layout/Spinner";
+import Grades from "../components/grades/Grades";
+import UserMenu from "../components/profile/UserMenu";
+import UserInfo from "../components/profile/UserInfo";
+import UserEdit from "../components/profile/UserEdit";
+import UserDelete from "../components/profile/UserDelete";
+import Spinner from "../components/layout/Spinner";
 // Actions
-import { getUser } from "../../actions/userActions";
-import { setAlert } from "../../actions/alertActions";
+import { getUser } from "../actions/userActions";
+import { setAlert } from "../actions/alertActions";
 
 const Profile = ({
   editing,

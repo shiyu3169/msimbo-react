@@ -47,11 +47,6 @@ body {
   z-index: 2;
 }
 
-/* Student */
-.student a {
-  color: #333;
-}
-
 /* Grade */
 .wrapper {
   border: 1px solid #cecece;

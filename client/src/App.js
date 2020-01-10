@@ -8,17 +8,17 @@ import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import Alerts from "./components/layout/Alerts";
 // Pages
-import Home from "./components/pages/Home";
-import Students from "./components/pages/Students";
-import Resources from "./components/pages/Resources";
-import Profile from "./components/pages/Profile";
-import Assignments from "./components/pages/Assignments";
-import Videos from "./components/pages/Videos";
-import Syllabus from "./components/pages/Syllabus";
-import Contact from "./components/pages/Contact";
-import Assessments from "./components/pages/Assessments";
-// import Assessment from "./components/pages/Assessment";
-import Register from "./components/pages/Register";
+import Home from "./pages/Home";
+import Students from "./pages/students/Students";
+import Resources from "./pages/Resources";
+import Profile from "./pages/Profile";
+import Assignments from "./pages/Assignments";
+import Videos from "./pages/Videos";
+import Syllabus from "./pages/Syllabus";
+import Contact from "./pages/Contact";
+import Assessments from "./pages/Assessments";
+// import Assessment from "./pages/Assessment";
+import Register from "./pages/Register";
 // Actions
 import { loadUser } from "./actions/authActions";
 import PrivateRoute from "./components/routing/PrivateRoute";

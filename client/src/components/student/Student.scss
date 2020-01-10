@@ -1,0 +1,22 @@
+.student {
+  margin: auto;
+  a {
+    color: #333;
+  }
+  .icons {
+    a {
+      margin: 0 0.5rem;
+    }
+  }
+  a {
+    .picture {
+      margin: auto;
+      border-radius: 50%;
+      width: 200px;
+      height: 200px;
+      background-position: center;
+      background-size: cover;
+      margin-bottom: 1rem;
+    }
+  }
+}

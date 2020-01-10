@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import InputGroup from "../layout/InputGroup";
+import InputGroup from "../components/layout/InputGroup";
 // Action
-import { setAlert } from "../../actions/alertActions";
-import { createUser } from "../../actions/userActions";
+import { setAlert } from "../actions/alertActions";
+import { createUser } from "../actions/userActions";
 const Register = ({ setAlert, createUser }) => {
   const [form, setForm] = useState({
     email: "",

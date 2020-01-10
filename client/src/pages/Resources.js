@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { getResources, filterResources } from "../../actions/resourceActions";
-import Resource from "../resources/Resource";
-import ResourceHead from "../resources/ResourceHead";
-import ResourceNew from "../resources/ResourceNew";
-import InputGroup from "../layout/InputGroup";
-import BackToTop from "../layout/BackToTop";
+import { getResources, filterResources } from "../actions/resourceActions";
+import Resource from "../components/resources/Resource";
+import ResourceHead from "../components/resources/ResourceHead";
+import ResourceNew from "../components/resources/ResourceNew";
+import InputGroup from "../components/layout/InputGroup";
+import BackToTop from "../components/layout/BackToTop";
 
 const Resources = ({ resources, creating, getResources, filterResources }) => {
   const [name, setName] = useState("");
@@ -63,7 +63,6 @@ const mapStateToProps = state => ({
   creating: state.resource.creating
 });
 
-export default connect(
-  mapStateToProps,
-  { getResources, filterResources }
-)(Resources);
+export default connect(mapStateToProps, { getResources, filterResources })(
+  Resources
+);

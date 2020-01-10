@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { getVideos, createVideo } from "../../actions/videoActions";
-import Video from "../video/Video";
-import VideoNew from "../video/VideoNew";
-import BackToTop from "../layout/BackToTop";
+import { getVideos, createVideo } from "../actions/videoActions";
+import Video from "../components/video/Video";
+import VideoNew from "../components/video/VideoNew";
+import BackToTop from "../components/layout/BackToTop";
 
 const Videos = ({
   videos,
@@ -51,7 +51,4 @@ const mapStateToProps = state => ({
   creating: state.video.creating
 });
 
-export default connect(
-  mapStateToProps,
-  { getVideos, createVideo }
-)(Videos);
+export default connect(mapStateToProps, { getVideos, createVideo })(Videos);

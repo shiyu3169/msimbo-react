@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import "./Students.scss";
 import { connect } from "react-redux";
-import InputGroup from "../layout/InputGroup";
+import InputGroup from "../../components/layout/InputGroup";
 import { getUsers, filterUser, changeFilter } from "../../actions/userActions";
-import Student from "../students/Student";
-import Seasons from "../students/Seasons";
-import BackToTop from "../layout/BackToTop";
+import Student from "../../components/student/Student";
+import Seasons from "../../components/seasons/Seasons";
+import BackToTop from "../../components/layout/BackToTop";
 
 class Students extends Component {
   state = {
@@ -48,11 +49,11 @@ class Students extends Component {
             placeholder="Seaching by Student Name..."
             onChange={this.onChange}
           />
-          <ul className="list-group list-group-flush">
+          <div className="students">
             {users.map(user => (
               <Student key={user._id} user={user} />
             ))}
-          </ul>
+          </div>
         </div>
         <BackToTop />
       </div>
