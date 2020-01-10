@@ -25,7 +25,8 @@ export default function(state = initialState, action) {
   switch (action.type) {
     case GET_USERS:
       const seasons = new Set();
-      const users = action.payload.sort(compare);
+      const users = action.payload;
+      users.sort(compare);
       for (let i = 0; i < users.length; i++) {
         const year = moment(users[i].dateCreated).year();
         const month = moment(users[i].dateCreated).month();
