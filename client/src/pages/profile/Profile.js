@@ -1,15 +1,19 @@
 import React, { useEffect } from "react";
+import "./Profile.scss";
 import { connect } from "react-redux";
 // Components
-import Grades from "../components/grades/Grades";
-import UserMenu from "../components/profile/UserMenu";
-import UserInfo from "../components/profile/UserInfo";
-import UserEdit from "../components/profile/UserEdit";
-import UserDelete from "../components/profile/UserDelete";
-import Spinner from "../components/layout/Spinner";
+import Grades from "../../components/grades/Grades";
+import UserMenu from "../../components/userMenu/UserMenu";
+import UserInfo from "../../components/UserInfo/UserInfo";
+import UserEdit from "../../components/profile/UserEdit";
+import UserDelete from "../../components/profile/UserDelete";
+import Spinner from "../../components/layout/Spinner";
 // Actions
-import { getUser } from "../actions/userActions";
-import { setAlert } from "../actions/alertActions";
+import { getUser } from "../../actions/userActions";
+import { setAlert } from "../../actions/alertActions";
+import ProfilePic from "../../components/profilePic/ProfilePic";
+import ProfileHire from "../../components/ProfileHire/ProfileHire";
+import ProfileLinks from "../../components/ProfileLinks/ProfileLinks";
 
 const Profile = ({
   editing,
@@ -37,13 +41,16 @@ const Profile = ({
   }
 
   return (
-    <>
+    <div className="profile">
       <div className="container">
-        <div className="row">
-          <div className="col-3 d-none d-md-block">
+        <div className="flex">
+          <div className="user-panel">
+            <ProfilePic />
+            <ProfileHire />
+            <ProfileLinks />
             <UserMenu />
           </div>
-          <div className="col-sm-9">
+          <div>
             <div>
               {editing ? <UserEdit /> : <UserInfo />}
               {isAuthenticated && (user._id === profile._id || user.admin) && (
@@ -54,7 +61,7 @@ const Profile = ({
         </div>
       </div>
       <UserDelete />
-    </>
+    </div>
   );
 };
 

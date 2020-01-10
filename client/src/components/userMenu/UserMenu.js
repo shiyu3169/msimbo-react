@@ -1,7 +1,6 @@
 import React from "react";
+import "./UserMenu.scss";
 import { connect } from "react-redux";
-import { HashLink as Link } from "react-router-hash-link";
-// Actions
 import { edit } from "../../actions/userActions";
 
 const UserMenu = ({ editing, user, profile, isAuthenticated, edit }) => {
@@ -15,38 +14,7 @@ const UserMenu = ({ editing, user, profile, isAuthenticated, edit }) => {
   };
 
   return (
-    <div className="position-fixed">
-      <ul className="list-group-flush">
-        <Link
-          smooth
-          to="#info"
-          className="list-group-item list-group-item-action pointer"
-        >
-          Info
-        </Link>
-        <Link
-          smooth
-          to="#bio"
-          className="list-group-item list-group-item-action pointer"
-        >
-          Biography
-        </Link>
-        <Link
-          smooth
-          to="#links"
-          className="list-group-item list-group-item-action pointer"
-        >
-          Links
-        </Link>
-
-        <Link
-          smooth
-          to="#grade"
-          className="list-group-item list-group-item-action pointer"
-        >
-          Grade
-        </Link>
-      </ul>
+    <div className="user-menu">
       {editing && (
         <button
           className="btn btn-block btn-outline-success"
@@ -95,7 +63,4 @@ const mapStateToProps = state => ({
   profile: state.user.profile
 });
 
-export default connect(
-  mapStateToProps,
-  { edit }
-)(UserMenu);
+export default connect(mapStateToProps, { edit })(UserMenu);

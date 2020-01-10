@@ -11,6 +11,10 @@ body {
 
 /* Layout */
 
+.container {
+  max-width: 1100px;
+}
+
 .border-danger {
   border: 2px solid red;
 }

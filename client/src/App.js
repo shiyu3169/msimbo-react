@@ -11,7 +11,7 @@ import Alerts from "./components/layout/Alerts";
 import Home from "./pages/Home";
 import Students from "./pages/students/Students";
 import Resources from "./pages/Resources";
-import Profile from "./pages/Profile";
+import Profile from "./pages/profile/Profile";
 import Assignments from "./pages/Assignments";
 import Videos from "./pages/Videos";
 import Syllabus from "./pages/Syllabus";

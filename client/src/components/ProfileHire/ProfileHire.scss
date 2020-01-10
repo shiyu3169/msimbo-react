@@ -1,0 +1,21 @@
+.profile-hire {
+  text-align: center;
+  background: #dadada;
+  padding: 2rem 1.5rem;
+  font-size: 0.85rem;
+  div {
+    margin: 1rem 0;
+  }
+  a {
+    background: #333;
+    color: white;
+    padding: 0.7rem 1rem;
+    border-radius: 5px;
+    font-size: 1rem;
+
+    &:hover {
+      background-color: #222222;
+      transition: all 0.2s ease-in-out;
+    }
+  }
+}

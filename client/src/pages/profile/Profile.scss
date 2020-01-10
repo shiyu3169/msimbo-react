@@ -1,0 +1,12 @@
+.profile {
+  background: #ececec;
+  .container {
+    .flex {
+      display: flex;
+      justify-content: space-between;
+      .user-panel {
+        width: 200px;
+      }
+    }
+  }
+}

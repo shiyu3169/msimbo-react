@@ -1,0 +1,14 @@
+.profile-links {
+  margin-top: 2rem;
+  a {
+    display: block;
+    color: #333;
+    margin: 0.1rem 1rem;
+    &:hover {
+      color: #4979ff;
+    }
+    i {
+      margin-right: 0.2rem;
+    }
+  }
+}
