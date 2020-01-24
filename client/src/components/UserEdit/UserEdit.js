@@ -1,18 +1,24 @@
-import React, { useState, useEffect } from "react";
-import { connect } from "react-redux";
-import InputGroup from "../layout/InputGroup";
-import { edit, update, uploadPhoto } from "../../actions/userActions";
+import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
+import InputGroup from '../layout/InputGroup';
+import {
+  edit,
+  update,
+  uploadPhoto,
+  uploadResume
+} from '../../actions/userActions';
 
-const UserEdit = ({ profile, update, uploadPhoto }) => {
+const UserEdit = ({ profile, update, uploadPhoto, uploadResume }) => {
   const [form, setForm] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    bio: "",
-    project: "",
-    linkedin: "",
-    github: "",
-    image: ""
+    firstName: '',
+    lastName: '',
+    email: '',
+    bio: '',
+    project: '',
+    linkedin: '',
+    github: '',
+    image: '',
+    resume: ''
   });
 
   const {
@@ -23,7 +29,8 @@ const UserEdit = ({ profile, update, uploadPhoto }) => {
     project,
     linkedin,
     github,
-    image
+    image,
+    resume
   } = form;
 
   useEffect(() => {
@@ -45,13 +52,15 @@ const UserEdit = ({ profile, update, uploadPhoto }) => {
       project,
       linkedin,
       github,
-      image: null
+      image: null,
+      resume: null
     });
   }, [profile]);
 
   const onSubmit = e => {
     e.preventDefault();
     uploadPhoto(profile._id, image);
+    uploadResume(profile._id, resume);
     const newUser = {
       firstName,
       lastName,
@@ -72,11 +81,15 @@ const UserEdit = ({ profile, update, uploadPhoto }) => {
     setForm({ ...form, image: e.target.files[0] });
   };
 
+  const handleResumeUpload = e => {
+    setForm({ ...form, resume: e.target.files[0] });
+  };
+
   return (
-    <form onSubmit={onSubmit} id="editForm">
-      <div className="row" id="info">
-        <div className="col-sm-5">
-          <div className="text-center">
+    <form onSubmit={onSubmit} id='editForm'>
+      <div className='row' id='info'>
+        <div className='col-sm-5'>
+          <div className='text-center'>
             <br />
             {/* <a
               className="btn btn-outline-info btn-block"
@@ -89,84 +102,91 @@ const UserEdit = ({ profile, update, uploadPhoto }) => {
               Import info from LinkedIn
             </a> */}
             <InputGroup
-              label="Update your image here"
-              type="file"
-              placeholder="only .jpg (.jpeg) and .png files are allowed for now"
-              name="image"
+              label='Update your image here'
+              type='file'
+              placeholder='only .jpg (.jpeg) and .png files are allowed for now'
+              name='image'
               onChange={onUpload}
+            />
+            <InputGroup
+              label='Update Your Resume here'
+              type='file'
+              placeholder='PDF file is suggested'
+              name='resume'
+              onChange={handleResumeUpload}
             />
           </div>
         </div>
-        <div className="col-sm-7">
+        <div className='col-sm-7'>
           <br />
           <div>
             <InputGroup
-              label="First Name"
+              label='First Name'
               value={firstName}
-              placeholder="Update First Name"
-              name="firstName"
+              placeholder='Update First Name'
+              name='firstName'
               onChange={onChange}
             />
             <InputGroup
-              label="Last Name"
+              label='Last Name'
               value={lastName}
-              placeholder="Update Last Name"
-              name="lastName"
+              placeholder='Update Last Name'
+              name='lastName'
               onChange={onChange}
             />
             <InputGroup
-              label="Email"
+              label='Email'
               value={email}
-              placeholder="Update Email"
-              name="email"
-              type="email"
+              placeholder='Update Email'
+              name='email'
+              type='email'
               onChange={onChange}
             />
             <p>
               <b>Register Time: </b>
-              {new Date(profile.dateCreated).getMonth()} /{" "}
+              {new Date(profile.dateCreated).getMonth()} /{' '}
               {new Date(profile.dateCreated).getFullYear()}
             </p>
           </div>
         </div>
       </div>
       <hr />
-      <div className="row" id="bio">
-        <div className="col-sm-5 center">
-          <h3 className="inline">Biography</h3>
+      <div className='row' id='bio'>
+        <div className='col-sm-5 center'>
+          <h3 className='inline'>Biography</h3>
         </div>
-        <div className="col-sm-7">
+        <div className='col-sm-7'>
           <InputGroup
             value={bio}
-            placeholder="Update Biography"
-            name="bio"
+            placeholder='Update Biography'
+            name='bio'
             onChange={onChange}
-            rows="5"
+            rows='5'
           />
         </div>
       </div>
       <br />
       <br />
-      <div id="links">
+      <div id='links'>
         <InputGroup
-          label="Project"
+          label='Project'
           value={project}
-          placeholder="Update Project Link"
-          name="project"
+          placeholder='Update Project Link'
+          name='project'
           onChange={onChange}
         />
         <InputGroup
-          label="Linkedin"
+          label='Linkedin'
           value={linkedin}
-          placeholder="Update Linkedin Link"
-          name="linkedin"
+          placeholder='Update Linkedin Link'
+          name='linkedin'
           onChange={onChange}
         />
         <InputGroup
-          label="GitHub"
+          label='GitHub'
           value={github}
-          placeholder="Update GitHub Link"
-          name="github"
+          placeholder='Update GitHub Link'
+          name='github'
           onChange={onChange}
         />
         <br />
@@ -179,6 +199,9 @@ const mapStateToProps = state => ({
   profile: state.user.profile
 });
 
-export default connect(mapStateToProps, { edit, update, uploadPhoto })(
-  UserEdit
-);
+export default connect(mapStateToProps, {
+  edit,
+  update,
+  uploadPhoto,
+  uploadResume
+})(UserEdit);

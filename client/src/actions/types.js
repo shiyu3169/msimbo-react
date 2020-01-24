@@ -1,55 +1,56 @@
 // Auth
-export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
-export const REGISTER_FAIL = "REGISTER_FAIL";
-export const USER_LOADED = "USER_LOADED";
-export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
-export const LOGIN_FAIL = "LOGIN_FAIL";
-export const LOGOUT = "LOGOUT";
-export const AUTH_ERROR = "AUTH_ERROR";
-export const CLEAR_AUTH_ERROR = "CLEAR_ERROR";
+export const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
+export const REGISTER_FAIL = 'REGISTER_FAIL';
+export const USER_LOADED = 'USER_LOADED';
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const LOGIN_FAIL = 'LOGIN_FAIL';
+export const LOGOUT = 'LOGOUT';
+export const AUTH_ERROR = 'AUTH_ERROR';
+export const CLEAR_AUTH_ERROR = 'CLEAR_ERROR';
 // Assignment
-export const GET_ASSIGNMENTS = "GET_ASSIGNMENTS";
-export const CREATE_ASSIGNMENT = "CREATE_ASSIGNMENT";
-export const CANCEL_CREATE_ASSIGNMENT = "CANCEL_CREATE_ASSIGNMENT";
-export const ADD_ASSIGNMENT = "ADD_ASSIGNMENT";
-export const EDIT_ASSIGNMENT = "EDIT_ASSIGNMENT";
-export const UPDATE_ASSIGNMENT = "UPDATE_ASSIGNMENT";
-export const DELETE_ASSIGNMENT = "DELETE_ASSIGNMENT";
-export const ASSIGNMENT_ERROR = "ASSIGNMENT_ERROR";
-export const CLEAR_ASSIGNMENT_ERROR = "ASSIGNMENT_ERROR";
+export const GET_ASSIGNMENTS = 'GET_ASSIGNMENTS';
+export const CREATE_ASSIGNMENT = 'CREATE_ASSIGNMENT';
+export const CANCEL_CREATE_ASSIGNMENT = 'CANCEL_CREATE_ASSIGNMENT';
+export const ADD_ASSIGNMENT = 'ADD_ASSIGNMENT';
+export const EDIT_ASSIGNMENT = 'EDIT_ASSIGNMENT';
+export const UPDATE_ASSIGNMENT = 'UPDATE_ASSIGNMENT';
+export const DELETE_ASSIGNMENT = 'DELETE_ASSIGNMENT';
+export const ASSIGNMENT_ERROR = 'ASSIGNMENT_ERROR';
+export const CLEAR_ASSIGNMENT_ERROR = 'ASSIGNMENT_ERROR';
 // User/Students
-export const GET_USERS = "GET_USERS";
-export const GET_USER = "GET_USER";
-export const EDIT_USER = "EDIT_USER";
-export const UPDATE_USER = "UPDATE_USER";
-export const FILTER_USERS = "FILTER_USERS";
-export const DELETE_USER = "DELETE_USER";
-export const USER_ERROR = "USER_ERROR";
-export const CLEAR_USER_ERROR = "CLEAR_USER_ERROR";
-export const UPLOAD_PHOTO = "UPLOAD_PHOTO";
+export const GET_USERS = 'GET_USERS';
+export const GET_USER = 'GET_USER';
+export const EDIT_USER = 'EDIT_USER';
+export const UPDATE_USER = 'UPDATE_USER';
+export const FILTER_USERS = 'FILTER_USERS';
+export const DELETE_USER = 'DELETE_USER';
+export const USER_ERROR = 'USER_ERROR';
+export const CLEAR_USER_ERROR = 'CLEAR_USER_ERROR';
+export const UPLOAD_PHOTO = 'UPLOAD_PHOTO';
+export const UPLOAD_RESUME = 'UPLOAD_RESUME';
 
 // Resource
-export const GET_RESOURCES = "GET_RESOURCES";
-export const CREATE_RESOURCE = "CREATE_RESOURCE";
-export const ADD_RESOURCE = "ADD_RESOURCE";
-export const EDIT_RESOURCE = "EDIT_RESOURCE";
-export const UPDATE_RESOURCE = "UPDATE_RESOURCE";
-export const DELETE_RESOURCE = "DELETE_RESOURCE";
-export const FILTER_RESOURCE = "FILTER_RESOURCE";
+export const GET_RESOURCES = 'GET_RESOURCES';
+export const CREATE_RESOURCE = 'CREATE_RESOURCE';
+export const ADD_RESOURCE = 'ADD_RESOURCE';
+export const EDIT_RESOURCE = 'EDIT_RESOURCE';
+export const UPDATE_RESOURCE = 'UPDATE_RESOURCE';
+export const DELETE_RESOURCE = 'DELETE_RESOURCE';
+export const FILTER_RESOURCE = 'FILTER_RESOURCE';
 // Grade
-export const GET_GRADES_BY_USER = "GET_GRADES_BY_USER";
-export const ADD_GRADE = "ADD_GRADE";
-export const DELETE_GRADE = "DELETE_GRADE";
-export const UPDATE_GRADE = "UPDATE_GRADE";
-export const GET_GRADES_BY_SEASON = "GET_GRADES_BY_SEASON";
+export const GET_GRADES_BY_USER = 'GET_GRADES_BY_USER';
+export const ADD_GRADE = 'ADD_GRADE';
+export const DELETE_GRADE = 'DELETE_GRADE';
+export const UPDATE_GRADE = 'UPDATE_GRADE';
+export const GET_GRADES_BY_SEASON = 'GET_GRADES_BY_SEASON';
 
 // Video
-export const GET_VIDEOS = "GET_VIDEOS";
-export const CREATE_VIDEO = "CREATE_VIDEO";
-export const ADD_VIDEO = "ADD_VIDEO";
-export const EDIT_VIDEO = "EDIT_VIDEO";
-export const UPDATE_VIDEO = "UPDATE_VIDEO";
-export const DELETE_VIDEO = "DELETE_VIDEO";
+export const GET_VIDEOS = 'GET_VIDEOS';
+export const CREATE_VIDEO = 'CREATE_VIDEO';
+export const ADD_VIDEO = 'ADD_VIDEO';
+export const EDIT_VIDEO = 'EDIT_VIDEO';
+export const UPDATE_VIDEO = 'UPDATE_VIDEO';
+export const DELETE_VIDEO = 'DELETE_VIDEO';
 // ALERT
-export const SET_ALERT = "SET_ALERT";
-export const REMOVE_ALERT = "REMOVE_ALERT";
+export const SET_ALERT = 'SET_ALERT';
+export const REMOVE_ALERT = 'REMOVE_ALERT';

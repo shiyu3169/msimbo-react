@@ -10,5 +10,15 @@
     i {
       margin-right: 0.2rem;
     }
+
+    &.btn {
+      background-color: #333;
+      color: #f4f4f4;
+
+      &:hover {
+        background-color: #222222;
+        transition: all 0.2s ease-in-out;
+      }
+    }
   }
 }

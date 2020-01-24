@@ -1,16 +1,16 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
-const auth = require("../middleware/auth");
-const Image = require("../models/Image");
-const User = require("../models/User");
-const fs = require("fs");
-const multer = require("multer");
-const upload = multer({ dest: "./client/build/static/media/upload" });
+const auth = require('../middleware/auth');
+const Image = require('../models/Image');
+const User = require('../models/User');
+const fs = require('fs');
+const multer = require('multer');
+const upload = multer({ dest: './client/build/static/media/upload' });
 
 // @route   POST api/image
-// @desc    Add new grade
+// @desc    Add new image
 // @access  Private
-router.post("/:id", [auth, upload.single("file")], async (req, res) => {
+router.post('/:id', [auth, upload.single('file')], async (req, res) => {
   const userId = req.params.id;
   const user = await User.findById(userId);
   const oldImage = user.image;
@@ -20,7 +20,7 @@ router.post("/:id", [auth, upload.single("file")], async (req, res) => {
   const image = req.file;
   const newImage = {
     name: image.path,
-    data: "",
+    data: '',
     mimetype: image.mimetype
   };
   fs.readFile(newImage.name, async (err, data) => {

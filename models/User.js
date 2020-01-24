@@ -1,22 +1,23 @@
-var mongoose = require("mongoose");
+var mongoose = require('mongoose');
 
 var UserSchema = mongoose.Schema(
   {
     password: { type: String, required: true },
-    firstName: { type: String, default: "" },
-    middleName: { type: String, default: "" },
-    lastName: { type: String, default: "" },
+    firstName: { type: String, default: '' },
+    middleName: { type: String, default: '' },
+    lastName: { type: String, default: '' },
     email: { type: String, required: true, unique: true },
-    image: { type: mongoose.Schema.Types.ObjectId, ref: "images" },
-    icon: { type: String, default: "/logo.png" },
+    image: { type: mongoose.Schema.Types.ObjectId, ref: 'images' },
+    resume: { type: mongoose.Schema.Types.ObjectId, ref: 'resumes' },
+    icon: { type: String, default: '/logo.png' },
     admin: { type: Boolean, default: false },
-    bio: { type: String, default: "MSIMBO Student" },
-    github: { type: String, default: "" },
-    linkedin: { type: String, default: "" },
-    project: { type: String, default: "" },
+    bio: { type: String, default: 'MSIMBO Student' },
+    github: { type: String, default: '' },
+    linkedin: { type: String, default: '' },
+    project: { type: String, default: '' },
     dateCreated: { type: Date, default: Date.now }
   },
-  { collection: "user" }
+  { collection: 'user' }
 );
 
-module.exports = mongoose.model("user", UserSchema);
+module.exports = mongoose.model('user', UserSchema);

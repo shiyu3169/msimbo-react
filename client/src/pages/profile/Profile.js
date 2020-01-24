@@ -1,19 +1,19 @@
-import React, { useEffect } from "react";
-import "./Profile.scss";
-import { connect } from "react-redux";
+import React, { useEffect } from 'react';
+import './Profile.scss';
+import { connect } from 'react-redux';
 // Components
-import Grades from "../../components/grades/Grades";
-import UserMenu from "../../components/userMenu/UserMenu";
-import UserInfo from "../../components/UserInfo/UserInfo";
-import UserEdit from "../../components/profile/UserEdit";
-import UserDelete from "../../components/profile/UserDelete";
-import Spinner from "../../components/layout/Spinner";
+import Grades from '../../components/grades/Grades';
+import UserMenu from '../../components/userMenu/UserMenu';
+import UserInfo from '../../components/UserInfo/UserInfo';
+import UserEdit from '../../components/UserEdit/UserEdit';
+import UserDelete from '../../components/profile/UserDelete';
+import Spinner from '../../components/layout/Spinner';
 // Actions
-import { getUser } from "../../actions/userActions";
-import { setAlert } from "../../actions/alertActions";
-import ProfilePic from "../../components/profilePic/ProfilePic";
-import ProfileHire from "../../components/ProfileHire/ProfileHire";
-import ProfileLinks from "../../components/ProfileLinks/ProfileLinks";
+import { getUser } from '../../actions/userActions';
+import { setAlert } from '../../actions/alertActions';
+import ProfilePic from '../../components/profilePic/ProfilePic';
+import ProfileHire from '../../components/ProfileHire/ProfileHire';
+import ProfileLinks from '../../components/ProfileLinks/ProfileLinks';
 
 const Profile = ({
   editing,
@@ -32,7 +32,7 @@ const Profile = ({
 
   useEffect(() => {
     if (error) {
-      setAlert(error, "danger");
+      setAlert(error, 'danger');
     }
   }, [error, setAlert]);
 
@@ -41,10 +41,10 @@ const Profile = ({
   }
 
   return (
-    <div className="profile">
-      <div className="container">
-        <div className="flex">
-          <div className="user-panel">
+    <div className='profile'>
+      <div className='container'>
+        <div className='flex'>
+          <div className='user-panel'>
             <ProfilePic />
             <ProfileHire />
             <ProfileLinks />

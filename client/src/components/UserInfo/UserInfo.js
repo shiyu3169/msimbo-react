@@ -1,20 +1,19 @@
-import React from "react";
-import "./UserInfo.scss";
-import { connect } from "react-redux";
-import moment from "moment";
+import React from 'react';
+import './UserInfo.scss';
+import { connect } from 'react-redux';
+import moment from 'moment';
 
 const UserInfo = ({ profile }) => {
   return (
-    <div className="user-info">
+    <div className='user-info'>
       <h1>
         {profile.firstName} {profile.lastName}
       </h1>
 
       <p>
         <b>Join Msimbo in: </b>
-        {moment(profile.dateCreated).format("MMM. YYYY")}
+        {moment(profile.dateCreated).format('MMM. YYYY')}
       </p>
-
       <hr />
       <div>
         <div>
