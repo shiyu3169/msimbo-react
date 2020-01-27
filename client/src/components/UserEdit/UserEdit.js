@@ -18,7 +18,8 @@ const UserEdit = ({ profile, update, uploadPhoto, uploadResume }) => {
     linkedin: '',
     github: '',
     image: '',
-    resume: ''
+    resume: '',
+    admin: null
   });
 
   const {
@@ -30,7 +31,8 @@ const UserEdit = ({ profile, update, uploadPhoto, uploadResume }) => {
     linkedin,
     github,
     image,
-    resume
+    resume,
+    admin
   } = form;
 
   useEffect(() => {
@@ -41,7 +43,8 @@ const UserEdit = ({ profile, update, uploadPhoto, uploadResume }) => {
       bio,
       project,
       linkedin,
-      github
+      github,
+      admin
     } = profile;
 
     setForm({
@@ -52,6 +55,7 @@ const UserEdit = ({ profile, update, uploadPhoto, uploadResume }) => {
       project,
       linkedin,
       github,
+      admin,
       image: null,
       resume: null
     });
@@ -70,7 +74,8 @@ const UserEdit = ({ profile, update, uploadPhoto, uploadResume }) => {
       linkedin,
       github,
       _id: profile._id,
-      dateCreated: profile.dateCreated
+      dateCreated: profile.dateCreated,
+      admin
     };
     update(newUser);
   };

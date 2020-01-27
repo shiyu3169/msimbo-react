@@ -63,9 +63,10 @@ export const update = user => async dispatch => {
       type: EDIT_USER
     });
   } catch (error) {
+    console.log(error.response);
     dispatch({
       type: USER_ERROR,
-      payload: error.response.data
+      payload: error.response.data.msg
     });
   }
 };
