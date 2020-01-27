@@ -171,6 +171,7 @@ router.put(
         { new: true }
       )
         .populate('image')
+        .populate('resume')
         .exec((err, user) => {
           if (err) throw err;
           res.json(user);
