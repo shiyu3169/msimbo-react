@@ -11,7 +11,7 @@
     "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
     "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build",
     "build": "cd client && npm run build",
-    "aws-eb": "npm run build && npm run start"
+    "aws-eb": "npm clientinstall && npm i && npm run build && npm run start"
   },
   "keywords": [],
   "author": "Shiyu Wang",
