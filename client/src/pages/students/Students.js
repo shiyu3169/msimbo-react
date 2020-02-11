@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import "./Students.scss";
-import { connect } from "react-redux";
-import { getUsers, filterUser } from "../../actions/userActions";
-import Student from "../../components/student/Student";
-import Seasons from "../../components/seasons/Seasons";
-import BackToTop from "../../components/layout/BackToTop";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import './Students.scss';
+import { connect } from 'react-redux';
+import { getUsers, filterUser } from '../../actions/userActions';
+import Student from '../../components/student/Student';
+import Seasons from '../../components/seasons/Seasons';
+import BackToTop from '../../components/layout/BackToTop';
 
 class Students extends Component {
   componentDidMount() {
@@ -18,11 +18,10 @@ class Students extends Component {
     const { users } = this.props;
     return (
       <div>
-        <div className="container">
-          <h3 className="sw-red">Our Students</h3>
+        <div className='container'>
+          <h3 className='sw-red'>Our Students</h3>
           <Seasons />
-
-          <div className="students">
+          <div className='students'>
             {users.map(user => (
               <Student key={user._id} user={user} />
             ))}

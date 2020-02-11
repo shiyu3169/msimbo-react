@@ -8,8 +8,10 @@
     "server": "nodemon server.js",
     "client": "npm start --prefix client",
     "clientinstall": "cd client && npm install",
-    "dev": "concurrently \"npm run server\" \"npm run client\" ",
-    "build": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build",
+    "build": "cd client && npm run build",
+    "aws-eb": "npm run build && npm run start"
   },
   "keywords": [],
   "author": "Shiyu Wang",

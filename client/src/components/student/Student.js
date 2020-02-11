@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import { connect } from "react-redux";
-import "./Student.scss";
-import logo from "../../assets/logo.png";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import './Student.scss';
+import logo from '../../assets/logo.png';
 class Student extends Component {
   getYear(date) {
     return new Date(date).getFullYear();
@@ -14,21 +14,25 @@ class Student extends Component {
   render() {
     const { user } = this.props;
     return (
-      <div className="student text-center">
+      <div className='student text-center'>
         <Link to={`/user/${user._id}`}>
           <div
-            className="picture"
+            className='picture'
             style={{
               backgroundImage: `url(${
                 user.image
                   ? `data:${user.image.mimeType};base64,${new Buffer(
                       user.image.data
-                    ).toString("base64")}`
+                    ).toString('base64')}`
                   : logo
               })`
             }}
           >
-            <div>Learn More</div>
+            <div className='student-name'>
+              <strong>
+                {user.firstName} {user.lastName}
+              </strong>
+            </div>
           </div>
           <div>
             <strong>

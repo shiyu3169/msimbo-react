@@ -4,3 +4,9 @@
   grid-gap: 50px;
   margin-top: 5rem;
 }
+
+@media (max-width: 750px) {
+  .students {
+    display: block;
+  }
+}
