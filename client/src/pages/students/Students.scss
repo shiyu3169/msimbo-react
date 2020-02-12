@@ -10,7 +10,9 @@
   }
 }
 @media (max-width: 750px) {
-  .students-container {
-    display: block;
+  .students {
+    .students-container {
+      display: block;
+    }
   }
 }
