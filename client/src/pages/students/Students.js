@@ -20,6 +20,11 @@ class Students extends Component {
       <div>
         <div className='container'>
           <h3 className='sw-red'>Our Students</h3>
+          <p>
+            Our students meet all day, every day for 20 weeks to learn full
+            stack development. All students' works can be found in students'
+            GitHub.
+          </p>
           <Seasons />
           <div className='students'>
             {users.map(user => (
