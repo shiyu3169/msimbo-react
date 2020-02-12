@@ -17,16 +17,17 @@ class Students extends Component {
   render() {
     const { users } = this.props;
     return (
-      <div>
+      <div className='students'>
         <div className='container'>
           <h3 className='sw-red'>Our Students</h3>
+          <div className='bottom-line' />
           <p>
             Our students meet all day, every day for 20 weeks to learn full
             stack development. All students' works can be found in students'
             GitHub.
           </p>
           <Seasons />
-          <div className='students'>
+          <div className='students-container'>
             {users.map(user => (
               <Student key={user._id} user={user} />
             ))}

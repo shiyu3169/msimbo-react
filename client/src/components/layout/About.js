@@ -1,16 +1,17 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const About = () => {
   return (
     <section>
-      <div className="container">
-        <div className="grid-2">
-          <div className="center">
-            <i className="fas fa-laptop-code fa-5x" />
+      <div className='container'>
+        <div className='grid-2'>
+          <div className='center'>
+            <i className='fas fa-laptop-code fa-5x' />
           </div>
           <div>
             <h3>About Us</h3>
+            <div className='bottom-line' />
             <p>
               Msimbo means “code” in Swahili. A twenty (20) week program for
               displaced, unemployed and underemployed workers interested
@@ -24,7 +25,7 @@ const About = () => {
               technology training program and the professional development for
               ULEM’s MSIMBO program.
             </p>
-            <Link to="/syllabus" className="btn btn-outline-dark">
+            <Link to='/syllabus' className='btn btn-outline-dark'>
               Learn more from Syllabus
             </Link>
           </div>

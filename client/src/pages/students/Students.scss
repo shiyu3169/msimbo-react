@@ -1,10 +1,14 @@
 .students {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 50px;
-  margin-top: 5rem;
+  .bottom-line {
+    background: #ce0404;
+  }
+  .students-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 50px;
+    margin-top: 5rem;
+  }
 }
-
 @media (max-width: 750px) {
   .students {
     display: block;

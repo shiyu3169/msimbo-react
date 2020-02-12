@@ -1,12 +1,17 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway:200,100,400');
 
-/* General */
-
 body {
   font-family: 'Raleway', sans-serif;
   background: rgba(0, 0, 0, 0.9);
   color: #fff;
   line-height: 1.6;
+}
+
+.bottom-line {
+  height: 2px;
+  width: 3rem;
+  background: #333;
+  display: block;
 }
 
 /* Layout */
