@@ -39,14 +39,6 @@ class Student extends Component {
               </div>
             </div>
           </div>
-          <div>
-            <strong>
-              {user.firstName} {user.lastName}
-            </strong>
-            <p>
-              {this.getMonth(user.dateCreated)}/{this.getYear(user.dateCreated)}
-            </p>
-          </div>
         </Link>
       </div>
     );

@@ -22,11 +22,11 @@
       // display: flex;
       // justify-content: center;
       // align-items: flex-end;
-      transition: all 0.5s ease-in-out;
+      transition: all 1s ease-in-out;
       .student-content {
         position: absolute;
         flex-direction: column;
-        transition: all 0.5s ease-in-out;
+        transition: all 1s ease-in-out;
         width: 250px;
         bottom: -25px;
         div {
@@ -37,7 +37,7 @@
         }
         .learn-more {
           opacity: 0;
-          transition: all 0.1s ease-in-out;
+          transition: all 0.5s ease-in-out;
           strong {
             opacity: 0;
           }
@@ -46,9 +46,9 @@
     }
     &:hover {
       .picture {
-        transform: scale(0.8);
+        transform: scale(0.9);
         .student-content {
-          transform: scale(1.2);
+          transform: scale(1.1);
           bottom: 0;
           .student-name {
             border-radius: 15px 15px 0 0;
