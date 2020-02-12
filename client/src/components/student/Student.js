@@ -28,10 +28,15 @@ class Student extends Component {
               })`
             }}
           >
-            <div className='student-name'>
-              <strong>
-                {user.firstName} {user.lastName}
-              </strong>
+            <div className='student-content'>
+              <div className='student-name'>
+                <strong>
+                  {user.firstName} {user.lastName}
+                </strong>
+              </div>
+              <div className='learn-more'>
+                <strong>Learn More ></strong>
+              </div>
             </div>
           </div>
           <div>

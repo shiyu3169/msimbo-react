@@ -18,23 +18,48 @@
       background-size: cover;
       margin-bottom: 1rem;
       color: #f4f4f4;
-      display: flex;
-      justify-content: center;
-      align-items: flex-end;
-      transition: transform 0.5s ease-in-out;
-      .student-name {
-        height: 50px;
-        width: 100%;
-        background: #333;
-        transition: transform 0.5s ease-in-out;
+      position: relative;
+      // display: flex;
+      // justify-content: center;
+      // align-items: flex-end;
+      transition: all 0.5s ease-in-out;
+      .student-content {
+        position: absolute;
+        flex-direction: column;
+        transition: all 0.5s ease-in-out;
+        width: 250px;
+        bottom: -25px;
+        div {
+          height: 25px;
+          width: 100%;
+          background: #333;
+          border-radius: 15px;
+        }
+        .learn-more {
+          opacity: 0;
+          transition: all 0.1s ease-in-out;
+          strong {
+            opacity: 0;
+          }
+        }
       }
     }
     &:hover {
       .picture {
         transform: scale(0.8);
-        .student-name {
+        .student-content {
           transform: scale(1.2);
-          :after {
+          bottom: 0;
+          .student-name {
+            border-radius: 15px 15px 0 0;
+          }
+          .learn-more {
+            opacity: 1;
+            border-radius: 0 0 15px 15px;
+            strong {
+              opacity: 1;
+              transition: all 0.8s ease-in-out;
+            }
           }
         }
       }

@@ -6,6 +6,7 @@ const ProfileLinks = ({ github, linkedin, project, resume, firstName }) => {
   return (
     <div className='profile-links'>
       {resume ? (
+        // eslint-disable-next-line
         <a
           className='btn'
           href={`${`data:${resume.mimeType};base64,${new Buffer(
