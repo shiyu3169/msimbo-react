@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import './Students.scss';
 import { connect } from 'react-redux';
 import { getUsers, filterUser } from '../../actions/userActions';
 import Student from '../../components/student/Student';
 import Seasons from '../../components/seasons/Seasons';
 import BackToTop from '../../components/layout/BackToTop';
+
+import './Students.scss';
 
 class Students extends Component {
   componentDidMount() {
