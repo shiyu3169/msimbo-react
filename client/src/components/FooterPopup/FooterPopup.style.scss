@@ -1,0 +1,21 @@
+.footer-pop-up {
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 10px 0;
+  background: #2c2c2c;
+
+  a {
+    color: #ce041b;
+  }
+
+  i {
+    margin-left: 15px;
+    cursor: pointer;
+
+    &:hover {
+      color: #ce041b;
+    }
+  }
+}
