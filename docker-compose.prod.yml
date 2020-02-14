@@ -1,0 +1,5 @@
+web:
+  ports:
+    - 80:80
+  environment:
+    PRODUCTION: 'true'

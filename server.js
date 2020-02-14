@@ -3,11 +3,12 @@ const cors = require('cors');
 const path = require('path');
 const connectDB = require('./config/db');
 const app = express();
+const morgan = require('morgan');
 
 connectDB();
 
 app.use(express.json());
-
+app.use(morgan('combined'));
 app.use(cors());
 
 app.use('/api/auth', require('./routes/auth'));
