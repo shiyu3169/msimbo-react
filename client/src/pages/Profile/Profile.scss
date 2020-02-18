@@ -1,0 +1,40 @@
+.profile {
+  position: relative;
+  .background {
+    background-image: url(../../images/profile-bg.jpg);
+    min-height: 100vh;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .container {
+    background-color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 70px auto;
+    .flex {
+      display: flex;
+      justify-content: space-between;
+      .user-panel {
+        width: 200px;
+      }
+    }
+  }
+}
+
+@media (max-width: 1120px) {
+  .profile {
+    .container {
+      width: 90%;
+      margin-top: 40px;
+      .flex {
+        flex-direction: column;
+        .user-panel {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
