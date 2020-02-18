@@ -42,7 +42,9 @@ const Navbar = ({ isAuthenticated, user, loading }) => {
           onClick={collapse}
         >
           <ul className='navbar-nav mr-auto mt-2 mt-lg-0'>
-            <img className='logo' src={ulemLogo} alt='' />
+            <a href='https://www.ulem.org/'>
+              <img className='logo' src={ulemLogo} alt='' />
+            </a>
             <NavItem to='/' text='Home' />
             <NavItem to='/students' text='Students' />
             <NavItem

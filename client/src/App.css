@@ -70,7 +70,7 @@ body {
   background: #000;
 }
 
-/* .content {
+.content {
   position: absolute;
   z-index: 1;
   top: 5%;
@@ -107,7 +107,7 @@ body {
 
 #txt {
   border-right: 0.2rem solid #777;
-} */
+}
 
 .grid-3 {
   display: grid;
