@@ -4,11 +4,11 @@ import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 // Layout
-import Navbar from './components/layout/Navbar';
+import Navbar from './components/Navbar/Navbar';
 import Footer from './components/layout/Footer';
 import Alerts from './components/layout/Alerts';
 // Pages
-import Home from './pages/Home';
+import Home from './pages/Home/Home';
 import Students from './pages/students/Students';
 import Resources from './pages/Resources';
 import Profile from './pages/profile/Profile';

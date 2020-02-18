@@ -1,0 +1,13 @@
+.showcase {
+  background-image: url(../../images/showcase.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  &::after {
+    content: '';
+    height: 100vh;
+    width: 100%;
+    background: rgba($color: black, $alpha: 0.6);
+    display: block;
+  }
+}

@@ -1,18 +1,9 @@
 version: '3.7'
 
 services:
-  web:
-    container_name: backend-node
+  msimbo:
+    container_name: msimbo
     build: ./
-    restart: always
     working_dir: /usr/src/msimbo-react
-    links:
-      - mongo
     ports:
-      - '3100:3100'
-
-  mongo:
-    container_name: mongo
-    image: mongo
-    ports:
-      - '27017:27017'
+      - '80:80'

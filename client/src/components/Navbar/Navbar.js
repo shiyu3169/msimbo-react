@@ -2,10 +2,17 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import $ from 'jquery';
-// Components
+import 'popper.js';
+import 'bootstrap/dist/js/bootstrap';
+
 import Login from '../auth/Login';
 import Logout from '../auth/Logout';
-import NavItem from './NavItem';
+import NavItem from '../layout/NavItem';
+
+import logo from '../../images/logo.png';
+import ulemLogo from '../../images/ulem-logo.png';
+
+import './Navbar.scss';
 
 const Navbar = ({ isAuthenticated, user, loading }) => {
   const collapse = () => {
@@ -17,7 +24,7 @@ const Navbar = ({ isAuthenticated, user, loading }) => {
   }
 
   return (
-    <div className='front' id='top'>
+    <>
       <nav className='navbar navbar-expand-lg navbar-dark'>
         <button
           className='navbar-toggler'
@@ -35,6 +42,7 @@ const Navbar = ({ isAuthenticated, user, loading }) => {
           onClick={collapse}
         >
           <ul className='navbar-nav mr-auto mt-2 mt-lg-0'>
+            <img className='logo' src={ulemLogo} alt='' />
             <NavItem to='/' text='Home' />
             <NavItem to='/students' text='Students' />
             <NavItem
@@ -75,11 +83,14 @@ const Navbar = ({ isAuthenticated, user, loading }) => {
               </button>
             </>
           )}
+          <div className='logo-container'>
+            <img className='logo' src={logo} alt='msimbo-logo' />
+          </div>
         </div>
       </nav>
       <Login />
       <Logout />
-    </div>
+    </>
   );
 };
 
