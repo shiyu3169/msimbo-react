@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import $ from 'jquery';
 
+import logo from '../../images/logo.png';
 import Services from '../../components/layout/Services';
 import About from '../../components/layout/About';
 
@@ -51,7 +52,7 @@ const Home = () => {
     <div className='home-page'>
       <header className='showcase sw-bg-dark'>
         <div className='content'>
-          <img src='logo.png' className='logo' alt='MSIMBO' />
+          <img src={logo} className='logo' alt='MSIMBO' />
           <h1 id='home-h1' className='title'>
             MSIMBO
           </h1>
