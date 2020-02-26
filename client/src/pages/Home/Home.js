@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import $ from 'jquery';
 
 import logo from '../../images/logo.png';
 import Services from '../../components/layout/Services';
