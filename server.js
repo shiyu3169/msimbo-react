@@ -7,6 +7,23 @@ const morgan = require('morgan');
 
 connectDB();
 
+// //HTTPS redirect middleware
+// function ensureSecure(req, res, next) {
+//   //Heroku stores the origin protocol in a header variable. The app itself is isolated within the dyno and all request objects have an HTTP protocol.
+//   if (req.get('X-Forwarded-Proto') == 'https' || req.hostname == 'localhost') {
+//     // Don't do anything if the req is comming from https or localhost
+//     next();
+//   } else if (
+//     req.get('X-Forwarded-Proto') != 'https' &&
+//     req.get('X-Forwarded-Port') != '443'
+//   ) {
+//     //Redirect if not HTTP with original request URL
+//     res.redirect('https://' + req.hostname + req.url);
+//   }
+// }
+
+// app.use('/', ensureSecure);
+
 app.use(express.json());
 app.use(morgan('combined'));
 app.use(cors());

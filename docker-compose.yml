@@ -6,4 +6,5 @@ services:
     build: ./
     working_dir: /usr/src/msimbo-react
     ports:
+      - '443:443'
       - '80:80'

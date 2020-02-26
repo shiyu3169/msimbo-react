@@ -1,4 +1,4 @@
 {
-  "mongoURI": "@ds259210.mlab.com:59210/heroku_90kxmhrc",
+  "mongoURI": "@cluster0-1upto.mongodb.net/heroku_90kxmhrc?retryWrites=true&w=majority",
   "jwtSecret": "msimbo"
 }

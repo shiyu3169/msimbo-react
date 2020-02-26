@@ -7,8 +7,7 @@ const connectDB = async () => {
     if (process.env.NODE_ENV === 'production') {
       const username = process.env.MLAB_USERNAME_WEBDEV;
       const password = process.env.MLAB_PASSWORD_WEBDEV;
-      let connectionString = 'mongodb://' + username + ':' + password + db;
-
+      let connectionString = 'mongodb+srv://' + username + ':' + password + db;
       await mongoose.connect(connectionString, {
         useNewUrlParser: true,
         useCreateIndex: true,

@@ -7,7 +7,7 @@ import 'bootstrap/dist/js/bootstrap';
 
 import Login from '../auth/Login';
 import Logout from '../auth/Logout';
-import NavItem from '../layout/NavItem';
+import NavItem from '../NavItem/NavItem';
 
 import logo from '../../images/logo.png';
 import ulemLogo from '../../images/ulem-logo.png';
@@ -25,7 +25,7 @@ const Navbar = ({ isAuthenticated, user, loading }) => {
 
   return (
     <>
-      <nav className='navbar navbar-expand-lg navbar-dark'>
+      <nav className='navbar navbar-expand-lg navbar-light bg-light'>
         <button
           className='navbar-toggler'
           data-toggle='collapse'

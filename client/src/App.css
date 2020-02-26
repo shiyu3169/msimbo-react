@@ -2,7 +2,7 @@
 
 body {
   font-family: 'Raleway', sans-serif;
-  background-color: #dddddd;
+  background-color: rgb(221, 221, 221);
   /* color: #fff; */
   line-height: 1.6;
 }
@@ -44,14 +44,6 @@ body {
   right: 5vh;
 }
 
-.menu-button {
-  float: right;
-  background: transparent;
-  color: #fff;
-  z-index: 2;
-  position: sticky;
-}
-
 .front {
   z-index: 2;
 }
@@ -64,10 +56,6 @@ body {
 
 .editor {
   min-height: 150px;
-}
-
-.menu-button:hover {
-  background: #000;
 }
 
 .content {

@@ -1,5 +1,4 @@
 .navbar {
-  background: rgba(14, 14, 14, 0.9);
   padding: 10px 5px;
   padding-right: 10px;
   .logo {
@@ -8,5 +7,14 @@
 
   .navbar-nav {
     align-items: center;
+  }
+  .menu-button {
+    float: right;
+    position: sticky;
+    font-weight: 600;
+    color: #1f1f1f;
+    &:hover {
+      color: #000;
+    }
   }
 }
