@@ -57,6 +57,7 @@ const Navbar = ({ isAuthenticated, user, loading }) => {
             {/* <NavItem to="/assessments" text="Assessments" /> */}
             <NavItem href='https://msimbo.slack.com' text='Slack' />
             <NavItem to='/contact' text='Contact Us' />
+            <NavItem href='https://www.bonfire.com/store/ulem/' text='Store' />
           </ul>
           {!isAuthenticated ? (
             <>
